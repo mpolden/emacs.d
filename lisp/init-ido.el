@@ -26,6 +26,6 @@
 (ido-vertical-mode)
 
 ;; find file in project
-(global-set-key (kbd "C-x f") 'find-file-in-repository)
+(global-set-key (kbd "M-p") 'find-file-in-repository)
 
 (provide 'init-ido)
