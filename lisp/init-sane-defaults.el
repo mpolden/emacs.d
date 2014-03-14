@@ -13,4 +13,7 @@
 ;; no confirmation for non-existent files or buffers
 (setq confirm-nonexistent-file-or-buffer nil)
 
+;; disable audible bell
+(setq ring-bell-function #'ignore)
+
 (provide 'init-sane-defaults)
