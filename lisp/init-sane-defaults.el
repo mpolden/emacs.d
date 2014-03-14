@@ -22,4 +22,7 @@
 ;; disable scroll acceleration
 (setq mouse-wheel-progressive-speed nil)
 
+;; reload buffers automatically when files change on disk
+(global-auto-revert-mode t)
+
 (provide 'init-sane-defaults)
