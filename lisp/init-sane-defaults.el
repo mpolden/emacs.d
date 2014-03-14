@@ -16,4 +16,10 @@
 ;; disable audible bell
 (setq ring-bell-function #'ignore)
 
+;; scroll one line at a time
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+
+;; disable scroll acceleration
+(setq mouse-wheel-progressive-speed nil)
+
 (provide 'init-sane-defaults)
