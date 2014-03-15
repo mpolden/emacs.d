@@ -12,3 +12,4 @@
 (require 'init-go-mode)
 (require 'init-yaml-mode)
 (require 'init-markdown-mode)
+(require 'init-org)
