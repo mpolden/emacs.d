@@ -28,7 +28,4 @@
 ;; find file in project
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
 
-;; dired
-(global-set-key (kbd "M-d") 'dired)
-
 (provide 'init-ido)
