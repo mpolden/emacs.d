@@ -1,5 +1,5 @@
 ;; install package
-(require 'go-mode-load)
+(require-package 'go-mode)
 
 ;; load go-mode
 (require 'go-mode-load)
