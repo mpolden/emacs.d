@@ -1,6 +1,7 @@
 ;; install packages
 (require-package 'flx-ido)
 (require-package 'ido-vertical-mode)
+(require-package 'ido-ubiquitous)
 (require-package 'find-file-in-repository)
 
 ;; load ido
@@ -12,8 +13,7 @@
       ido-auto-merge-work-directories-length -1
       ido-create-new-buffer 'always
       ido-use-filename-at-point nil
-      ido-max-prospects 10
-      ido-everywhere t)
+      ido-max-prospects 10)
 
 ;; load flx-ido
 (require 'flx-ido)
@@ -25,7 +25,11 @@
 (require 'ido-vertical-mode)
 (ido-vertical-mode)
 
-;; find file in project
+;; load ido-ubiquitous (a better ido-everywhere)
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
+
+;; find file in repository
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
 
 (provide 'init-ido)
