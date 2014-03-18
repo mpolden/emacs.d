@@ -9,8 +9,11 @@
 (scroll-bar-mode -1)
 
 ;; set theme
-(require-package 'solarized-theme)
-(load-theme 'solarized-dark t)
+(require-package 'afternoon-theme)
+(load-theme 'afternoon t)
+;; reset mode-line font
+(set-face-attribute 'mode-line nil
+                    :family 'unspecified)
 
 ;; display line numbers
 (global-linum-mode 1)
