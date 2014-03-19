@@ -6,6 +6,7 @@
 (require 'init-appearance)
 (require 'init-evil-mode)
 (require 'init-sane-defaults)
+(require 'init-backup)
 (require 'init-mac)
 (require 'init-ido)
 (require 'init-server)
