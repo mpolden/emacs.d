@@ -38,4 +38,8 @@
 ;; show keystrokes immediately
 (setq echo-keystrokes 0.1)
 
+;; add directory to buffer name if filename is not unique
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
 (provide 'init-sane-defaults)
