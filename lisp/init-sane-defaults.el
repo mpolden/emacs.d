@@ -25,4 +25,7 @@
 ;; reload buffers automatically when files change on disk
 (global-auto-revert-mode t)
 
+;; integrate with X clipboard
+(setq x-select-enable-clipboard t)
+
 (provide 'init-sane-defaults)
