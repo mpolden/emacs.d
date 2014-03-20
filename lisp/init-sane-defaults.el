@@ -25,6 +25,10 @@
 ;; reload buffers automatically when files change on disk
 (global-auto-revert-mode t)
 
+;; reload dired buffers automatically and be quit about it
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
 ;; integrate with X clipboard
 (setq x-select-enable-clipboard t)
 
