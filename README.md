@@ -1,8 +1,10 @@
 # .emacs.d
 
-My personal emacs settings with inspiration from
-https://github.com/magnars/.emacs.d and
-https://github.com/purcell/emacs.d
+My personal Emacs settings with inspiration from:
+
+* https://github.com/magnars/.emacs.d
+* https://github.com/purcell/emacs.d
+* https://github.com/technomancy/better-defaults
 
 ## Setup
 
@@ -17,4 +19,4 @@ cd dot.emacs.d
 make install
 ```
 
-Start emacs!
+Start Emacs!
