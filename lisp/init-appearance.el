@@ -35,4 +35,8 @@
 ;; disable word wrapping
 (setq-default truncate-lines 1)
 
+;; display line and column numbers in mode-line
+(setq line-number-mode t)
+(setq column-number-mode t)
+
 (provide 'init-appearance)
