@@ -1,6 +1,5 @@
 ;; disable splash
 (setq inhibit-startup-message t)
-(setq inhibit-startup-echo-area-message t)
 
 ;; hide toolbar
 (tool-bar-mode -1)
