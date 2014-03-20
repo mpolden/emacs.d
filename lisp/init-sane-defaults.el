@@ -35,4 +35,7 @@
 ;; move deleted files to trash
 (setq delete-by-moving-to-trash t)
 
+;; show keystrokes immediately
+(setq echo-keystrokes 0.1)
+
 (provide 'init-sane-defaults)
