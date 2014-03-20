@@ -32,4 +32,7 @@
 ;; integrate with X clipboard
 (setq x-select-enable-clipboard t)
 
+;; move deleted files to trash
+(setq delete-by-moving-to-trash t)
+
 (provide 'init-sane-defaults)
