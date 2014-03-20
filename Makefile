@@ -9,3 +9,6 @@ install:
 
 update:
 	git pull --rebase
+
+clean:
+	rm -rf elpa/*
