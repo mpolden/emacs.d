@@ -18,6 +18,7 @@
                     :family 'unspecified)
 
 ;; display line numbers
+(require 'linum)
 (global-linum-mode 1)
 (setq linum-format " %d ")
 
