@@ -20,8 +20,7 @@
 (setq ns-pop-up-frames nil)
 
 ;; move deleted files to ~/.Trash
-(setq delete-by-moving-to-trash t
-      trash-directory "~/.Trash/emacs")
+(setq trash-directory "~/.Trash")
 
 ;; use path from shell
 (require-package 'exec-path-from-shell)
