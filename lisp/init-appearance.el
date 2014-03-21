@@ -1,8 +1,9 @@
 ;; disable splash
 (setq inhibit-startup-message t)
 
-;; hide menubar
-(menu-bar-mode -1)
+;; hide menubar when not on os x
+(when (not (eq system-type 'darwin))
+  (menu-bar-mode -1))
 
 ;; hide toolbar
 (tool-bar-mode -1)
