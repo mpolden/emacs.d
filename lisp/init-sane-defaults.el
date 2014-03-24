@@ -1,8 +1,5 @@
-;; use soft tabs and 4 space indent
-(setq-default
-  tab-width 4
-  tab-stop-list (number-sequence 4 120 4)
-  indent-tabs-mode nil)
+;; use soft tabs
+(setq-default indent-tabs-mode nil)
 
 ;; bind return to newline-and-indent
 (global-set-key (kbd "RET") 'newline-and-indent)
