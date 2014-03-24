@@ -16,3 +16,4 @@
 (require 'init-markdown-mode)
 (require 'init-org)
 (require 'init-js2-mode)
+(require 'init-rainbow-delimiters)
