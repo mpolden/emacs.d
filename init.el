@@ -15,3 +15,4 @@
 (require 'init-yaml-mode)
 (require 'init-markdown-mode)
 (require 'init-org)
+(require 'init-js2-mode)
