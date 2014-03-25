@@ -39,4 +39,7 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
+;; tetris score file
+(setq tetris-score-file (expand-file-name "tetris" user-emacs-directory))
+
 (provide 'init-sane-defaults)
