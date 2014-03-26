@@ -42,4 +42,7 @@
 ;; tetris score file
 (setq tetris-score-file (expand-file-name "tetris" user-emacs-directory))
 
+;; use ibuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 (provide 'init-sane-defaults)
