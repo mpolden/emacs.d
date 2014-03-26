@@ -8,8 +8,6 @@
 ;; enable electric-indent-mode
 (add-hook 'js2-mode-hook
           (lambda ()
-            (set (make-local-variable 'electric-indent-chars)
-                 (string-to-list "{}()[]:;,*\n"))
             (electric-indent-mode t)))
 
 (provide 'init-js2-mode)
