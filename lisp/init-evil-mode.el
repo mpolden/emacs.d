@@ -12,4 +12,7 @@
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
 (key-chord-mode 1)
 
+;; initial state for ibuffer-mode should be normal
+(evil-set-initial-state 'ibuffer-mode 'normal)
+
 (provide 'init-evil-mode)
