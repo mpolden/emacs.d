@@ -18,3 +18,4 @@
 (require 'init-js2-mode)
 (require 'init-rainbow-delimiters)
 (require 'init-ibuffer)
+(require 'init-sessions)
