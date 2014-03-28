@@ -5,9 +5,11 @@
 (require 'ibuffer)
 (require 'ibuffer-vc)
 
-;; group ibuffer by repository root
+;; keep buffer list up to date and group ibuffer by repository root
 (add-hook 'ibuffer-hook
-          (lambda () (ibuffer-vc-set-filter-groups-by-vc-root)))
+          (lambda ()
+            (ibuffer-auto-mode)
+            (ibuffer-vc-set-filter-groups-by-vc-root)))
 
 ;; use ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
