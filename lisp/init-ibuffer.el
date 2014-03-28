@@ -12,4 +12,7 @@
 ;; use ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
 
+;; disable confirmation for killing unmodified buffers
+(setq ibuffer-expert t)
+
 (provide 'init-ibuffer)
