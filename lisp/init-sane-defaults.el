@@ -42,4 +42,12 @@
 ;; tetris score file
 (setq tetris-score-file (expand-file-name "tetris" user-emacs-directory))
 
+;; automatically determine major-mode for newly created buffers
+(setq-default major-mode
+              (lambda ()
+                ;; try buffer-file-name first  (will be nil for unsaved buffers)
+                ;; and fall back to buffer-name
+                (let ((buffer-file-name (or buffer-file-name (buffer-name))))
+                  (set-auto-mode))))
+
 (provide 'init-sane-defaults)
