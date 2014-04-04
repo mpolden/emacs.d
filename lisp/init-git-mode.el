@@ -9,3 +9,5 @@
 (require 'git-rebase-mode)
 (require 'gitconfig-mode)
 (require 'gitignore-mode)
+
+(provide 'init-git-mode)
