@@ -2,9 +2,9 @@
 
 My personal Emacs settings with inspiration from:
 
-* https://github.com/magnars/.emacs.d
-* https://github.com/purcell/emacs.d
-* https://github.com/technomancy/better-defaults
+* [magnars/.emacs.d](https://github.com/magnars/.emacs.d)
+* [purcell/emacs.d](https://github.com/purcell/emacs.d)
+* [technomancy/better-defaults](https://github.com/technomancy/better-defaults)
 
 ## Setup
 
