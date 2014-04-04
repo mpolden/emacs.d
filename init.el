@@ -19,3 +19,4 @@
 (require 'init-rainbow-delimiters)
 (require 'init-ibuffer)
 (require 'init-sessions)
+(require 'init-git-mode)
