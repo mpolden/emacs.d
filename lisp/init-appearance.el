@@ -41,4 +41,9 @@
 (setq line-number-mode t)
 (setq column-number-mode t)
 
+;; display date and time in mode-line
+(setq display-time-default-load-average nil
+      display-time-format "%t %a %b %d, %R")
+(display-time)
+
 (provide 'init-appearance)
