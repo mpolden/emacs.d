@@ -20,3 +20,4 @@
 (require 'init-ibuffer)
 (require 'init-sessions)
 (require 'init-git-mode)
+(require 'init-clojure-mode)
