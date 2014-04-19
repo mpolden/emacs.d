@@ -2,14 +2,16 @@
 (setq inhibit-startup-message t)
 
 ;; hide menubar when not on os x
-(when (not (eq system-type 'darwin))
+(when (and (fboundp 'menu-bar-mode) (not (eq system-type 'darwin)))
   (menu-bar-mode -1))
 
 ;; hide toolbar
-(tool-bar-mode -1)
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
 
 ;; hide scrollbar
-(scroll-bar-mode -1)
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
 
 ;; set theme
 (require-package 'afternoon-theme)
