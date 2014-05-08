@@ -13,4 +13,7 @@
 ;; enable clj-refactor-mode
 (add-hook 'clojure-mode-hook (lambda () (clj-refactor-mode 1)))
 
+;; prevent cider from prompting to save file
+(setq cider-prompt-save-file-on-load nil)
+
 (provide 'init-clojure-mode)
