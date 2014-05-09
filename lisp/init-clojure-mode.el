@@ -2,10 +2,12 @@
 (require-package 'clojure-mode)
 (require-package 'cider)
 (require-package 'clj-refactor)
+(require-package 'paredit)
 
 (require 'clojure-mode)
 (require 'cider)
 (require 'clj-refactor)
+(require 'paredit)
 
 ;; clj-refactor-mode keybinding
 (cljr-add-keybindings-with-prefix "C-c C-m")
