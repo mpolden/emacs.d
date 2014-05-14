@@ -14,11 +14,13 @@
   (scroll-bar-mode -1))
 
 ;; set theme
-(require-package 'afternoon-theme)
-(load-theme 'afternoon t)
-;; reset mode-line font
-(set-face-attribute 'mode-line nil
-                    :family 'unspecified)
+(if (display-graphic-p)
+    ((require-package 'afternoon-theme)
+     (load-theme 'afternoon t)
+     ;; reset mode-line font
+     (set-face-attribute 'mode-line nil
+                         :family 'unspecified))
+  (set-face-background hl-line-face "gray13"))
 
 ;; display line numbers
 (require 'linum)
