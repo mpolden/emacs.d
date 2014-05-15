@@ -21,4 +21,4 @@
 (require 'init-sessions)
 (require 'init-git-mode)
 (require 'init-clojure-mode)
-(require 'init-move-text)
+(require 'init-editing)
