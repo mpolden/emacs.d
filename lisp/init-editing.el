@@ -24,4 +24,7 @@
 
 (global-set-key (kbd "C-c p") 'duplicate-line-or-region)
 
+;; undo
+(global-set-key (kbd "C-u") 'undo)
+
 (provide 'init-editing)
