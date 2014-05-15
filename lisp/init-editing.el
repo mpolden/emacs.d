@@ -27,4 +27,8 @@
 ;; undo
 (global-set-key (kbd "C-u") 'undo)
 
+;; move to next and previous paragraph
+(global-set-key (kbd "M-n") 'forward-paragraph)
+(global-set-key (kbd "M-p") 'backward-paragraph)
+
 (provide 'init-editing)
