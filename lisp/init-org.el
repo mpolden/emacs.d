@@ -6,7 +6,7 @@
 
 ;; set default location for org files
 (let ((dirname "~/Dropbox/org"))
-  (if (file-directory-p dirname)
-      (setq org-directory dirname)))
+  (when (file-directory-p dirname)
+    (setq org-directory dirname)))
 
 (provide 'init-org)

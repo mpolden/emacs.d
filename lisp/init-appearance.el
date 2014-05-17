@@ -14,7 +14,7 @@
   (scroll-bar-mode -1))
 
 ;; highlight current line
-(global-hl-line-mode)
+(global-hl-line-mode 1)
 
 ;; set theme
 (if (display-graphic-p)
