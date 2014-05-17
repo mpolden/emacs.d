@@ -13,6 +13,9 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
+;; highlight current line
+(global-hl-line-mode)
+
 ;; set theme
 (if (display-graphic-p)
     (progn (require-package 'afternoon-theme)
@@ -26,9 +29,6 @@
 (require 'linum)
 (global-linum-mode 1)
 (setq linum-format " %d ")
-
-;; highlight current line
-(global-hl-line-mode)
 
 ;; highlight matching parentheses
 (show-paren-mode 1)
