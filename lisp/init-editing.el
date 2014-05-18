@@ -48,4 +48,7 @@
 (global-set-key (kbd "C-o") 'open-line-below)
 (global-set-key (kbd "C-S-o") 'open-line-above)
 
+;; bind return to newline-and-indent
+(global-set-key (kbd "RET") 'newline-and-indent)
+
 (provide 'init-editing)
