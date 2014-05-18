@@ -51,4 +51,7 @@
 ;; bind return to newline-and-indent
 (global-set-key (kbd "RET") 'newline-and-indent)
 
+;; C-x k kills current buffer
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
+
 (provide 'init-editing)
