@@ -10,4 +10,6 @@
     (setq org-directory dirname
           org-default-notes-file (concat org-directory "/notes.org"))))
 
+(global-set-key (kbd "C-c c") 'org-capture)
+
 (provide 'init-org)
