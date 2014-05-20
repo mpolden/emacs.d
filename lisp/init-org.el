@@ -4,9 +4,10 @@
 ;; load org
 (require 'org)
 
-;; set default location for org files
+;; set org directory and default notes file
 (let ((dirname "~/Dropbox/org"))
   (when (file-directory-p dirname)
-    (setq org-directory dirname)))
+    (setq org-directory dirname
+          org-default-notes-file (concat org-directory "/notes.org"))))
 
 (provide 'init-org)
