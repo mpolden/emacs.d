@@ -10,12 +10,12 @@ My personal Emacs settings with inspiration from:
 
 Clone the repository:
 
-`git clone https://github.com/martinp/dot.emacs.d`
+`git clone https://github.com/martinp/.emacs.d`
 
 Install symlink in ~/.emacs.d (this will overwrite any existing symlink):
 
 ```
-cd dot.emacs.d
+cd .emacs.d
 make install
 ```
 
