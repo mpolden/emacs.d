@@ -61,7 +61,7 @@
 (defun revert-buffer-without-query ()
   "Revert the current buffer without confirmation."
   (interactive)
-  (revert-buffer nil t))
+  (revert-buffer t t))
 
 (global-set-key (kbd "C-c r") 'revert-buffer-without-query)
 
