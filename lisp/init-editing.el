@@ -5,6 +5,9 @@
 (require 'move-text)
 (require 'whole-line-or-region)
 
+;; cut or copy the currrent line if no region is active
+(whole-line-or-region-mode t)
+
 ;; bind keys for moving lines up and down
 (global-set-key (kbd "M-<up>") 'move-text-up)
 (global-set-key (kbd "M-<down>") 'move-text-down)
