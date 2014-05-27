@@ -2,7 +2,7 @@
 (require-package 'flx-ido)
 (require-package 'ido-vertical-mode)
 (require-package 'ido-ubiquitous)
-(require-package 'find-file-in-project)
+(require-package 'find-file-in-repository)
 
 ;; load ido
 (require 'ido)
@@ -29,7 +29,7 @@
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
 
-;; find file in project
-(global-set-key (kbd "C-x f") 'find-file-in-project)
+;; find file in repository
+(global-set-key (kbd "C-x f") 'find-file-in-repository)
 
 (provide 'init-ido)
