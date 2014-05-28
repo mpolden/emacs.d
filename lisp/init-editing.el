@@ -4,6 +4,7 @@
 
 (require 'move-text)
 (require 'whole-line-or-region)
+(require 'misc)
 
 ;; cut or copy the currrent line if no region is active
 (whole-line-or-region-mode t)
@@ -18,6 +19,9 @@
 ;; move to next and previous paragraph
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
+
+;; use zap-up-to-char instead of zap-to-char
+(global-set-key (kbd "M-z") 'zap-up-to-char)
 
 ;; open line below or above current line
 (defun open-line-below ()
