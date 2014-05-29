@@ -28,3 +28,6 @@ tutorial/
 
 # tetris score
 /tetris
+
+# backup files
+backups/
