@@ -22,3 +22,4 @@
 (require 'init-clojure-mode)
 (require 'init-crontab)
 (require 'init-editing)
+(require 'init-ag)
