@@ -54,7 +54,7 @@
 
 (global-set-key (kbd "C-c r") 'revert-buffer-without-query)
 
-;; C-. repeats last command
-(global-set-key (kbd "C-.") 'repeat)
+;; C-c . repeats last command
+(global-set-key (kbd "C-c .") 'repeat)
 
 (provide 'init-editing)
