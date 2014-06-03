@@ -13,6 +13,9 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
+;; disable dialogs
+(setq use-dialog-box nil)
+
 ;; highlight current line
 (global-hl-line-mode 1)
 
