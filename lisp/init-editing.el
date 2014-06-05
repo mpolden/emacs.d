@@ -53,4 +53,11 @@
 ;; C-c . repeats last command
 (global-set-key (kbd "C-c .") 'repeat)
 
+(defun show-file-name ()
+  "Show the full path file name in the minibuffer."
+  (interactive)
+  (message buffer-file-name))
+
+(global-set-key (kbd "C-c f") 'show-file-name)
+
 (provide 'init-editing)
