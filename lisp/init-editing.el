@@ -16,10 +16,6 @@
 ;; undo
 (global-set-key (kbd "C-u") 'undo)
 
-;; move to next and previous paragraph
-(global-set-key (kbd "M-n") 'forward-paragraph)
-(global-set-key (kbd "M-p") 'backward-paragraph)
-
 ;; use zap-up-to-char instead of zap-to-char
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 
