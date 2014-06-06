@@ -36,8 +36,9 @@
 (global-set-key (kbd "C-o") 'open-line-below)
 (global-set-key (kbd "C-S-o") 'open-line-above)
 
-;; bind return to newline-and-indent
+;; swap RET and C-j
 (global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "C-j") 'newline)
 
 ;; C-x k kills current buffer
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
