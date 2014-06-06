@@ -24,3 +24,4 @@
 (require 'init-editing)
 (require 'init-ag)
 (require 'init-expand-region)
+(require 'init-python-mode)
