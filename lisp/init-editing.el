@@ -61,4 +61,7 @@
 
 (global-set-key (kbd "C-c f") 'show-file-name)
 
+;; bind hippie-expand
+(global-set-key (kbd "C-c e") 'hippie-expand)
+
 (provide 'init-editing)
