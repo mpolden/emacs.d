@@ -25,3 +25,4 @@
 (require 'init-ag)
 (require 'init-expand-region)
 (require 'init-python-mode)
+(require 'init-web-mode)
