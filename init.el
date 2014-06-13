@@ -5,7 +5,6 @@
 (require 'init-package)
 (require 'init-appearance)
 (require 'init-sane-defaults)
-(require 'init-backup)
 (when (eq system-type 'darwin)
   (require 'init-mac))
 (require 'init-ido)

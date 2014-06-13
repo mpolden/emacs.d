@@ -7,6 +7,9 @@
 (require 'misc)
 (require 'whitespace)
 
+;; disable backup files
+(setq make-backup-files nil)
+
 ;; cut or copy the currrent line if no region is active
 (whole-line-or-region-mode t)
 
