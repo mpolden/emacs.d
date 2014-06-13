@@ -4,12 +4,12 @@
   (when (not (file-directory-p dirname))
     (make-directory dirname t))
   (setq backup-directory-alist
-        `((".*" . ,dirname)))
-  (setq auto-save-file-name-transforms
-        `((".*" ,dirname t))))
+        `(("." . , dirname))))
 
 ;; version control backups
 (setq delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
       version-control t)
 
 (provide 'init-backup)
