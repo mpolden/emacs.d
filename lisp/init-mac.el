@@ -32,4 +32,9 @@
 ;; add binding for toggling fullscreen
 (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)
 
+;; use gls if available (which supports --dired option)
+(let ((gls "/usr/local/bin/gls"))
+  (when (file-executable-p gls)
+    (setq insert-directory-program gls)))
+
 (provide 'init-mac)
