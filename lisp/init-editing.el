@@ -64,4 +64,25 @@
 ;; bind hippie-expand
 (global-set-key (kbd "C-c e") 'hippie-expand)
 
+;; whitespace cleanup
+(defun untabify-buffer ()
+  (if (eq 'go-mode major-mode)
+      (message "Skipping untabify-buffer in go-mode.")
+    (progn (interactive)
+           (untabify (point-min) (point-max)))))
+
+(defun indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer.
+Including indent-buffer, which should not be called automatically on save."
+  (interactive)
+  (untabify-buffer)
+  (delete-trailing-whitespace)
+  (indent-buffer))
+
+(global-set-key (kbd "C-c w") 'cleanup-buffer)
+
 (provide 'init-editing)
