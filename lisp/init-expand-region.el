@@ -4,6 +4,6 @@
 (require 'expand-region)
 
 ;; keybinding
-(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-c s") 'er/expand-region)
 
 (provide 'init-expand-region)
