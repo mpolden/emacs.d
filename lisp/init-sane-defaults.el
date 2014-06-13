@@ -26,6 +26,9 @@
 ;; integrate with X clipboard
 (setq x-select-enable-clipboard t)
 
+;; ensure clipboard strings are saved into kill ring
+(setq save-interprogram-paste-before-kill t)
+
 ;; move deleted files to trash
 (setq delete-by-moving-to-trash t)
 
