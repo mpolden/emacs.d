@@ -66,10 +66,8 @@
 
 ;; whitespace cleanup
 (defun untabify-buffer ()
-  (if (eq 'go-mode major-mode)
-      (message "Skipping untabify-buffer in go-mode.")
-    (progn (interactive)
-           (untabify (point-min) (point-max)))))
+  (interactive)
+  (untabify (point-min) (point-max)))
 
 (defun indent-buffer ()
   (interactive)
@@ -79,7 +77,9 @@
   "Perform a bunch of operations on the whitespace content of a buffer.
 Including indent-buffer, which should not be called automatically on save."
   (interactive)
-  (untabify-buffer)
+  (if (eq 'go-mode major-mode)
+      (message "Skipping untabify-buffer in go-mode.")
+    (untabify-buffer))
   (delete-trailing-whitespace)
   (indent-buffer))
 
