@@ -82,7 +82,9 @@ Including indent-buffer, which should not be called automatically on save."
       (message "Skipping untabify-buffer in go-mode.")
     (untabify-buffer))
   (whitespace-cleanup)
-  (indent-buffer))
+  (if (eq 'python-mode major-mode)
+      (message "Skipping indent-buffer in python-mode.")
+    (indent-buffer)))
 
 (global-set-key (kbd "C-c w") 'cleanup-buffer)
 
