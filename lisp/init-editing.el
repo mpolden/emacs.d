@@ -5,6 +5,7 @@
 (require 'move-text)
 (require 'whole-line-or-region)
 (require 'misc)
+(require 'whitespace)
 
 ;; cut or copy the currrent line if no region is active
 (whole-line-or-region-mode t)
@@ -80,7 +81,7 @@ Including indent-buffer, which should not be called automatically on save."
   (if (eq 'go-mode major-mode)
       (message "Skipping untabify-buffer in go-mode.")
     (untabify-buffer))
-  (delete-trailing-whitespace)
+  (whitespace-cleanup)
   (indent-buffer))
 
 (global-set-key (kbd "C-c w") 'cleanup-buffer)
