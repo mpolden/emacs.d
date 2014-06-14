@@ -10,9 +10,4 @@
 (require 'json-mode)
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
 
-;; enable electric-indent-mode
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (electric-indent-mode t)))
-
 (provide 'init-js2-mode)

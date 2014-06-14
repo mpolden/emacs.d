@@ -10,6 +10,9 @@
 ;; disable backup files
 (setq make-backup-files nil)
 
+;; enable electric-indent-mode
+(electric-indent-mode t)
+
 ;; cut or copy the currrent line if no region is active
 (whole-line-or-region-mode t)
 
