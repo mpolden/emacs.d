@@ -38,15 +38,15 @@
 
 ;; highlight lines exceeding 80 columns
 (require 'whitespace)
-(setq whitespace-style '(face empty tabs lines-tail trailing))
+(setq whitespace-style '(face empty lines-tail trailing))
 (global-whitespace-mode t)
 
 ;; disable word wrapping
 (setq-default truncate-lines 1)
 
 ;; display line and column numbers in mode-line
-(setq line-number-mode t)
-(setq column-number-mode t)
+(setq line-number-mode t
+      column-number-mode t)
 
 ;; display date and time in mode-line
 (setq display-time-default-load-average nil
