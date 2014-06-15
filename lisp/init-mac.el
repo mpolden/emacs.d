@@ -1,6 +1,7 @@
 ;; set font
-(set-face-attribute 'default nil :family "Source Code Pro")
-(set-face-attribute 'default nil :height 140)
+(when (display-graphic-p)
+  (set-face-attribute 'default nil :family "Source Code Pro")
+  (set-face-attribute 'default nil :height 140))
 
 ;; configure modifiers
 (setq mac-option-modifier 'super)
