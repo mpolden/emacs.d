@@ -10,6 +10,9 @@
 ;; disable backup files
 (setq make-backup-files nil)
 
+;; preserve point position when scrolling
+(setq scroll-preserve-screen-position 'always)
+
 ;; enable electric-indent-mode
 (electric-indent-mode 1)
 
