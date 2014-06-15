@@ -11,7 +11,10 @@
 (setq ring-bell-function 'ignore)
 
 ;; scroll one line at a time
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-scroll-amount
+      '(1
+        ((shift) . 5)
+        ((control))))
 
 ;; disable scroll acceleration
 (setq mouse-wheel-progressive-speed nil)
