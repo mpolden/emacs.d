@@ -11,10 +11,10 @@
 (setq make-backup-files nil)
 
 ;; enable electric-indent-mode
-(electric-indent-mode t)
+(electric-indent-mode 1)
 
 ;; cut or copy the currrent line if no region is active
-(whole-line-or-region-mode t)
+(whole-line-or-region-mode 1)
 
 ;; bind keys for moving lines up and down
 (global-set-key (kbd "M-<up>") 'move-text-up)

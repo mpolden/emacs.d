@@ -39,10 +39,10 @@
 ;; highlight lines exceeding 80 columns
 (require 'whitespace)
 (setq whitespace-style '(face empty lines-tail trailing))
-(global-whitespace-mode t)
+(global-whitespace-mode 1)
 
 ;; disable word wrapping
-(setq-default truncate-lines 1)
+(setq-default truncate-lines t)
 
 ;; display line and column numbers in mode-line
 (setq line-number-mode t

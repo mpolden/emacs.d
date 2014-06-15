@@ -8,7 +8,7 @@
 (setq confirm-nonexistent-file-or-buffer nil)
 
 ;; disable audible bell
-(setq ring-bell-function #'ignore)
+(setq ring-bell-function 'ignore)
 
 ;; scroll one line at a time
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
@@ -17,7 +17,7 @@
 (setq mouse-wheel-progressive-speed nil)
 
 ;; reload buffers automatically when files change on disk
-(global-auto-revert-mode t)
+(global-auto-revert-mode 1)
 
 ;; reload dired buffers automatically and be quit about it
 (setq global-auto-revert-non-file-buffers t)

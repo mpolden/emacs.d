@@ -6,7 +6,7 @@
 
 ;; load ido
 (require 'ido)
-(ido-mode t)
+(ido-mode 1)
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
       ido-case-fold nil
@@ -23,7 +23,7 @@
 
 ;; vertical mode for ido
 (require 'ido-vertical-mode)
-(ido-vertical-mode)
+(ido-vertical-mode 1)
 
 ;; load ido-ubiquitous (a better ido-everywhere)
 (require 'ido-ubiquitous)
