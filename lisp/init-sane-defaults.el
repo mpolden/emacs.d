@@ -53,4 +53,7 @@
                 (let ((buffer-file-name (or buffer-file-name (buffer-name))))
                   (set-auto-mode))))
 
+;; show human readable sizes in dired
+(setq dired-listing-switches "-alh")
+
 (provide 'init-sane-defaults)
