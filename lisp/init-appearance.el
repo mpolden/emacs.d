@@ -31,7 +31,7 @@
 ;; display line numbers
 (require 'linum)
 (global-linum-mode 1)
-(setq linum-format " %d ")
+(setq linum-format "%3d ")
 
 ;; highlight matching parentheses
 (show-paren-mode 1)
