@@ -21,11 +21,8 @@
 
 ;; set theme
 (if (display-graphic-p)
-    (progn (require-package 'afternoon-theme)
-           (load-theme 'afternoon t)
-           ;; reset mode-line font
-           (set-face-attribute 'mode-line nil
-                               :family 'unspecified))
+    (progn (require-package 'color-theme-sanityinc-tomorrow)
+           (load-theme 'sanityinc-tomorrow-night t))
   (set-face-background hl-line-face "gray13"))
 
 ;; display line numbers
