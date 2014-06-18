@@ -1,8 +1,8 @@
 ;; install package
 (require-package 'rainbow-delimiters)
 
-;; load rainbow-delimiters
+;; enable rainbow-delimiters in prog-mode
 (require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode 1)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (provide 'init-rainbow-delimiters)

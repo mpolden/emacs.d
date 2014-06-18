@@ -25,10 +25,10 @@
            (load-theme 'sanityinc-tomorrow-night t))
   (set-face-background hl-line-face "gray13"))
 
-;; display line numbers
+;; display line numbers in prog-mode
 (require 'linum)
-(global-linum-mode 1)
 (setq linum-format "%3d ")
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;; highlight matching parentheses
 (show-paren-mode 1)
@@ -36,7 +36,7 @@
 ;; highlight lines exceeding 80 columns
 (require 'whitespace)
 (setq whitespace-style '(face empty lines-tail trailing))
-(global-whitespace-mode 1)
+(add-hook 'prog-mode-hook 'whitespace-mode)
 
 ;; disable word wrapping
 (setq-default truncate-lines t)
