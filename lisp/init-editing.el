@@ -97,4 +97,9 @@ Including indent-buffer, which should not be called automatically on save."
 
 (global-set-key (kbd "C-c w") 'cleanup-buffer)
 
+;; keybindings for navigating elisp sources
+(define-key 'help-command (kbd "C-l") 'find-library)
+(define-key 'help-command (kbd "C-f") 'find-function)
+(define-key 'help-command (kbd "C-k") 'find-function-on-key)
+
 (provide 'init-editing)
