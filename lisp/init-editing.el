@@ -102,4 +102,7 @@ Including indent-buffer, which should not be called automatically on save."
 (define-key 'help-command (kbd "C-f") 'find-function)
 (define-key 'help-command (kbd "C-k") 'find-function-on-key)
 
+;; join line
+(global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
+
 (provide 'init-editing)
