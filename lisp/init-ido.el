@@ -3,7 +3,6 @@
 (require-package 'ido-vertical-mode)
 (require-package 'ido-ubiquitous)
 (require-package 'find-file-in-repository)
-(require-package 'idomenu)
 
 ;; load ido
 (require 'ido)
@@ -32,9 +31,5 @@
 
 ;; find file in repository
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
-
-;; ido completion for imenu
-(require 'idomenu)
-(global-set-key (kbd "C-c i") 'idomenu)
 
 (provide 'init-ido)
