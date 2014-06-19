@@ -6,6 +6,7 @@
 (require 'whole-line-or-region)
 (require 'misc)
 (require 'whitespace)
+(require 'imenu)
 
 ;; disable backup files
 (setq make-backup-files nil)
@@ -106,6 +107,7 @@ Including indent-buffer, which should not be called automatically on save."
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
 ;; imenu (will use ido completion if ido-ubiquitous-mode is enabled)
+(setq imenu-auto-rescan t)
 (global-set-key (kbd "C-c i") 'imenu)
 
 (provide 'init-editing)
