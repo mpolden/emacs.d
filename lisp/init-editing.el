@@ -105,4 +105,7 @@ Including indent-buffer, which should not be called automatically on save."
 ;; join line
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
+;; imenu (will use ido completion if ido-ubiquitous-mode is enabled)
+(global-set-key (kbd "C-c i") 'imenu)
+
 (provide 'init-editing)
