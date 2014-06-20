@@ -14,8 +14,16 @@
 ;; preserve point position when scrolling
 (setq scroll-preserve-screen-position 'always)
 
+;; make imenu automatically rescan buffers
+(setq imenu-auto-rescan t)
+
 ;; enable electric-indent-mode
 (electric-indent-mode 1)
+
+;; use sh-mode for various zsh files
+(add-to-list 'auto-mode-alist
+             '("z\\(sh[^/]*\\|login\\|logout\\|profile\\|preztorc\\)\\'"
+               . sh-mode))
 
 ;; cut or copy the currrent line if no region is active
 (whole-line-or-region-mode 1)
@@ -107,7 +115,6 @@ Including indent-buffer, which should not be called automatically on save."
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
 ;; imenu (will use ido completion if ido-ubiquitous-mode is enabled)
-(setq imenu-auto-rescan t)
 (global-set-key (kbd "C-c i") 'imenu)
 
 (provide 'init-editing)
