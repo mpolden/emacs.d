@@ -62,4 +62,7 @@
 ;; default to 80 chars fill-column
 (setq-default fill-column 80)
 
+;; undo/redo window configuration with C-c <left>/<right>
+(winner-mode 1)
+
 (provide 'init-sane-defaults)
