@@ -56,4 +56,7 @@
 ;; show human readable sizes in dired
 (setq dired-listing-switches "-alh")
 
+;; single space ends a sentence
+(setq-default sentence-end-double-space nil)
+
 (provide 'init-sane-defaults)
