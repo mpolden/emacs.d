@@ -59,4 +59,7 @@
 ;; single space ends a sentence
 (setq-default sentence-end-double-space nil)
 
+;; default to 80 chars fill-column
+(setq-default fill-column 80)
+
 (provide 'init-sane-defaults)
