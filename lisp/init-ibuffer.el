@@ -22,4 +22,7 @@
 ;; disable confirmation for killing unmodified buffers
 (setq ibuffer-expert t)
 
+;; sort buffers by name
+(setq-default ibuffer-default-sorting-mode 'alphabetic)
+
 (provide 'init-ibuffer)
