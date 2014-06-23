@@ -28,4 +28,4 @@
           (lambda ()
             (define-key json-mode-map (kbd "C-c C-f") 'jq-reformat)))
 
-(provide 'init-js2-mode)
+(provide 'init-javascript)

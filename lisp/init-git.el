@@ -18,4 +18,4 @@
 ;; magit keybinding
 (global-set-key (kbd "C-x m") 'magit-status)
 
-(provide 'init-git-mode)
+(provide 'init-git)
