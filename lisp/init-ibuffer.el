@@ -8,7 +8,7 @@
 ;; keep buffer list up to date and group ibuffer by repository root
 (add-hook 'ibuffer-hook
           (lambda ()
-            (ibuffer-auto-mode)
+            (ibuffer-auto-mode 1)
             (ibuffer-vc-set-filter-groups-by-vc-root)
             ;; make C-o and o behave as in dired
             (define-key ibuffer-mode-map (kbd "o")
