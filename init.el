@@ -19,7 +19,6 @@
 (require 'init-sessions)
 (require 'init-git-mode)
 (require 'init-clojure-mode)
-(require 'init-crontab)
 (require 'init-editing)
 (require 'init-ag)
 (require 'init-expand-region)
