@@ -50,4 +50,7 @@
       display-time-format "%t %a %b %d, %R")
 (display-time)
 
+;; display current function in mode-line
+(add-hook 'prog-mode-hook 'which-function-mode)
+
 (provide 'init-appearance)
