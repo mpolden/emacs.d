@@ -51,6 +51,6 @@
 (display-time)
 
 ;; display current function in mode-line
-(add-hook 'prog-mode-hook 'which-function-mode)
+(which-function-mode 1)
 
 (provide 'init-appearance)
