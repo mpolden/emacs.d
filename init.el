@@ -18,7 +18,6 @@
 (require 'init-go-mode)
 (require 'init-yaml-mode)
 (require 'init-markdown-mode)
-(require 'init-org)
 (require 'init-javascript)
 (require 'init-rainbow-delimiters)
 (require 'init-ibuffer)
