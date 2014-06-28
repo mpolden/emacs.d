@@ -24,6 +24,6 @@
 
 (add-hook 'js-mode-hook
           (lambda ()
-            (define-key js-mode-map (kbd "C-c C-f") 'jq-reformat)))
+            (define-key js-mode-map (kbd "C-c p") 'jq-reformat)))
 
 (provide 'init-javascript)
