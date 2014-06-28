@@ -12,8 +12,19 @@
 (defun jq-reformat-region (begin end)
   (interactive "r")
   (if (executable-find "jq")
-      (shell-command-on-region
-       begin end "jq --monochrome-output --ascii-output ." (current-buffer) t)
+      (let* ((tmpfile (make-temp-file "jq"))
+             (errbuf (get-buffer-create "*jq errors*"))
+             (success (zerop (call-process-region begin end "jq" nil
+                                                  `((:file ,tmpfile) ,tmpfile)
+                                                  nil "--monochrome-output"
+                                                  "--ascii-output" ".")))
+             (resbuf (if success (current-buffer) errbuf)))
+        (with-current-buffer resbuf
+          (insert-file-contents tmpfile nil nil nil t))
+        (if success
+            (kill-buffer errbuf)
+          (message "Failed to reformat JSON. Check errors for details"))
+        (delete-file tmpfile))
     (message "Could not find jq in PATH.")))
 
 (defun jq-reformat ()
