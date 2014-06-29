@@ -25,11 +25,6 @@
            (load-theme 'sanityinc-tomorrow-night t))
   (set-face-background hl-line-face "gray13"))
 
-;; display line numbers in prog-mode
-(require 'linum)
-(setq linum-format "%3d ")
-(add-hook 'prog-mode-hook 'linum-mode)
-
 ;; highlight matching parentheses
 (show-paren-mode 1)
 
