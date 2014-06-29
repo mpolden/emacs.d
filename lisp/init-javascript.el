@@ -14,15 +14,18 @@
   (if (executable-find "jq")
       (let* ((tmpfile (make-temp-file "jq"))
              (errbuf (get-buffer-create "*jq errors*"))
-             (success (zerop (call-process-region begin end "jq" nil
-                                                  `((:file ,tmpfile) ,tmpfile)
-                                                  nil "--monochrome-output"
-                                                  "--ascii-output" ".")))
+             (result (call-process-region begin end "jq" nil
+                                          `((:file ,tmpfile) ,tmpfile) nil
+                                          "--monochrome-output" "--ascii-output"
+                                          "."))
+             (success (zerop result))
              (resbuf (if success (current-buffer) errbuf)))
         (with-current-buffer resbuf
           (insert-file-contents tmpfile nil nil nil t))
         (if success
-            (kill-buffer errbuf)
+            (progn
+              (kill-buffer errbuf)
+              (message "Reformatted JSON"))
           (message "Failed to reformat JSON. Check errors for details"))
         (delete-file tmpfile))
     (message "Could not find jq in PATH.")))
