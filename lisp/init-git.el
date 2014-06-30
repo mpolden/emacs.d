@@ -18,6 +18,9 @@
 ;; magit keybinding
 (global-set-key (kbd "C-x m") 'magit-status)
 
+;; magit blame keybinding
+(global-set-key (kbd "C-c b") 'magit-blame-mode)
+
 (defun magit-visit-item-noselect (&optional other-window)
   "Visit current item, but don't select it."
   (interactive "P")
