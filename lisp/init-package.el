@@ -16,4 +16,12 @@ re-downloaded in order to locate PACKAGE."
         (package-refresh-contents)
         (require-package package min-version t)))))
 
+;; dash - a better list api
+(require-package 'dash)
+(require 'dash)
+
+(defun require-packages (packages)
+  "Install a list of PACKAGES."
+  (--each packages (require-package it)))
+
 (provide 'init-package)

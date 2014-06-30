@@ -1,9 +1,6 @@
 ;; install packages
-(require-package 'magit)
-(require-package 'git-commit-mode)
-(require-package 'git-rebase-mode)
-(require-package 'gitconfig-mode)
-(require-package 'gitignore-mode)
+(require-packages
+ '(magit git-commit-mode git-rebase-mode gitconfig-mode gitignore-mode))
 
 (require 'magit)
 (require 'git-commit-mode)

@@ -1,8 +1,6 @@
 ;; install packages
-(require-package 'flx-ido)
-(require-package 'ido-vertical-mode)
-(require-package 'ido-ubiquitous)
-(require-package 'find-file-in-repository)
+(require-packages
+ '(flx-ido ido-vertical-mode ido-ubiquitous find-file-in-repository))
 
 ;; load ido
 (require 'ido)

@@ -1,6 +1,5 @@
 ;; install packages
-(require-package 'move-text)
-(require-package 'whole-line-or-region)
+(require-packages '(move-text whole-line-or-region))
 
 (require 'move-text)
 (require 'whole-line-or-region)

@@ -1,7 +1,5 @@
 ;; install packages
-(require-package 'clojure-mode)
-(require-package 'cider)
-(require-package 'paredit)
+(require-packages '(clojure-mode cider paredit))
 
 (require 'clojure-mode)
 (require 'cider)
