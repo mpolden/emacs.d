@@ -36,4 +36,17 @@
             (define-key magit-status-mode-map (kbd "o")
               'magit-visit-item)))
 
+(defun git-root ()
+  "Find the git repository root of the visiting file."
+  (interactive)
+  (if buffer-file-name
+      (let ((git-root (vc-git-root buffer-file-name)))
+        (if git-root
+            (message "In git repository: %s" git-root)
+          (message "No git repository found for file")))
+    (message "Buffer is not visiting a file")))
+
+;; show current git repo
+(global-set-key (kbd "C-c d") 'git-root)
+
 (provide 'init-git)
