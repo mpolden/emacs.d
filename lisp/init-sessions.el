@@ -1,3 +1,5 @@
+(require 'desktop)
+
 ;; remember opened files
 (desktop-save-mode 1)
 
