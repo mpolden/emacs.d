@@ -25,13 +25,29 @@
     (magit-visit-item other-window)
     (select-window current-window)))
 
+(defun magit-stage-line-at-point ()
+  "Stage the current line or region."
+  (interactive)
+  (if (use-region-p)
+      (magit-stage-item)
+    (let ((current-line (line-number-at-pos)))
+      (save-excursion
+        (beginning-of-line)
+        (set-mark (line-end-position))
+        (magit-stage-item))
+      (goto-char (point-min))
+      (forward-line (1- current-line)))))
+
 (add-hook 'magit-status-mode-hook
           (lambda ()
             ;; make C-o and o behave as in dired
             (define-key magit-status-mode-map (kbd "C-o")
               'magit-visit-item-noselect)
             (define-key magit-status-mode-map (kbd "o")
-              'magit-visit-item)))
+              'magit-visit-item)
+            ;; stage single line with C-c 1
+            (define-key magit-status-mode-map (kbd "C-c 1")
+              'magit-stage-line-at-point)))
 
 (defun git-root ()
   "Find the git repository root of the visiting file."
