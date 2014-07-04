@@ -7,6 +7,7 @@
 (require 'git-rebase-mode)
 (require 'gitconfig-mode)
 (require 'gitignore-mode)
+(require 'vc-git)
 
 ;; use appropiate git-mode for .gitconfig and .gitignore extensions
 (add-to-list 'auto-mode-alist '("\\.gitignore\\'" . gitignore-mode))
@@ -55,8 +56,11 @@
   (if buffer-file-name
       (let ((git-root (vc-git-root buffer-file-name)))
         (if git-root
-            (message "In git repository: %s" git-root)
-          (message "No git repository found for file")))
+            (let ((git-root-file-name (directory-file-name git-root)))
+              (message "git repository: %s (%s)"
+                       (file-name-nondirectory git-root-file-name)
+                       git-root-file-name))
+          (message "%s is not in a git repository" buffer-file-name)))
     (message "Buffer is not visiting a file")))
 
 ;; show current git repo
