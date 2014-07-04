@@ -25,4 +25,7 @@
 ;; sort buffers by name
 (setq-default ibuffer-default-sorting-mode 'alphabetic)
 
+;; hide empty filter groups
+(setq ibuffer-show-empty-filter-groups nil)
+
 (provide 'init-ibuffer)
