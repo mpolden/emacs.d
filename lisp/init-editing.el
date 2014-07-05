@@ -6,7 +6,6 @@
 (require 'misc)
 (require 'whitespace)
 (require 'imenu)
-(require 'eshell)
 
 ;; disable backup files
 (setq make-backup-files nil)
@@ -136,18 +135,5 @@ Including indent-buffer, which should not be called automatically on save."
           (set-buffer-modified-p nil))))))
 
 (global-set-key (kbd "C-c n") 'rename-file-and-buffer)
-
-(defun eshell-other-window (&optional noselect)
-  "Create an interactive Eshell buffer in another window."
-  (interactive)
-  (with-current-buffer (get-buffer-create eshell-buffer-name)
-    (unless (eq major-mode 'eshell-mode)
-      (eshell-mode)))
-  (let ((current-window (selected-window)))
-    (switch-to-buffer-other-window eshell-buffer-name)
-    (when noselect
-      (select-window current-window))))
-
-(global-set-key (kbd "C-c k") 'eshell-other-window)
 
 (provide 'init-editing)
