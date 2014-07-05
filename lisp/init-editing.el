@@ -6,6 +6,7 @@
 (require 'misc)
 (require 'whitespace)
 (require 'imenu)
+(require 'eshell)
 
 ;; disable backup files
 (setq make-backup-files nil)
