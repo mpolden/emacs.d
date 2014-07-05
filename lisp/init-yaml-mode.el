@@ -6,7 +6,7 @@
 
 ;; disable electric indent
 (add-hook 'yaml-mode-hook
-          (lambda () (set (make-local-variable 'electric-indent-mode) nil)))
+          (lambda () (setq-local electric-indent-mode nil)))
 
 ;; ansible group_vars and host_vars
 (add-to-list 'auto-mode-alist '("/\\(group\\|host\\)_vars/" . yaml-mode))
