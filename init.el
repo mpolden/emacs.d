@@ -30,3 +30,6 @@
 (require 'init-python-mode)
 (require 'init-web-mode)
 (require 'init-eshell)
+
+;; local settings (optional)
+(require 'init-local nil t)
