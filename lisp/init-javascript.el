@@ -12,6 +12,10 @@
 (require 'js)
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js-mode))
 
+;; enable imenu extras
+(require 'js2-imenu-extras)
+(add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
+
 ;; use jq for reformatting json
 (defun jq-reformat-region (begin end)
   (interactive "r")
