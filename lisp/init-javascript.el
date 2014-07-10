@@ -12,9 +12,30 @@
 (require 'js)
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js-mode))
 
+(defun js2-imenu-create-flat-index (&optional alist prefix)
+  "Return a flattened alist for `imenu--index-alist'."
+  ;; adapted from python-imenu-create-flat-index in python.el
+  (apply
+   'nconc
+   (mapcar
+    (lambda (item)
+      (let ((name (if prefix
+                      (concat prefix "." (car item))
+                    (car item)))
+            (pos (cdr item)))
+        (cond ((or (numberp pos) (markerp pos))
+               (list (cons name pos)))
+              ((listp pos)
+               (js2-imenu-create-flat-index pos name)))))
+    (or alist (js2-mode-create-imenu-index)))))
+
 ;; enable imenu extras
 (require 'js2-imenu-extras)
-(add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (js2-imenu-extras-mode 1)
+            (setq-local imenu-create-index-function
+                        #'js2-imenu-create-flat-index)))
 
 ;; use jq for reformatting json
 (defun jq-reformat-region (begin end)
