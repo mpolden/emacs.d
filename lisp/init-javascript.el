@@ -4,6 +4,9 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+;; highlight built-in functions, such as filter, forEach and map
+(setq js2-highlight-level 3)
+
 ;; don't override M-j
 (eval-after-load "js2-mode"
   '(define-key js2-mode-map (kbd "M-j") nil))
