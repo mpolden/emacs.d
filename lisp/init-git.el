@@ -39,17 +39,6 @@
       (goto-char (point-min))
       (forward-line (1- current-line)))))
 
-(defun git-locate-root ()
-  "Find Git repository of the current buffer. Returns nil if no repo is found."
-  (if buffer-file-name
-      (let ((git-root (vc-git-root buffer-file-name)))
-        (or git-root
-            (progn
-              (message "%s is not in a git repository" buffer-file-name)
-              nil)))
-    (message "Buffer is not visiting a file.")
-    nil))
-
 (add-hook 'magit-status-mode-hook
           (lambda ()
             ;; make C-o and o behave as in dired
@@ -64,7 +53,7 @@
 (defun git-root ()
   "Find the git repository root of the visiting file."
   (interactive)
-  (let ((git-root-path (git-locate-root)))
+  (let ((git-root-path (magit-get-top-dir)))
     (when git-root-path
       (let ((git-root-file-name (directory-file-name git-root-path)))
         (message "git repository: %s (%s)"
@@ -77,7 +66,7 @@
 (defun git-grep-root ()
   "Run git-grep in the repository root."
   (interactive)
-  (let ((git-root-path (git-locate-root)))
+  (let ((git-root-path (magit-get-top-dir)))
     (when git-root-path
       (vc-git-grep (grep-read-regexp) "*" git-root-path))))
 

@@ -1,10 +1,10 @@
 (require 'python)
+(require 'magit)
 
 (defun nosetests-command-at-point ()
   "Create a nosetests command with the test at point as the argument."
   (if (eq 'python-mode major-mode)
-      (let* ((git-root (when buffer-file-name
-                         (vc-git-root buffer-file-name)))
+      (let* ((git-root (magit-get-top-dir))
              (file-rel-name (when git-root (file-relative-name
                                             buffer-file-name git-root))))
         (if file-rel-name
