@@ -4,6 +4,10 @@
 ;; load yaml-mode
 (require 'yaml-mode)
 
+;; don't override C-j
+(eval-after-load "yaml-mode"
+  '(define-key yaml-mode-map (kbd "C-j") nil))
+
 ;; disable electric indent
 (add-hook 'yaml-mode-hook
           (lambda () (setq-local electric-indent-mode nil)))
