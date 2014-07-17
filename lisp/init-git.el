@@ -74,4 +74,40 @@
 ;; show current git repo
 (global-set-key (kbd "C-c d") 'git-root)
 
+(defun git-grep-root ()
+  "Run git-grep in the repository root."
+  (interactive)
+  (let ((git-root-path (git-locate-root)))
+    (when git-root-path
+      (vc-git-grep (grep-read-regexp) "*" git-root-path))))
+
+;; run git grep in the repository root
+(global-set-key (kbd "C-c g") 'git-grep-root)
+
+(defun grep-visit-buffer-other-window (&optional event noselect)
+  "Visit grep result in another window."
+  (interactive)
+  (let ((current-window (selected-window)))
+    (compile-goto-error event)
+    (when noselect
+      (select-window current-window))))
+
+(defun grep-visit-buffer-other-window-noselect (&optional event)
+  "Visit grep result in another window, but don't select it."
+  (interactive)
+  (grep-visit-buffer-other-window event t))
+
+(add-hook 'grep-mode-hook
+          (lambda ()
+            ;; make C-o and o behave as in dired
+            (define-key grep-mode-map (kbd "C-o")
+              'grep-visit-buffer-other-window-noselect)
+            (define-key grep-mode-map (kbd "o")
+              'grep-visit-buffer-other-window)
+            ;; n and p changes line as in ag-mode
+            (define-key grep-mode-map (kbd "n")
+              'compilation-next-error)
+            (define-key grep-mode-map (kbd "p")
+              'compilation-previous-error)))
+
 (provide 'init-git)
