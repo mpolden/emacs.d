@@ -48,4 +48,11 @@
 ;; display current function in mode-line
 (which-function-mode 1)
 
+;; unclutter modeline
+(require-package 'diminish)
+(require 'diminish)
+(eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
+(eval-after-load "whitespace" '(diminish 'whitespace-mode))
+(eval-after-load "whole-line-or-region" '(diminish 'whole-line-or-region-mode))
+
 (provide 'init-appearance)
