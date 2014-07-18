@@ -92,9 +92,23 @@ Including indent-buffer, which should not be called automatically on save."
 (global-set-key (kbd "C-c w") 'cleanup-buffer)
 
 ;; keybindings for navigating elisp sources
-(define-key 'help-command (kbd "C-l") 'find-library)
-(define-key 'help-command (kbd "C-f") 'find-function)
-(define-key 'help-command (kbd "C-k") 'find-function-on-key)
+(defun call-interactively-other-window (function &optional noselect)
+  "Call FUNCTION interactively. Restore the current window if
+NOSELECT is non-nil."
+  (let ((current-window (selected-window)))
+    (call-interactively function)
+    (when noselect
+      (select-window current-window))))
+
+(define-key 'help-command (kbd "C-f")
+  (lambda ()
+    (interactive)
+    (call-interactively-other-window 'find-function-other-window t)))
+
+(define-key 'help-command (kbd "C-k")
+  (lambda ()
+    (interactive)
+    (call-interactively-other-window 'find-function-on-key t)))
 
 ;; join line
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
