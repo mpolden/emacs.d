@@ -15,7 +15,9 @@ items follow a style that is consistent with other prog-modes."
       (while (re-search-forward go-func-meth-regexp (point-max) t)
         (let* ((var (match-string-no-properties 1))
                (func (match-string-no-properties 2))
-               (name (concat var func))
+               (name (if var
+                         (concat (substring var 0 -1) "." func)
+                       func))
                (beg (match-beginning 0))
                (marker (copy-marker beg))
                (item (cons name marker)))
