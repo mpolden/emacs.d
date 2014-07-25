@@ -16,13 +16,9 @@ re-downloaded in order to locate PACKAGE."
         (package-refresh-contents)
         (require-package package min-version t)))))
 
-;; dash - a better list api
-(require-package 'dash)
-(require 'dash)
-
 (defun require-packages (packages)
   "Install a list of PACKAGES."
-  (--each packages (require-package it)))
+  (mapcar (lambda (package) (require-package package)) packages))
 
 ;; add ~/.emacs.d/site-lisp to load path, if it exists
 ;; used for backported code and overriding existing packages
