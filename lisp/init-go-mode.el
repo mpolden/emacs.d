@@ -7,10 +7,9 @@
   "Create and return an imenu index alist. Unlike the default
 alist created by go-mode, this method creates an alist where
 items follow a style that is consistent with other prog-modes."
-  (let* ((patterns `(("type" "^type *\\([^ \t\n\r\f]*\\)" 1)
-                     ("func" ,go-func-regexp 1)))
-         (index (imenu--generic-function patterns))
-         (meth-index))
+  (let* ((patterns '(("type" "^type *\\([^ \t\n\r\f]*\\)" 1)))
+         (type-index (imenu--generic-function patterns))
+         (func-index))
     (save-excursion
       (goto-char (point-min))
       (while (re-search-forward go-func-meth-regexp (point-max) t)
@@ -20,8 +19,8 @@ items follow a style that is consistent with other prog-modes."
                (beg (match-beginning 0))
                (marker (copy-marker beg))
                (item (cons name marker)))
-          (setq meth-index (cons item meth-index)))))
-    (nconc index (list (cons "func" meth-index)))))
+          (setq func-index (cons item func-index)))))
+    (nconc type-index (list (cons "func" func-index)))))
 
 (defun go-mode-create-flat-imenu-index ()
   "Return a flat imenu index alist. See `go-mode-create-imenu-index'."
