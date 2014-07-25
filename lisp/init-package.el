@@ -24,4 +24,10 @@ re-downloaded in order to locate PACKAGE."
   "Install a list of PACKAGES."
   (--each packages (require-package it)))
 
+;; add ~/.emacs.d/site-lisp to load path, if it exists
+;; used for backported code and overriding existing packages
+(let ((site-lisp (expand-file-name "site-lisp" user-emacs-directory)))
+  (when (file-directory-p site-lisp)
+    (add-to-list 'load-path site-lisp)))
+
 (provide 'init-package)
