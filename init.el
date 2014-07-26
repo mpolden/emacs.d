@@ -24,6 +24,7 @@
 (require 'init-python-mode)
 (require 'init-web-mode)
 (require 'init-eshell)
+(require 'init-imenu)
 
 ;; local settings (optional)
 (require 'init-local nil t)

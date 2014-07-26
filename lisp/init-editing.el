@@ -5,16 +5,12 @@
 (require 'whole-line-or-region)
 (require 'misc)
 (require 'whitespace)
-(require 'imenu)
 
 ;; disable backup files
 (setq make-backup-files nil)
 
 ;; preserve point position when scrolling
 (setq scroll-preserve-screen-position 'always)
-
-;; make imenu automatically rescan buffers
-(setq imenu-auto-rescan t)
 
 ;; enable electric-indent-mode
 (electric-indent-mode 1)
@@ -98,9 +94,6 @@ NOSELECT is non-nil."
 
 ;; join line
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
-
-;; imenu (will use ido completion if ido-ubiquitous-mode is enabled)
-(global-set-key (kbd "C-c i") 'imenu)
 
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
