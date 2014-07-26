@@ -44,14 +44,6 @@
 ;; C-x k kills current buffer
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 
-;; C-c r reverts buffer without confirmation
-(defun revert-buffer-without-query ()
-  "Revert the current buffer without confirmation."
-  (interactive)
-  (revert-buffer t t))
-
-(global-set-key (kbd "C-c r") 'revert-buffer-without-query)
-
 ;; C-c . repeats last command
 (global-set-key (kbd "C-c .") 'repeat)
 
