@@ -34,9 +34,6 @@
 (global-set-key (kbd "M-<up>") 'move-text-up)
 (global-set-key (kbd "M-<down>") 'move-text-down)
 
-;; undo
-(global-set-key (kbd "C-u") 'undo)
-
 ;; use zap-up-to-char instead of zap-to-char
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 
