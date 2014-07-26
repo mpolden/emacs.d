@@ -24,9 +24,6 @@
              '("z\\(sh[^/]*\\|login\\|logout\\|profile\\|preztorc\\)\\'"
                . sh-mode))
 
-;; use conf-mode for Procfile
-(add-to-list 'auto-mode-alist '("/Procfile\\'" . conf-mode))
-
 ;; cut or copy the currrent line if no region is active
 (whole-line-or-region-mode 1)
 
