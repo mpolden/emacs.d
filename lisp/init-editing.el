@@ -75,7 +75,7 @@ Including indent-buffer, which should not be called automatically on save."
       (message "Skipping indent-buffer in %s." major-mode)
     (indent-buffer)))
 
-(global-set-key (kbd "C-c w") 'cleanup-buffer)
+(global-set-key (kbd "C-c c") 'cleanup-buffer)
 
 ;; keybindings for navigating elisp sources
 (defun call-interactively-other-window (function &optional noselect)
