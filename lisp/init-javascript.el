@@ -4,6 +4,9 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+;; set indent level to 2
+(setq js2-basic-offset 2)
+
 ;; highlight built-in functions, such as filter, forEach and map
 (setq js2-highlight-level 3)
 
