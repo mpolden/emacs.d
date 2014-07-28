@@ -6,6 +6,7 @@
 
 ;; set indent level to 2
 (setq-default js2-basic-offset 2)
+(setq-default js-indent-level 2)
 
 ;; highlight built-in functions, such as filter, forEach and map
 (setq js2-highlight-level 3)
@@ -16,7 +17,7 @@
 
 ;; js2-mode can't handle json
 (require 'js)
-(add-to-list 'auto-mode-alist '("\\.json\\'" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(json\\|jshintrc\\)\\'" . js-mode))
 
 (defun js2-imenu-create-flat-index (&optional alist prefix)
   "Return a flattened alist for `imenu--index-alist'."
