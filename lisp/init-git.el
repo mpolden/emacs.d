@@ -88,6 +88,8 @@
 
 (add-hook 'grep-mode-hook
           (lambda ()
+            ;; wrap lines
+            (setq truncate-lines nil)
             ;; make C-o and o behave as in dired
             (define-key grep-mode-map (kbd "C-o")
               'grep-visit-buffer-other-window-noselect)

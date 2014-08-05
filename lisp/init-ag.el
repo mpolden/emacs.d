@@ -28,6 +28,8 @@
 
 (add-hook 'ag-mode-hook
           (lambda ()
+            ;; wrap lines
+            (setq truncate-lines nil)
             ;; make C-o and o behave as in dired
             (define-key ag-mode-map (kbd "C-o")
               'ag-visit-buffer-other-window-noselect)
