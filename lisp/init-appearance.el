@@ -40,11 +40,6 @@
 (setq line-number-mode t
       column-number-mode t)
 
-;; display date and time in mode-line
-(setq display-time-default-load-average nil
-      display-time-format "%t %a %b %d, %R")
-(display-time)
-
 ;; display current function in mode-line
 (which-function-mode 1)
 
