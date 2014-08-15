@@ -25,6 +25,7 @@
 (require 'init-web-mode)
 (require 'init-eshell)
 (require 'init-imenu)
+(require 'init-dockerfile)
 
 ;; local settings (optional)
 (require 'init-local nil t)
