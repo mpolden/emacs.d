@@ -1,6 +1,6 @@
 ;; install packages
 (require-packages
- '(flx-ido ido-vertical-mode ido-ubiquitous find-file-in-repository smex))
+ '(flx-ido ido-vertical-mode ido-ubiquitous smex))
 
 ;; load ido
 (require 'ido)
@@ -26,9 +26,6 @@
 ;; load ido-ubiquitous (a better ido-everywhere)
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
-
-;; find file in repository
-(global-set-key (kbd "C-x f") 'find-file-in-repository)
 
 ;; smex
 (require 'smex)

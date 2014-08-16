@@ -49,5 +49,6 @@
 (eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
 (eval-after-load "whitespace" '(diminish 'whitespace-mode))
 (eval-after-load "whole-line-or-region" '(diminish 'whole-line-or-region-mode))
+(eval-after-load "projectile" '(diminish 'projectile-mode))
 
 (provide 'init-appearance)

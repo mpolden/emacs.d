@@ -8,6 +8,7 @@
 (when (eq system-type 'darwin)
   (require 'init-mac))
 (require 'init-ido)
+(require 'init-projectile)
 (require 'init-server)
 (require 'init-go-mode)
 (require 'init-yaml-mode)

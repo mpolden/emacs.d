@@ -34,3 +34,6 @@ backups/
 
 # local settings
 /lisp/init-local.el
+
+# projectile
+/projectile-bookmarks.eld
