@@ -112,4 +112,8 @@ NOSELECT is non-nil."
 
 (global-set-key (kbd "C-c n") 'rename-file-and-buffer)
 
+;; navigating to top/bottom of buffer
+(global-set-key (kbd "C-x t") 'beginning-of-buffer)
+(global-set-key (kbd "C-x e") 'end-of-buffer)
+
 (provide 'init-editing)
