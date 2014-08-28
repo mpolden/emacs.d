@@ -12,4 +12,7 @@
 ;; C-x f finds file in project
 (global-set-key (kbd "C-x f") 'projectile-find-file)
 
+;; switching project opens the top-level directory
+(setq projectile-switch-project-action 'projectile-dired)
+
 (provide 'init-projectile)
