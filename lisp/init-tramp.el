@@ -1,6 +1,9 @@
 (require 'tramp)
 
-(add-to-list 'tramp-default-proxies-alist '(".*" "root" "/ssh:%h:"))
+;; make sudo:remote-host work as expected
+(add-to-list 'tramp-default-proxies-alist '(nil "\\`root\\'" "/ssh:%h:"))
+(add-to-list 'tramp-default-proxies-alist
+             '((regexp-quote (system-name)) nil nil))
 
 (defun sudo-file-name (filename)
   "Add a sudo prefix to FILENAME.
@@ -8,10 +11,10 @@
 If filename is accessed over SSH, prefix it with '/sudo:'.
 Otherwise, prefix it with '/sudo::' which is an alias for /sudo:root@localhost."
   (let* ((splitname (split-string filename ":"))
-         (is-ssh (string-equal (car splitname) "/ssh"))
-         (sudo-tramp-prefix (if is-ssh "/sudo" "/sudo:"))
-         (components (if is-ssh (cdr splitname) splitname)))
-    (mapconcat (lambda (e) e) (cons sudo-tramp-prefix components) ":")))
+         (ssh-p (string-equal (car splitname) "/ssh"))
+         (sudo-prefix (if ssh-p "/sudo" "/sudo:"))
+         (components (if ssh-p (cdr splitname) splitname)))
+    (mapconcat 'identity (cons sudo-prefix components) ":")))
 
 (defun sudo-find-file (&optional arg)
   "Find file and open it with sudo.
