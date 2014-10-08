@@ -27,6 +27,7 @@
 (require 'init-eshell)
 (require 'init-imenu)
 (require 'init-dockerfile)
+(require 'init-tramp)
 
 ;; local settings (optional)
 (require 'init-local nil t)
