@@ -20,7 +20,7 @@ Otherwise, prefix it with '/sudo::' which is an alias for /sudo:root@localhost."
   "Find file and open it with sudo.
 With a prefix ARG prompt edit currently visited file using sudo."
   (interactive "P")
-  (if (or arg (not buffer-file-name))
+  (if arg
       (find-alternate-file (sudo-file-name buffer-file-name))
     (find-file (sudo-file-name (ido-read-file-name "Find file with sudo: ")))))
 
