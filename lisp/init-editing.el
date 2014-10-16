@@ -1,7 +1,6 @@
 ;; install packages
-(require-packages '(move-text whole-line-or-region))
+(require-package 'whole-line-or-region)
 
-(require 'move-text)
 (require 'whole-line-or-region)
 (require 'misc)
 (require 'whitespace)
@@ -22,10 +21,6 @@
 
 ;; cut or copy the currrent line if no region is active
 (whole-line-or-region-mode 1)
-
-;; bind keys for moving lines up and down
-(global-set-key (kbd "M-<up>") 'move-text-up)
-(global-set-key (kbd "M-<down>") 'move-text-down)
 
 ;; use zap-up-to-char instead of zap-to-char
 (global-set-key (kbd "M-z") 'zap-up-to-char)
