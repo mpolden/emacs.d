@@ -50,5 +50,6 @@
 (eval-after-load "whitespace" '(diminish 'whitespace-mode))
 (eval-after-load "whole-line-or-region" '(diminish 'whole-line-or-region-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
+(eval-after-load "subword" '(diminish 'subword-mode))
 
 (provide 'init-appearance)
