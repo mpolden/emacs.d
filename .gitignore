@@ -37,3 +37,6 @@ backups/
 
 # projectile
 /projectile-bookmarks.eld
+
+# eww
+/url/
