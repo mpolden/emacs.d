@@ -18,4 +18,4 @@
 
 (global-set-key (kbd "C-c k") 'eshell-other-window)
 
-(provide 'init-eshell)
+(provide 'init-shell)

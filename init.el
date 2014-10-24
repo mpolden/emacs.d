@@ -24,7 +24,7 @@
 (require 'init-expand-region)
 (require 'init-python-mode)
 (require 'init-web-mode)
-(require 'init-eshell)
+(require 'init-shell)
 (require 'init-imenu)
 (require 'init-dockerfile)
 (require 'init-tramp)
