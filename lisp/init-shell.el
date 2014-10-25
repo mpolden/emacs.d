@@ -29,7 +29,9 @@
     (term-ansi-make-term buf-name shell)
     (with-current-buffer buf-name
       (term-mode)
-      (term-char-mode))
+      (term-char-mode)
+      (let (term-escape-char)
+        (term-set-escape-char ?\C-x)))
     (switch-to-buffer-other-window buf-name)
     (when noselect
       (select-window current-window))))
