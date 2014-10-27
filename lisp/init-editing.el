@@ -32,9 +32,6 @@
 ;; C-x k kills current buffer
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 
-;; C-c . repeats last command
-(global-set-key (kbd "C-c .") 'repeat)
-
 (defun show-file-name ()
   "Show the full path file name in the minibuffer."
   (interactive)
