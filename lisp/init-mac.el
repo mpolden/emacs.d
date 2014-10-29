@@ -37,4 +37,8 @@
 (when (executable-find "gls")
   (setq insert-directory-program "gls"))
 
+;; workaround for long tmpdir
+;; https://trac.macports.org/ticket/29794
+(setenv "TMPDIR" (file-name-as-directory "/tmp"))
+
 (provide 'init-mac)
