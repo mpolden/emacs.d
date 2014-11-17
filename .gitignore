@@ -44,3 +44,6 @@ backups/
 
 # recentf
 /recentf
+
+# multiple-cursors
+/.mc-lists.el
