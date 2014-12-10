@@ -1,5 +1,8 @@
 (require 'tramp)
 
+;; use ssh as transfer method
+(setq tramp-default-method "ssh")
+
 ;; make sudo:remote-host work as expected
 (add-to-list 'tramp-default-proxies-alist '(nil "\\`root\\'" "/ssh:%h:"))
 (add-to-list 'tramp-default-proxies-alist
