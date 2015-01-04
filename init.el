@@ -26,7 +26,6 @@
 (require 'init-imenu)
 (require 'init-dockerfile)
 (require 'init-tramp)
-(require 'init-mc)
 
 ;; local settings (optional)
 (require 'init-local nil t)
