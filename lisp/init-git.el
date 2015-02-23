@@ -101,4 +101,6 @@
             (define-key grep-mode-map (kbd "p")
               'compilation-previous-error)))
 
+(add-hook 'git-commit-mode-hook 'flyspell-mode)
+
 (provide 'init-git)
