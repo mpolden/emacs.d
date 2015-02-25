@@ -48,4 +48,7 @@ items follow a style that is consistent with other prog-modes."
             (setq-local imenu-create-index-function
                         #'go-mode-create-flat-imenu-index)))
 
+;; run gofmt before saving file
+(add-hook 'before-save-hook 'gofmt-before-save)
+
 (provide 'init-go-mode)
