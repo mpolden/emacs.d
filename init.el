@@ -24,7 +24,6 @@
 (require 'init-expand-region)
 (require 'init-python-mode)
 (require 'init-imenu)
-(require 'init-dockerfile)
 (require 'init-tramp)
 
 ;; local settings (optional)
