@@ -53,4 +53,8 @@ items follow a style that is consistent with other prog-modes."
 ;; run gofmt before saving file
 (add-hook 'before-save-hook 'gofmt-before-save)
 
+;; use goimports if available
+(when (executable-find "goimports")
+  (setq gofmt-command "goimports"))
+
 (provide 'init-go-mode)
