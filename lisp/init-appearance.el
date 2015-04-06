@@ -28,10 +28,15 @@
 ;; highlight matching parentheses
 (show-paren-mode 1)
 
-;; highlight lines exceeding 80 columns
+;; highlight lines exceeding fill-column
 (require 'whitespace)
 (setq whitespace-style '(face empty lines-tail trailing))
-(add-hook 'prog-mode-hook 'whitespace-mode)
+(setq whitespace-line-column nil)
+;; make whitespace-mode respect a mode-specific fill-column value
+(add-hook 'hack-local-variables-hook
+          (lambda ()
+            (when (derived-mode-p 'prog-mode)
+              (whitespace-mode))))
 
 ;; disable word wrapping
 (setq-default truncate-lines t)
