@@ -31,7 +31,7 @@
             ;; disable electric indent
             (setq-local electric-indent-mode nil)
             ;; highlight lines longer than 79 characters (pep8)
-            (setq-local whitespace-line-column 79)
+            (setq-local fill-column 79)
             ;; use flat index in imenu
             (setq-local imenu-create-index-function
                         'python-imenu-create-flat-index)
