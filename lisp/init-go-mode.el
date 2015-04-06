@@ -44,6 +44,8 @@ items follow a style that is consistent with other prog-modes."
           (lambda ()
             ;; C-c p runs gofmt on the buffer
             (define-key go-mode-map (kbd "C-c p") 'gofmt)
+            ;; adjust fill-column
+            (setq-local fill-column 120)
             ;; use flat imenu index
             (setq-local imenu-create-index-function
                         #'go-mode-create-flat-imenu-index)))
