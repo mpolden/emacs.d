@@ -19,6 +19,9 @@
 ;; magit blame keybinding
 (global-set-key (kbd "C-c b") 'magit-blame-mode)
 
+;; hide magit instructions
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 (defun magit-visit-item-noselect (&optional other-window)
   "Visit current item, but don't select it."
   (interactive "P")
