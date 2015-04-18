@@ -22,6 +22,7 @@
 ;; vertical mode for ido
 (require 'ido-vertical-mode)
 (ido-vertical-mode 1)
+(setq ido-vertical-show-count t)
 
 ;; load ido-ubiquitous (a better ido-everywhere)
 (require 'ido-ubiquitous)
