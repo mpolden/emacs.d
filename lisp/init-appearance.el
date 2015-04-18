@@ -36,7 +36,7 @@
 (add-hook 'hack-local-variables-hook
           (lambda ()
             (when (derived-mode-p 'prog-mode)
-              (whitespace-mode))))
+              (whitespace-mode 1))))
 
 ;; disable word wrapping
 (setq-default truncate-lines t)
