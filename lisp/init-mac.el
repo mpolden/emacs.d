@@ -1,7 +1,9 @@
-;; set font
-(when (display-graphic-p)
-  (set-face-attribute 'default nil :family "Source Code Pro")
-  (set-face-attribute 'default nil :height 140))
+;; use source code pro font if available
+;; https://github.com/adobe-fonts/source-code-pro
+(let ((font-family "Source Code Pro"))
+  (when (and (display-graphic-p) (member font-family (font-family-list)))
+    (set-face-attribute 'default nil :family font-family)
+    (set-face-attribute 'default nil :height 140)))
 
 ;; configure modifiers
 (setq mac-option-modifier 'super)
