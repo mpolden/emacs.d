@@ -10,8 +10,8 @@
 (require 'vc-git)
 
 ;; use appropiate git-mode for .gitconfig and .gitignore extensions
-(add-to-list 'auto-mode-alist '("\\.gitignore\\'" . gitignore-mode))
-(add-to-list 'auto-mode-alist '("\\.gitconfig\\'" . gitconfig-mode))
+(add-to-list 'auto-mode-alist '("gitignore\\'" . gitignore-mode))
+(add-to-list 'auto-mode-alist '("gitconfig\\'" . gitconfig-mode))
 
 ;; magit keybinding
 (global-set-key (kbd "C-x m") 'magit-status)
