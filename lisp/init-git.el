@@ -23,13 +23,11 @@
                       (magit-blame-quit)
                     (call-interactively 'magit-blame))))
 
-(defun magit-diff-visit-file-noselect (file &optional other-window)
+(defun magit-diff-visit-file-noselect ()
   "Visit current item, but don't select it."
-  (interactive (list (or (magit-file-at-point)
-                         (user-error "No file at point"))
-                     current-prefix-arg))
+  (interactive)
   (let ((current-window (selected-window)))
-    (magit-diff-visit-file file other-window)
+    (call-interactively 'magit-diff-visit-file)
     (select-window current-window)))
 
 (add-hook 'magit-status-mode-hook
