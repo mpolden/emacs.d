@@ -16,7 +16,12 @@
 (global-set-key (kbd "C-x m") 'magit-status)
 
 ;; magit blame keybinding
-(global-set-key (kbd "C-c b") 'magit-blame-mode)
+(global-set-key (kbd "C-c b")
+                (lambda ()
+                  (interactive)
+                  (if magit-blame-mode
+                      (magit-blame-quit)
+                    (call-interactively 'magit-blame))))
 
 (defun magit-diff-visit-file-noselect (file &optional other-window)
   "Visit current item, but don't select it."
