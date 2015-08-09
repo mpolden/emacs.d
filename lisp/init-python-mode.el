@@ -4,7 +4,7 @@
 (defun nosetests-command-at-point ()
   "Create a nosetests command with the test at point as the argument."
   (if (eq 'python-mode major-mode)
-      (let* ((git-root (magit-get-top-dir))
+      (let* ((git-root (magit-toplevel))
              (file-rel-name (when git-root (file-relative-name
                                             buffer-file-name git-root))))
         (if file-rel-name
