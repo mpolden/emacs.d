@@ -12,7 +12,7 @@
 ;; https://trac.macports.org/ticket/29794
 (when (eq system-type 'darwin)
   (setq tramp-ssh-controlmaster-options
-      "-o ControlPath=/tmp/%%r@%%h:%%p -o ControlMaster=auto -o ControlPersist=no"))
+        "-o ControlPath=/tmp/%%r@%%h:%%p -o ControlMaster=auto -o ControlPersist=no"))
 
 (defun sudo-prefix-p (prefix)
   "Return t if PREFIX is a sudo prefix."
