@@ -14,6 +14,12 @@
   (setq tramp-ssh-controlmaster-options
         "-o ControlPath=/tmp/%%r@%%h:%%p -o ControlMaster=auto -o ControlPersist=no"))
 
+;; disable vc integration for remote files
+(setq vc-ignore-dir-regexp
+      (format "\\(%s\\)\\|\\(%s\\)"
+              vc-ignore-dir-regexp
+              tramp-file-name-regexp))
+
 (defun sudo-prefix-p (prefix)
   "Return t if PREFIX is a sudo prefix."
   (or (string-equal prefix "/sudo") (string-equal prefix "/sudo:")))
