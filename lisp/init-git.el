@@ -23,6 +23,9 @@
                       (magit-blame-quit)
                     (call-interactively 'magit-blame))))
 
+;; disable gravatars
+(setq magit-revision-show-gravatars nil)
+
 (defun magit-diff-visit-file-noselect ()
   "Visit current item, but don't select it."
   (interactive)
