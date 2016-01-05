@@ -1,4 +1,4 @@
-# .emacs.d
+# emacs.d
 
 My personal Emacs settings with inspiration from:
 
@@ -10,15 +10,13 @@ My personal Emacs settings with inspiration from:
 
 Clone the repository:
 
-`git clone https://github.com/martinp/.emacs.d dot.emacs.d`
+    $ git clone https://github.com/martinp/emacs.d
 
 Install symlink in `~/.emacs.d`:
 
 **This will overwrite any existing file or symlink!**
 
-```
-cd dot.emacs.d
-make install
-```
+    $ cd emacs.d
+    $ make install
 
 Start Emacs!
