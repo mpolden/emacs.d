@@ -20,7 +20,6 @@
 (require 'init-git)
 (require 'init-lisp)
 (require 'init-editing)
-(require 'init-expand-region)
 (require 'init-python-mode)
 (require 'init-imenu)
 (require 'init-tramp)
