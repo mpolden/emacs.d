@@ -10,6 +10,7 @@
 (require 'init-ido)
 (require 'init-projectile)
 (require 'init-server)
+(require 'init-company-mode)
 (require 'init-go-mode)
 (require 'init-yaml-mode)
 (require 'init-markdown-mode)

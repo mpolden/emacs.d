@@ -41,6 +41,13 @@ items follow a style that is consistent with other prog-modes."
 ;; run gofmt before saving file
 (add-hook 'before-save-hook 'gofmt-before-save)
 
+;; configure company-mode
+;; requires https://github.com/nsf/gocode for the backend
+(when (and (featurep 'company) (featurep 'company-go))
+  (add-hook 'go-mode-hook (lambda ()
+                            (setq-local company-backends '(company-go))
+                            (company-mode))))
+
 ;; use goimports if available
 (when (executable-find "goimports")
   (setq gofmt-command "goimports"))
