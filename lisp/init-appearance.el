@@ -21,8 +21,8 @@
 
 ;; set theme
 (if (display-graphic-p)
-    (progn (require-package 'color-theme-sanityinc-tomorrow)
-           (load-theme 'sanityinc-tomorrow-night t))
+    (progn (require-package 'material-theme)
+           (load-theme 'material t))
   (set-face-background hl-line-face "gray13"))
 
 ;; highlight matching parentheses
