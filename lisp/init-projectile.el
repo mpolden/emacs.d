@@ -15,4 +15,7 @@
 ;; switching project opens the top-level directory
 (setq projectile-switch-project-action 'projectile-dired)
 
+;; ignore remote projects
+(setq projectile-ignored-project-function 'file-remote-p)
+
 (provide 'init-projectile)
