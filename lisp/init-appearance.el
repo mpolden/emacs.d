@@ -55,5 +55,6 @@
 (eval-after-load "whole-line-or-region" '(diminish 'whole-line-or-region-mode))
 (eval-after-load "projectile" '(diminish 'projectile-mode))
 (eval-after-load "subword" '(diminish 'subword-mode))
+(eval-after-load "autorevert" '(diminish 'auto-revert-mode))
 
 (provide 'init-appearance)
