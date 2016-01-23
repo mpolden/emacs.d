@@ -45,9 +45,6 @@
 (setq line-number-mode t
       column-number-mode t)
 
-;; display current function in mode-line
-(which-function-mode 1)
-
 ;; unclutter modeline
 (require-package 'diminish)
 (require 'diminish)
