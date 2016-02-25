@@ -15,7 +15,4 @@
 ;; ansible group_vars and host_vars
 (add-to-list 'auto-mode-alist '("/\\(group\\|host\\)_vars/" . yaml-mode))
 
-;; salt state files
-(add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-mode))
-
 (provide 'init-yaml-mode)
