@@ -1,7 +1,29 @@
-;; install package
-(require-package 'go-mode)
+(use-package go-mode
+  :init
+  ;; use goimports if available
+  (when (executable-find "goimports")
+    (setq gofmt-command "goimports"))
 
-(require 'go-mode)
+  :config
+  ;; run gofmt before saving file
+  (add-hook 'before-save-hook 'gofmt-before-save)
+
+  ;; configure company-mode
+  ;; requires https://github.com/nsf/gocode for the backend
+  (when (and (featurep 'company) (featurep 'company-go))
+    (add-hook 'go-mode-hook (lambda ()
+                              (setq-local company-backends '(company-go))
+                              (company-mode))))
+
+  (add-hook 'go-mode-hook
+            (lambda ()
+              ;; C-c p runs gofmt on the buffer
+              (define-key go-mode-map (kbd "C-c p") 'gofmt)
+              ;; adjust fill-column
+              (setq-local fill-column 120)
+              ;; use flat imenu index
+              (setq-local imenu-create-index-function
+                          #'go-mode-create-flat-imenu-index))))
 
 (defun go-mode-create-imenu-index ()
   "Create and return an imenu index alist. Unlike the default
@@ -27,29 +49,5 @@ items follow a style that is consistent with other prog-modes."
 (defun go-mode-create-flat-imenu-index ()
   "Return a flat imenu index alist. See `go-mode-create-imenu-index'."
   (apply 'nconc (mapcar 'cdr (go-mode-create-imenu-index))))
-
-(add-hook 'go-mode-hook
-          (lambda ()
-            ;; C-c p runs gofmt on the buffer
-            (define-key go-mode-map (kbd "C-c p") 'gofmt)
-            ;; adjust fill-column
-            (setq-local fill-column 120)
-            ;; use flat imenu index
-            (setq-local imenu-create-index-function
-                        #'go-mode-create-flat-imenu-index)))
-
-;; run gofmt before saving file
-(add-hook 'before-save-hook 'gofmt-before-save)
-
-;; configure company-mode
-;; requires https://github.com/nsf/gocode for the backend
-(when (and (featurep 'company) (featurep 'company-go))
-  (add-hook 'go-mode-hook (lambda ()
-                            (setq-local company-backends '(company-go))
-                            (company-mode))))
-
-;; use goimports if available
-(when (executable-find "goimports")
-  (setq gofmt-command "goimports"))
 
 (provide 'init-go-mode)

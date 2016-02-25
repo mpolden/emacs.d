@@ -1,18 +1,14 @@
-;; install package
-(require-package 'yaml-mode)
+(use-package yaml-mode
+  :mode
+  ;; ansible group_vars and host_vars
+  ("/\\(group\\|host\\)_vars/" . yaml-mode)
 
-;; load yaml-mode
-(require 'yaml-mode)
+  :config
+  ;; don't override C-j
+  (define-key yaml-mode-map (kbd "C-j") nil)
 
-;; don't override C-j
-(eval-after-load "yaml-mode"
-  '(define-key yaml-mode-map (kbd "C-j") nil))
-
-;; disable electric indent
-(add-hook 'yaml-mode-hook
-          (lambda () (setq-local electric-indent-mode nil)))
-
-;; ansible group_vars and host_vars
-(add-to-list 'auto-mode-alist '("/\\(group\\|host\\)_vars/" . yaml-mode))
+  ;; disable electric indent
+  (add-hook 'yaml-mode-hook
+            (lambda () (setq-local electric-indent-mode nil))))
 
 (provide 'init-yaml-mode)

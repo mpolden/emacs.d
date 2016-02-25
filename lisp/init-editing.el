@@ -1,9 +1,9 @@
-;; install packages
-(require-package 'whole-line-or-region)
+(use-package whole-line-or-region
+  :diminish whole-line-or-region-mode
 
-(require 'whole-line-or-region)
-(require 'misc)
-(require 'whitespace)
+  :config
+  ;; cut or copy the currrent line if no region is active
+  (whole-line-or-region-mode 1))
 
 ;; disable backup files
 (setq make-backup-files nil)
@@ -19,11 +19,11 @@
              '("z\\(sh[^/]*\\|login\\|logout\\|profile\\|preztorc\\)\\'"
                . sh-mode))
 
-;; cut or copy the currrent line if no region is active
-(whole-line-or-region-mode 1)
-
 ;; use zap-up-to-char instead of zap-to-char
-(global-set-key (kbd "M-z") 'zap-up-to-char)
+(use-package misc
+  :ensure nil
+
+  :bind ("M-z" . zap-up-to-char))
 
 ;; swap RET and C-j
 (global-set-key (kbd "RET") 'newline-and-indent)
@@ -63,7 +63,8 @@ Including indent-buffer, which should not be called automatically on save."
       (message "Skipping indent-buffer in %s." major-mode)
     (indent-buffer)))
 
-(global-set-key (kbd "C-c c") 'cleanup-buffer)
+(use-package whitespace
+  :bind ("C-c c" . cleanup-buffer))
 
 ;; keybindings for navigating elisp sources
 (defun call-interactively-other-window (function &optional noselect)
@@ -109,6 +110,10 @@ NOSELECT is non-nil."
 (global-set-key (kbd "C-c n") 'rename-this-buffer-and-file)
 
 ;; enable subword-mode in prog-mode
-(add-hook 'prog-mode-hook 'subword-mode)
+(use-package subword
+  :ensure nil
+  :diminish subword-mode
+  :config
+  (add-hook 'prog-mode-hook 'subword-mode))
 
 (provide 'init-editing)

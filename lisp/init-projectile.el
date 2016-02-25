@@ -1,21 +1,22 @@
-;; install package
-(require-package 'projectile)
+(use-package projectile
+  :diminish projectile-mode
 
-;; use a different prefix
-(setq projectile-keymap-prefix (kbd "C-c C-p"))
+  :init
+  ;; use a different prefix
+  (setq projectile-keymap-prefix (kbd "C-c C-p"))
 
-(require 'projectile)
+  ;; switching project opens the top-level directory
+  (setq projectile-switch-project-action 'projectile-dired)
 
-;; enable projectile mode in all buffers
-(projectile-global-mode 1)
+  ;; ignore remote projects
+  (setq projectile-ignored-project-function 'file-remote-p)
 
-;; C-x f finds file in project
-(global-set-key (kbd "C-x f") 'projectile-find-file)
+  :bind
+  ;; C-x f finds file in project
+  ("C-x f" . projectile-find-file)
 
-;; switching project opens the top-level directory
-(setq projectile-switch-project-action 'projectile-dired)
-
-;; ignore remote projects
-(setq projectile-ignored-project-function 'file-remote-p)
+  :config
+  ;; enable projectile mode in all buffers
+  (projectile-global-mode 1))
 
 (provide 'init-projectile)

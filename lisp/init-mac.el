@@ -29,8 +29,8 @@
 (setq trash-directory "~/.Trash")
 
 ;; use path from shell
-(require-package 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
+(use-package exec-path-from-shell
+  :config (exec-path-from-shell-initialize))
 
 ;; add binding for toggling fullscreen
 (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)

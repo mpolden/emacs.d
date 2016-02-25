@@ -20,7 +20,11 @@
 (setq mouse-wheel-progressive-speed nil)
 
 ;; reload buffers automatically when files change on disk
-(global-auto-revert-mode 1)
+(use-package autorevert
+  :ensure nil
+  :diminish auto-revert-mode
+  :config
+  (global-auto-revert-mode 1))
 
 ;; reload dired buffers automatically and be quit about it
 (setq global-auto-revert-non-file-buffers t)
@@ -39,7 +43,6 @@
 (setq echo-keystrokes 0.1)
 
 ;; add directory to buffer name if filename is not unique
-(require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
 ;; tetris score file

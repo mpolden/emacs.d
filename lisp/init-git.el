@@ -1,39 +1,52 @@
-;; install packages
-(require-packages
- '(magit gitconfig-mode gitignore-mode))
-
-(require 'magit)
-(require 'gitconfig-mode)
-(require 'gitignore-mode)
-(require 'grep)
-(require 'vc-git)
-
 ;; use appropiate git-mode for .gitconfig and .gitignore extensions
-(add-to-list 'auto-mode-alist '("gitignore\\'" . gitignore-mode))
-(add-to-list 'auto-mode-alist '("gitconfig\\'" . gitconfig-mode))
+(use-package gitignore-mode
+  :mode ("gitignore\\'" . gitignore-mode))
 
-;; magit keybinding
-(global-set-key (kbd "C-x m") 'magit-status)
+(use-package gitconfig-mode
+  :mode ("gitconfig\\'" . gitconfig-mode))
 
-;; magit blame keybinding
-(global-set-key (kbd "C-c b")
-                (lambda ()
-                  (interactive)
-                  (if magit-blame-mode
-                      (magit-blame-quit)
-                    (call-interactively 'magit-blame))))
+;; magit config
+(use-package magit
+  :init
+  ;; disable gravatars
+  (setq magit-revision-show-gravatars nil)
 
-;; disable gravatars
-(setq magit-revision-show-gravatars nil)
+  :bind (("C-x m" . magit-status)
+         ("C-c b" . git-blame)
+         ("C-c w" . git-branch-with-prefix)
+         ("C-c g" . git-grep-root))
 
-(defun magit-diff-visit-file-noselect ()
-  "Visit current item, but don't select it."
-  (interactive)
-  (let ((current-window (selected-window)))
-    (call-interactively 'magit-diff-visit-file)
-    (select-window current-window)))
+  :config
+  (defun git-blame ()
+    "Active or disable git blame."
+    (interactive)
+    (if magit-blame-mode
+        (magit-blame-quit)
+      (call-interactively 'magit-blame)))
 
-(add-hook 'magit-status-mode-hook
+  (defun magit-diff-visit-file-noselect ()
+    "Visit current item, but don't select it."
+    (interactive)
+    (let ((current-window (selected-window)))
+      (call-interactively 'magit-diff-visit-file)
+      (select-window current-window)))
+
+  (defun git-branch-with-prefix ()
+    "Create and checkout <username>/BRANCH from master."
+    (interactive)
+    (let* ((prefix (concat user-login-name "/"))
+           (suffix (magit-read-string-ns (format "Branch name (prefix: %s)" prefix)))
+           (branch (concat prefix suffix)))
+      (magit-run-git "checkout" "-b" branch "master")))
+
+  (defun git-grep-root ()
+    "Run git-grep in the repository root."
+    (interactive)
+    (let ((git-root-path (magit-toplevel)))
+      (when git-root-path
+        (vc-git-grep (grep-read-regexp) "*" git-root-path))))
+
+  (add-hook 'magit-status-mode-hook
           (lambda ()
             ;; make C-o and o behave as in dired
             (define-key magit-status-mode-map (kbd "C-o")
@@ -41,25 +54,7 @@
             (define-key magit-status-mode-map (kbd "o")
               'magit-diff-visit-file)))
 
-(defun git-grep-root ()
-  "Run git-grep in the repository root."
-  (interactive)
-  (let ((git-root-path (magit-toplevel)))
-    (when git-root-path
-      (vc-git-grep (grep-read-regexp) "*" git-root-path))))
-
-;; run git grep in the repository root
-(global-set-key (kbd "C-c g") 'git-grep-root)
-
-(defun git-branch-with-prefix ()
-  "Create and checkout <username>/BRANCH from master."
-  (interactive)
-  (let* ((prefix (concat user-login-name "/"))
-         (suffix (magit-read-string-ns (format "Branch name (prefix: %s)" prefix)))
-         (branch (concat prefix suffix)))
-    (magit-run-git "checkout" "-b" branch "master")))
-
-(global-set-key (kbd "C-c w") 'git-branch-with-prefix)
+  (add-hook 'git-commit-mode-hook 'flyspell-mode))
 
 (defun grep-visit-buffer-other-window (&optional event noselect)
   "Visit grep result in another window."
@@ -88,7 +83,5 @@
               'compilation-next-error)
             (define-key grep-mode-map (kbd "p")
               'compilation-previous-error)))
-
-(add-hook 'git-commit-mode-hook 'flyspell-mode)
 
 (provide 'init-git)

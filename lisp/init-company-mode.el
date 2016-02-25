@@ -1,7 +1,5 @@
-;; install packages
-(require-packages '(company company-go))
+(use-package company)
 
-(require 'company)
-(require 'company-go)
+(use-package company-go)
 
 (provide 'init-company-mode)

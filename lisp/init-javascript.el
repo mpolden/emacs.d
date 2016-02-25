@@ -1,8 +1,18 @@
-(require 'js)
-(add-to-list 'auto-mode-alist '("\\.\\(json\\|jshintrc\\)\\'" . js-mode))
+(use-package js
+  :ensure nil
 
-;; set indent level to 2
-(setq-default js-indent-level 2)
+  :init
+  ;; set indent level to 2
+  (setq-default js-indent-level 2)
+
+  :mode
+  ;; use js-mode for json and jshint
+  ("\\.\\(json\\|jshintrc\\)\\'" . js-mode)
+
+  :config
+  (add-hook 'js-mode-hook
+          (lambda ()
+            (define-key js-mode-map (kbd "C-c p") 'jq-reformat))))
 
 ;; use jq for reformatting json
 (defun jq-reformat-region (begin end)
@@ -31,9 +41,5 @@
   (if (use-region-p)
       (jq-reformat-region (region-beginning) (region-end))
     (jq-reformat-region (point-min) (point-max))))
-
-(add-hook 'js-mode-hook
-          (lambda ()
-            (define-key js-mode-map (kbd "C-c p") 'jq-reformat)))
 
 (provide 'init-javascript)
