@@ -70,4 +70,10 @@
 ;; confirm when exiting
 (setq confirm-kill-emacs 'y-or-n-p)
 
+;; disable backup files
+(setq make-backup-files nil)
+
+;; preserve point position when scrolling
+(setq scroll-preserve-screen-position 'always)
+
 (provide 'init-sane-defaults)

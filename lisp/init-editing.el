@@ -58,12 +58,6 @@
                (message "File '%s' successfully renamed to '%s'" name
                         (file-name-nondirectory new-name))))))))
 
-;; disable backup files
-(setq make-backup-files nil)
-
-;; preserve point position when scrolling
-(setq scroll-preserve-screen-position 'always)
-
 ;; swap RET and C-j
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-j") (lambda () (interactive) (insert "\n")))
