@@ -4,16 +4,27 @@
              '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
+(defun require-package (package &optional min-version no-refresh)
+  "Install given PACKAGE, optionally requiring MIN-VERSION.
+If NO-REFRESH is non-nil, the available package lists will not be
+re-downloaded in order to locate PACKAGE."
+  (if (package-installed-p package min-version)
+      t
+    (if (or (assoc package package-archive-contents) no-refresh)
+        (package-install package)
+      (progn
+        (package-refresh-contents)
+        (require-package package min-version t)))))
+
+(defun require-packages (packages)
+  "Install a list of PACKAGES."
+  (mapcar (lambda (package) (require-package package)) packages))
+
 ;; install missing packages automatically
 (setq use-package-always-ensure t)
 
-;; install and load use-package
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-;; install diminish
-(unless (package-installed-p 'diminish)
-  (package-install 'diminish))
+;; install use-package and diminish
+(require-packages '(use-package diminish))
 
 ;; speed up loading of use-package and dependencies
 (eval-when-compile
