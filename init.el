@@ -26,6 +26,7 @@
 (require 'init-imenu)
 (require 'init-tramp)
 (require 'init-nginx)
+(require 'init-flycheck)
 
 ;; local settings (optional)
 (require 'init-local nil t)
