@@ -66,7 +66,7 @@
 
 ;; swap RET and C-j
 (global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "C-j") 'newline)
+(global-set-key (kbd "C-j") (lambda () (interactive) (insert "\n")))
 
 ;; C-x k kills current buffer
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
