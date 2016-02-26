@@ -1,4 +1,6 @@
 (use-package python
+  :ensure nil ;; package is bundled with emacs
+
   :config
   (add-hook 'python-mode-hook
           (lambda ()

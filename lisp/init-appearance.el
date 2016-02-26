@@ -29,6 +29,8 @@
 
 ;; highlight lines exceeding fill-column
 (use-package whitespace
+  :ensure nil ;; package is bundled with emacs
+
   :diminish whitespace-mode
 
   :init

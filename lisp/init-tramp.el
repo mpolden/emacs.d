@@ -1,4 +1,6 @@
 (use-package tramp
+  :ensure nil ;; package is bundled with emacs
+
   :init
   ;; use ssh as transfer method
   (setq tramp-default-method "ssh")

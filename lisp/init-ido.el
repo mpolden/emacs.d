@@ -1,5 +1,7 @@
 ;; ido
 (use-package ido
+  :ensure nil ;; package is bundled with emacs
+
   :init
   (setq ido-enable-prefix nil
         ido-enable-flex-matching t
