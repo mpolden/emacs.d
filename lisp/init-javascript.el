@@ -9,10 +9,9 @@
   ;; use js-mode for json and jshint
   ("\\.\\(json\\|jshintrc\\)\\'" . js-mode)
 
-  :config
-  (add-hook 'js-mode-hook
-          (lambda ()
-            (define-key js-mode-map (kbd "C-c p") 'jq-reformat))))
+  :bind (:map js-mode-map
+         ;; C-c p runs formats json with jq
+         ("C-c p" . jq-reformat)))
 
 ;; use jq for reformatting json
 (defun jq-reformat-region (begin end)

@@ -4,6 +4,10 @@
   (when (executable-find "goimports")
     (setq gofmt-command "goimports"))
 
+  :bind (:map go-mode-map
+         ;; C-c p runs gofmt on the buffer
+         ("C-c p" . gofmt))
+
   :config
   ;; run gofmt before saving file
   (add-hook 'before-save-hook 'gofmt-before-save)
@@ -40,8 +44,6 @@ items follow a style that is consistent with other prog-modes."
               (when (and (featurep 'company) (featurep 'company-go))
                 (setq-local company-backends '(company-go))
                 (company-mode 1))
-              ;; C-c p runs gofmt on the buffer
-              (define-key go-mode-map (kbd "C-c p") 'gofmt)
               ;; adjust fill-column
               (setq-local fill-column 120)
               ;; use flat imenu index

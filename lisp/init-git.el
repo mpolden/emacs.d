@@ -59,6 +59,14 @@
 (use-package grep
   :ensure nil ;; package is bundled with emacs
 
+  :bind (:map grep-mode-map
+         ;; make C-o and o behave as in dired
+         ("o" . grep-visit-buffer-other-window)
+         ("C-o" . grep-visit-buffer-other-window-noselect)
+         ;; n and p changes line as in ag-mode
+         ("n" . compilation-next-error)
+         ("p" . compilation-previous-error))
+
   :config
   (defun grep-visit-buffer-other-window (&optional event noselect)
     "Visit grep result in another window."
@@ -76,16 +84,6 @@
   (add-hook 'grep-mode-hook
             (lambda ()
               ;; wrap lines
-              (setq truncate-lines nil)
-              ;; make C-o and o behave as in dired
-              (define-key grep-mode-map (kbd "C-o")
-                'grep-visit-buffer-other-window-noselect)
-              (define-key grep-mode-map (kbd "o")
-                'grep-visit-buffer-other-window)
-              ;; n and p changes line as in ag-mode
-              (define-key grep-mode-map (kbd "n")
-                'compilation-next-error)
-              (define-key grep-mode-map (kbd "p")
-                'compilation-previous-error))))
+              (setq-local truncate-lines nil))))
 
 (provide 'init-git)
