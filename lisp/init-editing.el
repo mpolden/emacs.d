@@ -1,47 +1,37 @@
+ ;; cut or copy the currrent line if no region is active
 (use-package whole-line-or-region
   :diminish whole-line-or-region-mode
-
   :config
-  ;; cut or copy the currrent line if no region is active
   (whole-line-or-region-mode 1))
-
-;; disable backup files
-(setq make-backup-files nil)
-
-;; preserve point position when scrolling
-(setq scroll-preserve-screen-position 'always)
-
-;; enable electric-indent-mode
-(electric-indent-mode 1)
-
-;; use sh-mode for various zsh files
-(add-to-list 'auto-mode-alist
-             '("z\\(sh[^/]*\\|login\\|logout\\|profile\\|preztorc\\)\\'"
-               . sh-mode))
 
 ;; use zap-up-to-char instead of zap-to-char
 (use-package misc
   :ensure nil ;; package is bundled with emacs
   :bind ("M-z" . zap-up-to-char))
 
-;; swap RET and C-j
-(global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "C-j") 'newline)
+;; enable subword-mode in prog-mode
+(use-package subword
+  :ensure nil ;; package is bundled with emacs
+  :diminish subword-mode
+  :config
+  (add-hook 'prog-mode-hook 'subword-mode))
 
-;; C-x k kills current buffer
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
+;; enable electric-indent-mode
+(use-package electric
+  :ensure nil ;; package is bundled with emacs
+  :config
+  (electric-indent-mode 1))
+
+;; use sh-mode for various zsh files
+(use-package sh-script
+  :ensure nil ;; package is bundled with emacs
+  :mode ("z\\(sh[^/]*\\|login\\|logout\\|profile\\|preztorc\\)\\'" . sh-mode))
 
 (defun show-file-name ()
   "Show the full path file name in the minibuffer."
   (interactive)
   (message buffer-file-name))
 
-(global-set-key (kbd "C-c f") 'show-file-name)
-
-;; bind hippie-expand
-(global-set-key (kbd "C-c e") 'hippie-expand)
-
-;; keybindings for navigating elisp sources
 (defun call-interactively-other-window (function &optional noselect)
   "Call FUNCTION interactively. Restore the current window if
 NOSELECT is non-nil."
@@ -49,19 +39,6 @@ NOSELECT is non-nil."
     (call-interactively function)
     (when noselect
       (select-window current-window))))
-
-(define-key 'help-command (kbd "C-f")
-  (lambda ()
-    (interactive)
-    (call-interactively-other-window 'find-function-other-window t)))
-
-(define-key 'help-command (kbd "C-k")
-  (lambda ()
-    (interactive)
-    (call-interactively-other-window 'find-function-on-key t)))
-
-;; join line
-(global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
 ;; source: http://rejeep.github.io/emacs/elisp/2010/03/26/rename-file-and-buffer-in-emacs.html
 (defun rename-this-buffer-and-file ()
@@ -82,13 +59,41 @@ NOSELECT is non-nil."
                (message "File '%s' successfully renamed to '%s'" name
                         (file-name-nondirectory new-name))))))))
 
-(global-set-key (kbd "C-c n") 'rename-this-buffer-and-file)
+;; disable backup files
+(setq make-backup-files nil)
 
-;; enable subword-mode in prog-mode
-(use-package subword
-  :ensure nil ;; package is bundled with emacs
-  :diminish subword-mode
-  :config
-  (add-hook 'prog-mode-hook 'subword-mode))
+;; preserve point position when scrolling
+(setq scroll-preserve-screen-position 'always)
+
+;; swap RET and C-j
+(global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "C-j") 'newline)
+
+;; C-x k kills current buffer
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
+
+;; C-c f shows the path of the current file
+(global-set-key (kbd "C-c f") 'show-file-name)
+
+;; bind hippie-expand
+(global-set-key (kbd "C-c e") 'hippie-expand)
+
+;; C-h C-f navigates to the source of a function
+(define-key 'help-command (kbd "C-f")
+  (lambda ()
+    (interactive)
+    (call-interactively-other-window 'find-function-other-window t)))
+
+;; C-h C-k navigates to the source of function bound to the given keybinding
+(define-key 'help-command (kbd "C-k")
+  (lambda ()
+    (interactive)
+    (call-interactively-other-window 'find-function-on-key t)))
+
+;; join line
+(global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
+
+;; C-c n renames the current buffer and file
+(global-set-key (kbd "C-c n") 'rename-this-buffer-and-file)
 
 (provide 'init-editing)
