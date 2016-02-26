@@ -5,15 +5,19 @@
   ;; use a different prefix
   (setq projectile-keymap-prefix (kbd "C-c C-p"))
 
+  ;; use git grep
+  (setq projectile-use-git-grep t)
+
   ;; switching project opens the top-level directory
   (setq projectile-switch-project-action 'projectile-dired)
 
   ;; ignore remote projects
   (setq projectile-ignored-project-function 'file-remote-p)
 
-  :bind
-  ;; C-x f finds file in project
-  ("C-x f" . projectile-find-file)
+  :bind (;; C-x f finds file in project
+         ("C-x f" . projectile-find-file)
+         ;; C-c g runs git grep in project
+         ("C-c g" . projectile-grep))
 
   :config
   ;; enable projectile mode in all buffers

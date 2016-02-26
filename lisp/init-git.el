@@ -13,8 +13,7 @@
 
   :bind (("C-x m" . magit-status)
          ("C-c b" . git-blame)
-         ("C-c w" . git-branch-with-prefix)
-         ("C-c g" . git-grep-root))
+         ("C-c w" . git-branch-with-prefix))
 
   :bind (:map magit-status-mode-map
          ;; make C-o and o behave as in dired
@@ -43,13 +42,6 @@
            (suffix (magit-read-string-ns (format "Branch name (prefix: %s)" prefix)))
            (branch (concat prefix suffix)))
       (magit-run-git "checkout" "-b" branch "master")))
-
-  (defun git-grep-root ()
-    "Run git-grep in the repository root."
-    (interactive)
-    (let ((git-root-path (magit-toplevel)))
-      (when git-root-path
-        (vc-git-grep (grep-read-regexp) "*" git-root-path))))
 
   (add-hook 'git-commit-mode-hook 'flyspell-mode))
 
