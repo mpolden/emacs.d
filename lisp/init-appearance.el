@@ -20,9 +20,9 @@
 (global-hl-line-mode 1)
 
 ;; set theme
-(when (display-graphic-p)
-  (use-package material-theme
-    :config (load-theme 'material t)))
+(use-package material-theme
+  :if (display-graphic-p)
+  :config (load-theme 'material t))
 
 ;; highlight matching parentheses
 (show-paren-mode 1)
