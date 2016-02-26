@@ -21,7 +21,7 @@
 
 ;; reload buffers automatically when files change on disk
 (use-package autorevert
-  :ensure nil
+  :ensure nil ;; package is bundled with emacs
   :diminish auto-revert-mode
   :config
   (global-auto-revert-mode 1))

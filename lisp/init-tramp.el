@@ -60,4 +60,5 @@ With a prefix ARG prompt edit currently visited file using sudo."
   (defun sudo-current-file ()
     (interactive)
     (sudo-find-file t)))
+
 (provide 'init-tramp)

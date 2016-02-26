@@ -21,8 +21,7 @@
 
 ;; use zap-up-to-char instead of zap-to-char
 (use-package misc
-  :ensure nil
-
+  :ensure nil ;; package is bundled with emacs
   :bind ("M-z" . zap-up-to-char))
 
 ;; swap RET and C-j
@@ -111,7 +110,7 @@ NOSELECT is non-nil."
 
 ;; enable subword-mode in prog-mode
 (use-package subword
-  :ensure nil
+  :ensure nil ;; package is bundled with emacs
   :diminish subword-mode
   :config
   (add-hook 'prog-mode-hook 'subword-mode))

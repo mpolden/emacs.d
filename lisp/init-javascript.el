@@ -1,5 +1,5 @@
 (use-package js
-  :ensure nil
+  :ensure nil ;; package is bundled with emacs
 
   :init
   ;; set indent level to 2
