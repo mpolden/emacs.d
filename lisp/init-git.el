@@ -56,32 +56,36 @@
 
   (add-hook 'git-commit-mode-hook 'flyspell-mode))
 
-(defun grep-visit-buffer-other-window (&optional event noselect)
-  "Visit grep result in another window."
-  (interactive)
-  (let ((current-window (selected-window)))
-    (compile-goto-error event)
-    (when noselect
-      (select-window current-window))))
+(use-package grep
+  :ensure nil ;; package is bundled with emacs
 
-(defun grep-visit-buffer-other-window-noselect (&optional event)
-  "Visit grep result in another window, but don't select it."
-  (interactive)
-  (grep-visit-buffer-other-window event t))
+  :config
+  (defun grep-visit-buffer-other-window (&optional event noselect)
+    "Visit grep result in another window."
+    (interactive)
+    (let ((current-window (selected-window)))
+      (compile-goto-error event)
+      (when noselect
+        (select-window current-window))))
 
-(add-hook 'grep-mode-hook
-          (lambda ()
-            ;; wrap lines
-            (setq truncate-lines nil)
-            ;; make C-o and o behave as in dired
-            (define-key grep-mode-map (kbd "C-o")
-              'grep-visit-buffer-other-window-noselect)
-            (define-key grep-mode-map (kbd "o")
-              'grep-visit-buffer-other-window)
-            ;; n and p changes line as in ag-mode
-            (define-key grep-mode-map (kbd "n")
-              'compilation-next-error)
-            (define-key grep-mode-map (kbd "p")
-              'compilation-previous-error)))
+  (defun grep-visit-buffer-other-window-noselect (&optional event)
+    "Visit grep result in another window, but don't select it."
+    (interactive)
+    (grep-visit-buffer-other-window event t))
+
+  (add-hook 'grep-mode-hook
+            (lambda ()
+              ;; wrap lines
+              (setq truncate-lines nil)
+              ;; make C-o and o behave as in dired
+              (define-key grep-mode-map (kbd "C-o")
+                'grep-visit-buffer-other-window-noselect)
+              (define-key grep-mode-map (kbd "o")
+                'grep-visit-buffer-other-window)
+              ;; n and p changes line as in ag-mode
+              (define-key grep-mode-map (kbd "n")
+                'compilation-next-error)
+              (define-key grep-mode-map (kbd "p")
+                'compilation-previous-error))))
 
 (provide 'init-git)
