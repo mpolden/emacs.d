@@ -41,30 +41,6 @@
 ;; bind hippie-expand
 (global-set-key (kbd "C-c e") 'hippie-expand)
 
-;; whitespace cleanup
-(defun untabify-buffer ()
-  (interactive)
-  (untabify (point-min) (point-max)))
-
-(defun indent-buffer ()
-  (interactive)
-  (indent-region (point-min) (point-max)))
-
-(defun cleanup-buffer ()
-  "Perform a bunch of operations on the whitespace content of a buffer.
-Including indent-buffer, which should not be called automatically on save."
-  (interactive)
-  (if (eq 'go-mode major-mode)
-      (message "Skipping untabify-buffer in go-mode.")
-    (untabify-buffer))
-  (whitespace-cleanup)
-  (if (or (eq 'python-mode major-mode) (eq 'yaml-mode major-mode))
-      (message "Skipping indent-buffer in %s." major-mode)
-    (indent-buffer)))
-
-(use-package whitespace
-  :bind ("C-c c" . cleanup-buffer))
-
 ;; keybindings for navigating elisp sources
 (defun call-interactively-other-window (function &optional noselect)
   "Call FUNCTION interactively. Restore the current window if
