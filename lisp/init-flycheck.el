@@ -1,7 +1,8 @@
 (use-package flycheck
   :init
-  ;; disable noisy emacs-lisp checkers
-  (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
+  ;; disable noisy checkers
+  (setq-default flycheck-disabled-checkers
+                '(emacs-lisp emacs-lisp-checkdoc go-golint))
 
   :config
   (global-flycheck-mode 1)
