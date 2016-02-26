@@ -13,9 +13,9 @@
 
 ;; install diminish
 (unless (package-installed-p 'diminish)
-  (package-install 'use-package))
+  (package-install 'diminish))
 
-;; speed up loading of use-package
+;; speed up loading of use-package and dependencies
 (eval-when-compile
   (require 'use-package))
 (require 'diminish)
