@@ -16,6 +16,11 @@
          ("C-c w" . git-branch-with-prefix)
          ("C-c g" . git-grep-root))
 
+  :bind (:map magit-status-mode-map
+         ;; make C-o and o behave as in dired
+         ("o" . magit-diff-visit-file)
+         ("C-o" . magit-diff-visit-file-noselect))
+
   :config
   (defun git-blame ()
     "Active or disable git blame."
@@ -45,14 +50,6 @@
     (let ((git-root-path (magit-toplevel)))
       (when git-root-path
         (vc-git-grep (grep-read-regexp) "*" git-root-path))))
-
-  (add-hook 'magit-status-mode-hook
-          (lambda ()
-            ;; make C-o and o behave as in dired
-            (define-key magit-status-mode-map (kbd "C-o")
-              'magit-diff-visit-file-noselect)
-            (define-key magit-status-mode-map (kbd "o")
-              'magit-diff-visit-file)))
 
   (add-hook 'git-commit-mode-hook 'flyspell-mode))
 
