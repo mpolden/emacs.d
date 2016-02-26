@@ -19,6 +19,7 @@
 (require 'init-ibuffer)
 (require 'init-sessions)
 (require 'init-git)
+(require 'init-grep)
 (require 'init-lisp)
 (require 'init-editing)
 (require 'init-python-mode)
