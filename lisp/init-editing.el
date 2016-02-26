@@ -27,18 +27,17 @@
   :ensure nil ;; package is bundled with emacs
   :mode ("z\\(sh[^/]*\\|login\\|logout\\|profile\\|preztorc\\)\\'" . sh-mode))
 
+;; find function definitions
+(use-package find-func
+  :ensure nil ;; package is bundled with emacs
+
+  :bind (("C-h C-f" . find-function-other-window)
+         ("C-h C-k" . find-function-on-key)))
+
 (defun show-file-name ()
   "Show the full path file name in the minibuffer."
   (interactive)
   (message buffer-file-name))
-
-(defun call-interactively-other-window (function &optional noselect)
-  "Call FUNCTION interactively. Restore the current window if
-NOSELECT is non-nil."
-  (let ((current-window (selected-window)))
-    (call-interactively function)
-    (when noselect
-      (select-window current-window))))
 
 ;; source: http://rejeep.github.io/emacs/elisp/2010/03/26/rename-file-and-buffer-in-emacs.html
 (defun rename-this-buffer-and-file ()
@@ -77,18 +76,6 @@ NOSELECT is non-nil."
 
 ;; bind hippie-expand
 (global-set-key (kbd "C-c e") 'hippie-expand)
-
-;; C-h C-f navigates to the source of a function
-(define-key 'help-command (kbd "C-f")
-  (lambda ()
-    (interactive)
-    (call-interactively-other-window 'find-function-other-window t)))
-
-;; C-h C-k navigates to the source of function bound to the given keybinding
-(define-key 'help-command (kbd "C-k")
-  (lambda ()
-    (interactive)
-    (call-interactively-other-window 'find-function-on-key t)))
 
 ;; join line
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
