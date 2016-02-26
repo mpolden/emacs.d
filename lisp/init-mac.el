@@ -28,8 +28,9 @@
 ;; move deleted files to ~/.Trash
 (setq trash-directory "~/.Trash")
 
-;; use path from shell
+;; use paths from shell
 (use-package exec-path-from-shell
+  :init (setq exec-path-from-shell-variables '("PATH" "MANPATH" "GOPATH"))
   :config (exec-path-from-shell-initialize))
 
 ;; add binding for toggling fullscreen
