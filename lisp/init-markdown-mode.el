@@ -11,6 +11,4 @@
             ;; enable flyspell
             (flyspell-mode 1))))
 
-(use-package flyspell)
-
 (provide 'init-markdown-mode)

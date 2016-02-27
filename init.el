@@ -13,6 +13,7 @@
 (require 'init-company-mode)
 (require 'init-go-mode)
 (require 'init-yaml-mode)
+(require 'init-flyspell)
 (require 'init-markdown-mode)
 (require 'init-javascript)
 (require 'init-rainbow-delimiters)
