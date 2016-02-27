@@ -13,9 +13,8 @@
 
   :bind (("C-x m" . magit-status)
          ("C-c b" . git-blame)
-         ("C-c w" . git-branch-with-prefix))
-
-  :bind (:map magit-status-mode-map
+         ("C-c w" . git-branch-with-prefix)
+         :map magit-status-mode-map
          ;; make C-o and o behave as in dired
          ("o" . magit-diff-visit-file)
          ("C-o" . magit-diff-visit-file-noselect))
