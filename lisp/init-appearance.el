@@ -17,7 +17,10 @@
 (setq use-dialog-box nil)
 
 ;; highlight current line
-(global-hl-line-mode 1)
+(use-package hl-line
+  :ensure nil ;; package is bundled with emacs
+  :config
+  (global-hl-line-mode 1))
 
 ;; set theme
 (use-package material-theme
