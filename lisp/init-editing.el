@@ -39,24 +39,21 @@
   (interactive)
   (message buffer-file-name))
 
-;; source: http://rejeep.github.io/emacs/elisp/2010/03/26/rename-file-and-buffer-in-emacs.html
-(defun rename-this-buffer-and-file ()
-  "Renames current buffer and file it is visiting."
+;; source:
+;; http://emacsredux.com/blog/2013/05/04/rename-file-and-buffer/
+;; https://github.com/bbatsov/prelude/blob/master/core/prelude-core.el
+(defun rename-buffer-and-file ()
+  "Rename current buffer and if the buffer is visiting a file, rename it too."
   (interactive)
-  (let ((name (buffer-name))
-        (filename (buffer-file-name)))
+  (let ((filename (buffer-file-name)))
     (if (not (and filename (file-exists-p filename)))
-        (error "Buffer '%s' is not visiting a file!" name)
+        (rename-buffer (read-from-minibuffer "New name: " (buffer-name)))
       (let ((new-name (read-file-name "New name: " filename)))
-        (cond ((get-buffer new-name)
-               (error "A buffer named '%s' already exists!" new-name))
-              (t
-               (rename-file filename new-name 1)
-               (rename-buffer new-name)
-               (set-visited-file-name new-name)
-               (set-buffer-modified-p nil)
-               (message "File '%s' successfully renamed to '%s'" name
-                        (file-name-nondirectory new-name))))))))
+        (cond
+         ((vc-backend filename) (vc-rename-file filename new-name))
+         (t
+          (rename-file filename new-name t)
+          (set-visited-file-name new-name t t)))))))
 
 ;; swap RET and C-j
 (global-set-key (kbd "RET") 'newline-and-indent)
@@ -75,6 +72,6 @@
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
 ;; C-c n renames the current buffer and file
-(global-set-key (kbd "C-c n") 'rename-this-buffer-and-file)
+(global-set-key (kbd "C-c n") 'rename-buffer-and-file)
 
 (provide 'init-editing)
