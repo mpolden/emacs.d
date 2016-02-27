@@ -5,6 +5,11 @@
 (use-package gitconfig-mode
   :mode ("gitconfig\\'" . gitconfig-mode))
 
+;; use flyspell when writing commit messages
+(use-package git-commit
+  :config
+  (add-hook 'git-commit-mode-hook 'flyspell-mode))
+
 ;; magit config
 (use-package magit
   :init
@@ -40,8 +45,6 @@
     (let* ((prefix (concat user-login-name "/"))
            (suffix (magit-read-string-ns (format "Branch name (prefix: %s)" prefix)))
            (branch (concat prefix suffix)))
-      (magit-run-git "checkout" "-b" branch "master")))
-
-  (add-hook 'git-commit-mode-hook 'flyspell-mode))
+      (magit-run-git "checkout" "-b" branch "master"))))
 
 (provide 'init-git)
