@@ -28,7 +28,10 @@
   :config (load-theme 'material t))
 
 ;; highlight matching parentheses
-(show-paren-mode 1)
+(use-package paren
+  :ensure nil ;; package is bundled with emacs
+  :config
+  (show-paren-mode 1))
 
 ;; highlight lines exceeding fill-column
 (use-package whitespace
