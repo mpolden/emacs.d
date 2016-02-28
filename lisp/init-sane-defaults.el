@@ -31,7 +31,7 @@
 (setq auto-revert-verbose nil)
 
 ;; integrate with X clipboard
-(setq x-select-enable-clipboard t)
+(setq select-enable-clipboard t)
 
 ;; ensure clipboard strings are saved into kill ring
 (setq save-interprogram-paste-before-kill t)
