@@ -17,7 +17,7 @@
   (setq magit-revision-show-gravatars nil)
 
   :bind (("C-x m" . magit-status)
-         ("C-c b" . git-blame)
+         ("C-c b" . magit-blame)
          ("C-c w" . git-branch-with-prefix)
          :map magit-status-mode-map
          ;; make C-o and o behave as in dired
@@ -25,13 +25,6 @@
          ("C-o" . magit-diff-visit-file-noselect))
 
   :config
-  (defun git-blame ()
-    "Active or disable git blame."
-    (interactive)
-    (if magit-blame-mode
-        (magit-blame-quit)
-      (call-interactively 'magit-blame)))
-
   (defun magit-diff-visit-file-noselect ()
     "Visit current item, but don't select it."
     (interactive)
