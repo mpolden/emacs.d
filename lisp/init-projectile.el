@@ -14,6 +14,9 @@
   ;; ignore remote projects
   (setq projectile-ignored-project-function 'file-remote-p)
 
+  ;; enable caching
+  (setq projectile-enable-caching t)
+
   :bind (;; C-x f finds file in project
          ("C-x f" . projectile-find-file)
          ;; C-c g runs git grep in project
