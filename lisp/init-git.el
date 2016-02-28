@@ -18,7 +18,6 @@
 
   :bind (("C-x m" . magit-status)
          ("C-c b" . magit-blame)
-         ("C-c w" . git-branch-with-prefix)
          :map magit-status-mode-map
          ;; make C-o and o behave as in dired
          ("o" . magit-diff-visit-file)
@@ -30,14 +29,6 @@
     (interactive)
     (let ((current-window (selected-window)))
       (call-interactively 'magit-diff-visit-file)
-      (select-window current-window)))
-
-  (defun git-branch-with-prefix ()
-    "Create and checkout <username>/BRANCH from master."
-    (interactive)
-    (let* ((prefix (concat user-login-name "/"))
-           (suffix (magit-read-string-ns (format "Branch name (prefix: %s)" prefix)))
-           (branch (concat prefix suffix)))
-      (magit-run-git "checkout" "-b" branch "master"))))
+      (select-window current-window))))
 
 (provide 'init-git)
