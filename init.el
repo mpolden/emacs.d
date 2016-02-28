@@ -1,6 +1,9 @@
 ;; prevent emacs 25 from automatically initializing package.el
 ;; (package-initialize)
 
+;; discard changes made with custom
+(setq custom-file null-device)
+
 ;; add ~/.emacs.d/lisp to load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
