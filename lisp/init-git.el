@@ -8,7 +8,9 @@
 ;; use flyspell when writing commit messages
 (use-package git-commit
   :config
-  (add-hook 'git-commit-mode-hook 'flyspell-mode))
+  (add-hook 'git-commit-mode-hook
+            (lambda ()
+              (when (featurep 'flyspell) (flyspell-mode 1)))))
 
 ;; magit config
 (use-package magit

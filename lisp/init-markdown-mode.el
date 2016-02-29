@@ -9,6 +9,6 @@
             ;; disable electric indent
             (setq-local electric-indent-mode nil)
             ;; enable flyspell
-            (flyspell-mode 1))))
+            (when (featurep 'flyspell) (flyspell-mode 1)))))
 
 (provide 'init-markdown-mode)
