@@ -5,8 +5,6 @@
                 '(emacs-lisp emacs-lisp-checkdoc go-golint))
 
   :config
-  (global-flycheck-mode 1)
-  ;; use both foodcritic and rubocop checkers for chef cookbooks
-  (flycheck-add-next-checker 'chef-foodcritic 'ruby-rubocop))
+  (global-flycheck-mode 1))
 
 (provide 'init-flycheck)
