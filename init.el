@@ -31,7 +31,6 @@
 (require 'init-tramp)
 (require 'init-nginx)
 (require 'init-flycheck)
-(require 'init-browse-kill-ring)
 
 ;; save customizations as local (unversioned) settings
 (setq custom-file (expand-file-name
