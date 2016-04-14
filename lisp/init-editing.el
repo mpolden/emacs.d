@@ -1,4 +1,4 @@
- ;; cut or copy the currrent line if no region is active
+ ;; cut or copy the current line if no region is active
 (use-package whole-line-or-region
   :diminish whole-line-or-region-mode
   :config
