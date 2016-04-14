@@ -23,9 +23,12 @@
   (global-hl-line-mode 1))
 
 ;; set theme
-(use-package material-theme
-  :if (display-graphic-p)
-  :config (load-theme 'material t))
+(when (display-graphic-p)
+  (load-theme 'wombat t)
+  ;; do not underline highlighted line
+  (set-face-attribute hl-line-face nil :underline nil)
+  ;; do not change foreground color for highlighted line
+  (set-face-attribute 'highlight nil :foreground nil))
 
 ;; highlight matching parentheses
 (use-package paren
