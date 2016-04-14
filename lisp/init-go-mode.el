@@ -39,11 +39,6 @@ items follow a style that is consistent with other prog-modes."
 
   (add-hook 'go-mode-hook
             (lambda ()
-              ;; company-mode
-              ;; requires https://github.com/nsf/gocode for the backend
-              (when (and (featurep 'company) (featurep 'company-go))
-                (setq-local company-backends '(company-go))
-                (company-mode 1))
               ;; adjust fill-column
               (setq-local fill-column 120)
               ;; use flat imenu index
