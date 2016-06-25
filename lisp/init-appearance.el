@@ -26,7 +26,7 @@
 (use-package color-theme-sanityinc-tomorrow
   :if (display-graphic-p)
   :config
-  (load-theme 'sanityinc-tomorrow-bright t))
+  (load-theme 'sanityinc-tomorrow-night t))
 
 ;; highlight matching parentheses
 (use-package paren
