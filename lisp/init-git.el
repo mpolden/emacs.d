@@ -41,4 +41,7 @@
     (interactive)
     (magit-diff-visit-file-other-window t)))
 
+;; follow symlinks to files under version control
+(setq vc-follow-symlinks t)
+
 (provide 'init-git)
