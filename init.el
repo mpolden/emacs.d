@@ -4,10 +4,6 @@
 ;; add ~/.emacs.d/lisp to load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-;; increase gc threshold to 20 MB before loading anything
-;; based on flx recommendation: https://github.com/lewang/flx
-(setq gc-cons-threshold 20000000)
-
 ;; load files
 (require 'init-package)
 (require 'init-appearance)
