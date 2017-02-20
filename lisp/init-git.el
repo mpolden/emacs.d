@@ -5,12 +5,13 @@
 (use-package gitconfig-mode
   :mode ("gitconfig\\'" . gitconfig-mode))
 
-;; use flyspell when writing commit messages
+;; use flyspell and writegood-mode when writing commit messages
 (use-package git-commit
   :config
   (add-hook 'git-commit-mode-hook
             (lambda ()
-              (when (featurep 'flyspell) (flyspell-mode 1)))))
+              (when (featurep 'flyspell) (flyspell-mode 1))
+              (when (featurep 'writegood-mode) (writegood-mode 1)))))
 
 ;; magit config
 (use-package magit
