@@ -29,7 +29,6 @@
 (require 'init-python-mode)
 (require 'init-imenu)
 (require 'init-tramp)
-(require 'init-nginx)
 (require 'init-flycheck)
 
 ;; save customizations as local (unversioned) settings
