@@ -16,7 +16,6 @@
 (require 'init-go-mode)
 (require 'init-yaml-mode)
 (require 'init-flyspell)
-(require 'init-write-good)
 (require 'init-markdown-mode)
 (require 'init-javascript)
 (require 'init-rainbow-delimiters)
