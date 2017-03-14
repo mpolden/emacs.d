@@ -10,7 +10,7 @@ My personal Emacs settings with inspiration from:
 
 Clone the repository:
 
-    $ git clone https://github.com/martinp/emacs.d
+    $ git clone https://github.com/mpolden/emacs.d
 
 Install symlink in `~/.emacs.d`:
 
