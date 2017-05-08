@@ -47,3 +47,6 @@ backups/
 
 # multiple-cursors
 /.mc-lists.el
+
+# network security manager
+/network-security.data
