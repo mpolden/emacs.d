@@ -9,7 +9,9 @@
         ido-auto-merge-work-directories-length -1
         ido-create-new-buffer 'always
         ido-use-filename-at-point nil
-        ido-max-prospects 10)
+        ido-max-prospects 10
+        ido-save-directory-list-file (expand-file-name
+                                      ".ido.last" user-emacs-directory))
 
   :config
   (ido-mode 1))

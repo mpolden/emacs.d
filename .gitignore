@@ -53,3 +53,6 @@ backups/
 
 # smex
 /.smex-items
+
+# ido
+/.ido.last
