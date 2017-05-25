@@ -25,7 +25,7 @@
 ;; use sh-mode for various zsh files
 (use-package sh-script
   :ensure nil ;; package is bundled with emacs
-  :mode ("z\\(sh[^/]*\\|login\\|logout\\|profile\\|preztorc\\)\\'" . sh-mode))
+  :mode ("z\\(sh[^/]*\\|login\\|logout\\|profile\\)\\'" . sh-mode))
 
 ;; find function definitions
 (use-package find-func
