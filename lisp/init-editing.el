@@ -35,9 +35,11 @@
          ("C-h C-k" . find-function-on-key)))
 
 (defun show-file-name ()
-  "Show the full path file name in the minibuffer."
+  "Show the full path file name in the minibuffer and add it to the kill ring."
   (interactive)
-  (message buffer-file-name))
+  (when buffer-file-name
+    (message buffer-file-name)
+    (kill-new (file-truename buffer-file-name))))
 
 ;; source:
 ;; http://emacsredux.com/blog/2013/05/04/rename-file-and-buffer/
