@@ -50,3 +50,6 @@ backups/
 
 # network security manager
 /network-security.data
+
+# smex
+/.smex-items
