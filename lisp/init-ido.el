@@ -43,9 +43,7 @@
   ;; do not update cache automatically on every invocation
   (setq smex-auto-update nil)
 
-  :bind (("M-x" . smex)
-         ("M-X" . smex-major-mode-commands)
-         ("C-c C-c M-x" . execute-extended-command))
+  :bind ("M-x" . smex)
 
   :config
   ;; update cache when emacs has been idle for 60 seconds
