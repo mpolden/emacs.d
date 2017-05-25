@@ -18,7 +18,8 @@
 (use-package flx-ido
   :init
   ;; disable ido faces to see flx highlights.
-  (setq ido-use-faces nil)
+  (setq ido-use-faces nil
+        flx-ido-threshold 1000)
 
   :config
   (flx-ido-mode 1))
@@ -38,8 +39,16 @@
 
 ;; smex
 (use-package smex
+  :init
+  ;; do not update cache automatically on every invocation
+  (setq smex-auto-update nil)
+
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)
-         ("C-c C-c M-x" . execute-extended-command)))
+         ("C-c C-c M-x" . execute-extended-command))
+
+  :config
+  ;; update cache when emacs has been idle for 60 seconds
+  (smex-auto-update))
 
 (provide 'init-ido)
