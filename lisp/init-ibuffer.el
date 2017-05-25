@@ -12,7 +12,6 @@
   (setq ibuffer-show-empty-filter-groups nil)
 
   ;; use ibuffer
-
   :bind (("C-x C-b" . ibuffer-other-window)
          :map ibuffer-mode-map
          ;; make C-o and o behave as in dired
@@ -20,12 +19,9 @@
          ("C-o" . ibuffer-visit-buffer-other-window-noselect))
 
   :config
-  ;; keep buffer list up to date and group ibuffer by repository root
-  (add-hook 'ibuffer-hook
-            (lambda ()
-              (ibuffer-auto-mode 1)
-              (ibuffer-vc-set-filter-groups-by-vc-root))))
+  ;; group ibuffer by projectile project
+  (add-hook 'ibuffer-hook 'ibuffer-projectile-set-filter-groups))
 
-(use-package ibuffer-vc)
+(use-package ibuffer-projectile)
 
 (provide 'init-ibuffer)
