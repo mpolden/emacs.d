@@ -65,9 +65,6 @@
 ;; C-c f shows the path of the current file
 (global-set-key (kbd "C-c f") 'show-file-name)
 
-;; bind hippie-expand
-(global-set-key (kbd "C-c e") 'hippie-expand)
-
 ;; join line
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
