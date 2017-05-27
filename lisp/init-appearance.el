@@ -23,10 +23,10 @@
   (global-hl-line-mode 1))
 
 ;; set theme
-(use-package color-theme-sanityinc-tomorrow
+(use-package doom-themes
   :if (display-graphic-p)
   :config
-  (load-theme 'sanityinc-tomorrow-night t))
+  (load-theme 'doom-vibrant t))
 
 ;; highlight matching parentheses
 (use-package paren
