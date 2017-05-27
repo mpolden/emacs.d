@@ -1,8 +1,12 @@
 ;; prevent emacs 25 from automatically initializing package.el
 ;; (package-initialize)
 
-;; add ~/.emacs.d/lisp to load path
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(let ((lisp-directory (expand-file-name "lisp" user-emacs-directory)))
+  ;; add ~/.emacs.d/lisp to load path
+  (add-to-list 'load-path lisp-directory)
+
+  ;; save customizations as local (unversioned) settings
+  (setq custom-file (expand-file-name "init-local.el" lisp-directory)))
 
 ;; load files
 (require 'init-package)
@@ -29,11 +33,6 @@
 (require 'init-imenu)
 (require 'init-tramp)
 (require 'init-flycheck)
-
-;; save customizations as local (unversioned) settings
-(setq custom-file (expand-file-name
-                   "init-local.el"
-                   (expand-file-name "lisp" user-emacs-directory)))
 
 ;; local settings (optional)
 (require 'init-local nil t)
