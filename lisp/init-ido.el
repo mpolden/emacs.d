@@ -26,13 +26,10 @@
   :config
   (flx-ido-mode 1))
 
-;; ido-vertical-mode
-(use-package ido-vertical-mode
-  :init
-  (setq ido-vertical-show-count t)
-
+;; ido-grid-mode
+(use-package ido-grid-mode
   :config
-  (ido-vertical-mode 1))
+  (ido-grid-mode 1))
 
 ;; ido-ubiquitous
 (use-package ido-ubiquitous
