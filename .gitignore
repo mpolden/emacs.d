@@ -56,3 +56,6 @@ backups/
 
 # ido
 /.ido.last
+
+# saveplace
+/places

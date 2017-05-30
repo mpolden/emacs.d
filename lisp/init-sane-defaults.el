@@ -76,4 +76,10 @@
 ;; always add newline at the end of the file
 (setq require-final-newline t)
 
+;; remember position in previously visited files
+(use-package saveplace
+  :ensure nil ;; package is bundled with emacs
+  :config
+  (save-place-mode 1))
+
 (provide 'init-sane-defaults)
