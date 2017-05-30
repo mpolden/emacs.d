@@ -73,4 +73,7 @@
 ;; preserve point position when scrolling
 (setq scroll-preserve-screen-position 'always)
 
+;; always add newline at the end of the file
+(setq require-final-newline t)
+
 (provide 'init-sane-defaults)
