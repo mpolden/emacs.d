@@ -32,7 +32,11 @@
   :ensure nil ;; package is bundled with emacs
 
   :bind (("C-h C-f" . find-function-other-window)
-         ("C-h C-k" . find-function-on-key)))
+         ("C-h C-k" . find-function-on-key))
+
+  :config
+  ;; make source files read-only when visiting
+  (setq find-function-after-hook (lambda () (read-only-mode 1))))
 
 (defun show-file-name ()
   "Show the full path file name in the minibuffer and add it to the kill ring."
