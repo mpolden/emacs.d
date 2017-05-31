@@ -1,18 +1,4 @@
-(use-package go-mode
-  :init
-  ;; use goimports if available
-  (when (executable-find "goimports")
-    (setq gofmt-command "goimports"))
-
-  :bind (:map go-mode-map
-         ;; C-c p runs gofmt on the buffer
-         ("C-c p" . gofmt))
-
-  :config
-  ;; run gofmt before saving file
-  (add-hook 'before-save-hook 'gofmt-before-save)
-
-  (defun go-mode-create-imenu-index ()
+(defun go-mode-create-imenu-index ()
     "Create and return an imenu index alist. Unlike the default
 alist created by go-mode, this method creates an alist where
 items follow a style that is consistent with other prog-modes."
@@ -33,10 +19,23 @@ items follow a style that is consistent with other prog-modes."
             (setq func-index (cons item func-index)))))
       (nconc type-index (list (cons "func" func-index)))))
 
-  (defun go-mode-create-flat-imenu-index ()
+(defun go-mode-create-flat-imenu-index ()
     "Return a flat imenu index alist. See `go-mode-create-imenu-index'."
     (apply 'nconc (mapcar 'cdr (go-mode-create-imenu-index))))
 
+(use-package go-mode
+  :init
+  ;; use goimports if available
+  (when (executable-find "goimports")
+    (setq gofmt-command "goimports"))
+
+  :bind (:map go-mode-map
+         ;; C-c p runs gofmt on the buffer
+         ("C-c p" . gofmt))
+
+  :config
+  ;; run gofmt before saving file
+  (add-hook 'before-save-hook 'gofmt-before-save)
   (add-hook 'go-mode-hook
             (lambda ()
               ;; adjust fill-column
