@@ -33,6 +33,10 @@
 
 ;; ido-ubiquitous
 (use-package ido-ubiquitous
+  :init
+  ;; automatically add new overrides when ido-ubiquitous is updated
+  (setq ido-ubiquitous-auto-update-overrides t)
+
   :config
   (ido-ubiquitous-mode 1))
 
