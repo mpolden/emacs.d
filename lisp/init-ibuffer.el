@@ -19,9 +19,9 @@
          ("C-o" . ibuffer-visit-buffer-other-window-noselect))
 
   :config
-  ;; group ibuffer by repository root
-  (add-hook 'ibuffer-hook 'ibuffer-vc-set-filter-groups-by-vc-root))
+  ;; group ibuffer by projectile project
+  (add-hook 'ibuffer-hook 'ibuffer-projectile-set-filter-groups))
 
-(use-package ibuffer-vc)
+(use-package ibuffer-projectile)
 
 (provide 'init-ibuffer)
