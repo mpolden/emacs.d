@@ -8,6 +8,7 @@
   (when (eq 0 (call-process insert-directory-program
                             nil nil nil "--group-directories-first"))
     (setq dired-listing-switches (concat dired-listing-switches
-                                         " --group-directories-first"))))
+                                         " --group-directories-first")))
+  :bind ("M-<up>" . dired-up-directory))
 
 (provide 'init-dired)
