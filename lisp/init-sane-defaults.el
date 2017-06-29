@@ -23,12 +23,11 @@
 (use-package autorevert
   :ensure nil ;; package is bundled with emacs
   :diminish auto-revert-mode
+  :init
+  ;; revert buffers quietly
+  (setq auto-revert-verbose nil)
   :config
   (global-auto-revert-mode 1))
-
-;; reload dired buffers automatically and be quit about it
-(setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose nil)
 
 ;; integrate with X clipboard
 (setq select-enable-clipboard t)
