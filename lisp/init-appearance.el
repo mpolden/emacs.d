@@ -26,7 +26,7 @@
 (use-package doom-themes
   :if (display-graphic-p)
   :config
-  (load-theme 'doom-vibrant t))
+  (load-theme 'doom-one t))
 
 ;; highlight matching parentheses
 (use-package paren
