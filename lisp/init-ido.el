@@ -34,8 +34,8 @@
 ;; ido-completing-read+
 (use-package ido-completing-read+
   :init
-  ;; automatically add new overrides when ido-completing-read+ is updated
-  (setq ido-ubiquitous-auto-update-overrides t)
+  ;; automatically update blacklist when package is updated
+  (setq ido-cr+-auto-update-blacklist t)
 
   :config
   (ido-ubiquitous-mode 1))
