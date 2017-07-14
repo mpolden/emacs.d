@@ -31,10 +31,10 @@
   :config
   (ido-grid-mode 1))
 
-;; ido-ubiquitous
-(use-package ido-ubiquitous
+;; ido-completing-read+
+(use-package ido-completing-read+
   :init
-  ;; automatically add new overrides when ido-ubiquitous is updated
+  ;; automatically add new overrides when ido-completing-read+ is updated
   (setq ido-ubiquitous-auto-update-overrides t)
 
   :config
