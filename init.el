@@ -34,6 +34,7 @@
 (require 'init-imenu)
 (require 'init-tramp)
 (require 'init-flycheck)
+(require 'init-org)
 
 ;; local settings (optional)
 (require 'init-local nil t)
