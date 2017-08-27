@@ -1,8 +1,8 @@
  ;; cut or copy the current line if no region is active
 (use-package whole-line-or-region
-  :diminish whole-line-or-region-mode
+  :diminish whole-line-or-region-local-mode
   :config
-  (whole-line-or-region-mode 1))
+  (whole-line-or-region-global-mode 1))
 
 ;; use zap-up-to-char instead of zap-to-char
 (use-package misc
