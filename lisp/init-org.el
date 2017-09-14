@@ -1,5 +1,6 @@
 (use-package org
   :ensure nil ;; package is bundled with emacs
+  :bind ("C-c a" . org-agenda)
   :init
   (setq org-archive-location "::* Archived Tasks"
         org-agenda-files '("todo.org")
