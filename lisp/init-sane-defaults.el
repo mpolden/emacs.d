@@ -2,13 +2,13 @@
 (setq-default indent-tabs-mode nil)
 
 ;; make prompts accept y or n
-(defalias 'yes-or-no-p 'y-or-n-p)
+(defalias 'yes-or-no-p #'y-or-n-p)
 
 ;; no confirmation for non-existent files or buffers
 (setq confirm-nonexistent-file-or-buffer nil)
 
 ;; disable audible bell
-(setq ring-bell-function 'ignore)
+(setq ring-bell-function #'ignore)
 
 ;; scroll one line at a time
 (setq mouse-wheel-scroll-amount
@@ -61,10 +61,18 @@
 (setq-default fill-column 80)
 
 ;; confirm when exiting
-(setq confirm-kill-emacs 'y-or-n-p)
+(setq confirm-kill-emacs #'y-or-n-p)
 
-;; disable backup files
-(setq make-backup-files nil)
+;; backup files
+(setq make-backup-files t
+      backup-directory-alist `(("." . ,(expand-file-name "backup"
+                                                         user-emacs-directory)))
+      backup-by-copying t
+      delete-old-versions t
+      version-control t
+      vc-make-backup-files t
+      kept-new-versions 6
+      kept-old-versions 2)
 
 ;; preserve point position when scrolling
 (setq scroll-preserve-screen-position 'always)
