@@ -3,7 +3,7 @@
   :bind ("C-c a" . org-agenda)
   :init
   (setq org-archive-location "::* Archived Tasks"
-        org-agenda-files '("todo.org")
+        org-agenda-files `(,org-directory)
         org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5))
         org-mobile-directory "~/.mobileorg"
         org-log-done 'time))
