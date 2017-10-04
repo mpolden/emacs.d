@@ -40,4 +40,9 @@
 (when (executable-find "gls")
   (setq insert-directory-program "gls"))
 
+;; use gdf if available as it provides more correct output. When apfs is used,
+;; the ifree column of bsd df seems to be incorrect
+(when (executable-find "gdf")
+  (setq dired-free-space-program "gdf"))
+
 (provide 'init-mac)
