@@ -3,6 +3,6 @@
   :ensure nil
 
   :bind (:map flyspell-mode-map
-              ("C-c c" . flyspell-correct-word-before-point)))
+              ("C-c s" . flyspell-correct-word-before-point)))
 
 (provide 'init-flyspell)
