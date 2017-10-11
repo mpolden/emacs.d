@@ -16,6 +16,16 @@
   (setq org-mobile-directory "~/.mobileorg")
 
   ;; record time when moving a task to done state
-  (setq org-log-done 'time))
+  (setq org-log-done 'time)
+
+  ;; default file for capture
+  (setq org-default-notes-file (expand-file-name "personal.org" org-directory))
+
+  ;; capture template including title, date and time
+  (setq org-capture-templates '(("t" "Task" entry (file+headline "" "Tasks")
+                                 "* TODO %?\n  %T\n")))
+
+  ;; C-c captures tasks
+  (global-set-key (kbd "C-c c") 'org-capture))
 
 (provide 'init-org)
