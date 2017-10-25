@@ -25,6 +25,9 @@
   (setq org-capture-templates '(("t" "Task" entry (file+headline "" "Tasks")
                                  "* TODO %?\n  %T\n")))
 
+  ;; automatically mark archived entry as done
+  (setq org-archive-mark-done t)
+
   ;; C-c captures tasks
   (global-set-key (kbd "C-c c") 'org-capture))
 
