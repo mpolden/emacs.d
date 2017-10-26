@@ -34,6 +34,11 @@
   ;; automatically mark archived entry as done
   (setq org-archive-mark-done t)
 
+  ;; use same foreground color for org headline with ARCHIVE tag
+  ;; https://github.com/hlissner/emacs-doom-themes/issues/111
+  (when (member 'doom-one custom-enabled-themes)
+    (set-face-attribute 'org-archived nil :foreground nil))
+
   ;; C-c captures tasks
   (global-set-key (kbd "C-c c") 'org-capture))
 
