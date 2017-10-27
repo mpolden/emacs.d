@@ -6,7 +6,7 @@
 (use-package org
   :ensure nil ;; package is bundled with emacs
   :bind (("C-c a" . org-agenda)
-         ("C-c d" . org-archive-subtree-and-set-startup-visibility))
+         ("C-c y" . org-archive-subtree-and-set-startup-visibility))
   :config
   ;; name of subtree where archived tasks should be moved
   (setq org-archive-location "::* Archived Tasks")
