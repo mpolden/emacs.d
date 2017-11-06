@@ -33,6 +33,9 @@
   ;; disable gravatars
   (setq magit-revision-show-gravatars nil)
 
+  ;; hide recent commits in magit-status
+  (setq magit-log-section-commit-count 0)
+
   :bind (("C-x m" . magit-status)
          ("C-c b" . magit-blame)
          :map magit-status-mode-map
