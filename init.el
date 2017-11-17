@@ -35,6 +35,7 @@
 (require 'init-tramp)
 (require 'init-flycheck)
 (require 'init-org)
+(require 'init-fish-mode)
 
 ;; local settings (optional)
 (require 'init-local nil t)
