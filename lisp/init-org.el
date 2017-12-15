@@ -35,6 +35,11 @@
   (setq org-archive-mark-done t)
 
   ;; C-c captures tasks
-  (global-set-key (kbd "C-c c") 'org-capture))
+  (global-set-key (kbd "C-c c") 'org-capture)
+
+  ;; enable flyspell-mode
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (when (featurep 'flyspell) (flyspell-mode 1)))))
 
 (provide 'init-org)
