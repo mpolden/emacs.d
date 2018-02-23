@@ -29,7 +29,7 @@
 
   ;; capture template including title, date and time
   (setq org-capture-templates '(("t" "Task" entry (file+headline "" "Tasks")
-                                 "* TODO %?\n  %T\n")))
+                                 "* TODO %?\n  %T\n" :prepend t)))
 
   ;; automatically mark archived entry as done
   (setq org-archive-mark-done t)
