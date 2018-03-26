@@ -84,6 +84,10 @@
 (use-package saveplace
   :ensure nil ;; package is bundled with emacs
   :config
-  (save-place-mode 1))
+  (if (fboundp 'save-place-mode)
+      ;; emacs 25.1 and newer
+      (save-place-mode 1)
+    ;; emacs 24.5 and older
+    (setq-default save-place t)))
 
 (provide 'init-sane-defaults)
