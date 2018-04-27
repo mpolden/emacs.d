@@ -28,7 +28,12 @@
   (setq org-default-notes-file (expand-file-name "personal.org" org-directory))
 
   ;; capture template including title, date and time
-  (setq org-capture-templates '(("t" "Task" entry (file+headline "" "Tasks")
+  (setq org-capture-templates '(("p" "Personal" entry (file+headline "" "Tasks")
+                                 "* TODO %?\n  %T\n" :prepend t)
+                                ("w" "Work" entry (file+headline
+                                                   (expand-file-name
+                                                    "work.org" org-directory)
+                                                   "Tasks")
                                  "* TODO %?\n  %T\n" :prepend t)))
 
   ;; automatically mark archived entry as done
