@@ -63,3 +63,6 @@ backups/
 
 # Cask
 /.cask/
+
+# magithub
+/magithub/

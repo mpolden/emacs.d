@@ -43,6 +43,14 @@
          ("o" . magit-diff-visit-file-other-window)
          ("C-o" . magit-diff-visit-file-other-window-noselect)))
 
+(use-package magithub
+  :after magit
+  :config
+  ;; enable all features
+  (magithub-feature-autoinject t)
+  ;; disable by default
+  (setq magithub-enabled-by-default nil))
+
 ;; follow symlinks to files under version control
 (setq vc-follow-symlinks t)
 
