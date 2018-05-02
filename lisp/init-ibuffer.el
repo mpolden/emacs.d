@@ -22,6 +22,7 @@
   ;; group ibuffer by projectile project
   (add-hook 'ibuffer-hook 'ibuffer-projectile-set-filter-groups))
 
-(use-package ibuffer-projectile)
+(use-package ibuffer-projectile
+  :after (ibuffer projectile))
 
 (provide 'init-ibuffer)

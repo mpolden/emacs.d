@@ -18,6 +18,7 @@
 
 ;; flx-ido
 (use-package flx-ido
+  :after ido
   :init
   ;; disable ido faces to see flx highlights.
   (setq ido-use-faces nil
@@ -28,11 +29,13 @@
 
 ;; ido-grid-mode
 (use-package ido-grid-mode
+  :after ido
   :config
   (ido-grid-mode 1))
 
 ;; ido-completing-read+
 (use-package ido-completing-read+
+  :after ido
   :init
   ;; automatically update blacklist when package is updated
   (setq ido-cr+-auto-update-blacklist t)
@@ -42,6 +45,7 @@
 
 ;; smex
 (use-package smex
+  :after ido
   :init
   ;; do not update cache automatically on every invocation
   (setq smex-auto-update nil)

@@ -8,6 +8,7 @@
 
 ;; configure flycheck to support cargo project layout
 (use-package flycheck-rust
+  :after (flycheck rust-mode)
   :config
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 

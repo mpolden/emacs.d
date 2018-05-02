@@ -42,12 +42,13 @@ items follow a style that is consistent with other prog-modes."
               (setq-local fill-column 120)
               ;; use flat imenu index
               (setq-local imenu-create-index-function
-                          #'go-mode-create-flat-imenu-index)))
+                          #'go-mode-create-flat-imenu-index))))
 
-  ;; install go-rename if gorename is found in PATH
-  (use-package go-rename
-    :if (executable-find "gorename")
-    :bind (:map go-mode-map
-                ("C-c r" . go-rename))))
+;; install go-rename if gorename is found in PATH
+(use-package go-rename
+  :after go-mode
+  :if (executable-find "gorename")
+  :bind (:map go-mode-map
+              ("C-c r" . go-rename)))
 
 (provide 'init-go-mode)
