@@ -46,10 +46,9 @@
 (use-package magithub
   :after magit
   :config
+  ;; use 'git config --global magithub.enabled false' to disable by default
   ;; enable all features
-  (magithub-feature-autoinject t)
-  ;; disable by default
-  (setq magithub-enabled-by-default nil))
+  (magithub-feature-autoinject t))
 
 ;; follow symlinks to files under version control
 (setq vc-follow-symlinks t)
