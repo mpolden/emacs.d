@@ -1,8 +1,8 @@
-;; use source code pro font if available
-;; https://github.com/adobe-fonts/source-code-pro
-(let ((font-family "Source Code Pro"))
+;; use fira code font if available
+;; https://github.com/tonsky/FiraCode
+(let ((font-family "Fira Code"))
   (when (and (display-graphic-p) (member font-family (font-family-list)))
-    (set-face-attribute 'default nil :family font-family)
+    (set-face-attribute 'default nil :family (concat font-family " Retina"))
     (set-face-attribute 'default nil :height 140)))
 
 ;; configure modifiers
