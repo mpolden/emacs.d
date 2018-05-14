@@ -42,7 +42,7 @@
   ;;
   ;; increment split-height-threshold so that vertical splits are still
   ;; preferred in most cases
-  (setq split-height-threshold (1+ split-height-threshold)))
+  (setq split-height-threshold (+ 10 split-height-threshold)))
 
 ;; configure modifiers
 (setq mac-option-modifier 'super)
