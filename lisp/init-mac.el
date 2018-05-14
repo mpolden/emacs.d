@@ -35,7 +35,14 @@
                  ))
       (dolist (char-regexp alist)
         (set-char-table-range composition-function-table (car char-regexp)
-                              `([,(cdr char-regexp) 0 font-shape-gstring]))))))
+                              `([,(cdr char-regexp) 0 font-shape-gstring])))))
+
+  ;; fira code retina at 14 pt may result in (window-total-height) being exactly
+  ;; 80 which makes sensible splitting less sensible
+  ;;
+  ;; increment split-height-threshold so that vertical splits are still
+  ;; preferred in most cases
+  (setq split-height-threshold (1+ split-height-threshold)))
 
 ;; configure modifiers
 (setq mac-option-modifier 'super)
