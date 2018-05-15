@@ -39,6 +39,9 @@
   ;; automatically mark archived entry as done
   (setq org-archive-mark-done t)
 
+  ;; highlight code blocks
+  (setq org-src-fontify-natively t)
+
   ;; C-c captures tasks
   (global-set-key (kbd "C-c c") 'org-capture)
 
