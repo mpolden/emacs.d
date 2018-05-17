@@ -2,7 +2,7 @@
   :ensure nil ;; package is installed outside emacs
   :load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
   :bind (("C-c e" . mu4e))
-  :config
+  :init
   ;; always show addresses
   (setq mu4e-view-show-addresses t)
 
@@ -27,18 +27,19 @@
   ;; offlineimap downloads email
   (setq mu4e-get-mail-command "offlineimap")
 
+  ;; shortcuts
+  (setq mu4e-maildir-shortcuts '(("/INBOX" . ?i)
+                                 ("/Archive" . ?a)
+                                 ("/Sent" . ?s)
+                                 ("/Trash" . ?t)))
+
+  :config
   ;; use email address from git
   (when (executable-find "git")
     (setq user-full-name (string-trim (shell-command-to-string
                                        "git config --global --get user.name"))
           user-mail-address (string-trim (shell-command-to-string
                                           "git config --global --get user.email"))))
-
-  ;; shortcuts
-  (setq mu4e-maildir-shortcuts '(("/INBOX" . ?i)
-                                 ("/Archive" . ?a)
-                                 ("/Sent" . ?s)
-                                 ("/Trash" . ?t)))
 
   ;; disable auto-composition-mode in mu4e-headers-mode due to ligatures
   ;; triggering a performance issue
@@ -51,7 +52,7 @@
 
 (use-package smtpmail
   :ensure nil ;; package is bundled with emacs
-  :config
+  :init
   ;; use smtpmail
   (setq send-mail-function 'smtpmail-send-it)
 
