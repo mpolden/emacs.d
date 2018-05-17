@@ -9,6 +9,16 @@
   ;; disable threads by default
   (setq mu4e-headers-show-threads nil)
 
+  ;; header list date format
+  (setq mu4e-headers-date-format "%Y-%m-%d %H:%M")
+
+  ;; adjust date field width to fit the above format
+  (setq mu4e-headers-fields '((:human-date . 18)
+                              (:flags . 6)
+                              (:mailing-list . 10)
+                              (:from . 22)
+                              (:subject)))
+
   ;; fastmail folders
   (setq mu4e-sent-folder "/Sent"
         mu4e-drafts-folder "/Drafts"
