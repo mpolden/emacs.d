@@ -36,6 +36,7 @@
 (require 'init-flycheck)
 (require 'init-org)
 (require 'init-rust-mode)
+(require 'init-email)
 
 ;; local settings (optional)
 (require 'init-local nil t)
