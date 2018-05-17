@@ -3,6 +3,9 @@
   :load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
   :bind (("C-c e" . mu4e))
   :config
+  ;; always show addresses
+  (setq mu4e-view-show-addresses t)
+
   ;; disable threads by default
   (setq mu4e-headers-show-threads nil)
 
