@@ -3,6 +3,9 @@
   :load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
   :bind (("C-c e" . mu4e))
   :init
+  ;; use mu4e as mail user agent
+  (setq mail-user-agent 'mu4e-user-agent)
+
   ;; always show addresses
   (setq mu4e-view-show-addresses t)
 
