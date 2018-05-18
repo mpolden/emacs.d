@@ -22,7 +22,8 @@
   ;; fastmail folders
   (setq mu4e-sent-folder "/Sent"
         mu4e-drafts-folder "/Drafts"
-        mu4e-trash-folder "/Trash")
+        mu4e-trash-folder "/Trash"
+        mu4e-refile-folder "/Archive")
 
   ;; offlineimap downloads email
   (setq mu4e-get-mail-command "offlineimap")
