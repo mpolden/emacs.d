@@ -6,6 +6,9 @@
   ;; use mu4e as mail user agent
   (setq mail-user-agent 'mu4e-user-agent)
 
+  ;; kill buffer after sending message
+  (setq message-kill-buffer-on-exit t)
+
   ;; always show addresses
   (setq mu4e-view-show-addresses t)
 
