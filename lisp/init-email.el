@@ -60,6 +60,11 @@
   :bind (:map mu4e-headers-mode-map ("d" . "mt")
          :map mu4e-view-mode-map ("d" . "mt")))
 
+(use-package org-mu4e
+  :ensure nil ;; package is installed outside emacs
+  :load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
+  :after mu4e)
+
 (use-package smtpmail
   :ensure nil ;; package is bundled with emacs
   :init
