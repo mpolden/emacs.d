@@ -9,6 +9,9 @@
   ;; kill buffer after sending message
   (setq message-kill-buffer-on-exit t)
 
+  ;; use format=flowed when sending message
+  (setq mu4e-compose-format-flowed t)
+
   ;; always show addresses
   (setq mu4e-view-show-addresses t)
 
