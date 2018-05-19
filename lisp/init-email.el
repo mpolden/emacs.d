@@ -1,7 +1,7 @@
 (use-package mu4e
   :ensure nil ;; package is installed outside emacs
   :load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
-  :bind (("C-c e" . mu4e))
+  :bind (("C-c m" . mu4e))
   :init
   ;; use mu4e as mail user agent
   (setq mail-user-agent 'mu4e-user-agent)
