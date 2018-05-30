@@ -37,6 +37,13 @@
         (set-char-table-range composition-function-table (car char-regexp)
                               `([,(cdr char-regexp) 0 font-shape-gstring])))))
 
+  ;; ligatures may be expensive so only enable them in prog-mode
+  (use-package composite
+    :ensure nil ;; package is bundled with emacs
+    :config
+    (global-auto-composition-mode -1)
+    (add-hook 'prog-mode-hook 'auto-composition-mode))
+
   ;; fira code retina at 14 pt may result in (window-total-height) being exactly
   ;; 80 which makes sensible splitting less sensible
   ;;

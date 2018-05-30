@@ -51,11 +51,6 @@
           user-mail-address (string-trim (shell-command-to-string
                                           "git config --global --get user.email"))))
 
-  ;; disable auto-composition-mode in mu4e-headers-mode due to ligatures
-  ;; triggering a performance issue
-  (add-hook 'mu4e-headers-mode-hook
-            (lambda () (setq-local auto-composition-mode nil)))
-
   ;; delete moves email to trash
   :bind (:map mu4e-headers-mode-map ("d" . "mt")
          :map mu4e-view-mode-map ("d" . "mt")))
