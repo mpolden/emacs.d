@@ -26,7 +26,11 @@
 (use-package doom-themes
   :if (display-graphic-p)
   :config
-  (load-theme 'doom-dracula t))
+  (load-theme 'doom-dracula t)
+
+  ;; use dark title bar on mac as this is a dark theme
+  (when (eq system-type 'darwin)
+    (add-to-list 'default-frame-alist '(ns-appearance . dark))))
 
 ;; highlight matching parentheses
 (use-package paren
