@@ -8,7 +8,7 @@ install:
 	ln $(LN_FLAGS) $(CURDIR) ~/.emacs.d
 
 update:
-	git pull --rebase
+	git pull --rebase --quiet
 
 clean:
 	rm -rf elpa/*
