@@ -28,9 +28,10 @@
   :config
   (load-theme 'doom-dracula t)
 
-  ;; use dark title bar on mac as this is a dark theme
+  ;; make title bar use same style as theme on mac
   (when (eq system-type 'darwin)
-    (add-to-list 'default-frame-alist '(ns-appearance . dark))))
+    (setq default-frame-alist '((ns-appearance . dark)
+                                (ns-transparent-title-bar . t)))))
 
 ;; highlight matching parentheses
 (use-package paren
