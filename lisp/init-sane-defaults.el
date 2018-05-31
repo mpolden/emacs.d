@@ -90,4 +90,10 @@
     ;; emacs 24.5 and older
     (setq-default save-place t)))
 
+;; disable eldoc
+(use-package eldoc
+  :ensure nil ;; package is bundled with emacs
+  :config
+  (global-eldoc-mode -1))
+
 (provide 'init-sane-defaults)
