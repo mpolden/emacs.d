@@ -94,6 +94,7 @@
 (use-package eldoc
   :ensure nil ;; package is bundled with emacs
   :config
-  (global-eldoc-mode -1))
+  (when (functionp 'global-eldoc-mode)
+    (global-eldoc-mode -1)))
 
 (provide 'init-sane-defaults)
