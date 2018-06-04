@@ -27,10 +27,8 @@
   ;; capture template including title, date and time
   (setq org-capture-templates '(("p" "Personal" entry (file+headline "" "Tasks")
                                  "* TODO %?\n  %T\n" :prepend t)
-                                ("w" "Work" entry (file+headline
-                                                   (expand-file-name
-                                                    "work.org" org-directory)
-                                                   "Tasks")
+                                ("w" "Work" entry (file+headline "work.org"
+                                                                 "Tasks")
                                  "* TODO %?\n  %T\n" :prepend t)))
 
   ;; automatically mark archived entry as done
