@@ -5,51 +5,12 @@
     (set-face-attribute 'default nil :family (concat font-family " Retina"))
     (set-face-attribute 'default nil :height 140)
 
-    ;; configure ligatures
-    ;; https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
-    (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
-                   (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
-                   (36 . ".\\(?:>\\)")
-                   (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
-                   (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
-                   (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
-                   (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
-                   (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
-                   (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
-                   (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
-                   (48 . ".\\(?:x[a-zA-Z]\\)")
-                   (58 . ".\\(?:::\\|[:=]\\)")
-                   (59 . ".\\(?:;;\\|;\\)")
-                   (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
-                   (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
-                   (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
-                   (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
-                   (91 . ".\\(?:]\\)")
-                   (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
-                   (94 . ".\\(?:=\\)")
-                   (119 . ".\\(?:ww\\)")
-                   (123 . ".\\(?:-\\)")
-                   (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
-                   (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
-                   )
-                 ))
-      (dolist (char-regexp alist)
-        (set-char-table-range composition-function-table (car char-regexp)
-                              `([,(cdr char-regexp) 0 font-shape-gstring])))))
-
-  ;; ligatures may be expensive so only enable them in prog-mode
-  (use-package composite
-    :ensure nil ;; package is bundled with emacs
-    :config
-    (global-auto-composition-mode -1)
-    (add-hook 'prog-mode-hook 'auto-composition-mode))
-
-  ;; fira code retina at 14 pt may result in (window-total-height) being exactly
-  ;; 80 which makes sensible splitting less sensible
-  ;;
-  ;; increment split-height-threshold so that vertical splits are still
-  ;; preferred in most cases
-  (setq split-height-threshold (+ 10 split-height-threshold)))
+    ;; fira code retina at 14 pt may result in (window-total-height) being
+    ;; exactly 80 which makes sensible splitting less sensible
+    ;;
+    ;; increment split-height-threshold so that vertical splits are still
+    ;; preferred in most cases
+    (setq split-height-threshold (+ 10 split-height-threshold))))
 
 ;; configure modifiers
 (setq mac-option-modifier 'super)
