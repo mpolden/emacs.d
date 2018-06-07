@@ -43,6 +43,9 @@
                                  ("/Sent" . ?s)
                                  ("/Trash" . ?t)))
 
+  ;; increase readability when using dark theme
+  (setq shr-color-visible-luminance-min 80)
+
   :config
   ;; use email address from git
   (when (executable-find "git")
