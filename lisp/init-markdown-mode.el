@@ -1,7 +1,7 @@
 (use-package markdown-mode
   :mode
   ;; use markdown mode for .md and .markdown extensions
-  ("\\.\\(md\\|markdown\\)\\'" . markdown-mode)
+  ("\\.\\(md\\|markdown\\)\\'" . gfm-mode)
 
   :config
   (add-hook 'markdown-mode-hook
