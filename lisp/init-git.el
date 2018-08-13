@@ -7,6 +7,16 @@
 
 ;; use flyspell when writing commit messages
 (use-package git-commit
+  :after markdown-mode
+
+  :init
+  ;; use gfm-mode in pull request buffers
+  (setq git-commit-major-mode
+        (lambda ()
+          (if (equal (buffer-name) "PULLREQ_EDITMSG")
+              (funcall 'gfm-mode)
+            (funcall 'text-mode))))
+
   :config
   (add-hook 'git-commit-mode-hook
             (lambda ()
