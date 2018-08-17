@@ -26,12 +26,12 @@
 
   ;; capture template including title, date and time
   (setq org-capture-templates '(("p" "Personal" entry (file+headline "" "Tasks")
-                                 "* TODO %?\n  %T"
+                                 "* TODO %?\n  %U"
                                  :prepend t
                                  :empty-lines-after 1)
                                 ("w" "Work" entry (file+headline "work.org"
                                                                  "Tasks")
-                                 "* TODO %?\n  %T"
+                                 "* TODO %?\n  %U"
                                  :prepend t
                                  :empty-lines-after 1)))
 
