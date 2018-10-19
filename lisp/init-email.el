@@ -34,8 +34,11 @@
         mu4e-trash-folder "/Trash"
         mu4e-refile-folder "/Archive")
 
-  ;; offlineimap downloads email
-  (setq mu4e-get-mail-command "offlineimap")
+  ;; mbsync downloads email
+  (setq mu4e-get-mail-command "mbsync fastmail")
+
+  ;; change filename when moving (recommended when using mbsync)
+  (setq mu4e-change-filenames-when-moving t)
 
   ;; shortcuts
   (setq mu4e-maildir-shortcuts '(("/INBOX" . ?i)
