@@ -28,7 +28,7 @@
   (interactive)
   (let ((current-window (selected-window))
         ;; magit-diff-visit-file visits in other-window with prefix arg
-        (current-prefix-arg '(t)))
+        (current-prefix-arg t))
     (call-interactively 'magit-diff-visit-file)
     (when noselect
       (select-window current-window))))
