@@ -35,7 +35,7 @@
         mu4e-refile-folder "/Archive")
 
   ;; mbsync downloads email
-  (setq mu4e-get-mail-command "mbsync fastmail")
+  (setq mu4e-get-mail-command "mbsync -a")
 
   ;; change filename when moving (recommended when using mbsync)
   (setq mu4e-change-filenames-when-moving t)
