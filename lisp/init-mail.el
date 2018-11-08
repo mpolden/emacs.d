@@ -77,4 +77,4 @@
         smtpmail-smtp-service 465
         smtpmail-stream-type 'ssl))
 
-(provide 'init-email)
+(provide 'init-mail)
