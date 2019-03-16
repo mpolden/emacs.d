@@ -2,7 +2,7 @@
   :init
   ;; disable noisy checkers
   (setq-default flycheck-disabled-checkers
-                '(emacs-lisp emacs-lisp-checkdoc go-golint go-megacheck))
+                '(emacs-lisp emacs-lisp-checkdoc go-golint))
 
   ;; prefer python 3
   (let ((python "python3"))
