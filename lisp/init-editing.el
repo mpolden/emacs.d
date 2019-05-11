@@ -74,4 +74,7 @@
 ;; C-x g goes to line (as in mg)
 (global-set-key (kbd "C-x g") 'goto-line)
 
+;; C-- undoes
+(global-set-key (kbd "C--") 'undo)
+
 (provide 'init-editing)
