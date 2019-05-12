@@ -23,10 +23,10 @@
   (global-hl-line-mode 1))
 
 ;; set theme
-(use-package doom-themes
+(use-package color-theme-sanityinc-tomorrow
   :if (display-graphic-p)
   :config
-  (load-theme 'doom-one t)
+  (load-theme 'sanityinc-tomorrow-night t)
 
   ;; make title bar use same style as theme on mac
   (when (eq system-type 'darwin)
