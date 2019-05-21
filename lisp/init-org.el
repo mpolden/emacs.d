@@ -25,12 +25,11 @@
   (setq org-default-notes-file (expand-file-name "personal.org" org-directory))
 
   ;; capture template including title, date and time
-  (setq org-capture-templates '(("p" "Personal" entry (file+headline "" "Tasks")
+  (setq org-capture-templates '(("p" "Personal" entry (file+olp "" "Tasks")
                                  "* TODO %?\n  %U"
                                  :prepend t
                                  :empty-lines-after 1)
-                                ("w" "Work" entry (file+headline "work.org"
-                                                                 "Tasks")
+                                ("w" "Work" entry (file+olp "work.org" "Tasks")
                                  "* TODO %?\n  %U"
                                  :prepend t
                                  :empty-lines-after 1)))
