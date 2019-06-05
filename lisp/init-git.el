@@ -15,12 +15,7 @@
         (lambda ()
           (if (equal (buffer-name) "PULLREQ_EDITMSG")
               (funcall 'gfm-mode)
-            (funcall 'text-mode))))
-
-  :config
-  (add-hook 'git-commit-mode-hook
-            (lambda ()
-              (when (featurep 'flyspell) (flyspell-mode 1)))))
+            (funcall 'text-mode)))))
 
 ;; magit config
 (defun magit-diff-visit-file-other-window (&optional noselect)
