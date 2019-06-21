@@ -66,3 +66,6 @@ backups/
 
 # transient
 /transient/
+
+# lsp-mode
+/.lsp-session-v1
