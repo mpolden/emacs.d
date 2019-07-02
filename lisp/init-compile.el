@@ -6,3 +6,5 @@
   (setq compilation-read-command nil)
 
   :bind (("C-c m" . 'compile)))
+
+(provide 'init-compile)
