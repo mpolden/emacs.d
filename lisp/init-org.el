@@ -44,11 +44,6 @@
   (setq org-src-tab-acts-natively t)
 
   ;; C-c captures tasks
-  (global-set-key (kbd "C-c c") 'org-capture)
-
-  ;; enable flyspell-mode
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (when (featurep 'flyspell) (flyspell-mode 1)))))
+  (global-set-key (kbd "C-c c") 'org-capture))
 
 (provide 'init-org)
