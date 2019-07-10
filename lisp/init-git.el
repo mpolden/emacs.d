@@ -5,7 +5,6 @@
 (use-package gitconfig-mode
   :mode ("gitconfig\\'" . gitconfig-mode))
 
-;; use flyspell when writing commit messages
 (use-package git-commit
   :after markdown-mode
 
