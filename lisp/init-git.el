@@ -9,12 +9,8 @@
   :after markdown-mode
 
   :init
-  ;; use gfm-mode in pull request buffers
-  (setq git-commit-major-mode
-        (lambda ()
-          (if (equal (buffer-name) "PULLREQ_EDITMSG")
-              (funcall 'gfm-mode)
-            (funcall 'text-mode)))))
+  ;; use gfm-mode as major mode
+  (setq git-commit-major-mode 'gfm-mode))
 
 ;; magit config
 (defun magit-diff-visit-file-other-window (&optional noselect)
