@@ -14,6 +14,9 @@
 
 (use-package lsp-ui
   :commands lsp-ui-mode
+  :init
+  ;; disable sideline
+  (setq lsp-ui-sideline-enable nil)
   :hook
   ;; enable lsp-ui-mode in lsp-mode
   (lsp . lsp-ui-mode))
