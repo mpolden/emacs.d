@@ -7,8 +7,7 @@
 (use-package subword
   :ensure nil ;; package is bundled with emacs
   :diminish subword-mode
-  :config
-  (add-hook 'prog-mode-hook 'subword-mode))
+  :hook ((prog-mode . subword-mode)))
 
 ;; enable electric-indent-mode
 (use-package electric
