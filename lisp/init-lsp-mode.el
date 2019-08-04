@@ -17,6 +17,8 @@
   :init
   ;; disable sideline
   (setq lsp-ui-sideline-enable nil)
+  ;; do not show documentation
+  (setq lsp-ui-doc-enable nil)
   :hook
   ;; enable lsp-ui-mode in lsp-mode
   (lsp . lsp-ui-mode))
