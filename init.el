@@ -38,7 +38,6 @@
 (require 'init-org)
 (require 'init-rust-mode)
 (require 'init-lsp-mode)
-(require 'init-compile)
 
 ;; local settings (optional)
 (require 'init-local nil t)
