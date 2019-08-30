@@ -1,5 +1,5 @@
 (use-package lsp-mode
-  :commands lsp
+  :commands (lsp lsp-format-buffer)
   :init
   ;; disable yasnippet support
   (setq lsp-enable-snippet nil)
@@ -7,10 +7,14 @@
   (setq lsp-prefer-flymake nil)
   :hook
   ;; enable lsp in go-mode
-  (go-mode . lsp)
+  ((go-mode . lsp)
+   ;; reformat on save
+   (before-save . lsp-format-buffer))
   :bind (:map lsp-mode-map
               ;; C-c r renames identifier
-              ("C-c r" . lsp-rename)))
+              ("C-c r" . lsp-rename)
+              ;; C-c p reformats buffer
+              ("C-c p" . lsp-format-buffer)))
 
 (use-package lsp-ui
   :commands lsp-ui-mode
