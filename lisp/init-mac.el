@@ -3,7 +3,7 @@
 (let ((font-family "Fira Code"))
   (when (and (display-graphic-p) (member font-family (font-family-list)))
     (set-face-attribute 'default nil :family font-family)
-    (set-face-attribute 'default nil :height 130)
+    (set-face-attribute 'default nil :height 150)
 
     ;; fira code retina at 14 pt may result in (window-total-height) being
     ;; exactly 80 which makes sensible splitting less sensible
