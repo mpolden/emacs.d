@@ -3,14 +3,14 @@
 (let ((font-family "Fira Code"))
   (when (and (display-graphic-p) (member font-family (font-family-list)))
     (set-face-attribute 'default nil :family font-family)
-    (set-face-attribute 'default nil :height 150)
+    (set-face-attribute 'default nil :height 140)
 
-    ;; fira code retina at 14 pt may result in (window-total-height) being
-    ;; exactly 80 which makes sensible splitting less sensible
+    ;; fira code at 14 pt may result in (window-total-width) being
+    ;; exactly 160 which makes sensible splitting less sensible
     ;;
-    ;; increment split-height-threshold so that vertical splits are still
+    ;; decrement split-width-threshold so that vertical splits are still
     ;; preferred in most cases
-    (setq split-height-threshold (+ 10 split-height-threshold))))
+    (setq split-width-threshold (- split-width-threshold 10))))
 
 ;; configure modifiers
 (setq mac-option-modifier 'super)
