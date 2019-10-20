@@ -1,18 +1,18 @@
-;; use fira code font if available
-;; https://github.com/tonsky/FiraCode
-(let ((font-family "Fira Code"))
+;; use input font if available
+;; https://input.fontbureau.com
+(let ((font-family "Input Mono"))
   (when (and (display-graphic-p) (member font-family (font-family-list)))
     (set-face-attribute 'default nil :family font-family)
     (set-face-attribute 'default nil :height 140)
 
-    ;; fira code at 14 pt may result in (window-total-width) being exactly 160,
+    ;; input font at 14 pt may result in (window-total-width) being exactly 160,
     ;; or (window-total-height) being exactly 80, which makes sensible splitting
     ;; less sensible
     ;;
     ;; adjust thresholds so that vertical splits are still preferred in most
     ;; cases
-    (setq split-width-threshold (- split-width-threshold 10))
-    (setq split-height-threshold (+ split-height-threshold 10))))
+    (setq split-width-threshold 150
+          split-height-threshold 90)))
 
 ;; configure modifiers
 (setq mac-option-modifier 'super)
