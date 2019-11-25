@@ -43,6 +43,9 @@
   ;; indent code blocks the same way as the language major mode
   (setq org-src-tab-acts-natively t)
 
+  ;; define todo states
+  (setq org-todo-keywords '((sequence "TODO" "WAIT" "DONE")))
+
   ;; C-c captures tasks
   (global-set-key (kbd "C-c c") 'org-capture))
 
