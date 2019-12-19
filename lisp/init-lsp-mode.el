@@ -1,3 +1,8 @@
+(defun organize-imports-and-format ()
+  (interactive)
+  (lsp-organize-imports)
+  (lsp-format-buffer))
+
 (use-package lsp-mode
   :commands (lsp lsp-format-buffer)
   :init
@@ -9,12 +14,12 @@
   ;; enable lsp in go-mode
   ((go-mode . lsp)
    ;; reformat on save
-   (before-save . lsp-format-buffer))
+   (before-save . organize-imports-and-format))
   :bind (:map lsp-mode-map
               ;; C-c r renames identifier
               ("C-c r" . lsp-rename)
-              ;; C-c p reformats buffer
-              ("C-c p" . lsp-format-buffer)))
+              ;; C-c p organizes imports and reformats buffer
+              ("C-c p" . organize-imports-and-format)))
 
 (use-package lsp-ui
   :commands lsp-ui-mode
