@@ -34,7 +34,7 @@
 (require 'init-python-mode)
 (require 'init-imenu)
 (require 'init-tramp)
-(require 'init-flycheck)
+(require 'init-flymake)
 (require 'init-org)
 (require 'init-rust-mode)
 (require 'init-lsp-mode)

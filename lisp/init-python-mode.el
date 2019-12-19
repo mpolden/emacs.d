@@ -2,6 +2,9 @@
   :ensure nil ;; package is bundled with emacs
 
   :config
+  ;; use flake8 as flymake backend
+  (setq python-flymake-command '("flake8" "-"))
+  ;; set buffer local variables
   (add-hook 'python-mode-hook
           (lambda ()
             ;; disable electric indent
