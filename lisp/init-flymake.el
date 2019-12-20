@@ -1,4 +1,4 @@
-(use-package flyspell
+(use-package flymake
   ;; package is bundled with emacs
   :ensure nil
 
