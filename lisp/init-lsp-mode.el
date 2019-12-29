@@ -10,9 +10,7 @@
   (setq lsp-enable-snippet nil)
   :hook
   ;; enable lsp in go-mode
-  ((go-mode . lsp)
-   ;; reformat on save
-   (before-save . organize-imports-and-format))
+  ((go-mode . lsp))
   :bind (:map lsp-mode-map
               ;; C-c r renames identifier
               ("C-c r" . lsp-rename)
