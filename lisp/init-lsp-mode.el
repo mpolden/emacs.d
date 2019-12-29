@@ -15,6 +15,10 @@
               ;; C-c r renames identifier
               ("C-c r" . lsp-rename)
               ;; C-c p organizes imports and reformats buffer
-              ("C-c p" . organize-imports-and-format)))
+              ("C-c p" . organize-imports-and-format))
+  :config
+  ;; experimental gopls settings
+  (lsp-register-custom-settings
+   '(("gopls.completeUnimported" t t))))
 
 (provide 'init-lsp-mode)
