@@ -4,13 +4,13 @@
   (lsp-format-buffer))
 
 (use-package lsp-mode
-  :commands (lsp lsp-format-buffer)
+  :commands (lsp lsp-deferred)
   :init
   ;; disable yasnippet support
   (setq lsp-enable-snippet nil)
   :hook
   ;; enable lsp in go-mode
-  ((go-mode . lsp))
+  (go-mode . lsp-deferred)
   :bind (:map lsp-mode-map
               ;; C-c r renames identifier
               ("C-c r" . lsp-rename)
