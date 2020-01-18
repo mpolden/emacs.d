@@ -1,7 +1,9 @@
 (use-package eglot
   :hook
   ;; enable eglot in go-mode
-  (go-mode . eglot-ensure)
+  ((go-mode . eglot-ensure)
+   ;; format on save
+   (before-save . eglot-format))
   :bind (:map eglot-mode-map
               ;; C-c r renames identifier
               ("C-c r" . eglot-rename)
