@@ -37,6 +37,7 @@
 (require 'init-flymake)
 (require 'init-org)
 (require 'init-rust-mode)
+(require 'init-eglot)
 
 ;; local settings (optional)
 (require 'init-local nil t)
