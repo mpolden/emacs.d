@@ -46,6 +46,9 @@
   ;; define todo states
   (setq org-todo-keywords '((sequence "TODO" "WAIT" "DONE")))
 
+  ;; disallow invisible edits
+  (setq org-catch-invisible-edits 'error)
+
   ;; C-c captures tasks
   (global-set-key (kbd "C-c c") 'org-capture))
 
