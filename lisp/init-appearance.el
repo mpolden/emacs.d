@@ -28,9 +28,6 @@
   :config
   (load-theme 'doom-one t)
 
-  ;; improve org-mode fontification
-  (doom-themes-org-config)
-
   ;; make title bar use same style as theme on mac
   (when (eq system-type 'darwin)
     (setq default-frame-alist '((ns-appearance . dark)
