@@ -3,7 +3,12 @@
 (let ((font-family "JetBrains Mono"))
   (when (and (display-graphic-p) (member font-family (font-family-list)))
     (set-face-attribute 'default nil :family font-family)
-    (set-face-attribute 'default nil :height 140)))
+    (set-face-attribute 'default nil :height 140)
+
+    ;; adjust thresholds so that vertical splits are still preferred in most
+    ;; cases
+    (setq split-width-threshold 150
+          split-height-threshold 90)))
 
 ;; configure modifiers
 (setq mac-option-modifier 'super)
