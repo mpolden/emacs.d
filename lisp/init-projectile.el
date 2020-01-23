@@ -1,4 +1,8 @@
+(use-package subr-x
+  :ensure nil) ;; package is bundled with emacs
+
 (use-package projectile
+  :after subr-x
   :diminish projectile-mode
 
   :init
