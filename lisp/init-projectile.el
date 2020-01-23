@@ -20,6 +20,9 @@
   ;; avoid reading command when compiling
   (setq compilation-read-command nil)
 
+  ;; use ivy for completion
+  (setq projectile-completion-system 'ivy)
+
   :bind (;; C-x f finds file in project
          ("C-x f" . projectile-find-file)
          ;; C-c g runs git grep in project

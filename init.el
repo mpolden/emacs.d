@@ -14,7 +14,7 @@
 (require 'init-sane-defaults)
 (when (eq system-type 'darwin)
   (require 'init-mac))
-(require 'init-ido)
+(require 'init-ivy)
 (require 'init-dired)
 (require 'init-projectile)
 (require 'init-server)
