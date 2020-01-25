@@ -38,6 +38,7 @@
 (require 'init-org)
 (require 'init-rust-mode)
 (require 'init-eglot)
+(require 'init-avy)
 
 ;; local settings (optional)
 (require 'init-local nil t)
