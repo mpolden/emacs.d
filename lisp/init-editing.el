@@ -25,12 +25,6 @@
   ;; make source files read-only when visiting
   (setq find-function-after-hook (lambda () (read-only-mode 1))))
 
-(use-package simple
-  :ensure nil ;; package is bundled with emacs
-  :config
-  ;; kill line also kills newline character
-  (setq kill-whole-line t))
-
 (defun show-file-name ()
   "Show the full path file name in the minibuffer and add it to the kill ring."
   (interactive)
@@ -71,5 +65,8 @@
 
 ;; C-- undoes
 (global-set-key (kbd "C--") 'undo)
+
+;; kill line also kills newline character
+(setq kill-whole-line t)
 
 (provide 'init-editing)
