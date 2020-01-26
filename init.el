@@ -36,7 +36,6 @@
 (require 'init-tramp)
 (require 'init-flymake)
 (require 'init-org)
-(require 'init-rust-mode)
 (require 'init-eglot)
 (require 'init-avy)
 
