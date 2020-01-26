@@ -8,35 +8,49 @@
   ;; save customizations as local (unversioned) settings
   (setq custom-file (expand-file-name "init-local.el" lisp-directory)))
 
-;; load files
+;; packages
 (require 'init-package)
+
+;; appearance
 (require 'init-appearance)
+
+;; behaviour
 (require 'init-sane-defaults)
 (when (eq system-type 'darwin)
   (require 'init-mac))
-(require 'init-ivy)
-(require 'init-dired)
-(require 'init-projectile)
+
+;; editing
+(require 'init-editing)
 (require 'init-server)
-(require 'init-go-mode)
-(require 'init-yaml-mode)
+(require 'init-sessions)
+(require 'init-tramp)
+
+;; writing
 (require 'init-flyspell)
 (require 'init-writegood-mode)
-(require 'init-markdown-mode)
-(require 'init-javascript)
-(require 'init-ibuffer)
-(require 'init-sessions)
-(require 'init-git)
-(require 'init-grep)
-(require 'init-lisp)
-(require 'init-editing)
-(require 'init-python-mode)
-(require 'init-imenu)
-(require 'init-tramp)
-(require 'init-flymake)
-(require 'init-org)
-(require 'init-eglot)
+
+;; navigation
 (require 'init-avy)
+(require 'init-dired)
+(require 'init-grep)
+(require 'init-ibuffer)
+(require 'init-imenu)
+(require 'init-ivy)
+
+;; managing code
+(require 'init-eglot)
+(require 'init-flymake)
+(require 'init-git)
+(require 'init-projectile)
+
+;; languages
+(require 'init-go-mode)
+(require 'init-javascript)
+(require 'init-lisp)
+(require 'init-markdown-mode)
+(require 'init-org)
+(require 'init-python-mode)
+(require 'init-yaml-mode)
 
 ;; local settings (optional)
 (require 'init-local nil t)
