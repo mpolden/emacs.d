@@ -9,12 +9,6 @@
   :diminish subword-mode
   :hook ((prog-mode . subword-mode)))
 
-;; enable electric-indent-mode
-(use-package electric
-  :ensure nil ;; package is bundled with emacs
-  :config
-  (electric-indent-mode 1))
-
 ;; use sh-mode for various zsh files
 (use-package sh-script
   :ensure nil ;; package is bundled with emacs
