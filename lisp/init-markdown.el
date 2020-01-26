@@ -13,4 +13,4 @@
             ;; disable electric indent
             (setq-local electric-indent-mode nil))))
 
-(provide 'init-markdown-mode)
+(provide 'init-markdown)

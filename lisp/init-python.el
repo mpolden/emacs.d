@@ -15,4 +15,4 @@
             (setq-local imenu-create-index-function
                         'python-imenu-create-flat-index))))
 
-(provide 'init-python-mode)
+(provide 'init-python)

@@ -34,4 +34,4 @@ items follow a style that is consistent with other prog-modes."
               (setq-local imenu-create-index-function
                           #'go-mode-create-flat-imenu-index))))
 
-(provide 'init-go-mode)
+(provide 'init-go)

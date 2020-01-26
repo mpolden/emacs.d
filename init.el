@@ -27,7 +27,7 @@
 
 ;; writing
 (require 'init-flyspell)
-(require 'init-writegood-mode)
+(require 'init-writegood)
 
 ;; navigation
 (require 'init-avy)
@@ -44,13 +44,13 @@
 (require 'init-projectile)
 
 ;; languages
-(require 'init-go-mode)
+(require 'init-go)
 (require 'init-javascript)
 (require 'init-lisp)
-(require 'init-markdown-mode)
+(require 'init-markdown)
 (require 'init-org)
-(require 'init-python-mode)
-(require 'init-yaml-mode)
+(require 'init-python)
+(require 'init-yaml)
 
 ;; local settings (optional)
 (require 'init-local nil t)
