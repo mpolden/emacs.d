@@ -5,7 +5,8 @@
 
 (use-package org
   :ensure nil ;; package is bundled with emacs
-  :bind (("C-c a" . org-agenda)
+  :bind (("C-c c" . org-capture)
+         ("C-c a" . org-agenda)
          ("C-c y" . org-archive-subtree-and-set-startup-visibility)
          ("C-c l" . org-store-link))
   :config
@@ -47,9 +48,6 @@
   (setq org-todo-keywords '((sequence "TODO" "WAIT" "DONE")))
 
   ;; disallow invisible edits
-  (setq org-catch-invisible-edits 'error)
-
-  ;; C-c captures tasks
-  (global-set-key (kbd "C-c c") 'org-capture))
+  (setq org-catch-invisible-edits 'error))
 
 (provide 'init-org)
