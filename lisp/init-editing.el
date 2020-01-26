@@ -60,10 +60,6 @@
           (rename-file filename new-name t)
           (set-visited-file-name new-name t t)))))))
 
-;; swap RET and C-j
-(global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "C-j") (lambda () (interactive) (insert "\n")))
-
 ;; C-x k kills current buffer
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 
