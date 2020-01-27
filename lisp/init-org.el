@@ -56,11 +56,6 @@
           ("n" "Agenda and all TODOs" ((agenda "") (alltodo "")))
           ;; split by state
           ("m" "Agenda and all TODOs split by state"
-           ((agenda "")
-            (alltodo "" ((org-agenda-skip-function '(org-agenda-skip-entry-if
-                                                     'todo '("WAIT")))
-                         (org-agenda-overriding-header "Actionable TODOs:")))
-            (alltodo "" ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("TODO")))
-                         (org-agenda-overriding-header "Waiting TODOs:"))))))))
+           ((agenda "") (todo "TODO") (todo "WAIT"))))))
 
 (provide 'init-org)
