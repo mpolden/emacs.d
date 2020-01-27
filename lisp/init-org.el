@@ -48,6 +48,19 @@
   (setq org-todo-keywords '((sequence "TODO" "WAIT" "DONE")))
 
   ;; disallow invisible edits
-  (setq org-catch-invisible-edits 'error))
+  (setq org-catch-invisible-edits 'error)
+
+  ;; customize agenda
+  (setq org-agenda-custom-commands
+        '(;; default view
+          ("n" "Agenda and all TODOs" ((agenda "") (alltodo "")))
+          ;; split by state
+          ("m" "Agenda and all TODOs split by state"
+           ((agenda "")
+            (alltodo "" ((org-agenda-skip-function '(org-agenda-skip-entry-if
+                                                     'todo '("WAIT")))
+                         (org-agenda-overriding-header "Actionable TODOs:")))
+            (alltodo "" ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("TODO")))
+                         (org-agenda-overriding-header "Waiting TODOs:"))))))))
 
 (provide 'init-org)
