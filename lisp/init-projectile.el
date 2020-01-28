@@ -6,9 +6,6 @@
   :diminish projectile-mode
 
   :init
-  ;; use a different prefix
-  (setq projectile-keymap-prefix (kbd "C-c C-p"))
-
   ;; use git grep
   (setq projectile-use-git-grep t)
 
@@ -26,6 +23,10 @@
 
   ;; use ivy for completion
   (setq projectile-completion-system 'ivy)
+
+  ;; set prefix
+  :bind-keymap
+  ("C-c C-p" . projectile-command-map)
 
   :bind (;; C-x f finds file in project
          ("C-x f" . projectile-find-file)
