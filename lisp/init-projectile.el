@@ -1,3 +1,5 @@
+;; projectile fails to load subr-x under some circumstances
+;; https://github.com/bbatsov/projectile/issues/1382
 (use-package subr-x
   :ensure nil) ;; package is bundled with emacs
 
