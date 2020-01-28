@@ -9,6 +9,9 @@
   ;; use fuzzy matching by default
   (setq ivy-re-builders-alist
         '((t . ivy--regex-fuzzy)))
+  :bind (:map ivy-minibuffer-map
+              ;; C-r selects previous candidate, like isearch
+              ("C-r" . ivy-previous-line-or-history))
   :config
   (ivy-mode 1))
 
