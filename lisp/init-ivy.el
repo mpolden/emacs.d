@@ -2,9 +2,9 @@
 (use-package flx)
 
 (use-package ivy
+  :defer nil
   :after flx
   :diminish ivy-mode
-  :commands ivy-mode
   :init
   (setq ivy-re-builders-alist
         ;; use regular matching in swiper
