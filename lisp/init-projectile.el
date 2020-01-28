@@ -36,7 +36,6 @@
          ("C-c m" . projectile-compile-project))
 
   :config
-  ;; enable projectile mode in all buffers
-  (projectile-global-mode 1))
+  (projectile-mode 1))
 
 (provide 'init-projectile)
