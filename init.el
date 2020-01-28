@@ -36,6 +36,7 @@
 (require 'init-ibuffer)
 (require 'init-imenu)
 (require 'init-ivy)
+(require 'init-swiper)
 
 ;; managing code
 (require 'init-eglot)

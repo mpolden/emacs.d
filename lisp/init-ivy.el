@@ -6,9 +6,11 @@
   :diminish ivy-mode
   :commands ivy-mode
   :init
-  ;; use fuzzy matching by default
   (setq ivy-re-builders-alist
-        '((t . ivy--regex-fuzzy)))
+        ;; use regular matching in swiper
+        '((swiper . ivy--regex-plus)
+          ;; use fuzzy matching by default'
+          (t . ivy--regex-fuzzy)))
   :bind (:map ivy-minibuffer-map
               ;; C-r selects previous candidate, like isearch
               ("C-r" . ivy-previous-line-or-history))
