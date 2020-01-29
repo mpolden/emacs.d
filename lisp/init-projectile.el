@@ -27,7 +27,7 @@
   (setq projectile-completion-system 'ivy)
 
   ;; set prefix
-  :bind-keymap
+  :bind-keymap*
   ("C-c C-p" . projectile-command-map)
 
   :bind (;; C-x f finds file in project
