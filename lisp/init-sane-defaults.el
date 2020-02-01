@@ -90,9 +90,4 @@
     ;; emacs 24.5 and older
     (setq-default save-place t)))
 
-;; diminish eldoc from mode line
-(use-package eldoc
-  :ensure nil ;; package is bundled with emacs
-  :diminish)
-
 (provide 'init-sane-defaults)
