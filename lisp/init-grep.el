@@ -11,8 +11,14 @@
   (interactive)
   (grep-visit-buffer-other-window event t))
 
+(defun grep-mode-buffer-local-variables ()
+  ;; wrap lines
+  (setq-local truncate-lines nil))
+
 (use-package grep
   :ensure nil ;; package is bundled with emacs
+
+  :hook (grep-mode . grep-mode-buffer-local-variables)
 
   :bind (:map grep-mode-map
               ;; make C-o and o behave as in dired
@@ -20,12 +26,6 @@
               ("C-o" . grep-visit-buffer-other-window-noselect)
               ;; n and p changes line as in ag-mode
               ("n" . compilation-next-error)
-              ("p" . compilation-previous-error))
-
-  :config
-  (add-hook 'grep-mode-hook
-            (lambda ()
-              ;; wrap lines
-              (setq-local truncate-lines nil))))
+              ("p" . compilation-previous-error)))
 
 (provide 'init-grep)

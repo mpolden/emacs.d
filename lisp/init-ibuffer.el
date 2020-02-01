@@ -16,13 +16,12 @@
          :map ibuffer-mode-map
          ;; make C-o and o behave as in dired
          ("o" . ibuffer-visit-buffer-other-window)
-         ("C-o" . ibuffer-visit-buffer-other-window-noselect))
-
-  :config
-  ;; group ibuffer by projectile project
-  (add-hook 'ibuffer-hook 'ibuffer-projectile-set-filter-groups))
+         ("C-o" . ibuffer-visit-buffer-other-window-noselect)))
 
 (use-package ibuffer-projectile
-  :after (ibuffer projectile))
+  :after (ibuffer projectile)
+
+  ;; group ibuffer by projectile project
+  :hook (ibuffer-mode . ibuffer-projectile-set-filter-groups))
 
 (provide 'init-ibuffer)

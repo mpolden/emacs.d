@@ -23,15 +23,14 @@ items follow a style that is consistent with other prog-modes."
     "Return a flat imenu index alist. See `go-mode-create-imenu-index'."
     (apply 'nconc (mapcar 'cdr (go-mode-create-imenu-index))))
 
+(defun go-mode-buffer-local-variables ()
+  ;; adjust fill-column
+  (setq-local fill-column 120)
+  ;; use flat imenu index
+  (setq-local imenu-create-index-function
+              #'go-mode-create-flat-imenu-index))
+
 (use-package go-mode
-  :init
-  :config
-  (add-hook 'go-mode-hook
-            (lambda ()
-              ;; adjust fill-column
-              (setq-local fill-column 120)
-              ;; use flat imenu index
-              (setq-local imenu-create-index-function
-                          #'go-mode-create-flat-imenu-index))))
+  :hook (go-mode . go-mode-buffer-local-variables))
 
 (provide 'init-go)
