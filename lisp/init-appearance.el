@@ -42,19 +42,10 @@
 ;; highlight lines exceeding fill-column
 (use-package whitespace
   :ensure nil ;; package is bundled with emacs
-
   :diminish whitespace-mode
-
   :init
   (setq whitespace-style '(face empty lines-tail trailing))
-  (setq whitespace-line-column nil)
-
-  :config
-  ;; make whitespace-mode respect a mode-specific fill-column value
-  (add-hook 'hack-local-variables-hook
-            (lambda ()
-              (when (derived-mode-p 'prog-mode)
-                (whitespace-mode 1)))))
+  (setq whitespace-line-column nil))
 
 ;; disable word wrapping
 (setq-default truncate-lines t)
