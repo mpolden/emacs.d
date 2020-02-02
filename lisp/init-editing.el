@@ -51,8 +51,8 @@
 ;; C-x k kills current buffer
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 
-;; C-c f shows the path of the current file
-(global-set-key (kbd "C-c f") 'show-file-name)
+;; C-c w shows the path of the current file
+(global-set-key (kbd "C-c w") 'show-file-name)
 
 ;; join line
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
