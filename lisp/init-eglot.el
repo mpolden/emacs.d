@@ -8,8 +8,8 @@
   :bind (:map eglot-mode-map
               ;; C-c r renames identifier
               ("C-c r" . eglot-rename)
-              ;; C-c p formats buffer
-              ("C-c p" . eglot-format))
+              ;; C-c f formats buffer
+              ("C-c f" . eglot-format))
   :config
   ;; disable imenu integration as it's currently unsupported with gopls
   ;; https://github.com/joaotavora/eglot/pull/303

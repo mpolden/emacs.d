@@ -10,7 +10,7 @@
   ("\\.\\(json\\|jshintrc\\)\\'" . js-mode)
 
   :bind (:map js-mode-map
-              ;; C-c p runs formats json with jq
-              ("C-c p" . json-pretty-print-buffer)))
+              ;; C-c f formats json
+              ("C-c f" . json-pretty-print-buffer)))
 
 (provide 'init-javascript)
