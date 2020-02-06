@@ -12,21 +12,18 @@
   ;; use gfm-mode as major mode
   (setq git-commit-major-mode 'gfm-mode))
 
-;; magit config
-(defun magit-diff-visit-file-other-window (&optional noselect)
+(defun magit-visit-file-other-window (&optional noselect)
   "Visit current file in another window."
   (interactive)
-  (let ((current-window (selected-window))
-        ;; magit-diff-visit-file visits in other-window with prefix arg
-        (current-prefix-arg '(t)))
-    (call-interactively 'magit-diff-visit-file)
+  (let ((current-window (selected-window)))
+    (call-interactively 'magit-diff-visit-file-other-window)
     (when noselect
       (select-window current-window))))
 
-(defun magit-diff-visit-file-other-window-noselect ()
+(defun magit-visit-file-other-window-noselect ()
   "Visit current file in another window, but don't select it."
   (interactive)
-  (magit-diff-visit-file-other-window t))
+  (magit-visit-file-other-window t))
 
 (use-package magit
   :init
@@ -40,8 +37,8 @@
          ("C-c b" . magit-blame)
          :map magit-status-mode-map
          ;; make C-o and o behave as in dired
-         ("o" . magit-diff-visit-file-other-window)
-         ("C-o" . magit-diff-visit-file-other-window-noselect)))
+         ("o" . magit-visit-file-other-window)
+         ("C-o" . magit-visit-file-other-window-noselect)))
 
 ;; follow symlinks to files under version control
 (setq vc-follow-symlinks t)
