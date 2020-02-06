@@ -18,12 +18,11 @@
 (use-package find-func
   :ensure nil ;; package is bundled with emacs
 
-  :bind (("C-h C-f" . find-function-other-window)
-         ("C-h C-k" . find-function-on-key))
-
-  :config
   ;; make source files read-only when visiting
-  (setq find-function-after-hook (lambda () (read-only-mode 1))))
+  :hook ((find-function-after . read-only-mode))
+
+  :bind (("C-h C-f" . find-function-other-window)
+         ("C-h C-k" . find-function-on-key)))
 
 (defun show-file-name ()
   "Show the full path file name in the minibuffer and add it to the kill ring."
