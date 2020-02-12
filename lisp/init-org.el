@@ -54,6 +54,9 @@
   ;; org-deadline-warning-days
   (setq org-agenda-todo-ignore-deadlines 'far)
 
+  ;; hide todo entries scheduled in the future
+  (setq org-agenda-todo-ignore-scheduled 'future)
+
   ;; customize agenda
   (setq org-agenda-custom-commands
         '(;; default view
