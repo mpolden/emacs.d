@@ -50,6 +50,10 @@
   ;; disallow invisible edits
   (setq org-catch-invisible-edits 'error)
 
+  ;; hide todo entries whose deadline is far away according to
+  ;; org-deadline-warning-days
+  (setq org-agenda-todo-ignore-deadlines 'far)
+
   ;; customize agenda
   (setq org-agenda-custom-commands
         '(;; default view
