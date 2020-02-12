@@ -1,13 +1,8 @@
-(defun org-archive-subtree-and-set-startup-visibility ()
-  (interactive)
-  (org-archive-subtree)
-  (org-set-startup-visibility))
-
 (use-package org
   :ensure nil ;; package is bundled with emacs
   :bind (("C-c c" . org-capture)
          ("C-c a" . org-agenda)
-         ("C-c y" . org-archive-subtree-and-set-startup-visibility)
+         ("C-c y" . org-archive-subtree)
          ("C-c l" . org-store-link))
   :config
   ;; name of subtree where archived tasks should be moved
