@@ -69,3 +69,6 @@ backups/
 
 # lsp-mode
 /.lsp-session-v1
+
+# forge
+/forge-database.sqlite

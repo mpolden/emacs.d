@@ -40,6 +40,9 @@
          ("o" . magit-visit-file-other-window)
          ("C-o" . magit-visit-file-other-window-noselect)))
 
+(use-package forge
+  :after magit)
+
 ;; follow symlinks to files under version control
 (setq vc-follow-symlinks t)
 
