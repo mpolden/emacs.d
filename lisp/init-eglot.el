@@ -11,6 +11,8 @@
               ;; C-c f formats buffer
               ("C-c f" . eglot-format))
   :config
+  ;; disble symbol highlighting
+  (setq eglot-ignored-server-capabilites '(:documentHighlightProvider))
   ;; disable imenu integration as it's currently unsupported with gopls
   ;; https://github.com/joaotavora/eglot/pull/303
   (setq eglot-stay-out-of '("imenu")))
