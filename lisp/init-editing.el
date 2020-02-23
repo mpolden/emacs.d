@@ -59,9 +59,6 @@
 ;; C-c n renames the current buffer and file
 (global-set-key (kbd "C-c n") 'rename-buffer-and-file)
 
-;; C-x g goes to line (as in mg)
-(global-set-key (kbd "C-x g") 'goto-line)
-
 ;; C-- undoes
 (global-set-key (kbd "C--") 'undo)
 
