@@ -5,14 +5,18 @@
   ((go-mode . eglot-ensure)
    ;; format on save
    (before-save . eglot-format))
+
   :bind (:map eglot-mode-map
               ;; C-c r renames identifier
               ("C-c r" . eglot-rename)
               ;; C-c f formats buffer
               ("C-c f" . eglot-format))
+
   :config
-  ;; disble symbol highlighting
-  (setq eglot-ignored-server-capabilites '(:documentHighlightProvider))
+  ;; disable symbol highlighting and documentation on hover
+  (setq eglot-ignored-server-capabilites '(:documentHighlightProvider
+                                           :hoverProvider))
+
   ;; disable imenu integration as it's currently unsupported with gopls
   ;; https://github.com/joaotavora/eglot/pull/303
   (setq eglot-stay-out-of '("imenu")))
