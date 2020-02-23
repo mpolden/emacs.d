@@ -52,6 +52,9 @@
   ;; hide todo entries scheduled in the future
   (setq org-agenda-todo-ignore-scheduled 'future)
 
+  ;; include two weeks in agenda
+  (setq org-agenda-span 'fortnight)
+
   ;; customize agenda
   (setq org-agenda-custom-commands
         '(;; default view
