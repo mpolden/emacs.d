@@ -2,7 +2,8 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
+(when (< emacs-major-version 27)
+  (package-initialize))
 
 ;; workaround for https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
