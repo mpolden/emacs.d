@@ -1,7 +1,9 @@
-;; projectile fails to load subr-x under some circumstances
+;; projectile fails to load subr-x under some circumstances on 26.3
 ;; https://github.com/bbatsov/projectile/issues/1382
-(use-package subr-x
-  :ensure nil) ;; package is bundled with emacs
+
+(when (< emacs-major-version 27)
+  (use-package subr-x
+    :ensure nil)) ;; package is bundled with emacs
 
 (use-package projectile
   :after subr-x
