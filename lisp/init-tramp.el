@@ -28,7 +28,7 @@ With a prefix ARG prompt edit currently visited file using sudo."
   (interactive "P")
   (if arg
       (find-alternate-file (sudo-file-name buffer-file-name))
-    (find-file (sudo-file-name (ido-read-file-name "Find file with sudo: ")))))
+    (find-file (sudo-file-name (read-file-name "Find file with sudo: ")))))
 
 (defun sudo-current-file ()
   (interactive)
