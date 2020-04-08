@@ -3,7 +3,8 @@
   :bind (("C-c c" . org-capture)
          ("C-c a" . org-agenda)
          ("C-c y" . org-archive-subtree)
-         ("C-c l" . org-store-link))
+         ("C-c l" . org-store-link)
+         ("C-c f" . org-indent-region))
   :config
   ;; name of subtree where archived tasks should be moved
   (setq org-archive-location "::* Archived Tasks")
