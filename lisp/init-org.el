@@ -6,8 +6,8 @@
          ("C-c l" . org-store-link)
          ("C-c f" . org-indent-region))
   :config
-  ;; name of subtree where archived tasks should be moved
-  (setq org-archive-location "::* Archived Tasks")
+  ;; file and tree where archived tasks should be moved
+  (setq org-archive-location "%s_archive::* Archived Tasks")
 
   ;; display all org files in agenda
   (setq org-agenda-files (list org-directory))
