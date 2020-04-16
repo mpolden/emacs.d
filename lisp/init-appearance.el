@@ -39,15 +39,8 @@
   :config
   (show-paren-mode 1))
 
-;; highlight lines exceeding fill-column
-(use-package whitespace
-  :ensure nil ;; package is bundled with emacs
-  :diminish global-whitespace-mode
-  :init
-  (setq whitespace-style '(face empty lines-tail trailing))
-  (setq whitespace-line-column nil)
-  :config
-  (global-whitespace-mode 1))
+;; highlight trailing whitespace
+(setq-default show-trailing-whitespace t)
 
 ;; disable word wrapping
 (setq-default truncate-lines t)
