@@ -30,7 +30,6 @@
 (require 'init-writegood)
 
 ;; navigation
-(require 'init-avy)
 (require 'init-dired)
 (require 'init-grep)
 (require 'init-ibuffer)
