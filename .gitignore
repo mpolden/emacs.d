@@ -52,7 +52,8 @@ backups/
 # network security manager
 /network-security.data
 
-# smex
+# amx and smex
+/amx-items
 /.smex-items
 
 # ido
