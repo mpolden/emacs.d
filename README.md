@@ -50,3 +50,15 @@ Install symlink in `~/.emacs.d`:
     $ make install
 
 Start Emacs!
+
+## Local customizations
+
+Local customizations can be added to `lisp/init-local.el`. This file is in
+`.gitignore`.
+
+Setting the variable `inhibit-packages` (e.g. in `lisp/init-local.el`) allows
+inhibiting loading of one or more packages. Example:
+
+``` emacs-lisp
+(setq inhibit-packages '(init-foo))
+```

@@ -8,50 +8,55 @@
   ;; save customizations as local (unversioned) settings
   (setq custom-file (expand-file-name "init-local.el" lisp-directory)))
 
-;; packages
-(require 'init-package)
-
-;; appearance
-(require 'init-appearance)
-
-;; behaviour
-(require 'init-sane-defaults)
-(when (eq system-type 'darwin)
-  (require 'init-mac))
-
-;; editing
-(require 'init-editing)
-(require 'init-server)
-(require 'init-sessions)
-(require 'init-tramp)
-
-;; writing
-(require 'init-flyspell)
-(require 'init-writegood)
-
-;; navigation
-(require 'init-amx)
-(require 'init-dired)
-(require 'init-grep)
-(require 'init-ibuffer)
-(require 'init-imenu)
-(require 'init-ivy)
-(require 'init-swiper)
-
-;; managing code
-(require 'init-eglot)
-(require 'init-flymake)
-(require 'init-git)
-(require 'init-projectile)
-
-;; languages
-(require 'init-go)
-(require 'init-javascript)
-(require 'init-lisp)
-(require 'init-markdown)
-(require 'init-org)
-(require 'init-python)
-(require 'init-yaml)
+;; load given package unless inhibited through inhibited-packages
+(defun maybe-require (package)
+  (unless (member package inhibited-packages)
+    (require package)))
 
 ;; local settings (optional)
 (require 'init-local nil t)
+
+;; packages
+(maybe-require 'init-package)
+
+;; appearance
+(maybe-require 'init-appearance)
+
+;; behaviour
+(maybe-require 'init-sane-defaults)
+(when (eq system-type 'darwin)
+  (maybe-require 'init-mac))
+
+;; editing
+(maybe-require 'init-editing)
+(maybe-require 'init-server)
+(maybe-require 'init-sessions)
+(maybe-require 'init-tramp)
+
+;; writing
+(maybe-require 'init-flyspell)
+(maybe-require 'init-writegood)
+
+;; navigation
+(maybe-require 'init-amx)
+(maybe-require 'init-dired)
+(maybe-require 'init-grep)
+(maybe-require 'init-ibuffer)
+(maybe-require 'init-imenu)
+(maybe-require 'init-ivy)
+(maybe-require 'init-swiper)
+
+;; managing code
+(maybe-require 'init-eglot)
+(maybe-require 'init-flymake)
+(maybe-require 'init-git)
+(maybe-require 'init-projectile)
+
+;; languages
+(maybe-require 'init-go)
+(maybe-require 'init-javascript)
+(maybe-require 'init-lisp)
+(maybe-require 'init-markdown)
+(maybe-require 'init-org)
+(maybe-require 'init-python)
+(maybe-require 'init-yaml)
