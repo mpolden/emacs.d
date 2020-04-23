@@ -36,6 +36,12 @@ the following in mind when maintaining it:
 * Don't take on too many responsibilities. I.e. I have tried and failed to use
   Emacs for email and RSS.
 
+## Version compatibility
+
+Lowest supported Emacs version is the one found in [Debian
+stable](https://packages.debian.org/stable/emacs). No guarantees for older
+versions.
+
 ## Setup
 
 Clone the repository:
