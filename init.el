@@ -21,6 +21,7 @@
 
 ;; appearance
 (maybe-require 'init-appearance)
+(maybe-require 'init-theme)
 
 ;; behaviour
 (maybe-require 'init-sane-defaults)
