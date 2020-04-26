@@ -13,11 +13,11 @@
   (unless (member package inhibited-packages)
     (require package)))
 
-;; local settings (optional)
-(require 'init-local nil t)
-
 ;; packages
 (maybe-require 'init-package)
+
+;; local settings (optional)
+(require 'init-local nil t)
 
 ;; appearance
 (maybe-require 'init-appearance)
