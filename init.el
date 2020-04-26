@@ -8,13 +8,8 @@
   ;; save customizations as local (unversioned) settings
   (setq custom-file (expand-file-name "init-local.el" lisp-directory)))
 
-;; load given package unless inhibited through inhibited-packages
-(defun maybe-require (package)
-  (unless (member package inhibited-packages)
-    (require package)))
-
 ;; packages
-(maybe-require 'init-package)
+(require 'init-package)
 
 ;; local settings (optional)
 (require 'init-local nil t)

@@ -24,6 +24,11 @@ re-downloaded in order to locate PACKAGE."
   "Install a list of PACKAGES."
   (mapcar (lambda (package) (require-package package)) packages))
 
+;; load given package unless inhibited through inhibited-packages
+(defun maybe-require (package)
+  (unless (member package inhibited-packages)
+    (require package)))
+
 ;; install missing packages automatically
 (setq use-package-always-ensure t)
 
