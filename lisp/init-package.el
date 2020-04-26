@@ -26,7 +26,7 @@ re-downloaded in order to locate PACKAGE."
 
 ;; load given package unless inhibited through inhibited-packages
 (defun maybe-require (package)
-  (unless (member package inhibited-packages)
+  (unless (and (boundp 'inhibited-packages) (member package inhibited-packages))
     (require package)))
 
 ;; install missing packages automatically
