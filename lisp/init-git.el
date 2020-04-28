@@ -49,4 +49,9 @@
 ;; follow symlinks to files under version control
 (setq vc-follow-symlinks t)
 
+(use-package smerge-mode
+  :ensure nil ;; package is bundled with emacs
+  :init
+  (setq smerge-command-prefix (kbd "C-c x")))
+
 (provide 'init-git)
