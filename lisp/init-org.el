@@ -10,6 +10,10 @@
   ;; file and tree where archived tasks should be moved
   (setq org-archive-location "%s_archive::* Archived Tasks")
 
+  ;; save archive file when archiving
+  (unless (version<= org-version "9.4")
+    (setq org-archive-subtree-save-file-p t))
+
   ;; display all org files in agenda
   (setq org-agenda-files (list org-directory))
 
