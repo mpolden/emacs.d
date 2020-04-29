@@ -57,6 +57,16 @@
   ;; include two weeks in agenda
   (setq org-agenda-span 'fortnight)
 
+  ;; show breadcrumbs in agenda
+  (setq org-agenda-prefix-format '((agenda . " %i %-12:c%?-12t% s %b")
+                                   (todo . " %i %-12:c")
+                                   (tags . " %i %-12:c")
+                                   (search . " %i %-12:c")))
+
+  ;; change breadcrumb separator
+  (unless (version<= org-version "9.3")
+    (setq org-agenda-breadcrumbs-separator "/"))
+
   ;; customize agenda
   (setq org-agenda-custom-commands
         '(;; default view
