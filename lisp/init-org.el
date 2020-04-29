@@ -11,7 +11,7 @@
   (setq org-archive-location "%s_archive::* Archived Tasks")
 
   ;; save archive file when archiving
-  (unless (version<= org-version "9.4")
+  (unless (version< org-version "9.4")
     (setq org-archive-subtree-save-file-p t))
 
   ;; display all org files in agenda
@@ -68,7 +68,7 @@
                                    (search . " %i %-12:c")))
 
   ;; change breadcrumb separator
-  (unless (version<= org-version "9.3")
+  (unless (version< org-version "9.3")
     (setq org-agenda-breadcrumbs-separator "/"))
 
   ;; customize agenda
