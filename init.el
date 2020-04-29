@@ -1,6 +1,4 @@
-;; prevent emacs 25 from automatically initializing package.el
-;; (package-initialize)
-
+;; configure load paths
 (let ((lisp-directory (expand-file-name "lisp" user-emacs-directory)))
   ;; add ~/.emacs.d/lisp to load path
   (add-to-list 'load-path lisp-directory)
