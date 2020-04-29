@@ -11,7 +11,6 @@ tramp
 # Org-mode
 .org-id-locations
 *_archive
-/bookmarks
 
 # flymake-mode
 *_flymake.*
@@ -23,14 +22,41 @@ tramp
 # elpa packages
 /elpa/
 
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+# cask packages
+.cask/
+dist/
+
+# Flycheck
+flycheck_*.el
+
+# server auth directory
+/server/
+
+# projectiles files
+.projectile
+
+# directory configuration
+.dir-locals.el
+
+# network security
+/network-security.data
+
 # tutorial
 tutorial/
 
 # tetris score
 /tetris
 
+# bookmarks
+/bookmarks
+
 # backup files
-backups/
 /backup/
 
 # local settings
@@ -48,9 +74,6 @@ backups/
 
 # multiple-cursors
 /.mc-lists.el
-
-# network security manager
-/network-security.data
 
 # amx and smex
 /amx-items
