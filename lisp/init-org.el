@@ -51,6 +51,9 @@
   ;; disallow invisible edits
   (setq org-catch-invisible-edits 'error)
 
+  ;; complete tags from all agenda files
+  (setq org-complete-tags-always-offer-all-agenda-tags t)
+
   ;; hide todo entries whose deadline is far away according to
   ;; org-deadline-warning-days
   (setq org-agenda-todo-ignore-deadlines 'far)
