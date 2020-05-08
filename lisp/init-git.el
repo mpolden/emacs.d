@@ -33,6 +33,11 @@
   ;; hide recent commits in magit-status
   (setq magit-log-section-commit-count 0)
 
+  ;; set the default directory for git repositories
+  (let ((project-dir "~/p"))
+    (when (and (not (boundp 'magit-repository-directories)) (file-directory-p project-dir))
+      (setq magit-repository-directories (list (cons project-dir 1)))))
+
   :bind (("C-x m" . magit-status)
          ("C-c b" . magit-blame)
          :map magit-status-mode-map
