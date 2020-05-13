@@ -15,10 +15,6 @@
   :config
   ;; disable symbol highlighting and documentation on hover
   (setq eglot-ignored-server-capabilites '(:documentHighlightProvider
-                                           :hoverProvider))
-
-  ;; disable imenu integration as it's currently unsupported with gopls
-  ;; https://github.com/joaotavora/eglot/pull/303
-  (setq eglot-stay-out-of '("imenu")))
+                                           :hoverProvider)))
 
 (provide 'init-eglot)
