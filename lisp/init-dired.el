@@ -9,8 +9,8 @@
 (use-package dired
   :ensure nil ;; package is bundled with emacs
   :init
-  ;; show human readable sizes in dired
-  (setq dired-listing-switches "-alh")
+  ;; show human readable sizes in dired and sort dotfiles first
+  (setq dired-listing-switches "-alhv")
 
   ;; show human readable free space
   (setq directory-free-space-args "-h")
