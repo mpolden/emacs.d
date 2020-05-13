@@ -1,10 +1,3 @@
-;; use appropiate git-mode for .gitconfig and .gitignore extensions
-(use-package gitignore-mode
-  :mode ("gitignore\\'" . gitignore-mode))
-
-(use-package gitconfig-mode
-  :mode ("gitconfig\\'" . gitconfig-mode))
-
 (use-package git-commit
   :after markdown-mode
 
