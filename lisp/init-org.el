@@ -14,6 +14,9 @@
   (unless (version< org-version "9.4")
     (setq org-archive-subtree-save-file-p t))
 
+  ;; sparse tree construction shows matches in archived trees
+  (setq org-sparse-tree-open-archived-trees t)
+
   ;; display all org files in agenda
   (setq org-agenda-files (list org-directory))
 
