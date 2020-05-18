@@ -2,9 +2,9 @@
   :ensure nil ;; package is bundled with emacs
   :bind (("C-c c" . org-capture)
          ("C-c a" . org-agenda)
-         ("C-c y" . org-archive-subtree)
          ("C-c l" . org-store-link)
          ("C-c f" . org-indent-region)
+         ("C-c o a" . org-archive-subtree)
          ("C-c o s" . org-save-all-org-buffers))
   :config
   ;; file and tree where archived tasks should be moved
