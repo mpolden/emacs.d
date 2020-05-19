@@ -57,6 +57,12 @@
   ;; complete tags from all agenda files
   (setq org-complete-tags-always-offer-all-agenda-tags t)
 
+  ;; search headlines via completion
+  (setq org-goto-interface 'outline-path-completion)
+
+  ;; include the full path when searching headlines
+  (setq org-outline-path-complete-in-steps nil)
+
   ;; hide todo entries whose deadline is far away according to
   ;; org-deadline-warning-days
   (setq org-agenda-todo-ignore-deadlines 'far)
