@@ -6,7 +6,8 @@
   (package-initialize))
 
 ;; workaround for https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+(when (version< emacs-version "26.3")
+  (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
 (defun require-package (package &optional min-version no-refresh)
   "Install given PACKAGE, optionally requiring MIN-VERSION.
