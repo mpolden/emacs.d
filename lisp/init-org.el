@@ -63,6 +63,13 @@
   ;; include the full path when searching headlines
   (setq org-outline-path-complete-in-steps nil)
 
+  ;; enable org-habit
+  (unless (member 'org-habit org-modules)
+          (add-to-list 'org-modules 'org-habit))
+
+  ;; show habits on future days
+  (setq org-habit-show-habits-only-for-today nil)
+
   ;; hide todo entries whose deadline is far away according to
   ;; org-deadline-warning-days
   (setq org-agenda-todo-ignore-deadlines 'far)
