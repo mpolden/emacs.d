@@ -90,4 +90,7 @@
     ;; emacs 24.5 and older
     (setq-default save-place t)))
 
+;; monday is the first day of the week
+(setq calendar-week-start-day 1)
+
 (provide 'init-sane-defaults)
