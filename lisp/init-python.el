@@ -11,6 +11,10 @@
   :hook (python-mode . python-mode-buffer-local-variables)
   :config
   ;; use flake8 as flymake backend
-  (setq python-flymake-command '("flake8" "-")))
+  (setq python-flymake-command '("flake8" "-"))
+
+  ;; prefer python3 interpreter
+  (when (executable-find "python3")
+    (setq python-shell-interpreter "python3")))
 
 (provide 'init-python)
