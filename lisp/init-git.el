@@ -42,7 +42,12 @@
   :after magit
   :init
   ;; limit number of topics listed in status buffer
-  (setq forge-topic-list-limit '(10 . 0)))
+  (setq forge-topic-list-limit '(10 . 0))
+  :bind (;; killing in pullreq or issue section copies the url at point
+         :map forge-pullreq-section-map
+         ([remap magit-delete-thing] . forge-copy-url-at-point-as-kill)
+         :map forge-issue-section-map
+         ([remap magit-delete-thing] . forge-copy-url-at-point-as-kill)))
 
 ;; follow symlinks to files under version control
 (setq vc-follow-symlinks t)
