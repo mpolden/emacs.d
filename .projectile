@@ -1,3 +1,0 @@
-# projectile does not consult .gitignore when files are opened manually:
-# https://github.com/bbatsov/projectile/issues/1075
-/elpa/*
