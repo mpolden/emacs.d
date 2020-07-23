@@ -52,16 +52,17 @@
 ;; follow symlinks to files under version control
 (setq vc-follow-symlinks t)
 
-(defun vc-git-grep-all ()
+(defun vc-git-grep-root ()
   (interactive)
-  (let ((search-regexp (read-from-minibuffer "Search for: ")))
-    (vc-git-grep search-regexp "" (vc-git-root default-directory))))
+  (let ((search-regexp (grep-read-regexp))
+        (root (vc-git-root default-directory)))
+    (vc-git-grep search-regexp "" root)))
 
 (use-package vc-git
   :ensure nil ;; package is bundled with emacs
 
   :bind (;; C-c g runs git grep in repository
-         "C-c g" . vc-git-grep-all))
+         "C-c g" . vc-git-grep-root))
 
 (use-package smerge-mode
   :ensure nil ;; package is bundled with emacs
