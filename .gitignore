@@ -66,6 +66,9 @@ tutorial/
 /projectile-bookmarks.eld
 /projectile.cache
 
+# project
+/projects
+
 # eww
 /url/
 

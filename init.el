@@ -44,7 +44,7 @@
 (maybe-require 'init-eglot)
 (maybe-require 'init-flymake)
 (maybe-require 'init-git)
-(maybe-require 'init-projectile)
+(maybe-require 'init-project)
 
 ;; languages
 (maybe-require 'init-go)
