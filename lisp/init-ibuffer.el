@@ -18,10 +18,10 @@
          ("o" . ibuffer-visit-buffer-other-window)
          ("C-o" . ibuffer-visit-buffer-other-window-noselect)))
 
-(use-package ibuffer-project
-  :after (ibuffer project)
+(use-package ibuffer-vc
+  :after ibuffer
 
-  ;; group buffers by project
-  :hook (ibuffer-mode . (lambda () (setq ibuffer-filter-groups (ibuffer-project-generate-filter-groups)))))
+  ;; group ibuffer by repository root
+  :hook (ibuffer-mode . ibuffer-vc-set-filter-groups-by-vc-root))
 
 (provide 'init-ibuffer)
