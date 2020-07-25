@@ -2,7 +2,7 @@
 (use-package flx)
 
 (use-package ivy
-  :defer nil
+  :demand t ;; this cannot lazy load as bindings are inside a mode map
   :after flx
   :diminish ivy-mode
   :init
