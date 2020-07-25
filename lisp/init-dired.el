@@ -7,7 +7,6 @@
     (call-interactively 'dired-do-shell-command)))
 
 (use-package dired
-  :ensure nil ;; package is bundled with emacs
   :init
   ;; show human readable sizes in dired and sort dotfiles first
   (setq dired-listing-switches "-alhv")

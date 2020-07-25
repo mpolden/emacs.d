@@ -35,8 +35,6 @@ With a prefix ARG prompt edit currently visited file using sudo."
   (sudo-find-file t))
 
 (use-package tramp
-  :ensure nil ;; package is bundled with emacs
-
   :init
   ;; use ssh as transfer method
   (setq tramp-default-method "ssh")

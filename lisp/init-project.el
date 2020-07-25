@@ -1,4 +1,5 @@
 (use-package project
+  :ensure t
   :init
   ;; avoid reading command when compiling
   (setq compilation-read-command nil)

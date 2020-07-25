@@ -1,7 +1,9 @@
 ;; ivy uses flx sorting if it's installed
-(use-package flx)
+(use-package flx
+  :ensure t)
 
 (use-package ivy
+  :ensure t
   :demand t ;; this cannot lazy load as bindings are inside a mode map
   :after flx
   :diminish ivy-mode

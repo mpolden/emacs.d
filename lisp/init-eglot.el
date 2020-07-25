@@ -1,4 +1,5 @@
 (use-package eglot
+  :ensure t
   :hook
   ;; load eglot automatically for these modes
   ;; go requires gopls: env GO111MODULE=on go get golang.org/x/tools/gopls@latest

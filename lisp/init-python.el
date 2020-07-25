@@ -6,7 +6,6 @@
               'python-imenu-create-flat-index))
 
 (use-package python
-  :ensure nil ;; package is bundled with emacs
   :commands python-mode
   :hook (python-mode . python-mode-buffer-local-variables)
   :config

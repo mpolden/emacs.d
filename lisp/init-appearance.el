@@ -18,13 +18,11 @@
 
 ;; highlight current line
 (use-package hl-line
-  :ensure nil ;; package is bundled with emacs
   :config
   (global-hl-line-mode 1))
 
 ;; highlight matching parentheses
 (use-package paren
-  :ensure nil ;; package is bundled with emacs
   :config
   (show-paren-mode 1))
 

@@ -1,5 +1,4 @@
 (use-package org
-  :ensure nil ;; package is bundled with emacs
   :bind (("C-c c" . org-capture)
          ("C-c a" . org-agenda)
          ("C-c l" . org-store-link)

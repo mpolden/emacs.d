@@ -1,5 +1,6 @@
 ;; set theme
 (use-package doom-themes
+  :ensure t
   :if (display-graphic-p)
   :config
   (load-theme 'doom-monokai-pro t)

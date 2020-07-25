@@ -30,9 +30,6 @@ re-downloaded in order to locate PACKAGE."
   (unless (and (boundp 'inhibited-packages) (member package inhibited-packages))
     (require package)))
 
-;; install missing packages automatically
-(setq use-package-always-ensure t)
-
 ;; install use-package and diminish
 (require-packages '(use-package diminish))
 

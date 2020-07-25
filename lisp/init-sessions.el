@@ -1,6 +1,4 @@
 (use-package desktop
-  :ensure nil ;; package is bundled with emacs
-
   :init
   ;; save list of open files in ~/.emacs.d/.emacs.desktop
   (setq desktop-path (list user-emacs-directory))

@@ -1,6 +1,4 @@
 (use-package js
-  :ensure nil ;; package is bundled with emacs
-
   :init
   ;; set indent level to 2
   (setq-default js-indent-level 2)

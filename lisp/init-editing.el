@@ -1,18 +1,14 @@
 ;; use zap-up-to-char instead of zap-to-char
 (use-package misc
-  :ensure nil ;; package is bundled with emacs
   :bind ("M-z" . zap-up-to-char))
 
 ;; enable subword-mode in prog-mode
 (use-package subword
-  :ensure nil ;; package is bundled with emacs
   :diminish subword-mode
   :hook ((prog-mode . subword-mode)))
 
 ;; find function definitions
 (use-package find-func
-  :ensure nil ;; package is bundled with emacs
-
   ;; make source files read-only when visiting
   :hook ((find-function-after . read-only-mode))
 

@@ -21,7 +21,6 @@
 
 ;; reload buffers automatically when files change on disk
 (use-package autorevert
-  :ensure nil ;; package is bundled with emacs
   :diminish auto-revert-mode
   :init
   ;; revert buffers quietly
@@ -82,7 +81,6 @@
 
 ;; remember position in previously visited files
 (use-package saveplace
-  :ensure nil ;; package is bundled with emacs
   :config
   (if (fboundp 'save-place-mode)
       ;; emacs 25.1 and newer

@@ -1,6 +1,4 @@
 (use-package ibuffer
-  :ensure nil ;; package is bundled with emacs
-
   :init
   ;; disable confirmation for killing unmodified buffers
   (setq ibuffer-expert t)
@@ -19,6 +17,7 @@
          ("C-o" . ibuffer-visit-buffer-other-window-noselect)))
 
 (use-package ibuffer-vc
+  :ensure t
   :after ibuffer
 
   ;; group ibuffer by repository root

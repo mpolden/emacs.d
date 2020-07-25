@@ -1,7 +1,4 @@
 (use-package flyspell
-  ;; package is bundled with emacs
-  :ensure nil
-
   ;; load flyspell automatically for these modes
   :hook ((git-commit-mode . flyspell-mode)
          (gfm-mode . flyspell-mode)

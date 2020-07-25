@@ -1,4 +1,5 @@
 (use-package markdown-mode
+  :ensure t
   :commands gfm-mode
   :mode
   ;; use gfm mode for .md and .markdown extensions

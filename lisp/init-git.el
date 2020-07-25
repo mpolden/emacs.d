@@ -1,4 +1,5 @@
 (use-package git-commit
+  :ensure t
   :after markdown-mode
 
   :init
@@ -19,6 +20,7 @@
   (magit-visit-file-other-window t))
 
 (use-package magit
+  :ensure t
   :init
   ;; disable gravatars
   (setq magit-revision-show-gravatars nil)
@@ -39,6 +41,7 @@
          ("C-o" . magit-visit-file-other-window-noselect)))
 
 (use-package forge
+  :ensure t
   :after magit
   :init
   ;; limit number of topics listed in status buffer
@@ -60,13 +63,10 @@
 
 (use-package vc-git
   :after grep
-  :ensure nil ;; package is bundled with emacs
-
   :bind (;; C-c g runs git grep in repository
          "C-c g" . vc-git-grep-root))
 
 (use-package smerge-mode
-  :ensure nil ;; package is bundled with emacs
   :init
   (setq smerge-command-prefix (kbd "C-c x")))
 

@@ -30,6 +30,7 @@
 
 ;; use paths from shell
 (use-package exec-path-from-shell
+  :ensure t
   :init (setq exec-path-from-shell-variables '("PATH" "MANPATH" "GOPATH"))
   :config (exec-path-from-shell-initialize))
 
