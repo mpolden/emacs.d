@@ -2,6 +2,10 @@
   (interactive)
   (magit-status (project-root (project-current t))))
 
+(defun project-git-grep ()
+  (interactive)
+  (vc-git-grep-root (project-root (project-current t))))
+
 (use-package project
   :ensure t
   :init
@@ -19,6 +23,7 @@
   :config
   (setq project-switch-commands '((?f "Find file" project-find-file)
                                   (?d "Dired" project-dired)
+                                  (?g "Grep" project-git-grep)
                                   (?m "Magit" project-magit-status))))
 
 (provide 'init-project)

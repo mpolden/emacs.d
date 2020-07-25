@@ -55,11 +55,11 @@
 ;; follow symlinks to files under version control
 (setq vc-follow-symlinks t)
 
-(defun vc-git-grep-root ()
+(defun vc-git-grep-root (&optional dir)
   (interactive)
   (let ((search-regexp (grep-read-regexp))
-        (root (vc-git-root default-directory)))
-    (vc-git-grep search-regexp "" root)))
+        (dir (or dir (vc-git-root default-directory))))
+    (vc-git-grep search-regexp "" dir)))
 
 (use-package vc-git
   :after grep
