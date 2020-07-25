@@ -59,6 +59,7 @@
     (vc-git-grep search-regexp "" root)))
 
 (use-package vc-git
+  :after grep
   :ensure nil ;; package is bundled with emacs
 
   :bind (;; C-c g runs git grep in repository

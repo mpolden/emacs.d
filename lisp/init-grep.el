@@ -17,6 +17,7 @@
 
 (use-package grep
   :ensure nil ;; package is bundled with emacs
+  :demand t ;; this cannot lazy load as bindings are inside a mode map
 
   :hook (grep-mode . grep-mode-buffer-local-variables)
 
