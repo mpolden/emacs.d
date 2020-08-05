@@ -21,6 +21,10 @@
   :after ibuffer
 
   ;; group ibuffer by repository root
-  :hook (ibuffer-mode . ibuffer-vc-set-filter-groups-by-vc-root))
+  :hook (ibuffer-mode . ibuffer-vc-set-filter-groups-by-vc-root)
+
+  :bind (:map ibuffer-mode-map
+         ;; g updates both buffers and repository groups
+         ("g" . ibuffer-vc-set-filter-groups-by-vc-root)))
 
 (provide 'init-ibuffer)
