@@ -36,9 +36,6 @@ With a prefix ARG prompt edit currently visited file using sudo."
 
 (use-package tramp
   :init
-  ;; use ssh as transfer method
-  (setq tramp-default-method "ssh")
-
   ;; workaround for long ControlPath on darwin
   ;; https://trac.macports.org/ticket/29794
   (when (eq system-type 'darwin)
