@@ -6,6 +6,7 @@
 
 ;; diminish eldoc from mode line
 (use-package eldoc
+  :commands eldoc-mode
   :diminish)
 
 (provide 'init-lisp)
