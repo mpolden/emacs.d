@@ -82,11 +82,7 @@
 ;; remember position in previously visited files
 (use-package saveplace
   :config
-  (if (fboundp 'save-place-mode)
-      ;; emacs 25.1 and newer
-      (save-place-mode 1)
-    ;; emacs 24.5 and older
-    (setq-default save-place t)))
+  (save-place-mode 1))
 
 ;; monday is the first day of the week
 (setq calendar-week-start-day 1)
