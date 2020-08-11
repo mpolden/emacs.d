@@ -55,6 +55,9 @@
 ;; follow symlinks to files under version control
 (setq vc-follow-symlinks t)
 
+;; limit vc backends as this may speed up some operations, e.g. tramp
+(setq vc-handled-backends '(Git))
+
 (defun vc-git-grep-root (&optional dir)
   (interactive)
   (let ((search-regexp (grep-read-regexp))
