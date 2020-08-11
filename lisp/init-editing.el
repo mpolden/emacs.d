@@ -24,14 +24,16 @@
 
 ;; source:
 ;; http://emacsredux.com/blog/2013/05/04/rename-file-and-buffer/
-;; https://github.com/bbatsov/prelude/blob/master/core/prelude-core.el
+;; https://github.com/bbatsov/crux/blob/dcd693c258ae4d867b18d9a028a828ef6c42a4a6/crux.el#L406
 (defun rename-buffer-and-file ()
   "Rename current buffer and if the buffer is visiting a file, rename it too."
   (interactive)
   (let ((filename (buffer-file-name)))
     (if (not (and filename (file-exists-p filename)))
         (rename-buffer (read-from-minibuffer "New name: " (buffer-name)))
-      (let ((new-name (read-file-name "New name: " filename)))
+      (let* ((new-name (read-from-minibuffer "New name: " filename))
+             (containing-dir (file-name-directory new-name)))
+        (make-directory containing-dir t)
         (cond
          ((vc-backend filename) (vc-rename-file filename new-name))
          (t
