@@ -36,12 +36,6 @@ With a prefix ARG prompt edit currently visited file using sudo."
 
 (use-package tramp
   :init
-  ;; workaround for long ControlPath on darwin
-  ;; https://trac.macports.org/ticket/29794
-  (when (eq system-type 'darwin)
-    (setq tramp-ssh-controlmaster-options
-          "-o ControlPath=/tmp/%%r@%%h:%%p -o ControlMaster=auto -o ControlPersist=no"))
-
   ;; disable vc integration for remote files
   (setq vc-ignore-dir-regexp
         (format "\\(%s\\)\\|\\(%s\\)"
