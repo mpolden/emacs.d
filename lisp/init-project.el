@@ -12,7 +12,7 @@
   (setq project-switch-commands '((?f "Find file" project-find-file)
                                   (?d "Dired" project-dired)
                                   (?g "Grep" project-git-grep)
-                                  (?m "Magit" magit-project-status)))
+                                  (?m "Magit" magit-status)))
 
   :bind (;; C-x f finds file in project
          ("C-x f" . project-find-file)
