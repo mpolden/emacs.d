@@ -38,13 +38,14 @@
 (maybe-require 'init-ibuffer)
 (maybe-require 'init-imenu)
 (maybe-require 'init-ivy)
+(maybe-require 'init-project)
 (maybe-require 'init-swiper)
 
-;; managing code
+;; clients
 (maybe-require 'init-eglot)
 (maybe-require 'init-flymake)
 (maybe-require 'init-git)
-(maybe-require 'init-project)
+(maybe-require 'init-restclient)
 
 ;; languages
 (maybe-require 'init-go)
