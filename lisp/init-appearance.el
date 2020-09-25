@@ -26,8 +26,8 @@
   :config
   (show-paren-mode 1))
 
-;; highlight trailing whitespace
-(setq-default show-trailing-whitespace t)
+;; highlight trailing whitespace in prog-mode
+(add-hook 'prog-mode-hook (lambda () (setq-local show-trailing-whitespace t)))
 
 ;; disable word wrapping
 (setq-default truncate-lines t)
