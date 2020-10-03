@@ -27,7 +27,7 @@ re-downloaded in order to locate PACKAGE."
 
 ;; load given package unless inhibited through inhibited-packages
 (defun maybe-require (package)
-  (unless (and (boundp 'inhibited-packages) (member package inhibited-packages))
+  (unless (member package (bound-and-true-p inhibited-packages))
     (require package)))
 
 ;; install use-package and diminish
