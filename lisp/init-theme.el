@@ -3,7 +3,7 @@
   :ensure t
   :if (display-graphic-p)
   :config
-  (load-theme 'doom-one t)
+  (load-theme 'doom-dracula t)
 
   ;; make title bar use same style as theme on mac
   (when (eq system-type 'darwin)
