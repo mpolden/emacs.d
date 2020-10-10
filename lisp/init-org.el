@@ -87,4 +87,8 @@
           ("m" "Agenda and all TODOs split by state"
            ((agenda "") (todo "TODO") (todo "WAIT"))))))
 
+;; enable template expansion when typing <s in org-mode
+(use-package org-tempo
+  :after org)
+
 (provide 'init-org)
