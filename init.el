@@ -39,7 +39,6 @@
 (maybe-require 'init-imenu)
 (maybe-require 'init-ivy)
 (maybe-require 'init-project)
-(maybe-require 'init-swiper)
 
 ;; clients
 (maybe-require 'init-eglot)
