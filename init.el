@@ -53,4 +53,5 @@
 (maybe-require 'init-markdown)
 (maybe-require 'init-org)
 (maybe-require 'init-python)
+(maybe-require 'init-rust-mode)
 (maybe-require 'init-yaml)
