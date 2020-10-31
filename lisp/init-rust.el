@@ -4,7 +4,7 @@
   (setq rust-format-on-save t)
 
   :bind (:map rust-mode-map
-              ;; C-c p runs rustfmt on the buffer
-              ("C-c p" . rust-format-buffer)))
+              ;; C-c f runs rustfmt on the buffer
+              ("C-c f" . rust-format-buffer)))
 
 (provide 'init-rust)
