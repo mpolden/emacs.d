@@ -29,6 +29,14 @@
 ;; highlight trailing whitespace in prog-mode
 (add-hook 'prog-mode-hook (lambda () (setq-local show-trailing-whitespace t)))
 
+;; render ansi colors in compilation buffer
+(defun colorize-compilation-buffer ()
+  (when (eq major-mode 'compilation-mode)
+    (ansi-color-apply-on-region compilation-filter-start (point-max))))
+
+(use-package ansi-color
+  :hook ((compilation-filter . colorize-compilation-buffer)))
+
 ;; disable word wrapping
 (setq-default truncate-lines t)
 
