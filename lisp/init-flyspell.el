@@ -6,6 +6,11 @@
          (latex-mode . flyspell-mode))
 
   :bind (:map flyspell-mode-map
-              ("C-c s" . flyspell-correct-word-before-point)))
+              ("C-c s" . flyspell-correct-word-before-point))
+
+  :config
+  ;; prefer hunspell
+  (when (executable-find "hunspell")
+    (setq ispell-program-name "hunspell")))
 
 (provide 'init-flyspell)
