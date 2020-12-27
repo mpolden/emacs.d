@@ -6,6 +6,9 @@
 
   :bind (:map rust-mode-map
               ;; C-c f runs rustfmt on the buffer
-              ("C-c f" . rust-format-buffer)))
+              ("C-c f" . rust-format-buffer)
+              ("C-c l" . rust-clippy)
+              ("C-c t" . rust-test)
+              ("C-c R" . rust-run)))
 
 (provide 'init-rust)
