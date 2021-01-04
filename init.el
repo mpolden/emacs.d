@@ -38,6 +38,7 @@
 (maybe-require 'init-imenu)
 (maybe-require 'init-ivy)
 (maybe-require 'init-project)
+(maybe-require 'init-recentf)
 
 ;; clients
 (maybe-require 'init-eglot)
