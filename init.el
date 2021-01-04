@@ -24,7 +24,6 @@
 ;; editing
 (maybe-require 'init-editing)
 (maybe-require 'init-server)
-(maybe-require 'init-sessions)
 (maybe-require 'init-tramp)
 
 ;; writing
