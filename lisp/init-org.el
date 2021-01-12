@@ -51,7 +51,7 @@
   (setq org-src-tab-acts-natively t)
 
   ;; define todo states
-  (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "ABRT(a)" "DONE(d)")))
+  (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w@)" "ABRT(a@)" "DONE(d)")))
 
   ;; disallow invisible edits
   (setq org-catch-invisible-edits 'error)
@@ -70,6 +70,9 @@
 
   ;; show habits on future days
   (setq org-habit-show-habits-only-for-today nil)
+
+  ;; insert state change notes and time stamps into a drawer
+  (setq org-log-into-drawer t)
 
   ;; hide todo entries whose deadline is far away according to
   ;; org-deadline-warning-days
