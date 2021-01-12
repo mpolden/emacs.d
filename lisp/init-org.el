@@ -26,10 +26,13 @@
   (setq org-log-done 'time)
 
   ;; default file for capture
-  (setq org-default-notes-file (expand-file-name "personal.org" org-directory))
+  (setq org-default-notes-file (expand-file-name "inbox.org" org-directory))
 
   ;; capture template including title, date and time
-  (setq org-capture-templates '(("p" "Personal" entry (file+olp "" "Tasks")
+  (setq org-capture-templates '(("i" "Inbox" entry (file "")
+                                 "* TODO %?\n  %U"
+                                 :empty-lines-after 1)
+                                ("p" "Personal" entry (file+olp "personal.org" "Tasks")
                                  "* TODO %?\n  %U"
                                  :prepend t
                                  :empty-lines-after 1)
