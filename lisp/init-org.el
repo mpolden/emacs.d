@@ -51,7 +51,7 @@
   (setq org-src-tab-acts-natively t)
 
   ;; define todo states
-  (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w@)" "ABRT(a@)" "DONE(d)")))
+  (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w@)" "|" "ABRT(a@)" "DONE(d)")))
 
   ;; disallow invisible edits
   (setq org-catch-invisible-edits 'error)
