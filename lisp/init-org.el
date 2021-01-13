@@ -31,14 +31,6 @@
   ;; capture template including title, date and time
   (setq org-capture-templates '(("i" "Inbox" entry (file "")
                                  "* TODO %?\n  %U"
-                                 :empty-lines-after 1)
-                                ("p" "Personal" entry (file+olp "personal.org" "Tasks")
-                                 "* TODO %?\n  %U"
-                                 :prepend t
-                                 :empty-lines-after 1)
-                                ("w" "Work" entry (file+olp "work.org" "Tasks")
-                                 "* TODO %?\n  %U"
-                                 :prepend t
                                  :empty-lines-after 1)))
 
   ;; automatically mark archived entry as done
