@@ -20,7 +20,8 @@
   :bind (("M-j" . crux-top-join-line)
          ("C-c n" . crux-rename-file-and-buffer)
          ("C-c w" . crux-kill-buffer-truename)
-         ("C-c D" . crux-duplicate-current-line-or-region)))
+         ("C-c D" . crux-duplicate-current-line-or-region)
+         ("C-x C-r" . crux-recentf-find-file)))
 
 ;; C-x k kills current buffer
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
