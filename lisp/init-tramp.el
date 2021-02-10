@@ -35,13 +35,6 @@ With a prefix ARG prompt edit currently visited file using sudo."
   (sudo-find-file t))
 
 (use-package tramp
-  :init
-  ;; disable vc integration for remote files
-  (setq vc-ignore-dir-regexp
-        (format "\\(%s\\)\\|\\(%s\\)"
-                vc-ignore-dir-regexp
-                tramp-file-name-regexp))
-
   :bind
   (("C-x +" . sudo-find-file)
    ("C-x !" . sudo-current-file))
