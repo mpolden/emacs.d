@@ -1,7 +1,8 @@
 (use-package org
   :bind (("C-c c" . org-capture)
-         ("C-c a" . org-agenda)
          ("C-c l" . org-store-link)
+         ("C-c a" . org-agenda)
+         :map org-mode-map
          ("C-c f" . org-indent-region)
          ("C-c o a" . org-archive-subtree)
          ("C-c o s" . org-save-all-org-buffers))
