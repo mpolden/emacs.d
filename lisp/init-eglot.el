@@ -15,7 +15,9 @@
               ;; C-c r renames identifier
               ("C-c r" . eglot-rename)
               ;; C-c f formats buffer
-              ("C-c f" . eglot-format))
+              ("C-c f" . eglot-format)
+              ;; C-c o organizes imports
+              ("C-c o" . eglot-code-action-organize-imports))
 
   :config
   ;; disable symbol highlighting and documentation on hover
