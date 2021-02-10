@@ -20,6 +20,10 @@
   :ensure t
   :after ibuffer
 
+  :init
+  ;; enable for remote files
+  (setq ibuffer-vc-skip-if-remote nil)
+
   ;; group ibuffer by repository root
   :hook (ibuffer-mode . ibuffer-vc-set-filter-groups-by-vc-root)
 
