@@ -1,9 +1,9 @@
 (defun sudo-prefix-p (prefix)
-  "Return t if PREFIX is a sudo prefix."
-  (or (string-equal prefix "/sudo") (string-equal prefix "/sudo:")))
+  "Return non-nil if PREFIX is a sudo prefix."
+  (member prefix '("/sudo" "/sudo:")))
 
 (defun ssh-prefix-p (prefix)
-  "Return t if PREFIX is a ssh prefix."
+  "Return non-nil if PREFIX is a ssh prefix."
   (string-equal prefix "/ssh"))
 
 (defun sudo-file-name (filename)
@@ -13,13 +13,12 @@ If FILENAME already has a sudo prefix, do nothing. If FILENAME is
 accessed over SSH, prefix it with \"/sudo:\". Otherwise, assume
 FILENAME is a local path and prefix it with \"/sudo::\"."
   (let* ((splitname (split-string filename ":"))
-         (prefix (car splitname))
-         (ssh-p (ssh-prefix-p prefix))
-         (sudo-p (sudo-prefix-p prefix)))
-    (if sudo-p
+         (prefix (car splitname)))
+    (if (sudo-prefix-p prefix)
         filename
-      (let ((sudo-prefix (if ssh-p "/sudo" "/sudo:"))
-            (components (if ssh-p (cdr splitname) splitname)))
+      (let* ((ssh (ssh-prefix-p prefix))
+             (sudo-prefix (if ssh "/sudo" "/sudo:"))
+             (components (if ssh (cdr splitname) splitname)))
         (mapconcat 'identity (cons sudo-prefix components) ":")))))
 
 (defun sudo-find-file (&optional arg)
