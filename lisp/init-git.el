@@ -52,11 +52,13 @@
          :map forge-issue-section-map
          ([remap magit-delete-thing] . forge-copy-url-at-point-as-kill)))
 
-;; follow symlinks to files under version control
-(setq vc-follow-symlinks t)
+(use-package vc-hooks
+  :init
+  ;; follow symlinks to files under version control
+  (setq vc-follow-symlinks t)
 
-;; limit vc backends as this may speed up some operations, e.g. tramp
-(setq vc-handled-backends '(Git))
+  ;; limit vc backends as this may speed up some operations, e.g. tramp
+  (setq vc-handled-backends '(Git)))
 
 (defun vc-git-grep-root (&optional dir)
   (interactive)
