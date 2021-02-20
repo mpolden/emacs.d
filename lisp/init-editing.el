@@ -32,4 +32,7 @@
 ;; kill line also kills newline character
 (setq kill-whole-line t)
 
+;; yank discards all text properties
+(setq yank-excluded-properties t)
+
 (provide 'init-editing)
