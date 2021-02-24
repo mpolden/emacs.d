@@ -21,7 +21,8 @@
          ("C-c n" . crux-rename-file-and-buffer)
          ("C-c w" . crux-kill-buffer-truename)
          ("C-c D" . crux-duplicate-current-line-or-region)
-         ("C-x C-r" . crux-recentf-find-file)))
+         ("C-x C-r" . crux-recentf-find-file)
+         ("C-x C-o" . crux-recentf-find-directory)))
 
 ;; C-x k kills current buffer
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
