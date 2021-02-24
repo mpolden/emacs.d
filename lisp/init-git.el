@@ -60,16 +60,8 @@
   ;; limit vc backends as this may speed up some operations, e.g. tramp
   (setq vc-handled-backends '(Git)))
 
-(defun vc-git-grep-root (&optional dir)
-  (interactive)
-  (let ((search-regexp (grep-read-regexp))
-        (dir (or dir (vc-git-root default-directory))))
-    (vc-git-grep search-regexp "" dir)))
-
 (use-package vc-git
-  :after grep
-  :bind (;; C-c g runs git grep in repository
-         "C-c g" . vc-git-grep-root))
+  :after grep)
 
 (use-package smerge-mode
   :init

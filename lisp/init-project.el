@@ -1,6 +1,8 @@
 (defun project-git-grep ()
   (interactive)
-  (vc-git-grep-root (project-root (project-current t))))
+  (let ((search-regexp (grep-read-regexp))
+        (dir (project-root (project-current t))))
+    (vc-git-grep search-regexp "" dir)))
 
 (use-package project
   :ensure t
@@ -15,6 +17,8 @@
          ("C-x f" . project-find-file)
          ;; C-c p switches project
          ("C-c p" . project-switch-project)
+         ;; C-c g runs git grep in project
+         ("C-c g" . project-git-grep)
          ;; C-c m compiles project
          ("C-c m" . project-compile)))
 
