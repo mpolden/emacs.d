@@ -2,7 +2,7 @@
   :ensure t
   :hook
   ;; load eglot automatically for these modes
-  ;; - go with gopls: env GO111MODULE=on go get -u golang.org/x/tools/gopls@latest
+  ;; - go with gopls: go install golang.org/x/tools/gopls@latest
   ;; - python with pyls: python3 -m pip install --user python-language-server
   ;; - rust with rls: rustup component add rls
   ((go-mode . eglot-ensure)
