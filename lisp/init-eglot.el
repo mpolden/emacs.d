@@ -1,5 +1,12 @@
 (use-package eglot
   :ensure t
+  :init
+  ;; eglot passes tab-width as tab size to the lsp server, but most language
+  ;; servers treat this as an indentation width
+  ;; https://github.com/joaotavora/eglot/issues/157
+  ;;
+  ;; set a default value that fits most languages
+  (setq-default tab-width 4)
   :hook
   ;; load eglot automatically for these modes
   ((go-mode . eglot-ensure)
