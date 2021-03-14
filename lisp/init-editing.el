@@ -7,14 +7,6 @@
   :diminish subword-mode
   :hook ((prog-mode . subword-mode)))
 
-;; find function definitions
-(use-package find-func
-  ;; make source files read-only when visiting
-  :hook ((find-function-after . read-only-mode))
-
-  :bind (("C-h C-f" . find-function-other-window)
-         ("C-h C-k" . find-function-on-key)))
-
 (use-package crux
   :ensure t
   :bind (("M-j" . crux-top-join-line)
