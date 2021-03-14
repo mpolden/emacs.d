@@ -36,6 +36,13 @@ the following in mind when maintaining it:
 * Don't take on too many responsibilities. I.e. I have tried and failed to use
   Emacs for email and RSS.
 
+## Language Server Protocol
+
+The `Makefile` contains targets for installing servers that implement the
+Language Server Protocol (LSP).
+
+Once installed, `eglot` should detect and use the servers automatically.
+
 ## Version compatibility
 
 Lowest supported Emacs version is the one found in [Debian

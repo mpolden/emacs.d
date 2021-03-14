@@ -99,3 +99,7 @@ tutorial/
 
 # forge
 /forge-database.sqlite
+
+# java lsp server
+/eclipse.jdt.ls/
+/eglot-eclipse-jdt-cache/
