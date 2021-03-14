@@ -3,6 +3,7 @@
   :hook
   ;; load eglot automatically for these modes
   ((go-mode . eglot-ensure)
+   (java-mode . eglot-ensure)
    (python-mode . eglot-ensure)
    (rust-mode . eglot-ensure)
    ;; format on save
