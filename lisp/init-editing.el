@@ -18,7 +18,7 @@
          ("C-x C-o" . crux-recentf-find-directory)))
 
 ;; C-x k kills current buffer
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
+(global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 ;; C-- undoes
 (global-set-key (kbd "C--") 'undo)
