@@ -31,7 +31,8 @@
 ;; use paths from shell
 (use-package exec-path-from-shell
   :ensure t
-  :init (setq exec-path-from-shell-variables '("PATH" "MANPATH" "GOPATH"))
+  :init (setq exec-path-from-shell-variables '("PATH" "MANPATH" "GOPATH"
+                                               "JAVA_HOME" "CLASSPATH"))
   :config (exec-path-from-shell-initialize))
 
 ;; add binding for toggling fullscreen
