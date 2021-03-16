@@ -1,4 +1,4 @@
-(defun python-mode-buffer-local-variables ()
+(defun mpolden/python-mode-buffer-local-variables ()
   ;; highlight lines longer than 88 characters
   (setq-local fill-column 88)
   ;; use flat index in imenu
@@ -7,7 +7,7 @@
 
 (use-package python
   :commands python-mode
-  :hook (python-mode . python-mode-buffer-local-variables)
+  :hook (python-mode . mpolden/python-mode-buffer-local-variables)
   :config
   ;; prefer flake8 as flymake backend
   (when (executable-find "flake8")

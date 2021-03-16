@@ -1,4 +1,4 @@
-(defun project-git-grep ()
+(defun mpolden/project-git-grep ()
   (interactive)
   (let ((search-regexp (grep-read-regexp))
         (dir (project-root (project-current t))))
@@ -10,7 +10,7 @@
   ;; commands to show when switching projects
   (setq project-switch-commands '((?f "Find file" project-find-file)
                                   (?d "Dired" project-dired)
-                                  (?g "Grep" project-git-grep)
+                                  (?g "Grep" mpolden/project-git-grep)
                                   (?m "Magit" magit-status)))
 
   :bind (;; C-x f finds file in project
@@ -18,7 +18,7 @@
          ;; C-c p switches project
          ("C-c p" . project-switch-project)
          ;; C-c g runs git grep in project
-         ("C-c g" . project-git-grep)
+         ("C-c g" . mpolden/project-git-grep)
          ;; C-c m compiles project
          ("C-c m" . project-compile)))
 

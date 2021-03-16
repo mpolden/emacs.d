@@ -6,7 +6,7 @@
   ;; use gfm-mode as major mode
   (setq git-commit-major-mode 'gfm-mode))
 
-(defun magit-visit-file-other-window (&optional noselect)
+(defun mpolden/magit-visit-file-other-window (&optional noselect)
   "Visit current file in another window."
   (interactive)
   (let ((current-window (selected-window)))
@@ -14,10 +14,10 @@
     (when noselect
       (select-window current-window))))
 
-(defun magit-visit-file-other-window-noselect ()
+(defun mpolden/magit-visit-file-other-window-noselect ()
   "Visit current file in another window, but don't select it."
   (interactive)
-  (magit-visit-file-other-window t))
+  (mpolden/magit-visit-file-other-window t))
 
 (use-package magit
   :ensure t
@@ -32,8 +32,8 @@
          ("C-c b" . magit-blame)
          :map magit-status-mode-map
          ;; make C-o and o behave as in dired
-         ("o" . magit-visit-file-other-window)
-         ("C-o" . magit-visit-file-other-window-noselect)))
+         ("o" . mpolden/magit-visit-file-other-window)
+         ("C-o" . mpolden/magit-visit-file-other-window-noselect)))
 
 (use-package forge
   :ensure t

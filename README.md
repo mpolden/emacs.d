@@ -31,10 +31,10 @@ the following in mind when maintaining it:
   and a minimum configuration exists to accomplish this.
   * Avoid additional `org` packages as `org` itself is more than big enough.
 * Make code navigation quick and easy.
-  * Most non-trivial code repositories contain many source files and
+  * Most non-trivial code repositories contain a high number of source files and
     navigating them efficiently is key to my productivity.
-* Don't take on too many responsibilities. I.e. I have tried and failed to use
-  Emacs for email and RSS.
+* Limit responsibilities. I.e. I have tried and failed to use Emacs for email
+  and RSS.
 
 ## Language Server Protocol
 
@@ -69,9 +69,9 @@ Start Emacs!
 Local customizations can be added to `lisp/init-local.el`. This file is in
 `.gitignore`.
 
-Setting the variable `inhibited-packages` (e.g. in `lisp/init-local.el`) allows
-inhibiting loading of one or more packages. Example:
+Setting the variable `mpolden/inhibited-packages` (e.g. in `lisp/init-local.el`)
+allows inhibiting loading of one or more packages. Example:
 
 ``` emacs-lisp
-(setq inhibited-packages '(init-foo))
+(setq mpolden/inhibited-packages '(init-foo))
 ```

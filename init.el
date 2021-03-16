@@ -13,45 +13,45 @@
 (require 'init-local nil t)
 
 ;; appearance
-(maybe-require 'init-appearance)
-(maybe-require 'init-theme)
+(mpolden/maybe-require 'init-appearance)
+(mpolden/maybe-require 'init-theme)
 
 ;; behaviour
-(maybe-require 'init-sane-defaults)
+(mpolden/maybe-require 'init-sane-defaults)
 (when (eq system-type 'darwin)
-  (maybe-require 'init-mac))
+  (mpolden/maybe-require 'init-mac))
 
 ;; editing
-(maybe-require 'init-editing)
-(maybe-require 'init-server)
-(maybe-require 'init-tramp)
+(mpolden/maybe-require 'init-editing)
+(mpolden/maybe-require 'init-server)
+(mpolden/maybe-require 'init-tramp)
 
 ;; writing
-(maybe-require 'init-flyspell)
-(maybe-require 'init-writegood)
+(mpolden/maybe-require 'init-flyspell)
+(mpolden/maybe-require 'init-writegood)
 
 ;; navigation
-(maybe-require 'init-amx)
-(maybe-require 'init-dired)
-(maybe-require 'init-grep)
-(maybe-require 'init-ibuffer)
-(maybe-require 'init-imenu)
-(maybe-require 'init-ivy)
-(maybe-require 'init-project)
-(maybe-require 'init-recentf)
+(mpolden/maybe-require 'init-amx)
+(mpolden/maybe-require 'init-dired)
+(mpolden/maybe-require 'init-grep)
+(mpolden/maybe-require 'init-ibuffer)
+(mpolden/maybe-require 'init-imenu)
+(mpolden/maybe-require 'init-ivy)
+(mpolden/maybe-require 'init-project)
+(mpolden/maybe-require 'init-recentf)
 
 ;; clients
-(maybe-require 'init-eglot)
-(maybe-require 'init-flymake)
-(maybe-require 'init-git)
-(maybe-require 'init-restclient)
+(mpolden/maybe-require 'init-eglot)
+(mpolden/maybe-require 'init-flymake)
+(mpolden/maybe-require 'init-git)
+(mpolden/maybe-require 'init-restclient)
 
 ;; languages
-(maybe-require 'init-go)
-(maybe-require 'init-javascript)
-(maybe-require 'init-lisp)
-(maybe-require 'init-markdown)
-(maybe-require 'init-org)
-(maybe-require 'init-python)
-(maybe-require 'init-rust)
-(maybe-require 'init-yaml)
+(mpolden/maybe-require 'init-go)
+(mpolden/maybe-require 'init-javascript)
+(mpolden/maybe-require 'init-lisp)
+(mpolden/maybe-require 'init-markdown)
+(mpolden/maybe-require 'init-org)
+(mpolden/maybe-require 'init-python)
+(mpolden/maybe-require 'init-rust)
+(mpolden/maybe-require 'init-yaml)

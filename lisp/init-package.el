@@ -9,7 +9,7 @@
 (when (version< emacs-version "26.3")
   (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
-(defun require-package (package &optional min-version no-refresh)
+(defun mpolden/require-package (package &optional min-version no-refresh)
   "Install given PACKAGE, optionally requiring MIN-VERSION.
 If NO-REFRESH is non-nil, the available package lists will not be
 re-downloaded in order to locate PACKAGE."
@@ -21,17 +21,19 @@ re-downloaded in order to locate PACKAGE."
         (package-refresh-contents)
         (require-package package min-version t)))))
 
-(defun require-packages (packages)
+(defun mpolden/require-packages (packages)
   "Install a list of PACKAGES."
-  (mapcar (lambda (package) (require-package package)) packages))
+  (mapcar (lambda (package) (mpolden/require-package package)) packages))
 
 ;; load given package unless inhibited through inhibited-packages
-(defun maybe-require (package)
-  (unless (member package (bound-and-true-p inhibited-packages))
+(define-obsolete-variable-alias 'inhibited-packages 'mpolden/inhibited-packages)
+
+(defun mpolden/maybe-require (package)
+  (unless (member package (bound-and-true-p mpolden/inhibited-packages))
     (require package)))
 
 ;; install use-package and diminish
-(require-packages '(use-package diminish))
+(mpolden/require-packages '(use-package diminish))
 
 ;; speed up loading of use-package and dependencies
 (eval-when-compile
