@@ -1,3 +1,7 @@
+(defun mpolden/format-before-save ()
+  (unless (member major-mode (bound-and-true-p mpolden/inhibit-format-before-save))
+    (eglot-format)))
+
 (use-package eglot
   :ensure t
   :init
@@ -13,8 +17,7 @@
    (java-mode . eglot-ensure)
    (python-mode . eglot-ensure)
    (rust-mode . eglot-ensure)
-   ;; format on save
-   (before-save . eglot-format))
+   (before-save . mpolden/format-before-save))
 
   :bind (:map eglot-mode-map
               ;; C-c r renames identifier

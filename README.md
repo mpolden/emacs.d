@@ -43,6 +43,14 @@ Language Server Protocol (LSP).
 
 Once installed, `eglot` should detect and use the servers automatically.
 
+This configuration enables formatting on save by default. To disable this
+behaviour, add the relevant mode(s) to `mpolden/inhibit-format-before-save`.
+Example:
+
+``` emacs-lisp
+(setq mpolden/inhibit-format-before-save '(foo-mode))
+```
+
 ## Version compatibility
 
 Lowest supported Emacs version is the one found in [Debian
