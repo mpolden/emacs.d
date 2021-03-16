@@ -1,3 +1,7 @@
+;;; init-package.el --- configure package management
+;;; Commentary:
+;;; Code:
+
 ;; add melpa repo
 (require 'package)
 (add-to-list 'package-archives
@@ -29,6 +33,7 @@ re-downloaded in order to locate PACKAGE."
 (define-obsolete-variable-alias 'inhibited-packages 'mpolden/inhibited-packages)
 
 (defun mpolden/maybe-require (package)
+  "Load PACKAGE if it's not inhibited."
   (unless (member package (bound-and-true-p mpolden/inhibited-packages))
     (require package)))
 
@@ -42,3 +47,5 @@ re-downloaded in order to locate PACKAGE."
 (require 'bind-key)
 
 (provide 'init-package)
+
+;;; init-package.el ends here

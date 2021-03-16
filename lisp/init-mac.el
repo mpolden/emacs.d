@@ -1,3 +1,7 @@
+;;; init-mac.el --- configuration specific to macos
+;;; Commentary:
+;;; Code:
+
 ;; use jetbrains mono font if available
 ;; https://www.jetbrains.com/lp/mono/
 (let ((font-family "JetBrains Mono"))
@@ -43,3 +47,5 @@
   (setq insert-directory-program "gls"))
 
 (provide 'init-mac)
+
+;;; init-mac.el ends here

@@ -1,4 +1,9 @@
+;;; init-eglot.el --- configure lsp integration
+;;; Commentary:
+;;; Code:
+
 (defun mpolden/format-before-save ()
+  "Format buffer using `eglot-format' unless explicitly inhibited in current mode."
   (unless (member major-mode (bound-and-true-p mpolden/inhibit-format-before-save))
     (eglot-format)))
 
@@ -33,3 +38,5 @@
                                            :hoverProvider)))
 
 (provide 'init-eglot)
+
+;;; init-eglot.el ends here

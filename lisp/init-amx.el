@@ -1,4 +1,7 @@
-;; enable amx-mode for smarter candidates in M-x
+;;; init-amx.el --- configure a better M-x
+;;; Commentary:
+;;; Code:
+
 (use-package amx
   :ensure t
   :after ivy
@@ -6,3 +9,5 @@
   (amx-mode 1))
 
 (provide 'init-amx)
+
+;;; init-amx.el ends here

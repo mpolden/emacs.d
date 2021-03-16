@@ -1,3 +1,7 @@
+;;; init-editing.el --- configure editing bindings and behaviour
+;;; Commentary:
+;;; Code:
+
 ;; use zap-up-to-char instead of zap-to-char
 (use-package misc
   :bind ("M-z" . zap-up-to-char))
@@ -30,3 +34,5 @@
 (setq yank-excluded-properties t)
 
 (provide 'init-editing)
+
+;;; init-editing.el ends here

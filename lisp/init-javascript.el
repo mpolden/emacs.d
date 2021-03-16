@@ -1,3 +1,7 @@
+;;; init-javascript.el --- configure javascript language support
+;;; Commentary:
+;;; Code:
+
 (use-package js
   :init
   ;; set indent level to 2
@@ -12,3 +16,5 @@
               ("C-c f" . json-pretty-print-buffer)))
 
 (provide 'init-javascript)
+
+;;; init-javascript.el ends here

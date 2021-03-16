@@ -1,3 +1,7 @@
+;;; init-lisp.el --- configure lisp language support
+;;; Commentary:
+;;; Code:
+
 (use-package paredit
   :ensure t
   :config
@@ -10,3 +14,5 @@
   :diminish)
 
 (provide 'init-lisp)
+
+;;; init-lisp.el ends here

@@ -1,3 +1,7 @@
+;;; init-ivy.el --- configure ivy
+;;; Commentary:
+;;; Code:
+
 ;; ivy uses flx sorting if it's installed
 (use-package flx
   :ensure t)
@@ -14,3 +18,5 @@
   (ivy-mode 1))
 
 (provide 'init-ivy)
+
+;;; init-ivy.el ends here

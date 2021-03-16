@@ -1,3 +1,7 @@
+;;; init-flyspell.el --- configure flyspell
+;;; Commentary:
+;;; Code:
+
 (use-package flyspell
   ;; load flyspell automatically for these modes
   :hook ((git-commit-mode . flyspell-mode)
@@ -14,3 +18,5 @@
     (setq ispell-program-name "hunspell")))
 
 (provide 'init-flyspell)
+
+;;; init-flyspell.el ends here

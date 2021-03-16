@@ -1,3 +1,7 @@
+;;; init-recentf.el --- configure recentf
+;;; Commentary:
+;;; Code:
+
 (use-package recentf
   :init
   ;; set number of entries to save
@@ -9,3 +13,5 @@
   (recentf-mode 1))
 
 (provide 'init-recentf)
+
+;;; init-recentf.el ends here

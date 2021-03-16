@@ -1,3 +1,7 @@
+;;; init-writegood.el --- configure weasel word detection
+;;; Commentary:
+;;; Code:
+
 (use-package writegood-mode
   :ensure t
   :hook
@@ -5,3 +9,5 @@
   (flyspell-mode . writegood-mode))
 
 (provide 'init-writegood)
+
+;;; init-writegood.el ends here

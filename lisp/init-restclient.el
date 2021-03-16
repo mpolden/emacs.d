@@ -1,3 +1,7 @@
+;;; init-restclient.el --- configure restclient
+;;; Commentary:
+;;; Code:
+
 (use-package restclient
   :ensure t
   :init
@@ -9,3 +13,5 @@
   :mode (("\\.http\\'" . restclient-mode)))
 
 (provide 'init-restclient)
+
+;;; init-restclient.el ends here

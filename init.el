@@ -1,3 +1,7 @@
+;;; init.el --- load the configuration
+;;; Commentary:
+;;; Code:
+
 ;; configure load paths
 (let ((lisp-directory (expand-file-name "lisp" user-emacs-directory)))
   ;; add ~/.emacs.d/lisp to load path
@@ -6,7 +10,7 @@
   ;; save customizations as local (unversioned) settings
   (setq custom-file (expand-file-name "init-local.el" lisp-directory)))
 
-;; packages
+;; package management
 (require 'init-package)
 
 ;; local settings (optional)
@@ -55,3 +59,7 @@
 (mpolden/maybe-require 'init-python)
 (mpolden/maybe-require 'init-rust)
 (mpolden/maybe-require 'init-yaml)
+
+(provide 'init)
+
+;;; init.el ends here

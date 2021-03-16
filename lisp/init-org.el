@@ -1,3 +1,7 @@
+;;; init-org.el --- configure org
+;;; Commentary:
+;;; Code:
+
 (use-package org
   :bind (("C-c c" . org-capture)
          ("C-c l" . org-store-link)
@@ -90,3 +94,5 @@
   :after org)
 
 (provide 'init-org)
+
+;;; init-org.el ends here

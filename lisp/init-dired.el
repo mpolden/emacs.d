@@ -1,3 +1,7 @@
+;;; init-dired.el --- configure dired
+;;; Commentary:
+;;; Code:
+
 (use-package dired
   :init
   ;; show human readable sizes in dired and sort dotfiles first
@@ -16,3 +20,5 @@
                                          " --group-directories-first"))))
 
 (provide 'init-dired)
+
+;;; init-dired.el ends here

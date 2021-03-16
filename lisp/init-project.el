@@ -1,4 +1,9 @@
+;;; init-project.el --- configure project integration
+;;; Commentary:
+;;; Code:
+
 (defun mpolden/project-git-grep ()
+  "Run git grep interactively in the current project."
   (interactive)
   (let ((search-regexp (grep-read-regexp))
         (dir (project-root (project-current t))))
@@ -23,3 +28,5 @@
          ("C-c m" . project-compile)))
 
 (provide 'init-project)
+
+;;; init-project.el ends here

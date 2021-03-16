@@ -1,4 +1,7 @@
-;; set theme
+;;; init-theme.el --- configure theme
+;;; Commentary:
+;;; Code:
+
 (use-package doom-themes
   :ensure t
   :if (display-graphic-p)
@@ -11,3 +14,5 @@
                                 (ns-transparent-title-bar . t)))))
 
 (provide 'init-theme)
+
+;;; init-theme.el ends here

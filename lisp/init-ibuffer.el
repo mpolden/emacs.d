@@ -1,3 +1,7 @@
+;;; init-ibuffer.el --- configure ibuffer and vc integration
+;;; Commentary:
+;;; Code:
+
 (use-package ibuffer
   :init
   ;; disable confirmation for killing unmodified buffers
@@ -32,3 +36,5 @@
          ("g" . ibuffer-vc-set-filter-groups-by-vc-root)))
 
 (provide 'init-ibuffer)
+
+;;; init-ibuffer.el ends here

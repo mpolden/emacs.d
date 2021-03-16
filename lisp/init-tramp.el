@@ -1,3 +1,7 @@
+;;; init-tramp.el --- configure tramp
+;;; Commentary:
+;;; Code:
+
 (defun mpolden/sudo-prefix-p (prefix)
   "Return non-nil if PREFIX is a sudo prefix."
   (member prefix '("/sudo" "/sudo:")))
@@ -30,6 +34,7 @@ With a prefix ARG prompt edit currently visited file using sudo."
     (find-file (mpolden/sudo-file-name (read-file-name "Find file with sudo: ")))))
 
 (defun mpolden/sudo-current-file ()
+  "Open current file with sudo."
   (interactive)
   (mpolden/sudo-find-file t))
 
@@ -45,3 +50,5 @@ With a prefix ARG prompt edit currently visited file using sudo."
                '((regexp-quote (system-name)) nil nil)))
 
 (provide 'init-tramp)
+
+;;; init-tramp.el ends here

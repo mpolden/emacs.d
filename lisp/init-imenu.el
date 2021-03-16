@@ -1,3 +1,7 @@
+;;; init-imenu.el --- configure imenu
+;;; Commentary:
+;;; Code:
+
 (use-package imenu
   :init
   ;; make imenu automatically rescan buffers
@@ -7,3 +11,5 @@
   :bind ("C-c i" . imenu))
 
 (provide 'init-imenu)
+
+;;; init-imenu.el ends here

@@ -1,18 +1,23 @@
-(defun mpolden/grep-visit-buffer-other-window (&optional event noselect)
-  "Visit grep result in another window."
+;;; init-grep.el --- configure grep
+;;; Commentary:
+;;; Code:
+
+(defun mpolden/grep-visit-buffer-other-window (&optional result noselect)
+  "Visit grep RESULT in another window.
+If NOSELECT is non-nil, do not select the window."
   (interactive)
   (let ((current-window (selected-window)))
-    (compile-goto-error event)
+    (compile-goto-error result)
     (when noselect
       (select-window current-window))))
 
-(defun mpolden/grep-visit-buffer-other-window-noselect (&optional event)
-  "Visit grep result in another window, but don't select it."
+(defun mpolden/grep-visit-buffer-other-window-noselect (&optional result)
+  "Visit grep RESULT another window, but don't select it."
   (interactive)
   (mpolden/grep-visit-buffer-other-window event t))
 
 (defun mpolden/grep-mode-buffer-local-variables ()
-  ;; wrap lines
+  "Set buffer-local variables for `grep-mode'."
   (setq-local truncate-lines nil))
 
 (use-package grep
@@ -29,3 +34,5 @@
               ("p" . compilation-previous-error)))
 
 (provide 'init-grep)
+
+;;; init-grep.el ends here

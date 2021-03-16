@@ -1,3 +1,7 @@
+;;; init-appearance.el --- configure appearance
+;;; Commentary:
+;;; Code:
+
 ;; disable splash
 (setq inhibit-startup-message t)
 
@@ -29,8 +33,8 @@
 ;; highlight trailing whitespace in prog-mode
 (add-hook 'prog-mode-hook (lambda () (setq-local show-trailing-whitespace t)))
 
-;; render ansi colors in compilation buffer
 (defun mpolden/colorize-compilation-buffer ()
+  "Render ansi colors in compilation buffer."
   (when (eq major-mode 'compilation-mode)
     (ansi-color-apply-on-region compilation-filter-start (point-max))))
 
@@ -45,3 +49,5 @@
       column-number-mode t)
 
 (provide 'init-appearance)
+
+;;; init-appearance.el ends here

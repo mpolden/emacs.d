@@ -1,3 +1,7 @@
+;;; init-markdown.el --- configure markdown language support
+;;; Commentary:
+;;; Code:
+
 (use-package markdown-mode
   :ensure t
   :commands gfm-mode
@@ -9,3 +13,5 @@
    ("ISSUE_EDITMSG" . gfm-mode)))
 
 (provide 'init-markdown)
+
+;;; init-markdown.el ends here

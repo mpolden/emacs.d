@@ -1,3 +1,7 @@
+;;; init-sane-defaults.el --- configure sane defaults
+;;; Commentary:
+;;; Code:
+
 ;; use soft tabs
 (setq-default indent-tabs-mode nil)
 
@@ -88,3 +92,5 @@
 (setq calendar-week-start-day 1)
 
 (provide 'init-sane-defaults)
+
+;;; init-sane-defaults.el ends here

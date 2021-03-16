@@ -1,3 +1,7 @@
+;;; init-git.el --- configure git and forge integration
+;;; Commentary:
+;;; Code:
+
 (use-package git-commit
   :ensure t
   :after markdown-mode
@@ -7,7 +11,8 @@
   (setq git-commit-major-mode 'gfm-mode))
 
 (defun mpolden/magit-visit-file-other-window (&optional noselect)
-  "Visit current file in another window."
+  "Visit current file in another window.
+If NOSELECT is non-nil, do not select the window."
   (interactive)
   (let ((current-window (selected-window)))
     (call-interactively 'magit-diff-visit-file-other-window)
@@ -63,3 +68,5 @@
   (setq smerge-command-prefix (kbd "C-c x")))
 
 (provide 'init-git)
+
+;;; init-git.el ends here

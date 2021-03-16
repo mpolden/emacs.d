@@ -1,4 +1,9 @@
+;;; init-python.el --- configure python language support
+;;; Commentary:
+;;; Code:
+
 (defun mpolden/python-mode-buffer-local-variables ()
+  "Set buffer-local variables for `python-mode'."
   ;; highlight lines longer than 88 characters
   (setq-local fill-column 88)
   ;; use flat index in imenu
@@ -18,3 +23,5 @@
     (setq python-shell-interpreter "python3")))
 
 (provide 'init-python)
+
+;;; init-python.el ends here

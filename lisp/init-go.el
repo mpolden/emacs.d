@@ -1,5 +1,9 @@
+;;; init-go.el --- configure go language support
+;;; Commentary:
+;;; Code:
+
 (defun mpolden/go-mode-buffer-local-variables ()
-  ;; adjust fill-column
+  "Set buffer-local variables for `go-mode'."
   (setq-local fill-column 120))
 
 (use-package go-mode
@@ -7,3 +11,5 @@
   :hook (go-mode . mpolden/go-mode-buffer-local-variables))
 
 (provide 'init-go)
+
+;;; init-go.el ends here
