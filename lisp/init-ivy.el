@@ -11,7 +11,7 @@
   :after flx
   :diminish ivy-mode
   :init
-  ;; use fuzzy matching by default'
+  ;; use fuzzy matching by default
   (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
 
   :config
