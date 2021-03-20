@@ -2,9 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-;; use jetbrains mono font if available
-;; https://www.jetbrains.com/lp/mono/
-(let ((font-family "JetBrains Mono"))
+(defvar mpolden/font-family "JetBrains Mono" "Set the default font.")
+
+;; set font
+(let ((font-family mpolden/font-family))
   (when (and (display-graphic-p) (member font-family (font-family-list)))
     (set-face-attribute 'default nil :family font-family)
     (set-face-attribute 'default nil :height 140)))
