@@ -29,12 +29,13 @@ re-downloaded in order to locate PACKAGE."
   "Install a list of PACKAGES."
   (mapcar (lambda (package) (mpolden/require-package package)) packages))
 
-;; load given package unless inhibited through inhibited-packages
+(defvar mpolden/inhibited-packages nil "List of packages that should not be loaded.")
+
 (define-obsolete-variable-alias 'inhibited-packages 'mpolden/inhibited-packages)
 
 (defun mpolden/maybe-require (package)
   "Load PACKAGE if it's not inhibited."
-  (unless (member package (bound-and-true-p mpolden/inhibited-packages))
+  (unless (member package mpolden/inhibited-packages)
     (require package)))
 
 ;; install use-package and diminish

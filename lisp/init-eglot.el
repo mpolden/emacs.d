@@ -2,9 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
+(defvar mpolden/inhibit-format-before-save nil
+  "List of modes where `eglot-format' should not be run before saving the buffer.")
+
 (defun mpolden/format-before-save ()
   "Format buffer using `eglot-format' unless explicitly inhibited in current mode."
-  (unless (member major-mode (bound-and-true-p mpolden/inhibit-format-before-save))
+  (unless (member major-mode mpolden/inhibit-format-before-save)
     (eglot-format)))
 
 (use-package eglot
