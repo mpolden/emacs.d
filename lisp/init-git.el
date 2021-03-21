@@ -2,14 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package git-commit
-  :ensure t
-  :after markdown-mode
-
-  :init
-  ;; use gfm-mode as major mode
-  (setq git-commit-major-mode 'gfm-mode))
-
 (defun mpolden/magit-visit-file-other-window (&optional noselect)
   "Visit current file in another window.
 If NOSELECT is non-nil, do not select the window."
@@ -52,18 +44,22 @@ If NOSELECT is non-nil, do not select the window."
          :map forge-issue-section-map
          ([remap magit-delete-thing] . forge-copy-url-at-point-as-kill)))
 
+(use-package git-commit
+  :ensure t
+  :after markdown-mode
+  :init
+  ;; use gfm-mode as major mode
+  (setq git-commit-major-mode 'gfm-mode))
+
+(use-package smerge-mode
+  :init
+  (setq smerge-command-prefix (kbd "C-c x")))
+
 ;; follow symlinks to files under version control
 (setq vc-follow-symlinks t)
 
 ;; limit vc backends as this may speed up some operations, e.g. tramp
 (setq vc-handled-backends '(Git))
-
-(use-package vc-git
-  :after grep)
-
-(use-package smerge-mode
-  :init
-  (setq smerge-command-prefix (kbd "C-c x")))
 
 (provide 'init-git)
 
