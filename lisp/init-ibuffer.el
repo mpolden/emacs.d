@@ -1,4 +1,4 @@
-;;; init-ibuffer.el --- configure ibuffer and vc integration
+;;; init-ibuffer.el --- configure ibuffer and vc integration  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

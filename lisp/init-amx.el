@@ -1,4 +1,4 @@
-;;; init-amx.el --- configure a better M-x
+;;; init-amx.el --- configure a better M-x  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

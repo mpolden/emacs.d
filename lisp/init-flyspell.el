@@ -1,4 +1,4 @@
-;;; init-flyspell.el --- configure flyspell
+;;; init-flyspell.el --- configure flyspell  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

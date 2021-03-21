@@ -1,4 +1,4 @@
-;;; init-sane-defaults.el --- configure sane defaults
+;;; init-sane-defaults.el --- configure sane defaults  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

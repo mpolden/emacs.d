@@ -1,4 +1,4 @@
-;;; init-yaml.el --- configure yaml language support
+;;; init-yaml.el --- configure yaml language support  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

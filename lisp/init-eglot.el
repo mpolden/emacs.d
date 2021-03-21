@@ -1,4 +1,4 @@
-;;; init-eglot.el --- configure lsp integration
+;;; init-eglot.el --- configure lsp integration  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

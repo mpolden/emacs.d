@@ -1,4 +1,4 @@
-;;; init-grep.el --- configure grep
+;;; init-grep.el --- configure grep  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

@@ -1,4 +1,4 @@
-;;; init-project.el --- configure project integration
+;;; init-project.el --- configure project integration  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

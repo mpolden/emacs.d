@@ -1,4 +1,4 @@
-;;; init-ivy.el --- configure ivy
+;;; init-ivy.el --- configure ivy  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

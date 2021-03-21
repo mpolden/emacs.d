@@ -1,4 +1,4 @@
-;;; init-package.el --- configure package management
+;;; init-package.el --- configure package management  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

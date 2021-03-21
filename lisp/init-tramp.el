@@ -1,4 +1,4 @@
-;;; init-tramp.el --- configure tramp
+;;; init-tramp.el --- configure tramp  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

@@ -1,4 +1,4 @@
-;;; init-lisp.el --- configure lisp language support
+;;; init-lisp.el --- configure lisp language support  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

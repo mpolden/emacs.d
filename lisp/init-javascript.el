@@ -1,4 +1,4 @@
-;;; init-javascript.el --- configure javascript language support
+;;; init-javascript.el --- configure javascript language support  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

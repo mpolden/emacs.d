@@ -1,4 +1,4 @@
-;;; init-server.el --- configure server for emacsclient
+;;; init-server.el --- configure server for emacsclient  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

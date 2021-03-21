@@ -1,4 +1,4 @@
-;;; init-git.el --- configure git and forge integration
+;;; init-git.el --- configure git and forge integration  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

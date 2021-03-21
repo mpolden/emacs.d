@@ -1,4 +1,4 @@
-;;; init-imenu.el --- configure imenu
+;;; init-imenu.el --- configure imenu  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

@@ -1,4 +1,4 @@
-;;; init-writegood.el --- configure weasel word detection
+;;; init-writegood.el --- configure weasel word detection  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

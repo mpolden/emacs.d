@@ -1,4 +1,4 @@
-;;; init-restclient.el --- configure restclient
+;;; init-restclient.el --- configure restclient  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

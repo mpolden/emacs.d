@@ -1,4 +1,4 @@
-;;; init-go.el --- configure go language support
+;;; init-go.el --- configure go language support  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

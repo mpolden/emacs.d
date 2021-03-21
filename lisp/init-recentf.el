@@ -1,4 +1,4 @@
-;;; init-recentf.el --- configure recentf
+;;; init-recentf.el --- configure recentf  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

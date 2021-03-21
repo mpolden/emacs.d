@@ -1,4 +1,4 @@
-;;; init-python.el --- configure python language support
+;;; init-python.el --- configure python language support  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

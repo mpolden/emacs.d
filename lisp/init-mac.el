@@ -1,4 +1,4 @@
-;;; init-mac.el --- configuration specific to macos
+;;; init-mac.el --- configuration specific to macos  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

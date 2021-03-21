@@ -1,4 +1,4 @@
-;;; init-appearance.el --- configure appearance
+;;; init-appearance.el --- configure appearance  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

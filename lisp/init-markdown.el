@@ -1,4 +1,4 @@
-;;; init-markdown.el --- configure markdown language support
+;;; init-markdown.el --- configure markdown language support  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 

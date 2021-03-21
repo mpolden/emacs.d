@@ -1,4 +1,4 @@
-;;; init-rust.el --- configure rust language support
+;;; init-rust.el --- configure rust language support  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 
