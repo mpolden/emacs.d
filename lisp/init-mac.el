@@ -4,11 +4,13 @@
 
 (defvar mpolden/font-family "JetBrains Mono" "Set the default font.")
 
+(defvar mpolden/font-size 14 "Set the default font size in points.")
+
 ;; set font
 (let ((font-family mpolden/font-family))
   (when (and (display-graphic-p) (member font-family (font-family-list)))
     (set-face-attribute 'default nil :family font-family)
-    (set-face-attribute 'default nil :height 140)))
+    (set-face-attribute 'default nil :height (* 10 mpolden/font-size))))
 
 ;; configure modifiers
 (setq mac-option-modifier 'super)
