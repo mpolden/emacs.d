@@ -52,13 +52,11 @@ If NOSELECT is non-nil, do not select the window."
          :map forge-issue-section-map
          ([remap magit-delete-thing] . forge-copy-url-at-point-as-kill)))
 
-(use-package vc-hooks
-  :init
-  ;; follow symlinks to files under version control
-  (setq vc-follow-symlinks t)
+;; follow symlinks to files under version control
+(setq vc-follow-symlinks t)
 
-  ;; limit vc backends as this may speed up some operations, e.g. tramp
-  (setq vc-handled-backends '(Git)))
+;; limit vc backends as this may speed up some operations, e.g. tramp
+(setq vc-handled-backends '(Git))
 
 (use-package vc-git
   :after grep)
