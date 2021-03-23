@@ -7,9 +7,6 @@
   ;; show human readable sizes in dired and sort dotfiles first
   (setq dired-listing-switches "-alhv")
 
-  ;; show human readable free space
-  (setq directory-free-space-args "-h")
-
   :bind (("M-<up>" . dired-up-directory))
 
   :config
