@@ -4,8 +4,8 @@
 
 (use-package dired
   :init
-  ;; show human readable sizes in dired and sort dotfiles first
-  (setq dired-listing-switches "-alhv")
+  ;; show human readable sizes in dired
+  (setq dired-listing-switches "-alh")
 
   :bind (("M-<up>" . dired-up-directory))
 
