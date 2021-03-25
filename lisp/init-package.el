@@ -35,7 +35,7 @@ re-downloaded in order to locate PACKAGE."
 
 (defun mpolden/maybe-require (package)
   "Load PACKAGE if it's not inhibited."
-  (unless (member package mpolden/inhibited-packages)
+  (unless (memq package mpolden/inhibited-packages)
     (require package)))
 
 ;; install use-package and diminish
