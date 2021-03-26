@@ -13,10 +13,11 @@
   :ensure t
   :init
   ;; commands to show when switching projects
-  (setq project-switch-commands '((?f "Find file" project-find-file)
-                                  (?d "Dired" project-dired)
-                                  (?g "Grep" mpolden/project-git-grep)
-                                  (?m "Magit" magit-status)))
+  (setq project-switch-commands '((project-find-file "Find file")
+                                  (project-dired "Dired")
+                                  (project-eshell "Eshell")
+                                  (mpolden/project-git-grep "Grep" ?g)
+                                  (magit-project-status "Magit" ?m)))
 
   :bind (;; C-x f finds file in project
          ("C-x f" . project-find-file)
