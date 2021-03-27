@@ -52,6 +52,7 @@ If NOSELECT is non-nil, do not select the window."
   (setq git-commit-major-mode 'gfm-mode))
 
 (use-package smerge-mode
+  :defer t
   :init
   (setq smerge-command-prefix (kbd "C-c x")))
 
