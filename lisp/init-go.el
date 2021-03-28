@@ -8,6 +8,7 @@
 
 (use-package go-mode
   :ensure t
+  :mode ("\\.go\\'" . go-mode)
   :hook (go-mode . mpolden/go-mode-buffer-local-variables))
 
 (provide 'init-go)
