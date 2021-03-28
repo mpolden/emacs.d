@@ -30,8 +30,15 @@
   :config
   (show-paren-mode 1))
 
-;; highlight trailing whitespace in prog-mode
-(add-hook 'prog-mode-hook (lambda () (setq-local show-trailing-whitespace t)))
+(defun mpolden/prog-mode-buffer-local-variables ()
+  "Set buffer-local variables for `prog-mode'."
+  ;; highlight trailing whitespace
+  (setq-local show-trailing-whitespace t)
+  ;; disable word wrapping
+  (setq-local truncate-lines t))
+
+(use-package prog-mode
+  :hook ((prog-mode . mpolden/prog-mode-buffer-local-variables)))
 
 (defun mpolden/colorize-compilation-buffer ()
   "Render ansi colors in compilation buffer."
@@ -40,9 +47,6 @@
 
 (use-package ansi-color
   :hook ((compilation-filter . mpolden/colorize-compilation-buffer)))
-
-;; disable word wrapping
-(setq-default truncate-lines t)
 
 ;; display line and column numbers in mode-line
 (setq line-number-mode t

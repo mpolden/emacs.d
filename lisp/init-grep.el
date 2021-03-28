@@ -16,13 +16,8 @@ If NOSELECT is non-nil, do not select the window."
   (interactive)
   (mpolden/grep-visit-buffer-other-window result t))
 
-(defun mpolden/grep-mode-buffer-local-variables ()
-  "Set buffer-local variables for `grep-mode'."
-  (setq-local truncate-lines nil))
-
 (use-package grep
   :commands grep-read-regexp
-  :hook (grep-mode . mpolden/grep-mode-buffer-local-variables)
   :bind (:map grep-mode-map
               ;; make C-o and o behave as in dired
               ("o" . mpolden/grep-visit-buffer-other-window)
