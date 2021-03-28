@@ -14,7 +14,7 @@ If NOSELECT is non-nil, do not select the window."
 (defun mpolden/grep-visit-buffer-other-window-noselect (&optional result)
   "Visit grep RESULT another window, but don't select it."
   (interactive)
-  (mpolden/grep-visit-buffer-other-window event t))
+  (mpolden/grep-visit-buffer-other-window result t))
 
 (defun mpolden/grep-mode-buffer-local-variables ()
   "Set buffer-local variables for `grep-mode'."
