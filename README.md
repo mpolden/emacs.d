@@ -77,9 +77,10 @@ Start Emacs!
 Local customizations can be added to `lisp/init-local.el`. This file is in
 `.gitignore`.
 
-Setting the variable `mpolden/inhibited-packages` (e.g. in `lisp/init-local.el`)
-allows inhibiting loading of one or more packages. Example:
+Setting the variable `mpolden/inhibited-features` (e.g. in `lisp/init-local.el`)
+allows inhibiting loading of one or more features, i.e. files in `lisp`.
+Example:
 
 ``` emacs-lisp
-(setq mpolden/inhibited-packages '(init-foo))
+(setq mpolden/inhibited-features '(init-foo init-bar))
 ```

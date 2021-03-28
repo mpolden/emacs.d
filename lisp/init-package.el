@@ -29,14 +29,15 @@ re-downloaded in order to locate PACKAGE."
   "Install a list of PACKAGES."
   (mapcar (lambda (package) (mpolden/require-package package)) packages))
 
-(defvar mpolden/inhibited-packages nil "List of packages that should not be loaded.")
+(defvar mpolden/inhibited-features nil "List of features that should not be loaded.")
 
-(define-obsolete-variable-alias 'inhibited-packages 'mpolden/inhibited-packages)
+(define-obsolete-variable-alias 'inhibited-packages 'mpolden/inhibited-features)
+(define-obsolete-variable-alias 'mpolden/inhibited-packages 'mpolden/inhibited-features)
 
-(defun mpolden/maybe-require (package)
-  "Load PACKAGE if it's not inhibited."
-  (unless (memq package mpolden/inhibited-packages)
-    (require package)))
+(defun mpolden/maybe-require (feature)
+  "Load FEATURE if it's not inhibited."
+  (unless (memq feature mpolden/inhibited-features)
+    (require feature)))
 
 ;; install use-package and diminish
 (mpolden/require-packages '(use-package diminish))
