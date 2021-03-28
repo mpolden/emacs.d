@@ -16,6 +16,11 @@ If NOSELECT is non-nil, do not select the window."
   (interactive)
   (mpolden/magit-visit-file-other-window t))
 
+(defun mpolden/vc-git-grep ()
+  "Run git grep interactively in the current VC tree."
+  (interactive)
+  (vc-git-grep (grep-read-regexp) "" (vc-root-dir)))
+
 (use-package magit
   :ensure t
   :init
@@ -55,6 +60,11 @@ If NOSELECT is non-nil, do not select the window."
   :defer t
   :init
   (setq smerge-command-prefix (kbd "C-c x")))
+
+(use-package vc-git
+  :commands vc-git-grep
+  :bind (;; C-c g runs git grep in current vc tree
+         ("C-c g" . mpolden/vc-git-grep)))
 
 ;; follow symlinks to files under version control
 (setq vc-follow-symlinks t)
