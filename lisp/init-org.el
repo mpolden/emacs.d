@@ -41,6 +41,9 @@
   ;; automatically mark archived entry as done
   (setq org-archive-mark-done t)
 
+  ;; cycle opens archived trees
+  (setq org-cycle-open-archived-trees t)
+
   ;; highlight code blocks
   (setq org-src-fontify-natively t)
 
