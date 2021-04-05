@@ -1,4 +1,5 @@
 CURDIR ?= $(.CURDIR)
+BREW ?= $(shell command -v brew 2> /dev/null)
 ECLIPSE_JDT ?= $(CURDIR)/eclipse.jdt.ls
 
 LN_FLAGS := -sfn
@@ -9,6 +10,14 @@ all: install
 
 install:
 	ln $(LN_FLAGS) $(CURDIR) ~/.emacs.d
+
+install-emacs:
+ifdef BREW
+	brew tap railwaycat/emacsmacport
+	brew install --with-mac-metal --with-emacs-big-sur-icon emacs-mac
+else
+	$(error brew command not found)
+endif
 
 install-lsp: install-lsp-go install-lsp-java install-lsp-python install-lsp-rust
 
