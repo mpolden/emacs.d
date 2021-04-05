@@ -10,7 +10,8 @@
          :map org-mode-map
          ("C-c f" . org-indent-region)
          ("C-c o a" . org-archive-subtree)
-         ("C-c o s" . org-save-all-org-buffers))
+         ("C-c o s" . org-save-all-org-buffers)
+         ("C-<tab>" . org-force-cycle-archived))
   :config
   ;; file and tree where archived tasks should be moved
   (setq org-archive-location "%s_archive::* Archived Tasks")
