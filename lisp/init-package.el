@@ -9,8 +9,15 @@
 (when (< emacs-major-version 27)
   (package-initialize))
 
-;; workaround for https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
-(when (version< emacs-version "26.3")
+;; emacs and gnutls has recurring issues with tls 1.3
+;; the original bug was supposedly fixed in 26.3, but resurfaced in 27.2 on
+;; macos (https://emacsformacosx.com build)
+;;
+;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
+;; https://www.reddit.com/r/emacs/comments/mk0luk/does_anyone_know_how_to_diagnose_or_fix_emacs_not/
+;;
+;; disable tls 1.3 if supported by gnutls
+(when (>= libgnutls-version 30603)
   (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
 (defun mpolden/require-package (package &optional min-version no-refresh)
