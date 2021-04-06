@@ -45,6 +45,9 @@
   ;; cycle opens archived trees
   (setq org-cycle-open-archived-trees t)
 
+  ;; fold by default
+  (setq org-startup-folded t)
+
   ;; highlight code blocks
   (setq org-src-fontify-natively t)
 
