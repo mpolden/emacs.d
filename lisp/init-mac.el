@@ -25,6 +25,7 @@
 (define-key key-translation-map (kbd "s-7") (kbd "|"))
 (define-key key-translation-map (kbd "s-/") (kbd "\\"))
 (define-key key-translation-map (kbd "M-s-7") (kbd "M-|"))
+(define-key key-translation-map (kbd "s-¨") (kbd "~"))
 
 ;; don't open files from the workspace in a new frame
 (setq ns-pop-up-frames nil)
