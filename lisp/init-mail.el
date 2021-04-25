@@ -18,9 +18,6 @@
   ;; always show addresses
   (setq mu4e-view-show-addresses t)
 
-  ;; disable threads by default
-  (setq mu4e-headers-show-threads nil)
-
   ;; header list date format
   (setq mu4e-headers-date-format "%Y-%m-%d %H:%M")
 
