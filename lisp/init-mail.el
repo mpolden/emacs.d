@@ -41,10 +41,10 @@
   (setq mu4e-change-filenames-when-moving t)
 
   ;; shortcuts
-  (setq mu4e-maildir-shortcuts '(("/INBOX" . ?i)
-                                 ("/Archive" . ?a)
-                                 ("/Sent" . ?s)
-                                 ("/Trash" . ?t)))
+  (setq mu4e-maildir-shortcuts '((:key ?i :maildir "/INBOX")
+                                 (:key ?a :maildir "/Archive" )
+                                 (:key ?s :maildir "/Sent")
+                                 (:key ?t :maildir "/Trash")))
 
   ;; increase readability when using dark theme
   (setq shr-color-visible-luminance-min 80)
