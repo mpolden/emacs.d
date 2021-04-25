@@ -47,6 +47,10 @@
                                  (:key ?s :maildir "/Sent")
                                  (:key ?t :maildir "/Trash")))
 
+  ;; split vertically
+  (setq mu4e-split-view 'vertical
+        mu4e-headers-visible-columns 100)
+
   :config
   ;; use email address from git
   (when (executable-find "git")
