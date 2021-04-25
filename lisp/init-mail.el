@@ -5,6 +5,7 @@
 (use-package mu4e
   :load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
   :bind (("C-c m" . mu4e))
+  :hook (mu4e-view-mode . turn-on-visual-line-mode)
   :init
   ;; use mu4e as mail user agent
   (setq mail-user-agent 'mu4e-user-agent)
