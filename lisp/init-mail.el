@@ -61,10 +61,6 @@
   :bind (:map mu4e-headers-mode-map ("d" . "mt")
          :map mu4e-view-mode-map ("d" . "mt")))
 
-(use-package org-mu4e
-  :load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
-  :after mu4e)
-
 (use-package smtpmail
   :init
   ;; use smtpmail
