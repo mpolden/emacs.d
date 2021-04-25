@@ -1,5 +1,8 @@
+;;; init-mail.el --- configure mail client  -*- lexical-binding:t -*-
+;;; Commentary:
+;;; Code:
+
 (use-package mu4e
-  :ensure nil ;; package is installed outside emacs
   :load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
   :bind (("C-c m" . mu4e))
   :init
@@ -62,12 +65,10 @@
          :map mu4e-view-mode-map ("d" . "mt")))
 
 (use-package org-mu4e
-  :ensure nil ;; package is installed outside emacs
   :load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
   :after mu4e)
 
 (use-package smtpmail
-  :ensure nil ;; package is bundled with emacs
   :init
   ;; use smtpmail
   (setq send-mail-function 'smtpmail-send-it)
@@ -78,3 +79,5 @@
         smtpmail-stream-type 'ssl))
 
 (provide 'init-mail)
+
+;;; init-mail.el ends here
