@@ -16,10 +16,6 @@ If NOSELECT is non-nil, do not select the window."
   (interactive)
   (mpolden/elfeed-search-show-entry t))
 
-(defun mpolden/elfeed-buffer-local-variables ()
-  "Set buffer-local variables for `elfeed-show-mode'."
-  (setq-local word-wrap t))
-
 (use-package elfeed
   :ensure t
   :init
@@ -27,7 +23,7 @@ If NOSELECT is non-nil, do not select the window."
   (setq elfeed-search-filter "@2-days-ago +unread")
   ;; show entries in another window
   (setq elfeed-show-entry-switch #'switch-to-buffer-other-window)
-  :hook (elfeed-show-mode . mpolden/elfeed-buffer-local-variables)
+  :hook (elfeed-show-mode . turn-on-visual-line-mode)
   :bind (("C-c e" . elfeed)
          :map elfeed-search-mode-map
          ("o" . mpolden/elfeed-search-show-entry)
