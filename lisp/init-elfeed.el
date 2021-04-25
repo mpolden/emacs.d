@@ -28,11 +28,11 @@ If NOSELECT is non-nil, do not select the window."
   ;; show entries in another window
   (setq elfeed-show-entry-switch #'switch-to-buffer-other-window)
   :hook (elfeed-show-mode . mpolden/elfeed-buffer-local-variables)
-  ;; make C-o and o behave as in dired
-  :bind (:map elfeed-search-mode-map
-              ("o" . mpolden/elfeed-search-show-entry)
-              ("C-o" . mpolden/elfeed-search-show-entry-noselect)
-              ("SPC" . mpolden/elfeed-search-show-entry-noselect)))
+  :bind (("C-c e" . elfeed)
+         :map elfeed-search-mode-map
+         ("o" . mpolden/elfeed-search-show-entry)
+         ("C-o" . mpolden/elfeed-search-show-entry-noselect)
+         ("SPC" . mpolden/elfeed-search-show-entry-noselect)))
 
 (provide 'init-elfeed)
 
