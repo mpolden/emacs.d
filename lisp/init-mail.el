@@ -4,7 +4,10 @@
 
 (use-package mu4e
   :load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
-  :bind (("C-c m" . mu4e))
+  :bind (("C-c m" . mu4e)
+         ;; delete moves email to trash instead of deleting
+         :map mu4e-headers-mode-map ("d" . "mt")
+         :map mu4e-view-mode-map ("d" . "mt"))
   :hook (mu4e-view-mode . turn-on-visual-line-mode)
   :init
   ;; use mu4e as mail user agent
@@ -57,11 +60,7 @@
     (setq user-full-name (string-trim (shell-command-to-string
                                        "git config --global --get user.name"))
           user-mail-address (string-trim (shell-command-to-string
-                                          "git config --global --get user.email"))))
-
-  ;; delete moves email to trash
-  :bind (:map mu4e-headers-mode-map ("d" . "mt")
-         :map mu4e-view-mode-map ("d" . "mt")))
+                                          "git config --global --get user.email")))))
 
 (use-package smtpmail
   :init
