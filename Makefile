@@ -1,6 +1,7 @@
 CURDIR ?= $(.CURDIR)
 BREW ?= $(shell command -v brew 2> /dev/null)
-ECLIPSE_JDT ?= $(CURDIR)/eclipse.jdt.ls
+JDT_LS_HOME ?= $(CURDIR)/eclipse.jdt.ls
+JDT_LS_VERSION ?= 1.1.1-202105040117
 
 LN_FLAGS := -sfn
 COLOR := \033[32;01m
@@ -25,14 +26,14 @@ install-lsp-go:
 	go install golang.org/x/tools/gopls@latest
 
 install-lsp-java:
-	mkdir -p $(ECLIPSE_JDT)
-	curl -fsSL https://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz | \
-		tar -C $(ECLIPSE_JDT) -xf -
-	@echo "eclipse jdt installed in $(COLOR)$(ECLIPSE_JDT)$(NO_COLOR)"
-	@echo "eglot needs the following environment variables set:"
+	mkdir $(JDT_LS_HOME)
+	curl -fsSL https://download.eclipse.org/jdtls/milestones/$(firstword $(subst -, ,$(JDT_LS_VERSION)))/jdt-language-server-$(JDT_LS_VERSION).tar.gz | \
+		tar -C $(JDT_LS_HOME) -xf -
+	@echo "eclipse jdt ls $(JDT_LS_VERSION) installed in $(COLOR)$(JDT_LS_HOME)$(NO_COLOR)"
+	@echo "emacs/eglot needs the following environment variables set:"
 	@echo "- $(COLOR)JAVA_HOME$(NO_COLOR) containing the path to a jdk installation"
 	@printf -- "- $(COLOR)CLASSPATH$(NO_COLOR) containing $(COLOR)%s$(NO_COLOR)\n" \
-		$(ECLIPSE_JDT)/plugins/org.eclipse.equinox.launcher_*.jar
+		$(JDT_LS_HOME)/plugins/org.eclipse.equinox.launcher_*.jar
 
 install-lsp-python:
 	python3 -m pip install --user -U python-language-server
