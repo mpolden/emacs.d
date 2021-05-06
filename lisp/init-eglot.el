@@ -33,12 +33,7 @@
               ;; C-c f formats buffer
               ("C-c f" . eglot-format)
               ;; C-c o organizes imports
-              ("C-c o" . eglot-code-action-organize-imports))
-
-  :config
-  ;; disable symbol highlighting and documentation on hover
-  (setq eglot-ignored-server-capabilites '(:documentHighlightProvider
-                                           :hoverProvider)))
+              ("C-c o" . eglot-code-action-organize-imports)))
 
 (provide 'init-eglot)
 
