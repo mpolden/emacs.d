@@ -33,7 +33,6 @@
 ;; writing
 (mpolden/maybe-require 'init-eldoc)
 (mpolden/maybe-require 'init-flyspell)
-(mpolden/maybe-require 'init-writegood)
 
 ;; navigation
 (mpolden/maybe-require 'init-amx)
