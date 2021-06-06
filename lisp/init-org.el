@@ -78,6 +78,9 @@
   ;; insert state change notes and time stamps into a drawer
   (setq org-log-into-drawer t)
 
+  ;; export as html5
+  (setq org-html-doctype "html5")
+
   ;; hide todo entries whose deadline is far away according to
   ;; org-deadline-warning-days
   (setq org-agenda-todo-ignore-deadlines 'far)
