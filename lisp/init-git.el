@@ -64,6 +64,14 @@ If NOSELECT is non-nil, do not select the window."
 
 (use-package vc-git
   :commands vc-git-grep
+  :init
+  (when (executable-find "rg")
+    ;; use ripgrep
+    ;; -n            show line numbers
+    ;; -H            show filename
+    ;; --no-heading  don't group matches
+    ;; -e            the regexp
+    (setq vc-git-grep-template "rg -nH --no-heading <C> -e <R> -- <F>"))
   :bind (;; C-c g runs git grep in current vc tree
          ("C-c g" . mpolden/vc-git-grep)))
 
