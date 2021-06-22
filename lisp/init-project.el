@@ -9,7 +9,7 @@
   (setq project-switch-commands '((project-find-file "Find file")
                                   (project-dired "Dired")
                                   (project-eshell "Eshell")
-                                  (mpolden/vc-git-grep "Grep" ?g)
+                                  (mpolden/grep "Grep" ?g)
                                   (magit-project-status "Magit" ?m)))
 
   :bind (;; C-x f finds file in project
