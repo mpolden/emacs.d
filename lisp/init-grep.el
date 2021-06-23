@@ -3,7 +3,7 @@
 ;;; Code:
 
 (defvar mpolden/rg-template "rg -nH --no-heading <C> -e <R> -- "
-  "The grep template use when rg (ripgrep) is installed.")
+  "The grep template to use when rg (ripgrep) is installed.")
 
 (defun mpolden/grep ()
   "Run grep interactively in `default-directory' or current VC tree."
@@ -31,7 +31,8 @@ If NOSELECT is non-nil, do not select the window."
   :commands grep-read-regexp
   :config
   (when (executable-find "rg")
-    ;; never use null device with ripgrep
+    ;; auto-detection of -H may fail when using rg so explicitly never use null
+    ;; device
     (setq grep-use-null-device nil)
     (grep-apply-setting 'grep-template mpolden/rg-template))
   :bind (;; C-c g runs git grep in current vc tree
