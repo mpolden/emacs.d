@@ -5,12 +5,24 @@
 (defvar mpolden/rg-template "rg -nH --no-heading <C> -e <R> -- "
   "The grep template to use when rg (ripgrep) is installed.")
 
+(defun mpolden/git-root-dir (filename)
+  "Return the root directory to the Git repository of FILENAME.
+Return nil if FILENAME is not in a Git repository."
+  (let* ((dir (if (directory-name-p filename)
+                  filename
+                (file-name-directory filename)))
+         (git-dir (expand-file-name ".git" dir)))
+    (cond ((file-directory-p git-dir) dir)
+          ((not (equal dir "/")) (mpolden/git-root-dir
+                                  (directory-file-name dir))))))
+
 (defun mpolden/grep ()
-  "Run grep interactively in `default-directory' or current VC tree."
+  "Run grep interactively in `default-directory' or current Git repository."
   (interactive)
-  (let ((vc-root-dir (vc-root-dir)))
-    (if vc-root-dir
-        (vc-git-grep (grep-read-regexp) "" vc-root-dir)
+  (let ((git-root-dir (mpolden/git-root-dir (or buffer-file-name
+                                                default-directory))))
+    (if git-root-dir
+        (vc-git-grep (grep-read-regexp) "" git-root-dir)
       (lgrep (grep-read-regexp) "" default-directory))))
 
 (defun mpolden/grep-visit-buffer-other-window (&optional result noselect)
