@@ -5,15 +5,27 @@
 (defvar mpolden/rg-template "rg -nH --no-heading <C> -e <R> -- "
   "The grep template to use when rg (ripgrep) is installed.")
 
+(defvar mpolden/git-grep-template "git --no-pager grep -n <C> -e <R> -- <F>"
+  "The grep template to use when git is installed.
+This is only used when running grep in a Git repository.")
+
 (defun mpolden/grep ()
-  "Run grep interactively in `default-directory' or current Git repository."
+  "Recursively grep in `default-directory' or current Git repository.
+This tries to use either rg or git grep if available, and
+otherwise falls back to regular grep."
   (interactive)
-  (let ((git-root-dir (locate-dominating-file (or buffer-file-name
-                                                  default-directory)
-                                              ".git")))
-    (if git-root-dir
-        (vc-git-grep (grep-read-regexp) "" git-root-dir)
-      (lgrep (grep-read-regexp) "" default-directory))))
+  (let* ((git-root-dir (locate-dominating-file (or buffer-file-name
+                                                   default-directory)
+                                               ".git"))
+         (dir (or git-root-dir default-directory))
+         (use-rg (executable-find "rg"))
+         (use-git (and git-root-dir (executable-find "git")))
+         (grep-template (cond (use-rg mpolden/rg-template)
+                              (use-git mpolden/git-grep-template))))
+    (grep-apply-setting 'grep-template grep-template)
+    (if (or use-rg use-git)
+        (lgrep (grep-read-regexp) "" dir)
+      (rgrep (grep-read-regexp) "*" dir))))
 
 (defun mpolden/grep-visit-buffer-other-window (&optional result noselect)
   "Visit grep RESULT in another window.
@@ -30,13 +42,7 @@ If NOSELECT is non-nil, do not select the window."
   (mpolden/grep-visit-buffer-other-window result t))
 
 (use-package grep
-  :commands grep-read-regexp
-  :config
-  (when (executable-find "rg")
-    ;; auto-detection of -H may fail when using rg so explicitly never use null
-    ;; device
-    (setq grep-use-null-device nil)
-    (grep-apply-setting 'grep-template mpolden/rg-template))
+  :commands (grep-read-regexp grep-apply-setting)
   :bind (;; C-c g runs git grep in current vc tree
          ("C-c g" . mpolden/grep)
          :map grep-mode-map
@@ -46,12 +52,6 @@ If NOSELECT is non-nil, do not select the window."
          ;; n and p changes line as in ag-mode
          ("n" . compilation-next-error)
          ("p" . compilation-previous-error)))
-
-(use-package vc-git
-  :commands vc-git-grep
-  :init
-  (when (executable-find "rg")
-    (setq vc-git-grep-template mpolden/rg-template)))
 
 (provide 'init-grep)
 
