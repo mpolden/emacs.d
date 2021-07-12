@@ -14,9 +14,7 @@ This is only used when running grep in a Git repository.")
 This tries to use either rg or git grep if available, and
 otherwise falls back to regular grep."
   (interactive)
-  (let* ((git-root-dir (locate-dominating-file (or buffer-file-name
-                                                   default-directory)
-                                               ".git"))
+  (let* ((git-root-dir (locate-dominating-file default-directory ".git"))
          (dir (or git-root-dir default-directory))
          (use-rg (executable-find "rg"))
          (use-git (and git-root-dir (executable-find "git")))
@@ -43,7 +41,7 @@ If NOSELECT is non-nil, do not select the window."
 
 (use-package grep
   :commands (grep-read-regexp grep-apply-setting)
-  :bind (;; C-c g runs git grep in current vc tree
+  :bind (;; C-c g runs interactive grep
          ("C-c g" . mpolden/grep)
          :map grep-mode-map
          ;; make C-o and o behave as in dired
