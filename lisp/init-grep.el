@@ -21,6 +21,8 @@ otherwise falls back to regular grep."
          (grep-template (cond (use-rg mpolden/rg-template)
                               (use-git mpolden/git-grep-template))))
     (grep-apply-setting 'grep-template grep-template)
+    ;; never use null device as all programs support -H
+    (grep-apply-setting 'grep-use-null-device nil)
     (if (or use-rg use-git)
         (lgrep (grep-read-regexp) "" dir)
       (rgrep (grep-read-regexp) "*" dir))))
