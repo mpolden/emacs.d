@@ -14,8 +14,7 @@ install:
 
 install-emacs:
 ifdef BREW
-	brew tap railwaycat/emacsmacport
-	brew install --cask emacs-mac
+	brew install --cask emacs
 else
 	$(error brew command not found)
 endif
