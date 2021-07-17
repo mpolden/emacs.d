@@ -1,7 +1,7 @@
 CURDIR ?= $(.CURDIR)
 BREW ?= $(shell command -v brew 2> /dev/null)
 JDT_LS_HOME ?= $(CURDIR)/eclipse.jdt.ls
-JDT_LS_VERSION ?= 1.1.1-202105040117
+JDT_LS_VERSION ?= 1.2.0-202106301459
 
 LN_FLAGS := -sfn
 COLOR := \033[32;01m
