@@ -106,8 +106,15 @@
 (use-package org-tempo
   :after org)
 
+;; support for rss export
 (use-package org-contrib
-  :ensure t)
+  :ensure t
+  :after org)
+
+;; fontification in html export
+(use-package htmlize
+  :ensure t
+  :after org)
 
 (provide 'init-org)
 
