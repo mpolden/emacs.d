@@ -12,7 +12,10 @@
          ("C-c o a" . org-archive-subtree)
          ("C-c o s" . org-save-all-org-buffers)
          ("C-<tab>" . org-force-cycle-archived))
-  :config
+  :init
+  ;; set default org directory
+  (setq org-directory "~/org")
+
   ;; file and tree where archived tasks should be moved
   (setq org-archive-location "%s_archive::* Archived Tasks")
 
