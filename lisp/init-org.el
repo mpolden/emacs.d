@@ -69,12 +69,6 @@
   ;; include the full path when searching headlines
   (setq org-outline-path-complete-in-steps nil)
 
-  ;; enable org-habit
-  (add-to-list 'org-modules 'org-habit)
-
-  ;; enable ox-rss
-  (add-to-list 'org-modules 'ox-rss)
-
   ;; show habits on future days
   (setq org-habit-show-habits-only-for-today nil)
 
