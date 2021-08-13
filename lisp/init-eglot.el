@@ -5,10 +5,18 @@
 (defvar mpolden/inhibit-format-before-save nil
   "List of modes where `eglot-format' should not be run before saving the buffer.")
 
+(defvar mpolden/inhibit-organize-imports-before-save nil
+  "List of modes where `eglot-code-action-organize-imports' should not be run before saving the buffer.")
+
 (defun mpolden/format-before-save ()
-  "Format buffer using `eglot-format' unless explicitly inhibited in current mode."
+  "Format buffer before saving."
   (unless (member major-mode mpolden/inhibit-format-before-save)
     (eglot-format)))
+
+(defun mpolden/organize-imports-before-save ()
+  "Organize imports before saving buffer."
+  (unless (member major-mode mpolden/inhibit-organize-imports-before-save)
+    (call-interactively 'eglot-code-action-organize-imports)))
 
 (use-package eglot
   :ensure t
@@ -25,7 +33,8 @@
    (java-mode . eglot-ensure)
    (python-mode . eglot-ensure)
    (rust-mode . eglot-ensure)
-   (before-save . mpolden/format-before-save))
+   (before-save . mpolden/format-before-save)
+   (before-save . mpolden/organize-imports-before-save))
 
   :bind (:map eglot-mode-map
               ;; C-c r renames identifier
