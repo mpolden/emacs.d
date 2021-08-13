@@ -89,7 +89,15 @@
   (save-place-mode 1))
 
 ;; monday is the first day of the week
-(setq calendar-week-start-day 1)
+;; show week numbers
+(setq calendar-week-start-day 1
+      calendar-intermonth-text
+      '(propertize
+        (format "%2d"
+                (car
+                 (calendar-iso-from-absolute
+                  (calendar-absolute-from-gregorian (list month day year)))))
+        'font-lock-face 'font-lock-function-name-face))
 
 (provide 'init-sane-defaults)
 
