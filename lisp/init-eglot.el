@@ -18,6 +18,11 @@
   (unless (member major-mode mpolden/inhibit-organize-imports-before-save)
     (call-interactively 'eglot-code-action-organize-imports)))
 
+(defun mpolden/eglot-before-save ()
+  "All actions that may run before saving buffer."
+  (mpolden/format-before-save)
+  (mpolden/organize-imports-before-save))
+
 (use-package eglot
   :ensure t
   :init
@@ -33,8 +38,7 @@
    (java-mode . eglot-ensure)
    (python-mode . eglot-ensure)
    (rust-mode . eglot-ensure)
-   (before-save . mpolden/format-before-save)
-   (before-save . mpolden/organize-imports-before-save))
+   (before-save . mpolden/eglot-before-save))
 
   :bind (:map eglot-mode-map
               ;; C-c r renames identifier
