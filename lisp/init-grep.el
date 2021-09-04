@@ -10,15 +10,25 @@
 This is only used when running grep in a Git repository.")
 
 (defun mpolden/grep ()
-  "Recursively grep in `default-directory' or current Git repository.
-This tries to use either rg or git grep if available, and
-otherwise falls back to regular grep."
+  "Recursively grep the current project.
+
+The current project is determined by `project-current'. If no
+project is found, fall back to the current Git repository root.
+If there is no Git repository, fall back to `default-directory'.
+
+Grep programs are preferred in the following order: rg, git grep
+and grep.
+
+A prefix argument runs grep in `default-directory' instead of the
+current project."
   (interactive)
-  (let* ((project-dir (or (cdr (project-current))
-                          (locate-dominating-file default-directory ".git")))
-         (dir (or project-dir default-directory))
+  (let* ((git-repository (locate-dominating-file default-directory ".git"))
+         (dir (or (when current-prefix-arg default-directory)
+                  (cdr (project-current))
+                  git-repository
+                  default-directory))
          (use-rg (executable-find "rg"))
-         (use-git (and project-dir (executable-find "git")))
+         (use-git (and git-repository (executable-find "git")))
          (grep-template (cond (use-rg mpolden/rg-template)
                               (use-git mpolden/git-grep-template))))
     (grep-apply-setting 'grep-template grep-template)
