@@ -35,7 +35,7 @@ install-lsp-java:
 		$(JDT_LS_HOME)/plugins/org.eclipse.equinox.launcher_*.jar
 
 install-lsp-python:
-	python3 -m pip install --user -U python-language-server
+	python3 -m pip install --user -U python-lsp-server
 
 install-lsp-rust:
 	rustup component add rls
