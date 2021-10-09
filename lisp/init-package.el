@@ -32,7 +32,7 @@ re-downloaded in order to locate PACKAGE."
         (package-install package)
       (progn
         (package-refresh-contents)
-        (require-package package min-version t)))))
+        (mpolden/require-package package min-version t)))))
 
 (defun mpolden/require-packages (packages)
   "Install a list of PACKAGES."
