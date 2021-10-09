@@ -31,6 +31,10 @@
   ;; refile targets 1 level in current buffer and all org agenda files
   (setq org-refile-targets '((nil :maxlevel . 2) (org-agenda-files :maxlevel . 1)))
 
+  ;; visual indenting only
+  (setq org-startup-indented t
+        org-adapt-indentation nil)
+
   ;; record time when moving a task to done state
   (setq org-log-done 'time)
 
