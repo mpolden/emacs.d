@@ -14,9 +14,9 @@
   :ensure t
   :init
   ;; commands to show when switching projects
-  (setq project-switch-commands '((project-find-file "Find file")
-                                  (project-dired "Dired")
-                                  (project-eshell "Eshell")
+  (setq project-switch-commands '((project-find-file "Find file" ?f)
+                                  (project-dired "Dired" ?d)
+                                  (project-eshell "Eshell" ?e)
                                   (mpolden/grep "Grep" ?g)
                                   (magit-project-status "Magit" ?m)))
   ;; configure how projects are detected
