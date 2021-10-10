@@ -31,6 +31,7 @@ decides the themes to toggle between."
 
 (use-package doom-themes
   :ensure t
+  :defer nil
   :if (display-graphic-p)
   :bind ("C-c T" . mpolden/toggle-theme)
   :config
