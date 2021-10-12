@@ -43,7 +43,7 @@
 
   ;; capture template including title, date and time
   (setq org-capture-templates '(("i" "Inbox" entry (file "")
-                                 "* TODO %?\n  %U"
+                                 "* TODO %?\n%U"
                                  :empty-lines-after 1)))
 
   ;; automatically mark archived entry as done
