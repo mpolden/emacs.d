@@ -100,11 +100,11 @@
           ("n" "Agenda and all TODOs" ((agenda "") (alltodo "")))
           ;; split by state
           ("m" "Agenda and all TODOs split by state"
-           ((agenda "") (todo "TODO") (todo "WAIT"))))))
+           ((agenda "") (todo "TODO") (todo "WAIT")))))
 
-;; enable template expansion when typing <s in org-mode
-(use-package org-tempo
-  :after org)
+  :config
+  ;; enable template expansion when typing <s in org-mode
+  (add-to-list 'org-modules 'org-tempo t))
 
 (use-package org-contrib
   :ensure t)
