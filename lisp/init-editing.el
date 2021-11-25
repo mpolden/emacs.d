@@ -27,6 +27,11 @@
 ;; C-- undoes
 (global-set-key (kbd "C--") 'undo)
 
+;; use dwim variants when changing case
+(global-set-key (kbd "M-u") 'upcase-dwim)
+(global-set-key (kbd "M-l") 'downcase-dwim)
+(global-set-key (kbd "M-c") 'capitalize-dwim)
+
 ;; kill line also kills newline character
 (setq kill-whole-line t)
 
