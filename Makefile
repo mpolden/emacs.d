@@ -37,6 +37,9 @@ install-lsp-java:
 install-lsp-python:
 	python3 -m pip install --user -U python-lsp-server
 
+install-lsp-python-more:
+	python3 -m pip install --user -U python-lsp-black pylsp-mypy
+
 install-lsp-rust:
 	rustup component add rls
 
