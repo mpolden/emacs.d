@@ -18,9 +18,10 @@
   (when (executable-find "flake8")
     (setq python-flymake-command '("flake8" "-")))
 
-  ;; prefer python3 interpreter
-  (when (executable-find "python3")
-    (setq python-shell-interpreter "python3")))
+  ;; set prefered interpreter
+  (setq python-shell-interpreter (or (executable-find "ipython")
+                                     (executable-find "python3")
+                                     (executable-find "python"))))
 
 (provide 'init-python)
 
