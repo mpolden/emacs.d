@@ -14,10 +14,6 @@
   :mode ("\\.py\\'" . python-mode)
   :hook (python-mode . mpolden/python-mode-buffer-local-variables)
   :config
-  ;; prefer flake8 as flymake backend
-  (when (executable-find "flake8")
-    (setq python-flymake-command '("flake8" "-")))
-
   ;; set prefered interpreter
   (setq python-shell-interpreter (or (executable-find "ipython")
                                      (executable-find "python3")
