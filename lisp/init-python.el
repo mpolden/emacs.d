@@ -15,12 +15,12 @@
   :hook (python-mode . mpolden/python-mode-buffer-local-variables)
   :config
   ;; set prefered interpreter
-  (setq python-shell-interpreter (cond ((executable-find "ipython") "ipython")
+  (setq python-shell-interpreter (cond ((executable-find "ipython3") "ipython3")
                                        ((executable-find "python3") "python3")
                                        t "python"))
   ;; ipython needs --simple-prompt for emacs compatibility
   ;; https://emacs.stackexchange.com/a/24572
-  (when (equal python-shell-interpreter "ipython")
+  (when (equal python-shell-interpreter "ipython3")
     (setq python-shell-interpreter-args "-i --simple-prompt")))
 
 (provide 'init-python)
