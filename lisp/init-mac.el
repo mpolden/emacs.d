@@ -9,8 +9,9 @@
 ;; set font
 (let ((font-family mpolden/font-family))
   (when (and (display-graphic-p) (member font-family (font-family-list)))
-    (set-face-attribute 'default nil :family font-family)
-    (set-face-attribute 'default nil :height (* 10 mpolden/font-size))))
+    (set-face-attribute 'default nil
+                        :family font-family
+                        :height (* 10 mpolden/font-size))))
 
 ;; configure modifiers
 (setq mac-option-modifier 'super)
