@@ -22,7 +22,11 @@ endif
 install-lsp: install-lsp-go install-lsp-java install-lsp-python install-lsp-rust
 
 install-lsp-go:
+ifneq ($(BREW),)
+	brew install gopls
+else
 	go install golang.org/x/tools/gopls@latest
+endif
 
 install-lsp-java:
 	mkdir $(JDT_LS_HOME)
