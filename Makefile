@@ -13,7 +13,7 @@ install:
 	ln $(LN_FLAGS) $(CURDIR) ~/.emacs.d
 
 install-emacs:
-ifdef BREW
+ifneq ($(BREW),)
 	brew install --cask emacs
 else
 	$(error brew command not found)
