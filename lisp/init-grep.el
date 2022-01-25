@@ -29,13 +29,15 @@ current project."
                   default-directory))
          (use-rg (executable-find "rg"))
          (use-git (and git-repository (executable-find "git")))
-         (grep-template (cond (use-rg mpolden/rg-template)
-                              (use-git mpolden/git-grep-template))))
-    (grep-apply-setting 'grep-template grep-template)
+         (template (cond (use-rg mpolden/rg-template)
+                         (use-git mpolden/git-grep-template))))
+    (grep-apply-setting 'grep-template template)
     ;; never use null device as all programs support -H
     (grep-apply-setting 'grep-use-null-device nil)
     (if (or use-rg use-git)
-        (lgrep (grep-read-regexp) "" dir)
+        ;; never pass --directories
+        (let ((grep-use-directories-skip nil))
+          (lgrep (grep-read-regexp) "" dir))
       (rgrep (grep-read-regexp) "*" dir))))
 
 (defun mpolden/grep-visit-buffer-other-window (&optional result noselect)
