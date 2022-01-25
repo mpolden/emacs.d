@@ -11,7 +11,6 @@
       (cons 'transient module-root))))
 
 (use-package project
-  :ensure t
   :init
   ;; commands to show when switching projects
   (setq project-switch-commands '((project-find-file "Find file" ?f)
