@@ -2,6 +2,7 @@ CURDIR ?= $(.CURDIR)
 BREW ?= $(shell command -v brew 2> /dev/null)
 JDT_LS_HOME ?= $(CURDIR)/eclipse.jdt.ls
 JDT_LS_VERSION ?= 1.4.0-202109161824
+EMACS_FLAGS ?= --cask
 
 LN_FLAGS := -sfn
 COLOR := \033[32;01m
@@ -12,9 +13,15 @@ all: install
 install:
 	ln $(LN_FLAGS) $(CURDIR) ~/.emacs.d
 
+install-emacs-head: EMACS_FLAGS=--HEAD --with-native-comp
+install-emacs-head: install-emacs
+	ln -s `brew --prefix`/opt/emacs-mac/Emacs.app /Applications/Emacs.app
+	ln -s `brew --prefix`/opt/emacs-mac/lib/emacs/28.0.91/native-lisp /Applications/Emacs.app/Contents/native-lisp
+
 install-emacs:
 ifneq ($(BREW),)
-	brew install --cask emacs
+	brew tap railwaycat/emacsmacport
+	brew install $(EMACS_FLAGS) emacs-mac
 else
 	$(error brew command not found)
 endif
