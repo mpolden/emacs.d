@@ -103,3 +103,6 @@ tutorial/
 # java lsp server
 /eclipse.jdt.ls/
 /eglot-eclipse-jdt-cache/
+
+# native-comp
+/eln-cache/
