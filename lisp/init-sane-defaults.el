@@ -14,14 +14,16 @@
 ;; disable audible bell
 (setq ring-bell-function #'ignore)
 
-;; scroll one line at a time
-(setq mouse-wheel-scroll-amount
-      '(1
-        ((shift) . 5)
-        ((control))))
+;; tweak scrolling when smooth scrolling is unavailable or disabled
+(when (not (bound-and-true-p mac-mouse-wheel-smooth-scroll))
+  ;; scroll one line at a time
+  (setq mouse-wheel-scroll-amount
+        '(1
+          ((shift) . 5)
+          ((control))))
 
-;; disable scroll acceleration
-(setq mouse-wheel-progressive-speed nil)
+  ;; disable scroll acceleration
+  (setq mouse-wheel-progressive-speed nil))
 
 ;; reload buffers automatically when files change on disk
 (use-package autorevert
