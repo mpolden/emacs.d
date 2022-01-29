@@ -22,17 +22,13 @@
 (when (>= libgnutls-version 30603)
   (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
-(defun mpolden/require-package (package &optional min-version no-refresh)
-  "Install given PACKAGE, optionally requiring MIN-VERSION.
-If NO-REFRESH is non-nil, the available package lists will not be
-re-downloaded in order to locate PACKAGE."
-  (if (package-installed-p package min-version)
-      t
-    (if (or (assoc package package-archive-contents) no-refresh)
-        (package-install package)
+(defun mpolden/require-package (package)
+  "Install given PACKAGE if it's not already installed."
+  (or (package-installed-p package)
       (progn
-        (package-refresh-contents)
-        (mpolden/require-package package min-version t)))))
+        (unless (assoc package package-archive-contents)
+          (package-refresh-contents))
+        (package-install package))))
 
 (defvar mpolden/inhibited-features nil "List of features that should not be loaded.")
 
