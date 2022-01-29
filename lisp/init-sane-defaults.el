@@ -14,8 +14,8 @@
 ;; disable audible bell
 (setq ring-bell-function #'ignore)
 
-;; tweak scrolling when smooth scrolling is unavailable or disabled
-(when (not (bound-and-true-p mac-mouse-wheel-smooth-scroll))
+;; tweak scrolling unless smooth scrolling is enabled
+(unless (bound-and-true-p mac-mouse-wheel-smooth-scroll)
   ;; scroll one line at a time
   (setq mouse-wheel-scroll-amount
         '(1
