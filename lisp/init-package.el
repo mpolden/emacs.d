@@ -34,10 +34,6 @@ re-downloaded in order to locate PACKAGE."
         (package-refresh-contents)
         (mpolden/require-package package min-version t)))))
 
-(defun mpolden/require-packages (packages)
-  "Install a list of PACKAGES."
-  (mapcar (lambda (package) (mpolden/require-package package)) packages))
-
 (defvar mpolden/inhibited-features nil "List of features that should not be loaded.")
 
 (define-obsolete-variable-alias 'inhibited-packages 'mpolden/inhibited-features "2021-03-28")
@@ -49,7 +45,8 @@ re-downloaded in order to locate PACKAGE."
     (require feature)))
 
 ;; install use-package and diminish
-(mpolden/require-packages '(use-package diminish))
+(mpolden/require-package 'use-package)
+(mpolden/require-package 'diminish)
 
 ;; speed up loading of use-package and dependencies
 (eval-when-compile
