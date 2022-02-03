@@ -5,17 +5,21 @@
 ;; disable splash
 (setq inhibit-startup-message t)
 
-;; hide menubar when not on os x
+;; hide menu bar when not on os x
 (when (and (fboundp 'menu-bar-mode) (not (eq system-type 'darwin)))
   (menu-bar-mode -1))
 
-;; hide toolbar
+;; hide tool bar
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 
-;; hide scrollbar
+;; hide scroll bar
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
+
+;; hide tab bar
+(when (fboundp 'tab-bar-mode)
+  (tab-bar-mode -1))
 
 ;; disable dialogs
 (setq use-dialog-box nil)
