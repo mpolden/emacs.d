@@ -1,7 +1,7 @@
 CURDIR ?= $(.CURDIR)
 BREW ?= $(shell command -v brew 2> /dev/null)
 JDT_LS_HOME ?= $(CURDIR)/eclipse.jdt.ls
-JDT_LS_VERSION ?= 1.4.0-202109161824
+JDT_LS_VERSION ?= 1.8.0
 EMACS_FLAGS ?= --cask
 
 LN_FLAGS := -sfn
@@ -37,7 +37,8 @@ endif
 
 install-lsp-java:
 	mkdir $(JDT_LS_HOME)
-	curl -fsSL https://download.eclipse.org/jdtls/milestones/$(firstword $(subst -, ,$(JDT_LS_VERSION)))/jdt-language-server-$(JDT_LS_VERSION).tar.gz | \
+	FILE=`curl -fsSL https://download.eclipse.org/jdtls/milestones/$(JDT_LS_VERSION)/latest.txt`; \
+		curl -fsSL https://download.eclipse.org/jdtls/milestones/$(JDT_LS_VERSION)/$$FILE | \
 		tar -C $(JDT_LS_HOME) -xf -
 	@echo "eclipse jdt ls $(JDT_LS_VERSION) installed in $(COLOR)$(JDT_LS_HOME)$(NO_COLOR)"
 	@echo "emacs/eglot needs the following environment variables set:"
