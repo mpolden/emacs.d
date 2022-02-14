@@ -22,6 +22,8 @@ install-emacs:
 ifneq ($(BREW),)
 	brew tap railwaycat/emacsmacport
 	brew install $(EMACS_FLAGS) emacs-mac
+# https://github.com/railwaycat/homebrew-emacsmacport/issues/279
+	codesign --remove-signature /Applications/Emacs.app
 else
 	$(error brew command not found)
 endif
