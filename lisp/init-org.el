@@ -46,9 +46,6 @@
                                  "* TODO %?\n%U"
                                  :empty-lines-after 1)))
 
-  ;; do not create bookmark on capture
-  (setq org-capture-bookmark nil)
-
   ;; automatically mark archived entry as done
   (setq org-archive-mark-done t)
 
