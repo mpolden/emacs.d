@@ -56,6 +56,9 @@
 (setq line-number-mode t
       column-number-mode t)
 
+;; do not set fringe mark for bookmarked lines
+(setq bookmark-set-fringe-mark nil)
+
 (provide 'init-appearance)
 
 ;;; init-appearance.el ends here
