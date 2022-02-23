@@ -1,8 +1,8 @@
 CURDIR ?= $(.CURDIR)
 BREW ?= $(shell command -v brew 2> /dev/null)
+BREW_EMACS_FLAGS ?= --cask
 JDT_LS_HOME ?= $(CURDIR)/eclipse.jdt.ls
 JDT_LS_VERSION ?= 1.8.0
-EMACS_FLAGS ?= --cask
 
 LN_FLAGS := -sfn
 COLOR := \033[32;01m
@@ -13,15 +13,15 @@ all: install
 install:
 	ln $(LN_FLAGS) $(CURDIR) ~/.emacs.d
 
-install-emacs-head: EMACS_FLAGS=--HEAD --with-native-comp
+install-emacs-head: BREW_EMACS_FLAGS=--HEAD --with-native-comp
 install-emacs-head: install-emacs
-	ln -s `brew --prefix`/opt/emacs-mac/Emacs.app /Applications/Emacs.app
-	ln -s `brew --prefix`/opt/emacs-mac/lib/emacs/28.0.91/native-lisp /Applications/Emacs.app/Contents/native-lisp
+	ln -s `$(BREW) --prefix`/opt/emacs-mac/Emacs.app /Applications/Emacs.app
+	ln -s `$(BREW) --prefix`/opt/emacs-mac/lib/emacs/28.0.91/native-lisp /Applications/Emacs.app/Contents/native-lisp
 
 install-emacs:
 ifneq ($(BREW),)
-	brew tap railwaycat/emacsmacport
-	brew install $(EMACS_FLAGS) emacs-mac
+	$(BREW) tap railwaycat/emacsmacport
+	$(BREW) install $(BREW_EMACS_FLAGS) emacs-mac
 # https://github.com/railwaycat/homebrew-emacsmacport/issues/279
 	codesign --remove-signature /Applications/Emacs.app
 else
@@ -32,7 +32,7 @@ install-lsp: install-lsp-go install-lsp-java install-lsp-python install-lsp-rust
 
 install-lsp-go:
 ifneq ($(BREW),)
-	brew install gopls
+	$(BREW) install gopls
 else
 	go install golang.org/x/tools/gopls@latest
 endif
