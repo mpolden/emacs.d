@@ -50,6 +50,17 @@ Example:
   (setq mpolden/inhibit-format-before-save '(foo-mode))
 #+end_src
 
+*** gopls
+
+To enable =staticcheck= when using the =gopls= language server, create a
+=.dir-locals.el= file in project directory containing:
+
+#+begin_src elisp
+((go-mode
+  . ((eglot-workspace-configuration
+      . ((:gopls . ((staticcheck . t))))))))
+#+end_src
+
 ** Version compatibility
 
 Lowest supported Emacs version is the one found in [[https://packages.debian.org/stable/emacs][Debian stable]]. No
