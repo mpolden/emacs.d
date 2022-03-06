@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar mpolden/rg-template "rg -nH --no-heading <C> -e <R> -- <F>"
+(defvar mpolden/rg-template "rg -nH --sort path --no-heading <C> -e <R> -- <F>"
   "The grep template to use when rg (ripgrep) is installed.")
 
 (defvar mpolden/git-grep-template "git --no-pager grep -n <C> -e <R> -- <F>"
