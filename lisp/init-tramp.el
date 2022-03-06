@@ -47,7 +47,9 @@ With a prefix ARG prompt edit currently visited file using sudo."
   ;; make sudo:remote-host work as expected
   (add-to-list 'tramp-default-proxies-alist '(nil "\\`root\\'" "/ssh:%h:"))
   (add-to-list 'tramp-default-proxies-alist
-               '((regexp-quote (system-name)) nil nil)))
+               '((regexp-quote (system-name)) nil nil))
+  ;; use path configured by remote host
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
 (provide 'init-tramp)
 
