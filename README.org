@@ -21,7 +21,7 @@ keep the following in mind when maintaining it:
 - Keep the number of external packages to a minimum.
   - Eschew heavy-weight packages that fundamentally change how Emacs works.
   - Prefer packages that compose well with the rest of Emacs.
-- Try to unify keybindings across similar modes (e.g. =o= and =C-o= in
+- Try to unify keybindings across similar modes (e.g.  =o= and =C-o= in
   =dired= and =grep=). Keybindings can be notoriously inconsistent across
   modes.
 - Be vigilant in throwing away keybindings, packages or other configuration
