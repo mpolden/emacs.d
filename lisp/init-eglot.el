@@ -53,7 +53,9 @@
               ;; C-c f formats buffer
               ("C-c f" . eglot-format)
               ;; C-c o organizes imports
-              ("C-c o" . eglot-code-action-organize-imports))
+              ("C-c o" . eglot-code-action-organize-imports)
+              ;; C-c q shows code actions (quickfix)
+              ("C-c q" . eglot-code-actions))
   :config
   ;; https://github.com/joaotavora/eglot/issues/333
   ;; https://github.com/jrblevin/markdown-mode/issues/377
