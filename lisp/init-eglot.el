@@ -8,6 +8,9 @@
 (defvar mpolden/inhibit-organize-imports-before-save nil
   "List of modes where `eglot-code-action-organize-imports' should not be run before saving the buffer.")
 
+(defvar mpolden/inhibit-lsp nil
+  "List of modes where `eglot-ensure' should not be called to enable LSP integration.")
+
 (defun mpolden/format-before-save ()
   "Format buffer before saving."
   (unless (member major-mode mpolden/inhibit-format-before-save)
@@ -20,8 +23,14 @@
 
 (defun mpolden/eglot-before-save ()
   "All actions that may run before saving buffer."
-  (mpolden/format-before-save)
-  (mpolden/organize-imports-before-save))
+  (unless (member major-mode mpolden/inhibit-lsp)
+    (mpolden/format-before-save)
+    (mpolden/organize-imports-before-save)))
+
+(defun mpolden/eglot-ensure ()
+  "Enable Eglot for current `major-mode'."
+  (unless (member major-mode mpolden/inhibit-lsp)
+    (eglot-ensure)))
 
 (defun mpolden/gfm-unescape-string (string)
   "Remove backslash-escape of punctuation characters in STRING."
@@ -41,10 +50,10 @@
   (setq-default tab-width 4)
   :hook
   ;; load eglot automatically for these modes
-  ((go-mode . eglot-ensure)
-   (java-mode . eglot-ensure)
-   (python-mode . eglot-ensure)
-   (rust-mode . eglot-ensure)
+  ((go-mode . mpolden/eglot-ensure)
+   (java-mode . mpolden/eglot-ensure)
+   (python-mode . mpolden/eglot-ensure)
+   (rust-mode . mpolden/eglot-ensure)
    (before-save . mpolden/eglot-before-save))
 
   :bind (:map eglot-mode-map
