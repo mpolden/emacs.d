@@ -15,8 +15,8 @@ install:
 
 install-emacs-head: BREW_EMACS_FLAGS=--HEAD --with-native-comp
 install-emacs-head: install-emacs
-	ln -s `$(BREW) --prefix`/opt/emacs-mac/Emacs.app /Applications/Emacs.app
-	ln -s `$(BREW) --prefix`/opt/emacs-mac/lib/emacs/28.0.91/native-lisp /Applications/Emacs.app/Contents/native-lisp
+	ln -s `$(BREW) --prefix`/opt/emacs-mac/Emacs.app /Applications/Emacs.app || true
+	ln -s `$(BREW) --prefix`/opt/emacs-mac/lib/emacs/*/native-lisp /Applications/Emacs.app/Contents/native-lisp
 
 install-emacs:
 ifneq ($(BREW),)
