@@ -15,9 +15,6 @@ install:
 
 install-emacs-head: BREW_EMACS_FLAGS=--HEAD --with-native-comp
 install-emacs-head: install-emacs
-# native-lisp must be linked explicitly for now
-# https://github.com/railwaycat/homebrew-emacsmacport/issues/274
-	ln -s `$(BREW) --prefix`/opt/emacs-mac/lib/emacs/*/native-lisp /Applications/Emacs.app/Contents/native-lisp
 
 install-emacs:
 ifneq ($(BREW),)
