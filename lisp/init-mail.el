@@ -4,7 +4,7 @@
 
 (use-package mu4e
   :load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
-  :bind (("C-c y" . mu4e)
+  :bind (("C-c m" . mu4e)
          ;; delete moves email to trash instead of deleting
          :map mu4e-headers-mode-map ("d" . "mt")
          :map mu4e-view-mode-map ("d" . "mt"))

@@ -23,9 +23,7 @@
   :bind (;; C-x f finds file in project
          ("C-x f" . project-find-file)
          ;; C-c p switches project
-         ("C-c p" . project-switch-project)
-         ;; C-c m compiles project
-         ("C-c m" . project-compile)))
+         ("C-c p" . project-switch-project)))
 
 (provide 'init-project)
 
