@@ -36,10 +36,10 @@
 
 ;; navigation
 (mpolden/maybe-require 'init-amx)
+(mpolden/maybe-require 'init-counsel)
 (mpolden/maybe-require 'init-dired)
 (mpolden/maybe-require 'init-grep)
 (mpolden/maybe-require 'init-ibuffer)
-(mpolden/maybe-require 'init-imenu)
 (mpolden/maybe-require 'init-ivy)
 (mpolden/maybe-require 'init-project)
 (mpolden/maybe-require 'init-recentf)
