@@ -14,6 +14,9 @@
   ;; use fuzzy matching by default
   (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
 
+  ;; allow selecting literal input
+  (setq ivy-use-selectable-prompt t)
+
   :config
   (ivy-mode 1))
 
