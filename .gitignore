@@ -101,7 +101,8 @@ tutorial/
 /forge-database.sqlite
 
 # java lsp server
-/eclipse.jdt.ls/
+/eclipse.jdt.ls
+/eclipse.jdt.ls-*
 /eglot-eclipse-jdt-cache/
 
 # native-comp

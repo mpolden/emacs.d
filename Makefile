@@ -1,8 +1,8 @@
 CURDIR ?= $(.CURDIR)
 BREW ?= $(shell command -v brew 2> /dev/null)
 BREW_EMACS_FLAGS ?= --with-native-comp
-JDT_LS_HOME ?= $(CURDIR)/eclipse.jdt.ls
 JDT_LS_VERSION ?= 1.8.0
+JDT_LS_HOME ?= $(CURDIR)/eclipse.jdt.ls-$(JDT_LS_VERSION)
 
 LN_FLAGS := -sfn
 COLOR := \033[32;01m
@@ -32,7 +32,7 @@ else
 endif
 
 install-lsp-java:
-	mkdir $(JDT_LS_HOME)
+	mkdir -p $(JDT_LS_HOME)
 	FILE=`curl -fsSL https://download.eclipse.org/jdtls/milestones/$(JDT_LS_VERSION)/latest.txt`; \
 		curl -fsSL https://download.eclipse.org/jdtls/milestones/$(JDT_LS_VERSION)/$$FILE | \
 		tar -C $(JDT_LS_HOME) -xf -
@@ -41,6 +41,7 @@ install-lsp-java:
 	@echo "- $(COLOR)JAVA_HOME$(NO_COLOR) containing the path to a jdk installation"
 	@printf -- "- $(COLOR)CLASSPATH$(NO_COLOR) containing $(COLOR)%s$(NO_COLOR)\n" \
 		$(JDT_LS_HOME)/plugins/org.eclipse.equinox.launcher_*.jar
+	ln -nsf $(JDT_LS_HOME) $(CURDIR)/eclipse.jdt.ls
 
 install-lsp-python:
 	python3 -m pip install --user -U python-lsp-server
