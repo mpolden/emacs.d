@@ -50,7 +50,11 @@ install-lsp-python-more:
 	python3 -m pip install --user -U python-lsp-black pylsp-mypy
 
 install-lsp-rust:
-	rustup component add rls
+ifneq ($(BREW),)
+	$(BREW) install rust-analyzer
+else
+	$(error brew command not found)
+endif
 
 update:
 	git pull --rebase --quiet
