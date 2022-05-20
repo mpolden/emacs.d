@@ -41,7 +41,7 @@ install-lsp-java:
 	@echo "- $(COLOR)JAVA_HOME$(NO_COLOR) containing the path to a jdk installation"
 	@printf -- "- $(COLOR)CLASSPATH$(NO_COLOR) containing $(COLOR)%s$(NO_COLOR)\n" \
 		$(JDT_LS_HOME)/plugins/org.eclipse.equinox.launcher_*.jar
-	ln -nsf $(JDT_LS_HOME) $(CURDIR)/eclipse.jdt.ls
+	ln -nsf $(notdir $(JDT_LS_HOME)) $(CURDIR)/eclipse.jdt.ls
 
 install-lsp-python:
 	python3 -m pip install --user -U python-lsp-server
