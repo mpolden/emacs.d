@@ -50,6 +50,7 @@
 (mpolden/maybe-require 'init-git)
 (mpolden/maybe-require 'init-mail)
 (mpolden/maybe-require 'init-restclient)
+(mpolden/maybe-require 'init-vterm)
 
 ;; languages
 (mpolden/maybe-require 'init-go)
