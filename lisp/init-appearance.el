@@ -22,8 +22,9 @@
 
 ;; highlight current line
 (use-package hl-line
-  :config
-  (global-hl-line-mode 1))
+  :hook ((compilation-mode . hl-line-mode)
+         (dired-mode . hl-line-mode)
+         (text-mode . hl-line-mode)))
 
 ;; highlight matching parentheses
 (use-package paren
