@@ -30,8 +30,7 @@
 
 ;; highlight matching parentheses
 (use-package paren
-  :config
-  (show-paren-mode 1))
+  :hook ((text-mode . show-paren-mode)))
 
 (defun mpolden/prog-mode-buffer-local-variables ()
   "Set buffer-local variables for `prog-mode'."
