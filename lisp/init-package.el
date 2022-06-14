@@ -8,8 +8,7 @@
              '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
              '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
-(when (< emacs-major-version 27)
-  (package-initialize))
+(package-initialize)
 
 ;; emacs and gnutls has recurring issues with tls 1.3
 ;; the original bug was supposedly fixed in 26.3, but resurfaced in 27.2 on
