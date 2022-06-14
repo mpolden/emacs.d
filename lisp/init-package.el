@@ -6,8 +6,6 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives
-             '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
 (package-initialize)
 
 ;; emacs and gnutls has recurring issues with tls 1.3
