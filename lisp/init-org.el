@@ -8,7 +8,6 @@
          ("C-c l" . org-store-link)
          ("C-c a" . org-agenda)
          :map org-mode-map
-         ("C-c o g" . org-mac-grab-link) ;; from org-contrib
          ("C-c o a" . org-archive-subtree)
          ("C-c o s" . org-save-all-org-buffers)
          ("C-<tab>" . org-force-cycle-archived))
@@ -106,9 +105,6 @@
   :config
   ;; enable template expansion when typing <s in org-mode
   (add-to-list 'org-modules 'org-tempo t))
-
-(use-package org-contrib
-  :ensure t)
 
 (provide 'init-org)
 
