@@ -31,9 +31,6 @@
 
 (defvar mpolden/inhibited-features nil "List of features that should not be loaded.")
 
-(define-obsolete-variable-alias 'inhibited-packages 'mpolden/inhibited-features "2021-03-28")
-(define-obsolete-variable-alias 'mpolden/inhibited-packages 'mpolden/inhibited-features "2021-03-28")
-
 (defun mpolden/maybe-require (feature)
   "Load FEATURE if it's not inhibited."
   (unless (memq feature mpolden/inhibited-features)
