@@ -1,9 +1,12 @@
-;;; init-vterm.el --- configure vterm   -*- lexical-binding:t -*-
+;;; init-vterm.el --- configure vterm  -*- lexical-binding:t -*-
 ;;; Commentary:
 ;;; Code:
 
 (use-package vterm
-  :ensure t)
+  :ensure t
+  :init
+  ;; include current directory in buffer name
+  (setq vterm-buffer-name-string "vterm %s"))
 
 (provide 'init-vterm)
 
