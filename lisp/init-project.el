@@ -18,7 +18,7 @@ project, switch to it.
 With \\[universal-argument] prefix arg, always create a new
 buffer even if one already exists."
   (interactive)
-  (let* ((default-directory (directory-file-name (project-root (project-current t))))
+  (let* ((default-directory (project-root (project-current t)))
          ;; find a vterm buffer which has its current directory in the project
          ;; root or any sub-directory of the root
          (vterm-buf (car (seq-filter (lambda (buf)
@@ -26,8 +26,8 @@ buffer even if one already exists."
                                               (buf-name (buffer-name buf))
                                               (buf-dir (string-remove-prefix buf-prefix buf-name)))
                                          (and (string-prefix-p buf-prefix buf-name)
-                                              (string-prefix-p (file-truename default-directory)
-                                                               (file-truename buf-dir)))))
+                                              (file-in-directory-p (file-truename buf-dir)
+                                                                   (file-truename default-directory)))))
                                      (buffer-list)))))
     (if (and vterm-buf (not current-prefix-arg))
         (pop-to-buffer vterm-buf)
