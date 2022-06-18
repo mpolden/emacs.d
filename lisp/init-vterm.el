@@ -6,7 +6,7 @@
   :ensure t
   :init
   ;; include current directory in buffer name
-  (setq vterm-buffer-name-string "vterm %s"))
+  (setq vterm-buffer-name-string "vterm: %s"))
 
 (provide 'init-vterm)
 
