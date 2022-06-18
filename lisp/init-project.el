@@ -21,14 +21,16 @@ buffer even if one already exists."
   (let* ((default-directory (project-root (project-current t)))
          ;; find a vterm buffer which has its current directory in the project
          ;; root or any sub-directory of the root
-         (vterm-buf (car (seq-filter (lambda (buf)
-                                       (let* ((buf-prefix "vterm: ")
-                                              (buf-name (buffer-name buf))
-                                              (buf-dir (string-remove-prefix buf-prefix buf-name)))
-                                         (and (string-prefix-p buf-prefix buf-name)
-                                              (file-in-directory-p (file-truename buf-dir)
-                                                                   (file-truename default-directory)))))
-                                     (buffer-list)))))
+         (vterm-buf
+          (car (seq-filter
+                (lambda (buf)
+                  (let* ((buf-prefix "vterm: ")
+                         (buf-name (buffer-name buf))
+                         (buf-dir (string-remove-prefix buf-prefix buf-name)))
+                    (and (string-prefix-p buf-prefix buf-name)
+                         (file-in-directory-p (file-truename buf-dir)
+                                              (file-truename default-directory)))))
+                (buffer-list)))))
     (if (and vterm-buf (not current-prefix-arg))
         (pop-to-buffer vterm-buf)
       (vterm-other-window))))
