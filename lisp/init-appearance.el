@@ -25,6 +25,7 @@
   :hook ((compilation-mode . hl-line-mode)
          (dired-mode . hl-line-mode)
          (ibuffer-mode . hl-line-mode)
+         (prog-mode . hl-line-mode)
          (restclient-mode . hl-line-mode)
          (text-mode . hl-line-mode)))
 
