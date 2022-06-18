@@ -106,6 +106,13 @@
   ;; enable template expansion when typing <s in org-mode
   (add-to-list 'org-modules 'org-tempo t))
 
+(use-package org-mac-link
+  :ensure t
+  :after org
+  :if (eq system-type 'darwin)
+  :bind (:map org-mode-map
+         ("C-c o g" . org-mac-link-get-link)))
+
 (provide 'init-org)
 
 ;;; init-org.el ends here
