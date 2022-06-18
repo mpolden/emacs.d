@@ -46,7 +46,9 @@ buffer even if one already exists."
   :bind (;; C-x f finds file in project
          ("C-x f" . project-find-file)
          ;; C-c p switches project
-         ("C-c p" . project-switch-project)))
+         ("C-c p" . project-switch-project)
+         ;; C-c v starts vterm in project
+         ("C-c v" . mpolden/project-vterm)))
 
 (provide 'init-project)
 
