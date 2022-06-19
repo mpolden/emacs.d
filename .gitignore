@@ -98,6 +98,7 @@ tutorial/
 /.lsp-session-v1
 
 # forge
+/forge-database-*.sql
 /forge-database.sqlite
 
 # java lsp server
