@@ -22,12 +22,22 @@
 The variables `mpolden/theme-light' and `mpolden/theme-dark'
 decides the themes to toggle between."
   (interactive)
-  (let ((is-light (memq mpolden/theme-light custom-enabled-themes) )
+  (let ((is-light (memq mpolden/theme-light custom-enabled-themes))
         (is-dark (memq mpolden/theme-dark custom-enabled-themes)))
-    (cond
-     (is-light (mpolden/switch-theme mpolden/theme-dark))
-     (is-dark (mpolden/switch-theme mpolden/theme-light))
-     (t (message "Don't know how to toggle theme: %s" (car custom-enabled-themes))))))
+    (progn
+      (cond
+       (is-light (mpolden/switch-theme mpolden/theme-dark))
+       (is-dark (mpolden/switch-theme mpolden/theme-light))
+       (t (message "Don't know how to toggle theme: %s" (car custom-enabled-themes))))
+      (mpolden/vterm-send-theme (if is-light "dark" "light")))))
+
+(defun mpolden/vterm-send-theme (theme)
+  "Set the theme in all Vterm buffers to THEME."
+  (mapcar (lambda (buf)
+            (with-current-buffer buf
+              (vterm-send-string (concat "export VTERM_THEME=" theme "\n"))))
+          (seq-filter (lambda (buf) (string-prefix-p "vterm: " (buffer-name buf)))
+                      (buffer-list))))
 
 (use-package doom-themes
   :ensure t
