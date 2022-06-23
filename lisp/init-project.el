@@ -16,9 +16,13 @@ If a buffer already exists for any directory in the current
 project, switch to it.
 
 With \\[universal-argument] prefix arg, always create a new
-buffer even if one already exists."
+buffer even if one already exists for the current project, or if
+there is no project in `default-directory'."
   (interactive)
-  (let* ((default-directory (project-root (project-current t)))
+  (let* ((project (project-current (not current-prefix-arg)))
+         (default-directory (if project
+                                (project-root project)
+                              default-directory))
          ;; find a vterm buffer which has its current directory in the project
          ;; root or any sub-directory of the root
          (vterm-buf
