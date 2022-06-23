@@ -41,8 +41,7 @@
 (use-package exec-path-from-shell
   :ensure t
   :init (setq exec-path-from-shell-variables '("PATH" "MANPATH" "GOPATH"
-                                               "JAVA_HOME" "CLASSPATH"
-                                               "SSH_AUTH_SOCK"))
+                                               "JAVA_HOME" "SSH_AUTH_SOCK"))
   :config (exec-path-from-shell-initialize))
 
 ;; add binding for toggling fullscreen
