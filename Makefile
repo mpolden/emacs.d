@@ -1,7 +1,7 @@
 CURDIR ?= $(.CURDIR)
 BREW ?= $(shell command -v brew 2> /dev/null)
 BREW_EMACS_FLAGS ?= --with-native-comp
-JDT_LS_VERSION ?= 1.9.0
+JDT_LS_VERSION ?= 1.12.0
 JDT_LS_HOME ?= $(CURDIR)/eclipse.jdt.ls-$(JDT_LS_VERSION)
 
 LN_FLAGS := -sfn
@@ -37,10 +37,9 @@ install-lsp-java:
 		curl -fsSL https://download.eclipse.org/jdtls/milestones/$(JDT_LS_VERSION)/$$FILE | \
 		tar -C $(JDT_LS_HOME) -xf -
 	@echo "eclipse jdt ls $(JDT_LS_VERSION) installed in $(COLOR)$(JDT_LS_HOME)$(NO_COLOR)"
-	@echo "emacs/eglot needs the following environment variables set:"
-	@echo "- $(COLOR)JAVA_HOME$(NO_COLOR) containing the path to a jdk installation"
-	@printf -- "- $(COLOR)CLASSPATH$(NO_COLOR) containing $(COLOR)%s$(NO_COLOR)\n" \
-		$(JDT_LS_HOME)/plugins/org.eclipse.equinox.launcher_*.jar
+	@echo "emacs/eglot requires the following environment variables:"
+	@echo "- $(COLOR)JAVA_HOME$(NO_COLOR) must contain the path to a jdk installation"
+	@echo "- $(COLOR)PATH$(NO_COLOR) must contain $(COLOR)$(JDT_LS_HOME)/bin$(NO_COLOR)"
 	ln -nsf $(notdir $(JDT_LS_HOME)) $(CURDIR)/eclipse.jdt.ls
 
 install-lsp-python:
