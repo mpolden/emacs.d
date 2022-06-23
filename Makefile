@@ -39,7 +39,7 @@ install-lsp-java:
 	@echo "eclipse jdt ls $(JDT_LS_VERSION) installed in $(COLOR)$(JDT_LS_HOME)$(NO_COLOR)"
 	@echo "emacs/eglot requires the following environment variables:"
 	@echo "- $(COLOR)JAVA_HOME$(NO_COLOR) must contain the path to a jdk installation"
-	@echo "- $(COLOR)PATH$(NO_COLOR) must contain $(COLOR)$(JDT_LS_HOME)/bin$(NO_COLOR)"
+	@echo "- $(COLOR)PATH$(NO_COLOR) must contain $(COLOR)$(CURDIR)/eclipse.jdt.ls/bin$(NO_COLOR)"
 	ln -nsf $(notdir $(JDT_LS_HOME)) $(CURDIR)/eclipse.jdt.ls
 
 install-lsp-python:
