@@ -16,6 +16,9 @@
   ;; kill buffer after sending message
   (setq message-kill-buffer-on-exit t)
 
+  ;; use ivy for completion
+  (setq mu4e-completing-read-function 'ivy-completing-read)
+
   ;; use format=flowed when sending message
   (setq mu4e-compose-format-flowed t)
 
