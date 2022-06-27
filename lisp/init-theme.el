@@ -28,7 +28,7 @@ decides the themes to toggle between."
       (cond
        (is-light (mpolden/switch-theme mpolden/theme-dark))
        (is-dark (mpolden/switch-theme mpolden/theme-light))
-       (t (message "Don't know how to toggle theme: %s" (car custom-enabled-themes))))
+       (t (error "Don't know how to toggle theme: %s" (car custom-enabled-themes))))
       (mpolden/vterm-send-theme (if is-light "dark" "light")))))
 
 (defun mpolden/vterm-send-theme (theme)
