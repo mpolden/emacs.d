@@ -17,27 +17,28 @@
         (load-theme theme)
       (call-interactively 'load-theme))))
 
+(defun mpolden/current-theme ()
+  "Return current theme, which is either \"light\" or \"dark\"."
+  (cond
+   ((memq mpolden/theme-light custom-enabled-themes) "light")
+   ((memq mpolden/theme-dark custom-enabled-themes) "dark")
+   (t (error "Failed to detect light theme. Enabled themes: %s"
+             custom-enabled-themes))))
+
 (defun mpolden/toggle-theme ()
   "Toggle between dark and light themes.
 The variables `mpolden/theme-light' and `mpolden/theme-dark'
 decides the themes to toggle between."
   (interactive)
-  (let ((is-light (memq mpolden/theme-light custom-enabled-themes))
-        (is-dark (memq mpolden/theme-dark custom-enabled-themes)))
+  (let ((theme (mpolden/current-theme)))
     (progn
-      (cond
-       (is-light (mpolden/switch-theme mpolden/theme-dark))
-       (is-dark (mpolden/switch-theme mpolden/theme-light))
-       (t (error "Don't know how to toggle theme: %s" (car custom-enabled-themes))))
-      (mpolden/vterm-send-theme (if is-light "dark" "light")))))
-
-(defun mpolden/vterm-send-theme (theme)
-  "Set the theme in all Vterm buffers to THEME."
-  (mapcar (lambda (buf)
-            (with-current-buffer buf
-              (vterm-send-string (concat "export VTERM_THEME=" theme "\n"))))
-          (seq-filter (lambda (buf) (string-prefix-p "vterm: " (buffer-name buf)))
-                      (buffer-list))))
+      (mpolden/switch-theme (if (equal theme "light")
+                                mpolden/theme-dark
+                              mpolden/theme-light))
+      (when (fboundp 'mpolden/vterm-change-theme)
+        (mpolden/vterm-change-theme theme))
+      (when (fboundp 'mpolden/vterm-set-theme)
+        (mpolden/vterm-set-theme theme)))))
 
 (use-package doom-themes
   :ensure t
