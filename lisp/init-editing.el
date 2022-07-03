@@ -16,7 +16,7 @@
   :bind (("M-j" . crux-top-join-line)
          ("C-c n" . crux-rename-file-and-buffer)
          ("C-c w" . crux-kill-buffer-truename)
-         ("C-c D" . crux-duplicate-current-line-or-region)
+         ("C-c d" . crux-duplicate-current-line-or-region)
          ("C-c C-o" . crux-open-with)
          ("C-x C-r" . crux-recentf-find-file)
          ("C-x C-o" . crux-recentf-find-directory)))
