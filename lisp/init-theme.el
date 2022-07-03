@@ -33,12 +33,11 @@ decides the themes to toggle between."
   (let* ((is-light (equal (mpolden/current-theme) "light"))
          (new-theme (if is-light mpolden/theme-dark mpolden/theme-light))
          (new-vterm-theme (if is-light "dark" "light")))
-    (progn
-      (mpolden/switch-theme new-theme)
-      (when (fboundp 'mpolden/vterm-change-theme)
-        (mpolden/vterm-change-theme new-vterm-theme))
-      (when (fboundp 'mpolden/vterm-set-theme)
-        (mpolden/vterm-set-theme new-vterm-theme)))))
+    (mpolden/switch-theme new-theme)
+    (when (fboundp 'mpolden/vterm-change-theme)
+      (mpolden/vterm-change-theme new-vterm-theme))
+    (when (fboundp 'mpolden/vterm-set-theme)
+      (mpolden/vterm-set-theme new-vterm-theme))))
 
 (use-package doom-themes
   :ensure t

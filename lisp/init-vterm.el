@@ -13,12 +13,11 @@
 (defun mpolden/vterm-set-theme (theme)
   "Set the default Vterm theme to THEME."
   (let ((new-var (concat "VTERM_THEME=" theme)))
-    (progn
-      (setq vterm-environment
-            (seq-filter (lambda (var)
-                          (unless (string-prefix-p "VTERM_THEME=" var)))
-                        vterm-environment))
-      (add-to-list 'vterm-environment new-var t))))
+    (setq vterm-environment
+          (seq-filter (lambda (var)
+                        (unless (string-prefix-p "VTERM_THEME=" var)))
+                      vterm-environment))
+    (add-to-list 'vterm-environment new-var t)))
 
 (use-package vterm
   :ensure t
