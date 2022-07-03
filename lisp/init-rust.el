@@ -6,9 +6,9 @@
   :ensure t
   :mode ("\\.rs\\'" . rust-mode)
   :bind (:map rust-mode-map
-              ("C-c l" . rust-clippy)
-              ("C-c t" . rust-test)
-              ("C-c R" . rust-run)))
+              ("C-c u c" . rust-clippy)
+              ("C-c u t" . rust-test)
+              ("C-c u r" . rust-run)))
 
 (provide 'init-rust)
 
