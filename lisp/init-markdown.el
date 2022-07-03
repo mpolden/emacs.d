@@ -4,7 +4,7 @@
 
 (use-package markdown-mode
   :ensure t
-  :commands gfm-mode
+  :commands (markdown-mode gfm-mode)
   :mode
   ;; use gfm mode for .md and .markdown extensions
   (("\\.\\(md\\|markdown\\)\\'" . gfm-mode)
