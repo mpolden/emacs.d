@@ -4,7 +4,6 @@
 
 (use-package amx
   :ensure t
-  :after ivy
   :config
   (amx-mode 1))
 

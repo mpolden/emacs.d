@@ -8,7 +8,6 @@
 
 (use-package ivy
   :ensure t
-  :after flx
   :diminish ivy-mode
   :init
   ;; use fuzzy matching by default

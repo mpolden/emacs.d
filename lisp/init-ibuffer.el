@@ -22,8 +22,6 @@
 
 (use-package ibuffer-vc
   :ensure t
-  :after ibuffer
-
   :init
   ;; enable for remote files
   (setq ibuffer-vc-skip-if-remote nil)
