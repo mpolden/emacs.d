@@ -18,11 +18,11 @@
       (call-interactively 'load-theme))))
 
 (defun mpolden/current-theme ()
-  "Return current theme, which is either \"light\" or \"dark\"."
+  "Return current theme, which is either 'light or 'dark."
   (cond
-   ((memq mpolden/theme-light custom-enabled-themes) "light")
-   ((memq mpolden/theme-dark custom-enabled-themes) "dark")
-   (t (error "Failed to detect light theme. Enabled themes: %s"
+   ((memq mpolden/theme-light custom-enabled-themes) 'light)
+   ((memq mpolden/theme-dark custom-enabled-themes) 'dark)
+   (t (error "Failed to detect current theme. Enabled themes: %s"
              custom-enabled-themes))))
 
 (defun mpolden/toggle-theme ()
@@ -30,7 +30,7 @@
 The variables `mpolden/theme-light' and `mpolden/theme-dark'
 decides the themes to toggle between."
   (interactive)
-  (let* ((is-light (equal (mpolden/current-theme) "light"))
+  (let* ((is-light (eq (mpolden/current-theme) 'light))
          (new-theme (if is-light mpolden/theme-dark mpolden/theme-light))
          (new-vterm-theme (if is-light "dark" "light")))
     (mpolden/switch-theme new-theme)
