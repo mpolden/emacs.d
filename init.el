@@ -27,6 +27,7 @@
 
 ;; editing
 (mpolden/maybe-require 'init-editing)
+(mpolden/maybe-require 'init-expand-region)
 (mpolden/maybe-require 'init-server)
 (mpolden/maybe-require 'init-tramp)
 
