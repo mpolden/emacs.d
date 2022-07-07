@@ -37,6 +37,7 @@
 
 ;; navigation
 (mpolden/maybe-require 'init-amx)
+(mpolden/maybe-require 'init-avy)
 (mpolden/maybe-require 'init-counsel)
 (mpolden/maybe-require 'init-dired)
 (mpolden/maybe-require 'init-grep)
