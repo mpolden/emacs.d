@@ -61,7 +61,6 @@
 (mpolden/maybe-require 'init-markdown)
 (mpolden/maybe-require 'init-org)
 (mpolden/maybe-require 'init-python)
-(mpolden/maybe-require 'init-rust)
 (mpolden/maybe-require 'init-yaml)
 
 (provide 'init)
