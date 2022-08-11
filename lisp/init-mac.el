@@ -17,6 +17,9 @@
 ;; use command as meta
 (setq mac-command-modifier 'meta)
 
+;; disable native tabs
+(setq mac-frame-tabbing nil)
+
 ;; don't open files from the workspace in a new frame
 (setq ns-pop-up-frames nil)
 
