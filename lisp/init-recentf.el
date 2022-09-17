@@ -15,8 +15,6 @@
   (setq recentf-max-saved-items 1000)
 
   :config
-  ;; ignore files in elpa directory as these may be opened by package.el
-  (add-to-list 'recentf-exclude (expand-file-name "elpa" user-emacs-directory))
   (add-to-list 'recentf-exclude #'mpolden/recentf-exclude-p)
   (recentf-mode 1))
 
