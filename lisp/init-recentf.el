@@ -3,10 +3,10 @@
 ;;; Code:
 
 (defun mpolden/recentf-exclude-p (filename)
-  "Return non-nil if file FILENAME is in a symlinked `user-emacs-directory'."
+  "Return non-nil if FILENAME is a symlink in the user's home directory."
   (and (not (file-remote-p filename))
-       (file-in-directory-p filename user-emacs-directory)
-       (file-symlink-p (directory-file-name user-emacs-directory))
+       (not (file-in-directory-p filename org-directory))
+       (file-in-directory-p filename "~")
        (not (equal filename (file-truename filename)))))
 
 (use-package recentf
