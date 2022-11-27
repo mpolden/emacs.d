@@ -1,7 +1,7 @@
 CURDIR ?= $(.CURDIR)
 BREW ?= $(shell command -v brew 2> /dev/null)
 BREW_EMACS_FLAGS ?= --with-native-comp
-JDT_LS_VERSION ?= 1.12.0
+JDT_LS_VERSION ?= 1.17.0
 JDT_LS_HOME ?= $(CURDIR)/eclipse.jdt.ls-$(JDT_LS_VERSION)
 
 LN_FLAGS := -sfn
