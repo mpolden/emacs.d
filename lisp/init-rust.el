@@ -2,13 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package rust-mode
+(use-package rustic
   :ensure t
-  :mode ("\\.rs\\'" . rust-mode)
-  :bind (:map rust-mode-map
-              ("C-c u c" . rust-clippy)
-              ("C-c u t" . rust-test)
-              ("C-c u r" . rust-run)))
+  :config
+  (setq rustic-lsp-client 'eglot)
+  (setq rustic-format-on-save t))
 
 (provide 'init-rust)
 
