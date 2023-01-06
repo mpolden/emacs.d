@@ -7,7 +7,9 @@
   ;; show human readable sizes in dired
   (setq dired-listing-switches "-alh")
 
-  :bind (("M-<up>" . dired-up-directory))
+  :bind (:map dired-mode-map
+              ("M-<up>" . dired-up-directory)
+              ("<backspace>" . dired-up-directory))
 
   :config
   ;; group directories first in dired if supported
