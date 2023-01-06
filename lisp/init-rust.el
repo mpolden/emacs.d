@@ -4,7 +4,9 @@
 
 (use-package rustic
   :ensure t
-  :config
+  :init
+  ;; let init-eglot handle lsp integration
+  (setq rustic-lsp-setup-p nil)
   (setq rustic-lsp-client 'eglot))
 
 (provide 'init-rust)
