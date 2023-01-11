@@ -15,9 +15,6 @@
   ;; set default org directory
   (setq org-directory "~/org")
 
-  ;; file and tree where archived tasks should be moved
-  (setq org-archive-location "%s_archive::* Archived Tasks")
-
   ;; save archive file when archiving
   (setq org-archive-subtree-save-file-p t)
 
@@ -45,9 +42,6 @@
                                  "* TODO %?\n%U"
                                  :empty-lines-after 1)))
 
-  ;; automatically mark archived entry as done
-  (setq org-archive-mark-done t)
-
   ;; cycle opens archived trees
   (setq org-cycle-open-archived-trees t)
 
@@ -74,9 +68,6 @@
 
   ;; include the full path when searching headlines
   (setq org-outline-path-complete-in-steps nil)
-
-  ;; show habits on future days
-  (setq org-habit-show-habits-only-for-today nil)
 
   ;; insert state change notes and time stamps into a drawer
   (setq org-log-into-drawer t)
