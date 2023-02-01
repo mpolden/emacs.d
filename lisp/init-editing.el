@@ -11,6 +11,10 @@
   :diminish subword-mode
   :hook ((prog-mode . subword-mode)))
 
+;; quick access to calculator
+(use-package calc
+  :bind ("C-c @" . quick-calc))
+
 (use-package crux
   :ensure t
   :bind (("M-j" . crux-top-join-line)
