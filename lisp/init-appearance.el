@@ -2,6 +2,17 @@
 ;;; Commentary:
 ;;; Code:
 
+(defvar mpolden/font-family "Iosevka" "Set the default font.")
+
+(defvar mpolden/font-size 14 "Set the default font size in points.")
+
+;; set font
+(let ((font-family mpolden/font-family))
+  (when (and (display-graphic-p) (member font-family (font-family-list)))
+    (set-face-attribute 'default nil
+                        :family font-family
+                        :height (* 10 mpolden/font-size))))
+
 ;; disable splash
 (setq inhibit-startup-message t)
 
