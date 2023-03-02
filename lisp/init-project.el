@@ -10,34 +10,6 @@
     (when (and module-root (not is-vc-root))
       (cons 'transient module-root))))
 
-(defun mpolden/project-vterm ()
-  "Start Vterm in the current project's root directory.
-If a buffer already exists for any directory in the current
-project, switch to it.
-
-With \\[universal-argument] prefix arg, always create a new
-buffer even if one already exists for the current project, or if
-there is no project in `default-directory'."
-  (interactive)
-  (let* ((project (project-current (not current-prefix-arg)))
-         (default-directory (if project
-                                (project-root project)
-                              default-directory))
-         ;; find a vterm buffer which has its current directory in the project
-         ;; root or any sub-directory of the root
-         (vterm-buf
-          (car (seq-filter
-                (lambda (buf)
-                  (let* ((buf-prefix "vterm: ")
-                         (buf-name (buffer-name buf))
-                         (buf-dir (string-remove-prefix buf-prefix buf-name)))
-                    (and (string-prefix-p buf-prefix buf-name)
-                         (file-in-directory-p buf-dir default-directory))))
-                (buffer-list)))))
-    (if (and vterm-buf (not current-prefix-arg))
-        (pop-to-buffer vterm-buf)
-      (vterm-other-window))))
-
 (use-package project
   :init
   ;; commands to show when switching projects
@@ -45,15 +17,15 @@ there is no project in `default-directory'."
                                   (project-dired "Dired" ?d)
                                   (mpolden/grep "Grep" ?g)
                                   (magit-project-status "Magit" ?m)
-                                  (mpolden/project-vterm "Vterm" ?v)))
+                                  (project-eshell "Eshell" ?e)))
   ;; configure how projects are detected
   (setq project-find-functions '(mpolden/project-try-go project-try-vc))
   :bind (;; C-x f finds file in project
          ("C-x f" . project-find-file)
          ;; C-c p switches project
          ("C-c p" . project-switch-project)
-         ;; C-c v starts vterm in project
-         ("C-c v" . mpolden/project-vterm)))
+         ;; C-c e starts eshell in project
+         ("C-c e" . project-eshell)))
 
 (provide 'init-project)
 

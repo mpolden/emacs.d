@@ -31,13 +31,8 @@ The variables `mpolden/theme-light' and `mpolden/theme-dark'
 decides the themes to toggle between."
   (interactive)
   (let* ((is-light (eq (mpolden/current-theme) 'light))
-         (new-theme (if is-light mpolden/theme-dark mpolden/theme-light))
-         (new-vterm-theme (if is-light "dark" "light")))
-    (mpolden/switch-theme new-theme)
-    (when (fboundp 'mpolden/vterm-change-theme)
-      (mpolden/vterm-change-theme new-vterm-theme))
-    (when (fboundp 'mpolden/vterm-set-theme)
-      (mpolden/vterm-set-theme new-vterm-theme))))
+         (new-theme (if is-light mpolden/theme-dark mpolden/theme-light)))
+    (mpolden/switch-theme new-theme)))
 
 (use-package doom-themes
   :ensure t
