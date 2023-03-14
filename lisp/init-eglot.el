@@ -11,6 +11,13 @@
 (defvar mpolden/inhibit-lsp nil
   "List of modes where `eglot-ensure' should not be called to enable LSP integration.")
 
+(defun mpolden/eglot-organize-imports ()
+  "Organize imports."
+  ;; this is a workaround for eglot-code-action-organize-imports not working
+  ;; https://github.com/joaotavora/eglot/issues/1132
+  ;; https://github.com/joaotavora/eglot/issues/574#issuecomment-1401023985
+  (eglot-code-actions nil nil "source.organizeImports" t))
+
 (defun mpolden/format-before-save ()
   "Format buffer before saving."
   (unless (member major-mode mpolden/inhibit-format-before-save)
@@ -19,7 +26,7 @@
 (defun mpolden/organize-imports-before-save ()
   "Organize imports before saving buffer."
   (unless (member major-mode mpolden/inhibit-organize-imports-before-save)
-    (call-interactively 'eglot-code-action-organize-imports)))
+    (mpolden/eglot-organize-imports)))
 
 (defun mpolden/eglot-before-save ()
   "All actions that may run before saving buffer."
@@ -62,7 +69,7 @@
               ;; C-c f formats buffer
               ("C-c f" . eglot-format)
               ;; C-c o organizes imports
-              ("C-c o" . eglot-code-action-organize-imports)
+              ("C-c o" . mpolden/eglot-organize-imports)
               ;; C-c q shows code actions (quickfix)
               ("C-c q" . eglot-code-actions))
   :config
