@@ -16,6 +16,7 @@
   ;; this is a workaround for eglot-code-action-organize-imports not working
   ;; https://github.com/joaotavora/eglot/issues/1132
   ;; https://github.com/joaotavora/eglot/issues/574#issuecomment-1401023985
+  (interactive)
   (eglot-code-actions nil nil "source.organizeImports" t))
 
 (defun mpolden/format-before-save ()
