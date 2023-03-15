@@ -22,7 +22,7 @@ else
 	$(error brew command not found)
 endif
 
-install-lsp: install-lsp-go install-lsp-java install-lsp-python install-lsp-rust
+install-lsp: install-lsp-go install-lsp-java install-lsp-python
 
 install-lsp-go:
 ifneq ($(BREW),)
