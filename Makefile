@@ -1,6 +1,5 @@
 CURDIR ?= $(.CURDIR)
 BREW ?= $(shell command -v brew 2> /dev/null)
-BREW_EMACS_FLAGS ?= --with-native-comp
 JDT_LS_VERSION ?= 1.17.0
 JDT_LS_HOME ?= $(CURDIR)/eclipse.jdt.ls-$(JDT_LS_VERSION)
 
@@ -16,8 +15,7 @@ install:
 install-emacs:
 ifneq ($(BREW),)
 	$(BREW) tap railwaycat/emacsmacport
-	$(BREW) install emacs-mac $(BREW_EMACS_FLAGS)
-	ln -s `$(BREW) --prefix`/opt/emacs-mac/Emacs.app /Applications/Emacs.app || true
+	$(BREW) install --cask emacs-mac
 else
 	$(error brew command not found)
 endif
