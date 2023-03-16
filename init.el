@@ -48,7 +48,6 @@
 (mpolden/maybe-require 'init-eglot)
 (mpolden/maybe-require 'init-flymake)
 (mpolden/maybe-require 'init-git)
-(mpolden/maybe-require 'init-mail)
 (mpolden/maybe-require 'init-restclient)
 
 ;; languages
