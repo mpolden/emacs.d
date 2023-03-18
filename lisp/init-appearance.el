@@ -54,14 +54,6 @@
 (use-package prog-mode
   :hook ((prog-mode . mpolden/prog-mode-buffer-local-variables)))
 
-(defun mpolden/colorize-compilation-buffer ()
-  "Render ansi colors in compilation buffer."
-  (when (eq major-mode 'compilation-mode)
-    (ansi-color-apply-on-region compilation-filter-start (point-max))))
-
-(use-package ansi-color
-  :hook ((compilation-filter . mpolden/colorize-compilation-buffer)))
-
 ;; display line and column numbers in mode-line
 (setq line-number-mode t
       column-number-mode t)
