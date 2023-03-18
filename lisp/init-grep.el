@@ -24,7 +24,7 @@ current project."
   (interactive)
   (let* ((git-repository (locate-dominating-file default-directory ".git"))
          (dir (or (when current-prefix-arg default-directory)
-                  (cdr (project-current))
+                  (project-root (project-current))
                   git-repository
                   default-directory))
          (use-rg (executable-find "rg"))
