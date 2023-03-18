@@ -16,7 +16,8 @@
 ;; https://www.reddit.com/r/emacs/comments/mk0luk/does_anyone_know_how_to_diagnose_or_fix_emacs_not/
 ;;
 ;; disable tls 1.3 if supported by gnutls
-(when (>= libgnutls-version 30603)
+(when (and (< emacs-major-version 28)
+           (>= libgnutls-version 30603))
   (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
 (defun mpolden/require-package (package)
