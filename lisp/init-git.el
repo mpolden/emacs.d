@@ -16,12 +16,6 @@ If NOSELECT is non-nil, do not select the window."
   (interactive)
   (mpolden/magit-visit-file-other-window t))
 
-(defun mpolden/gfm-or-text-mode ()
-  "Enable `gfm-mode' if available, otherwise enable `text-mode'."
-  (if (fboundp 'gfm-mode)
-      (gfm-mode)
-    (text-mode)))
-
 (use-package magit
   :ensure t
   :init
@@ -48,12 +42,6 @@ If NOSELECT is non-nil, do not select the window."
          ([remap magit-delete-thing] . forge-copy-url-at-point-as-kill)
          :map forge-issue-section-map
          ([remap magit-delete-thing] . forge-copy-url-at-point-as-kill)))
-
-(use-package git-commit
-  :ensure t
-  :init
-  ;; use gfm-mode as major mode
-  (setq git-commit-major-mode 'mpolden/gfm-or-text-mode))
 
 (use-package smerge-mode
   ;; vc-git-find-file-hook calls this command
