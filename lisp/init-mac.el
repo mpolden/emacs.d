@@ -24,9 +24,6 @@
                                                "JAVA_HOME" "SSH_AUTH_SOCK"))
   :config (exec-path-from-shell-initialize))
 
-;; add binding for toggling fullscreen
-(global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)
-
 ;; use gls if available (which supports --dired option)
 (when (executable-find "gls")
   (setq insert-directory-program "gls"))
