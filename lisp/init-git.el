@@ -19,9 +19,6 @@ If NOSELECT is non-nil, do not select the window."
 (use-package magit
   :ensure t
   :init
-  ;; disable gravatars
-  (setq magit-revision-show-gravatars nil)
-
   ;; hide recent commits in magit-status
   (setq magit-log-section-commit-count 0)
 
