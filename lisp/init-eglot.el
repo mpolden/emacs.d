@@ -47,19 +47,18 @@
                             "\\1"
                             string))
 
-(defun mpolden/eglot-server-program (&optional interactive)
-  "Return a LSP server program for the current `major-mode'.
-If toolbox is in PATH, prefix the server program with \"toolbox
-run\". Optional argument INTERACTIVE has no effect, but must be
-present to satisfy `eglot-server-programs'."
+(defun mpolden/eglot-toolbox-program (&optional interactive)
+  "Create arguments for starting a LSP server inside Toolbox.
+Returns nil if toolbox is not found in PATH. Optional argument
+INTERACTIVE has no effect, but must be present to satisfy
+`eglot-server-programs'."
   (when-let* ((programs '((go-mode . "gopls")
                           (python-mode . "pylsp")
                           (rust-mode . "rust-analyzer")
                           (java-mode . "jdtls")))
               (program (cdr (assoc major-mode programs))))
-    (if (executable-find "toolbox" (file-remote-p buffer-file-name))
-        (list "toolbox" "run" program)
-      (list program))))
+    (when (executable-find "toolbox" (file-remote-p buffer-file-name))
+      (list "toolbox" "run" program))))
 
 (use-package eglot
   :ensure t
@@ -95,7 +94,7 @@ present to satisfy `eglot-server-programs'."
               'mpolden/gfm-unescape-string)
   ;; run some servers through toolbox
   (add-to-list 'eglot-server-programs
-               '(prog-mode . mpolden/eglot-server-program)))
+               '(prog-mode . mpolden/eglot-toolbox-program)))
 
 (provide 'init-eglot)
 
