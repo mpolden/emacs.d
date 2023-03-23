@@ -1,6 +1,6 @@
 CURDIR ?= $(.CURDIR)
 BREW ?= $(shell command -v brew 2> /dev/null)
-JDT_LS_VERSION ?= 1.17.0
+JDT_LS_VERSION ?= 1.21.0
 PREFIX ?= $(HOME)/.local/stow
 JDT_LS_HOME ?= $(PREFIX)/eclipse.jdt.ls-$(JDT_LS_VERSION)
 
