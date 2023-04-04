@@ -40,6 +40,9 @@
   ;; capture template including title, date and time
   (setq org-capture-templates '(("i" "Inbox" entry (file "")
                                  "* TODO %?\n%U"
+                                 :empty-lines-after 1)
+                                ("t" "Tasks" entry (file+headline "notes.org" "Tasks")
+                                 "* TODO %?\n%U"
                                  :empty-lines-after 1)))
 
   ;; cycle opens archived trees
