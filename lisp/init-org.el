@@ -34,11 +34,8 @@
   ;; record time when moving a task to done state
   (setq org-log-done 'time)
 
-  ;; default file for capture
-  (setq org-default-notes-file (expand-file-name "inbox.org" org-directory))
-
   ;; capture template including title, date and time
-  (setq org-capture-templates '(("i" "Inbox" entry (file "")
+  (setq org-capture-templates '(("i" "Inbox" entry (file "inbox.org")
                                  "* TODO %?\n%U"
                                  :empty-lines-after 1)
                                 ("t" "Tasks" entry (file+headline "notes.org" "Tasks")
