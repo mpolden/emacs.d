@@ -46,12 +46,6 @@
   ;; fold by default
   (setq org-startup-folded t)
 
-  ;; highlight code blocks
-  (setq org-src-fontify-natively t)
-
-  ;; indent code blocks the same way as the language major mode
-  (setq org-src-tab-acts-natively t)
-
   ;; define todo states
   (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w@)" "|" "ABRT(a@)" "DONE(d)")))
 
