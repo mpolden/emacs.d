@@ -101,6 +101,9 @@
                   (calendar-absolute-from-gregorian (list month day year)))))
         'font-lock-face 'font-lock-function-name-face))
 
+;; do not ask to use a local dictionary server
+(setq dictionary-server "dict.org")
+
 (provide 'init-sane-defaults)
 
 ;;; init-sane-defaults.el ends here
