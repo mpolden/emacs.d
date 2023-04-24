@@ -39,20 +39,6 @@
                             "\\1"
                             string))
 
-(defun mpolden/eglot-server-program (&optional interactive)
-  "Return a LSP server program for the current `major-mode'.
-If toolbox is in PATH, prefix the server program with \"toolbox
-run\". Optional argument INTERACTIVE has no effect, but must be
-present to satisfy `eglot-server-programs'."
-  (when-let* ((programs '((go-mode . "gopls")
-                          (python-mode . "pylsp")
-                          (rust-mode . "rust-analyzer")
-                          (java-mode . "jdtls")))
-              (program (cdr (assoc major-mode programs))))
-    (if (executable-find "toolbox" (file-remote-p buffer-file-name))
-        (list "toolbox" "run" program)
-      (list program))))
-
 (use-package eglot
   :ensure t
   :init
@@ -84,10 +70,7 @@ present to satisfy `eglot-server-programs'."
   ;; https://github.com/jrblevin/markdown-mode/issues/377
   (advice-add 'eglot--format-markup
               :filter-return
-              'mpolden/gfm-unescape-string)
-  ;; run some servers through toolbox
-  (add-to-list 'eglot-server-programs
-               '(prog-mode . mpolden/eglot-server-program)))
+              'mpolden/gfm-unescape-string))
 
 (provide 'init-eglot)
 
