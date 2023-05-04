@@ -90,6 +90,11 @@
   :config
   (save-place-mode 1))
 
+;; remember window configurations
+(use-package winner
+  :config
+  (winner-mode 1))
+
 ;; monday is the first day of the week
 ;; show week numbers
 (setq calendar-week-start-day 1
