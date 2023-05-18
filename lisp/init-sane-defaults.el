@@ -95,6 +95,9 @@
   :config
   (winner-mode 1))
 
+;; show match numbers in the search prompt
+(setq isearch-lazy-count t)
+
 ;; monday is the first day of the week
 ;; show week numbers
 (setq calendar-week-start-day 1
