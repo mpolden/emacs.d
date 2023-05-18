@@ -35,14 +35,12 @@
 (mpolden/maybe-require 'init-flyspell)
 
 ;; navigation
-(mpolden/maybe-require 'init-amx)
-(mpolden/maybe-require 'init-counsel)
 (mpolden/maybe-require 'init-dired)
 (mpolden/maybe-require 'init-grep)
 (mpolden/maybe-require 'init-ibuffer)
-(mpolden/maybe-require 'init-ivy)
 (mpolden/maybe-require 'init-project)
 (mpolden/maybe-require 'init-recentf)
+(mpolden/maybe-require 'init-vertico)
 
 ;; clients
 (mpolden/maybe-require 'init-eglot)

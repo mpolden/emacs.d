@@ -107,3 +107,6 @@ tutorial/
 
 # native-comp
 /eln-cache/
+
+# savehist
+/history
