@@ -24,6 +24,12 @@
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion)))))
 
+;; show rich annotations in the minibuffer
+(use-package marginalia
+  :ensure t
+  :config
+  (marginalia-mode 1))
+
 ;; a better completion ui
 (use-package vertico
   :ensure t
