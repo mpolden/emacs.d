@@ -10,7 +10,8 @@
 ;; enhanced search and navigation commands
 (use-package consult
   :ensure t
-  :bind (("C-c i" . consult-imenu)
+  :bind (("C-x b" . consult-buffer)
+         ("C-c i" . consult-imenu)
          ("C-c I" . consult-imenu-multi)))
 
 ;; completion style providing fuzzy matching
