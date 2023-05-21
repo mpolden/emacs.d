@@ -38,7 +38,7 @@ decides the themes to toggle between."
   :ensure t
   :defer nil
   :if (display-graphic-p)
-  :bind ("C-c T" . mpolden/toggle-theme)
+  :bind ("C-c t" . mpolden/toggle-theme)
   :config
   (load-theme mpolden/theme-dark t))
 
