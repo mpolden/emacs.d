@@ -12,7 +12,8 @@
   :ensure t
   :bind (("C-x b" . consult-buffer)
          ("C-c i" . consult-imenu)
-         ("C-c m" . consult-flymake)))
+         ("C-c m" . consult-flymake)
+         ("M-g M-g" . consult-goto-line)))
 
 ;; completion style providing fuzzy matching
 (use-package orderless
