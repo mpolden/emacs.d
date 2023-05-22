@@ -16,6 +16,7 @@
 
 (use-package flyspell-correct
   :ensure t
+  :after flyspell
   :bind (:map flyspell-mode-map
               ("C-c s" . flyspell-correct-wrapper)))
 
