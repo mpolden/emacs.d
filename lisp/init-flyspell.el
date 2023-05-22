@@ -9,13 +9,15 @@
          (org-mode . flyspell-mode)
          (latex-mode . flyspell-mode))
 
-  :bind (:map flyspell-mode-map
-              ("C-c s" . flyspell-correct-word-before-point))
-
   :config
   ;; prefer hunspell
   (when (executable-find "hunspell")
     (setq ispell-program-name "hunspell")))
+
+(use-package flyspell-correct
+  :ensure t
+  :bind (:map flyspell-mode-map
+              ("C-c s" . flyspell-correct-wrapper)))
 
 (provide 'init-flyspell)
 
