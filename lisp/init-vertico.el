@@ -10,6 +10,8 @@
 ;; enhanced search and navigation commands
 (use-package consult
   :ensure t
+  :init
+  (setq xref-show-xrefs-function #'consult-xref)
   :bind (("C-x b" . consult-buffer)
          ("C-c i" . consult-imenu)
          ("C-c m" . consult-flymake)
