@@ -10,12 +10,14 @@
 
 (defun mpolden/switch-theme (&optional theme)
   "Disable any currently enabled themes and load THEME."
-  (interactive "P")
-  (mapcar #'disable-theme custom-enabled-themes)
-  (let ((custom-safe-themes t))
-    (if theme
-        (load-theme theme)
-      (call-interactively 'load-theme))))
+  (interactive)
+  (if (and (not theme) (functionp 'consult-theme))
+      (call-interactively 'consult-theme)
+    (let ((custom-safe-themes t))
+      (mapcar #'disable-theme custom-enabled-themes)
+      (if theme
+          (load-theme theme)
+        (call-interactively 'load-theme)))))
 
 (defun mpolden/current-theme ()
   "Return current theme, which is either 'light or 'dark."
@@ -27,12 +29,18 @@
 
 (defun mpolden/toggle-theme ()
   "Toggle between dark and light themes.
+
 The variables `mpolden/theme-light' and `mpolden/theme-dark'
-decides the themes to toggle between."
+decides the themes to toggle between.
+
+A prefix argument prompts for a theme to load instead of toggling
+the current theme."
   (interactive)
-  (let* ((is-light (eq (mpolden/current-theme) 'light))
-         (new-theme (if is-light mpolden/theme-dark mpolden/theme-light)))
-    (mpolden/switch-theme new-theme)))
+  (if current-prefix-arg
+      (mpolden/switch-theme)
+    (let* ((is-light (eq (mpolden/current-theme) 'light))
+           (new-theme (if is-light mpolden/theme-dark mpolden/theme-light)))
+      (mpolden/switch-theme new-theme))))
 
 (use-package doom-themes
   :ensure t
