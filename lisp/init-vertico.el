@@ -2,6 +2,16 @@
 ;;; Commentary:
 ;;; Code:
 
+(defun mpolden/consult-project-function (may-prompt)
+  "Return project root directory.
+When no project is found and MAY-PROMPT is non-nil ask the user.
+
+This wraps `consult--default-project-function', but ignores
+remote projects."
+  ;; https://github.com/minad/consult/issues/792
+  (unless (file-remote-p default-directory)
+    (consult--default-project-function may-prompt)))
+
 ;; save minibuffer history so that vertico can use it for sorting
 (use-package savehist
   :config
@@ -11,6 +21,7 @@
 (use-package consult
   :ensure t
   :init
+  (setq consult-project-function #'mpolden/consult-project-function)
   (setq xref-show-xrefs-function #'consult-xref)
   :bind (("C-x b" . consult-buffer)
          ("C-c i" . consult-imenu)
