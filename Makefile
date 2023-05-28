@@ -41,10 +41,10 @@ install-lsp-java:
 	@echo "- $(COLOR)PATH$(NO_COLOR) must contain $(COLOR)$(JDT_LS_HOME)/bin$(NO_COLOR)"
 
 install-lsp-python:
-	python3 -m pip install --user -U python-lsp-server
+	pipx install python-lsp-server
 
 install-lsp-python-more:
-	python3 -m pip install --user -U python-lsp-black pylsp-mypy
+	pipx inject python-lsp-server python-lsp-black pylsp-mypy
 
 update:
 	git pull --rebase --quiet
