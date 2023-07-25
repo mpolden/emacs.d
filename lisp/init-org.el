@@ -84,6 +84,9 @@
           ("m" "Agenda and all TODOs split by state"
            ((agenda "") (todo "TODO") (todo "WAIT")))))
 
+  ;; set export backends
+  (setq org-export-backends '(ascii html md))
+
   :config
   ;; enable template expansion when typing <s in org-mode
   (add-to-list 'org-modules 'org-tempo t))
