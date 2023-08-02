@@ -10,8 +10,10 @@
   (setq-local imenu-create-index-function
               'python-imenu-create-flat-index)
   ;; use virtualenv if it exists
-  (let ((venv-parent (locate-dominating-file default-directory "venv")))
-    (setq-local python-shell-virtualenv-root (expand-file-name "venv" venv-parent))))
+  (let* ((venv ".venv")
+         (project-dir (locate-dominating-file default-directory venv)))
+    (setq-local python-shell-virtualenv-root
+                (expand-file-name venv project-dir))))
 
 (use-package python
   :mode ("\\.py\\'" . python-mode)
