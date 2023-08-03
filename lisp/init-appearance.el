@@ -61,6 +61,9 @@
 ;; do not set fringe mark for bookmarked lines
 (setq bookmark-set-fringe-mark nil)
 
+;; do not underline compilation messages
+(setq compilation-message-face nil)
+
 (provide 'init-appearance)
 
 ;;; init-appearance.el ends here
