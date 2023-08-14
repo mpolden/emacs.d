@@ -8,8 +8,9 @@ tramp
 .\#*
 
 # Org-mode
-.org-id-locations
 *_archive
+.org-id-locations
+/org-persist/
 
 # flymake-mode
 *_flymake.*
