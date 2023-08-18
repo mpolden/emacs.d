@@ -58,6 +58,14 @@
 (setq line-number-mode t
       column-number-mode t)
 
+;; display time in mode-line
+(use-package time
+  :init
+  ;; civilized societies use a 24 hour clock
+  (setq display-time-24hr-format t)
+  :config
+  (display-time-mode 1))
+
 ;; do not set fringe mark for bookmarked lines
 (setq bookmark-set-fringe-mark nil)
 
