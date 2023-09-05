@@ -63,6 +63,8 @@
   :init
   ;; civilized societies use a 24 hour clock
   (setq display-time-24hr-format t)
+  ;; hide load average
+  (setq display-time-default-load-average nil)
   :config
   (display-time-mode 1))
 
