@@ -23,6 +23,7 @@ remote projects."
   :init
   (setq consult-project-function #'mpolden/consult-project-function)
   (setq xref-show-xrefs-function #'consult-xref)
+  (setq completion-in-region-function #'consult-completion-in-region)
   :bind (("C-x b" . consult-buffer)
          ("C-c i" . consult-imenu)
          ("C-c m" . consult-flymake)
