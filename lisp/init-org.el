@@ -87,6 +87,12 @@
   ;; set export backends
   (setq org-export-backends '(ascii html md))
 
+  ;; babel languages
+  (setq org-babel-load-languages '((emacs-lisp . t)
+                                   (python . t)
+                                   (shell . t))
+        org-babel-python-command "python3")
+
   :config
   ;; enable template expansion when typing <s in org-mode
   (add-to-list 'org-modules 'org-tempo t))
