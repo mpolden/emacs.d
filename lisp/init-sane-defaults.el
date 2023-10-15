@@ -74,10 +74,7 @@
                                                          user-emacs-directory)))
       backup-by-copying t
       delete-old-versions t
-      version-control t
-      vc-make-backup-files t
-      kept-new-versions 6
-      kept-old-versions 2)
+      version-control t)
 
 ;; preserve point position when scrolling
 (setq scroll-preserve-screen-position 'always)
