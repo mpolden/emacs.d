@@ -99,6 +99,7 @@ tutorial/
 
 # forge
 /forge-database-*.sql
+/forge-database-*.sqlite
 /forge-database.sqlite
 
 # java lsp server
