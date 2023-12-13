@@ -29,16 +29,6 @@ remote projects."
          ("C-c m" . consult-flymake)
          ("M-g M-g" . consult-goto-line)))
 
-;; completion style providing fuzzy matching
-(use-package orderless
-  :ensure t
-  :init
-  ;; https://github.com/minad/vertico/blob/c36ad0c9471010a0c160268cc6581edf4959e2d3/README.org#configuration
-  (setq orderless-matching-styles '(orderless-flex)
-        completion-styles '(orderless basic)
-        completion-category-defaults nil
-        completion-category-overrides '((file (styles partial-completion)))))
-
 ;; show rich annotations in the minibuffer
 (use-package marginalia
   :ensure t
@@ -48,11 +38,15 @@ remote projects."
 ;; a better completion ui
 (use-package vertico
   :ensure t
+  :init
+  ;; enable fuzzy matching
+  ;; https://github.com/minad/vertico/#completion-styles-and-tab-completion
+  (setq completion-styles '(basic substring partial-completion flex))
   :config
   (vertico-mode 1))
 
 ;; make directory navigation behave like ido
-;; https://github.com/minad/vertico/blob/c36ad0c9471010a0c160268cc6581edf4959e2d3/README.org#extensions
+;; https://github.com/minad/vertico/#extensions
 (use-package vertico-directory
   :ensure nil
   :after vertico
