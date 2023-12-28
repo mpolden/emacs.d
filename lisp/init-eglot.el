@@ -32,13 +32,6 @@
   (unless (member major-mode mpolden/inhibit-lsp)
     (eglot-ensure)))
 
-(defun mpolden/gfm-unescape-string (string)
-  "Remove backslash-escape of punctuation characters in STRING."
-  ;; https://github.github.com/gfm/#backslash-escapes
-  (replace-regexp-in-string "[\\\\]\\([][!\"#$%&'()*+,./:;<=>?@\\^_`{|}~-]\\)"
-                            "\\1"
-                            string))
-
 (use-package eglot
   :ensure t
   :init
@@ -64,13 +57,7 @@
               ;; C-c o organizes imports
               ("C-c o" . eglot-code-action-organize-imports)
               ;; C-c q shows code actions (quickfix)
-              ("C-c q" . eglot-code-actions))
-  :config
-  ;; https://github.com/joaotavora/eglot/issues/333
-  ;; https://github.com/jrblevin/markdown-mode/issues/377
-  (advice-add 'eglot--format-markup
-              :filter-return
-              'mpolden/gfm-unescape-string))
+              ("C-c q" . eglot-code-actions)))
 
 (provide 'init-eglot)
 
