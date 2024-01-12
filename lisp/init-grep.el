@@ -27,8 +27,8 @@ current project."
                   (project-root (project-current))
                   git-repository
                   default-directory))
-         (use-rg (executable-find "rg"))
-         (use-git (and git-repository (executable-find "git")))
+         (use-rg (executable-find "rg" t))
+         (use-git (and git-repository (executable-find "git" t)))
          (template (cond (use-rg mpolden/rg-template)
                          (use-git mpolden/git-grep-template))))
     (grep-apply-setting 'grep-template template)
