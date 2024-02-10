@@ -2,6 +2,16 @@
 ;;; Commentary:
 ;;; Code:
 
+(defun mpolden/org-goto ()
+  "Jump to an Org heading.
+
+Uses `consult-org-heading' if available, and otherwise falls back
+to `org-goto'."
+  (interactive)
+  (if (functionp 'consult-org-heading)
+      (call-interactively 'consult-org-heading)
+    (org-goto)))
+
 (use-package org
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-c c" . org-capture)
@@ -9,7 +19,8 @@
          ("C-c a" . org-agenda)
          :map org-mode-map
          ("C-c o a" . org-archive-subtree)
-         ("C-c o s" . org-save-all-org-buffers))
+         ("C-c o s" . org-save-all-org-buffers)
+         ("C-c C-j" . mpolden/org-goto))
   :init
   ;; set default org directory
   (setq org-directory "~/org")
