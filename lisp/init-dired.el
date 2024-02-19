@@ -10,14 +10,7 @@
   :bind (:map dired-mode-map
               ("C-c r" . dired-toggle-read-only)
               ("M-<up>" . dired-up-directory)
-              ("<backspace>" . dired-up-directory))
-
-  :config
-  ;; group directories first in dired if supported
-  (when (eq 0 (call-process insert-directory-program
-                            nil nil nil "--group-directories-first"))
-    (setq dired-listing-switches (concat dired-listing-switches
-                                         " --group-directories-first"))))
+              ("<backspace>" . dired-up-directory)))
 
 (provide 'init-dired)
 
