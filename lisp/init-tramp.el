@@ -2,28 +2,24 @@
 ;;; Commentary:
 ;;; Code:
 
-(defun mpolden/sudo-prefix-p (prefix)
-  "Return non-nil if PREFIX is a sudo prefix."
-  (member prefix '("/sudo" "/sudo:")))
-
-(defun mpolden/ssh-prefix-p (prefix)
-  "Return non-nil if PREFIX is a ssh prefix."
-  (string-equal prefix "/ssh"))
-
 (defun mpolden/sudo-file-name (filename)
-  "Return FILENAME with a sudo prefix.
+  "Add a sudo-like TRAMP method to FILENAME.
 
-If FILENAME already has a sudo prefix, do nothing. If FILENAME is
-accessed over SSH, prefix it with \"/sudo:\". Otherwise, assume
-FILENAME is a local path and prefix it with \"/sudo::\"."
+If FILENAME already contains a sudo-like method, do nothing. If
+FILENAME is accessed over SSH, replace \"/ssh:\" with
+\"/sudo:\" or \"/doas:\". Otherwise, assume FILENAME is a local
+path and prefix it with \"/sudo::\" or \"/doas::\"."
+  ;; sudo:remote-host works because of the special tramp-default-proxies-alist
+  ;; configuration below
   (let* ((splitname (split-string filename ":"))
-         (prefix (car splitname)))
-    (if (mpolden/sudo-prefix-p prefix)
+         (method (car splitname)))
+    (if (member method '("/sudo" "/doas"))
         filename
-      (let* ((ssh (mpolden/ssh-prefix-p prefix))
-             (sudo-prefix (if ssh "/sudo" "/sudo:"))
-             (components (if ssh (cdr splitname) splitname)))
-        (mapconcat 'identity (cons sudo-prefix components) ":")))))
+      (let* ((is-ssh (equal method "/ssh"))
+             (sudo-method (concat (if (executable-find "doas" t) "/doas" "/sudo")
+                                  (if is-ssh "" ":")))
+             (components (if is-ssh (cdr splitname) splitname)))
+        (mapconcat 'identity (cons sudo-method components) ":")))))
 
 (defun mpolden/sudo-find-file (&optional arg)
   "Find file and open it with sudo.
