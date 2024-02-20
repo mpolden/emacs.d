@@ -23,6 +23,11 @@
 ;; disable native tabs
 (setq mac-frame-tabbing nil)
 
+;; remove default mappings for tab bar
+(when (featurep 'mac)
+  (global-unset-key (kbd "C-<tab>"))
+  (global-unset-key (kbd "C-S-<tab>")))
+
 ;; don't open files from the workspace in a new frame
 (setq ns-pop-up-frames nil)
 
