@@ -5,10 +5,13 @@
 (defun mpolden/sudo-file-name (filename)
   "Add a sudo-like TRAMP method to FILENAME.
 
-If FILENAME already contains a sudo-like method, do nothing. If
-FILENAME is accessed over SSH, replace \"/ssh:\" with
-\"/sudo:\" or \"/doas:\". Otherwise, assume FILENAME is a local
-path and prefix it with \"/sudo::\" or \"/doas::\"."
+If FILENAME already contains a sudo-like method, return FILENAME
+unchanged. If FILENAME is accessed over SSH, replace \"/ssh:\"
+with \"/sudo:\". Otherwise, assume FILENAME is a local path and
+prefix it with \"/sudo::\".
+
+If doas is available on the remote host, the doas method is used
+instead of sudo."
   ;; sudo:remote-host works because of the special tramp-default-proxies-alist
   ;; configuration below
   (let* ((splitname (split-string filename ":"))
