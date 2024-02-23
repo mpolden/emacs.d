@@ -6,23 +6,27 @@
   "Add a sudo-like TRAMP method to FILENAME.
 
 If FILENAME already contains a sudo-like method, return FILENAME
-unchanged. If FILENAME is accessed over SSH, replace \"/ssh:\"
-with \"/sudo:\". Otherwise, assume FILENAME is a local path and
-prefix it with \"/sudo::\".
+unchanged. If FILENAME is accessed over SSH, replace
+\"/ssh:host\" with \"/ssh:host|sudo:\". Otherwise, assume
+FILENAME is a local path and prefix it with \"/sudo::\".
 
-If doas is available on the remote host, the doas method is used
-instead of sudo."
-  ;; sudo:remote-host works because of the special tramp-default-proxies-alist
-  ;; configuration below
-  (let* ((splitname (split-string filename ":"))
-         (method (car splitname)))
-    (if (member method '("/sudo" "/doas"))
+If doas is available, that method is used instead of sudo."
+  (let* ((parts (split-string filename ":"))
+         (method (substring (nth 0 parts) 1))
+         (host (nth 1 parts))
+         (hop-method (when host (nth 1 (split-string host "|"))))
+         (sudo-methods '("sudo" "doas")))
+    (if (or (member method sudo-methods)
+            (member hop-method sudo-methods))
         filename
-      (let* ((is-ssh (equal method "/ssh"))
-             (sudo-method (concat (if (executable-find "doas" t) "/doas" "/sudo")
-                                  (if is-ssh "" ":")))
-             (components (if is-ssh (cdr splitname) splitname)))
-        (mapconcat 'identity (cons sudo-method components) ":")))))
+      (let* ((sudo-method (if (executable-find "doas" t) "doas" "sudo"))
+             (sudo-hop (when (equal method "ssh")
+                         (concat host "|" sudo-method ":"))))
+        (if sudo-hop
+            (mapconcat 'identity (append (list (concat "/" method) sudo-hop)
+                                         (nthcdr 2 parts))
+                       ":")
+          (concat "/" sudo-method "::" filename))))))
 
 (defun mpolden/sudo-find-file (&optional arg)
   "Find file and open it with sudo.
@@ -43,10 +47,6 @@ With a prefix ARG prompt edit currently visited file using sudo."
    ("C-x !" . mpolden/sudo-current-file))
 
   :config
-  ;; make sudo:remote-host work as expected
-  (add-to-list 'tramp-default-proxies-alist '(nil "\\`root\\'" "/ssh:%h:"))
-  (add-to-list 'tramp-default-proxies-alist
-               '((regexp-quote (system-name)) nil nil))
   ;; use path configured by remote host
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
