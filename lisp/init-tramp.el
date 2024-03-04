@@ -12,9 +12,9 @@ FILENAME is a local path and prefix it with \"/sudo::\".
 
 If doas is available, that method is used instead of sudo."
   (let* ((parts (split-string filename ":"))
-         (method (substring (nth 0 parts) 1))
-         (host (nth 1 parts))
-         (hop-method (when host (nth 1 (split-string host "|"))))
+         (method (string-trim (car parts) "/"))
+         (host (car (cdr parts)))
+         (hop-method (when host (car (cdr (split-string host "|")))))
          (sudo-methods '("sudo" "doas")))
     (if (or (member method sudo-methods)
             (member hop-method sudo-methods))
