@@ -7,7 +7,7 @@
 
 If `default-directory' is determined to be a project by
 `project-current', the Eshell buffer will be created with
-`project-shell' instead of `eshell'."
+`project-eshell' instead of `eshell'."
   (interactive)
   (let ((buf (if (project-current)
                  (project-eshell)
