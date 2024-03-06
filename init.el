@@ -44,6 +44,7 @@
 
 ;; clients
 (mpolden/maybe-require 'init-eglot)
+(mpolden/maybe-require 'init-eshell)
 (mpolden/maybe-require 'init-git)
 (mpolden/maybe-require 'init-restclient)
 

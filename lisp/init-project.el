@@ -17,15 +17,13 @@
                                   (project-dired "Dired" ?d)
                                   (mpolden/grep "Grep" ?g)
                                   (magit-project-status "Magit" ?m)
-                                  (project-eshell "Eshell" ?e)))
+                                  (mpolden/eshell-other-window "Eshell" ?e)))
   ;; configure how projects are detected
   (setq project-find-functions '(mpolden/project-try-go project-try-vc))
   :bind (;; C-x f finds file in project
          ("C-x f" . project-find-file)
          ;; C-c p switches project
-         ("C-c p" . project-switch-project)
-         ;; C-c e starts eshell in project
-         ("C-c e" . project-eshell)))
+         ("C-c p" . project-switch-project)))
 
 (provide 'init-project)
 
