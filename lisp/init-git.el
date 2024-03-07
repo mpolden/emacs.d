@@ -31,8 +31,6 @@ If NOSELECT is non-nil, do not select the window."
 
 (use-package forge
   :ensure t
-  :after magit ;; do not load until magit is loaded
-  :demand      ;; because binds below are not for loading the package
   :init
   ;; limit number of topics listed in status buffer
   (setq forge-topic-list-limit '(10 . 0))
