@@ -57,7 +57,7 @@ theme instead of toggling."
   :config
   (if (boundp 'ns-system-appearance-change-functions)
       (add-hook 'ns-system-appearance-change-functions #'mpolden/toggle-theme)
-    (load-theme mpolden/theme-dark t)))
+    (mpolden/toggle-theme 'dark)))
 
 (provide 'init-theme)
 
