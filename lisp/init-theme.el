@@ -27,20 +27,27 @@
    (t (error "Failed to detect current theme. Enabled themes: %s"
              custom-enabled-themes))))
 
-(defun mpolden/toggle-theme ()
+(defun mpolden/toggle-theme (&optional appearance)
   "Toggle between dark and light themes.
 
 The variables `mpolden/theme-light' and `mpolden/theme-dark'
 decides the themes to toggle between.
 
 A prefix argument prompts for a theme to load instead of toggling
-the current theme."
+the current theme.
+
+If APPEARANCE is either 'light or 'dark, change to the matching
+theme instead of toggling."
   (interactive)
   (if current-prefix-arg
       (mpolden/switch-theme)
-    (let* ((is-light (eq (mpolden/current-theme) 'light))
-           (new-theme (if is-light mpolden/theme-dark mpolden/theme-light)))
-      (mpolden/switch-theme new-theme))))
+    (if appearance
+        (pcase appearance
+          ('light (mpolden/switch-theme mpolden/theme-light))
+          ('dark (mpolden/switch-theme mpolden/theme-dark)))
+      (let* ((is-light (eq (mpolden/current-theme) 'light))
+             (new-theme (if is-light mpolden/theme-dark mpolden/theme-light)))
+        (mpolden/switch-theme new-theme)))))
 
 (use-package doom-themes
   :ensure t
@@ -48,7 +55,9 @@ the current theme."
   :if (display-graphic-p)
   :bind ("C-c t" . mpolden/toggle-theme)
   :config
-  (load-theme mpolden/theme-dark t))
+  (if (boundp 'ns-system-appearance-change-functions)
+      (add-hook 'ns-system-appearance-change-functions #'mpolden/toggle-theme)
+    (load-theme mpolden/theme-dark t)))
 
 (provide 'init-theme)
 
