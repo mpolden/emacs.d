@@ -40,7 +40,10 @@ If NOSELECT is non-nil, do not select the window."
          :map forge-pullreq-section-map
          ([remap magit-delete-thing] . forge-copy-url-at-point-as-kill)
          :map forge-issue-section-map
-         ([remap magit-delete-thing] . forge-copy-url-at-point-as-kill)))
+         ([remap magit-delete-thing] . forge-copy-url-at-point-as-kill))
+  :config
+  ;; use default foreground color for open pull requests
+  (set-face-attribute 'forge-pullreq-open nil :foreground nil))
 
 (use-package smerge-mode
   ;; vc-git-find-file-hook calls this command
