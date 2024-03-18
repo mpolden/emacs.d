@@ -21,6 +21,14 @@ else
 	$(error brew command not found)
 endif
 
+install-emacs-plus:
+ifneq ($(BREW),)
+	$(BREW) tap d12frosted/emacs-plus
+	$(BREW) install --with-native-comp emacs-plus
+else
+	$(error brew command not found)
+endif
+
 install-lsp: install-lsp-go install-lsp-java install-lsp-python
 
 install-lsp-go:
