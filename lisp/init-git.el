@@ -27,7 +27,13 @@ If NOSELECT is non-nil, do not select the window."
          :map magit-status-mode-map
          ;; make C-o and o behave as in dired
          ("o" . mpolden/magit-visit-file-other-window)
-         ("C-o" . mpolden/magit-visit-file-other-window-noselect)))
+         ("C-o" . mpolden/magit-visit-file-other-window-noselect))
+
+  :config
+  ;; absorb automatically fixes up existing commits
+  ;; https://github.com/tummychow/git-absorb
+  (transient-replace-suffix 'magit-commit 'magit-commit-autofixup
+    '("x" "Absorb changes" magit-commit-absorb)))
 
 (use-package forge
   :ensure t
