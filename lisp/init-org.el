@@ -115,6 +115,11 @@ to `org-goto'."
   :bind (:map org-mode-map
          ("C-c o g" . org-mac-link-get-link)))
 
+(use-package org-modern
+  :ensure t
+  :config
+  (global-org-modern-mode 1))
+
 (provide 'init-org)
 
 ;;; init-org.el ends here
