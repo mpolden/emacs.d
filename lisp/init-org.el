@@ -117,6 +117,9 @@ to `org-goto'."
 
 (use-package org-modern
   :ensure t
+  :init
+  ;; do not use folding indicators
+  (setq org-modern-star 'replace)
   :config
   (global-org-modern-mode 1))
 
