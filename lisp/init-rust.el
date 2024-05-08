@@ -2,12 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package rustic
-  :ensure t
-  :init
-  ;; let init-eglot handle lsp integration
-  (setq rustic-lsp-setup-p nil)
-  (setq rustic-lsp-client 'eglot))
+(use-package rust-mode
+  :ensure t)
 
 (provide 'init-rust)
 
