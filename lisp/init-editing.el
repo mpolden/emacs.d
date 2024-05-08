@@ -15,15 +15,14 @@
 (use-package calc
   :bind ("C-c @" . quick-calc))
 
-(use-package crux
-  :ensure t
-  :bind (("M-j" . crux-top-join-line)
-         ("C-c n" . crux-rename-file-and-buffer)
-         ("C-c w" . crux-kill-buffer-truename)
-         ("C-c d" . crux-duplicate-current-line-or-region)
-         ("C-c C-o" . crux-open-with)
-         ("C-x C-r" . crux-recentf-find-file)
-         ("C-x C-o" . crux-recentf-find-directory)))
+;; M-j joins line
+(global-set-key (kbd "M-j") 'join-line)
+
+;; C-c d duplicates the current line or region
+(global-set-key (kbd "C-c d") 'duplicate-dwim)
+
+;; C-c n renames visited file
+(global-set-key (kbd "C-c n") 'rename-visited-file)
 
 ;; C-x k kills current buffer
 (global-set-key (kbd "C-x k") 'kill-current-buffer)

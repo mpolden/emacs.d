@@ -27,6 +27,7 @@ remote projects."
   :bind (("C-x b" . consult-buffer)
          ("C-c i" . consult-imenu)
          ("C-c m" . consult-flymake)
+         ("C-x C-r" . consult-recent-file)
          ("M-g M-g" . consult-goto-line)))
 
 ;; show rich annotations in the minibuffer
