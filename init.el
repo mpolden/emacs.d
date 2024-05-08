@@ -31,7 +31,6 @@
 (mpolden/maybe-require 'init-tramp)
 
 ;; writing
-(mpolden/maybe-require 'init-eldoc)
 (mpolden/maybe-require 'init-flyspell)
 
 ;; navigation
