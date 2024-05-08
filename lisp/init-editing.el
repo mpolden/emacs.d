@@ -2,18 +2,16 @@
 ;;; Commentary:
 ;;; Code:
 
-;; use zap-up-to-char instead of zap-to-char
-(use-package misc
-  :bind ("M-z" . zap-up-to-char))
-
 ;; enable subword-mode in prog-mode
 (use-package subword
   :diminish subword-mode
   :hook ((prog-mode . subword-mode)))
 
-;; quick access to calculator
-(use-package calc
-  :bind ("C-c @" . quick-calc))
+;; M-z runs zap-up-to-char instead of zap-to-char
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+
+;; C-c @ opens a simple calculator
+(global-set-key (kbd "C-c @") 'quick-calc)
 
 ;; M-j joins line
 (global-set-key (kbd "M-j") 'join-line)
