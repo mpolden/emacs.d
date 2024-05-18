@@ -13,8 +13,8 @@
 ;; C-c @ opens a simple calculator
 (global-set-key (kbd "C-c @") 'quick-calc)
 
-;; M-j joins line
-(global-set-key (kbd "M-j") 'join-line)
+;; M-j joins the next line to this
+(global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
 ;; C-c d duplicates the current line or region
 (global-set-key (kbd "C-c d") 'duplicate-dwim)
