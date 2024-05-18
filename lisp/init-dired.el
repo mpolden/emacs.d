@@ -2,6 +2,19 @@
 ;;; Commentary:
 ;;; Code:
 
+(defun mpolden/dired-open-or-shell-command ()
+  "Open marked files with the default external program.
+
+If there is no open command or a prefix argument is
+given, this function instead prompts for a shell command."
+  (interactive)
+  (let ((open (pcase system-type
+                (`darwin "open")
+                ((or `gnu `gnu/linux `gnu/kfreebsd) "xdg-open"))))
+    (if (and open (not current-prefix-arg))
+        (dired-do-shell-command "open" nil (dired-get-marked-files t))
+      (call-interactively 'dired-do-shell-command))))
+
 (use-package dired
   :init
   ;; show human readable sizes in dired
@@ -12,6 +25,7 @@
 
   :bind (:map dired-mode-map
               ("C-c r" . dired-toggle-read-only)
+              ("C-c o" . mpolden/dired-open-or-shell-command)
               ("M-<up>" . dired-up-directory)
               ("<backspace>" . dired-up-directory)))
 
