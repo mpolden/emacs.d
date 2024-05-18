@@ -5,14 +5,15 @@
 (defun mpolden/dired-open-or-shell-command ()
   "Open marked files with the default external program.
 
-If there is no open command or a prefix argument is
-given, this function instead prompts for a shell command."
+If PATH does not contain a suitable command for opening external
+programs, or a prefix argument is given, this function instead
+prompts for a shell command."
   (interactive)
-  (let ((open (pcase system-type
-                (`darwin "open")
-                ((or `gnu `gnu/linux `gnu/kfreebsd) "xdg-open"))))
-    (if (and open (not current-prefix-arg))
-        (dired-do-shell-command "open" nil (dired-get-marked-files t))
+  (let ((open (and (not current-prefix-arg)
+                   (or (executable-find "open")
+                       (executable-find "xdg-open")))))
+    (if open
+        (dired-do-shell-command open nil (dired-get-marked-files t))
       (call-interactively 'dired-do-shell-command))))
 
 (use-package dired
