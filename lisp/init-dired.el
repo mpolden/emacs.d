@@ -7,6 +7,9 @@
   ;; show human readable sizes in dired
   (setq dired-listing-switches "-alh")
 
+  ;; register renames in version control
+  (setq dired-vc-rename-file t)
+
   :bind (:map dired-mode-map
               ("C-c r" . dired-toggle-read-only)
               ("M-<up>" . dired-up-directory)
