@@ -7,12 +7,7 @@
   :hook ((git-commit-mode . flyspell-mode)
          (gfm-mode . flyspell-mode)
          (org-mode . flyspell-mode)
-         (latex-mode . flyspell-mode))
-
-  :config
-  ;; prefer hunspell
-  (when (executable-find "hunspell")
-    (setq ispell-program-name "hunspell")))
+         (latex-mode . flyspell-mode)))
 
 (use-package flyspell-correct
   :ensure t
