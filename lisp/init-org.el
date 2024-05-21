@@ -87,14 +87,6 @@ to `org-goto'."
   ;; include two weeks in agenda
   (setq org-agenda-span 'fortnight)
 
-  ;; customize agenda
-  (setq org-agenda-custom-commands
-        '(;; default view
-          ("n" "Agenda and all TODOs" ((agenda "") (alltodo "")))
-          ;; split by state
-          ("m" "Agenda and all TODOs split by state"
-           ((agenda "") (todo "TODO") (todo "WAIT")))))
-
   ;; set export backends
   (setq org-export-backends '(ascii html md))
 
