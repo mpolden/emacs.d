@@ -42,7 +42,7 @@ remote projects."
   :init
   ;; enable fuzzy matching
   ;; https://github.com/minad/vertico/#completion-styles-and-tab-completion
-  (setq completion-styles '(flex))
+  (setq completion-styles '(basic substring partial-completion flex))
   :config
   (vertico-mode 1))
 
