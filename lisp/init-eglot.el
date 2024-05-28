@@ -11,25 +11,31 @@
 (defvar mpolden/inhibit-lsp nil
   "List of modes where `eglot-ensure' should not be called to enable LSP integration.")
 
+(defun mpolden/major-mode-member (modes)
+  "Return non-nil if `major-mode' is an element of MODES."
+  (if (listp modes)
+      (member major-mode modes)
+    modes))
+
 (defun mpolden/format-before-save ()
   "Format buffer before saving."
-  (unless (member major-mode mpolden/inhibit-format-before-save)
+  (unless (mpolden/major-mode-member mpolden/inhibit-format-before-save)
     (eglot-format)))
 
 (defun mpolden/organize-imports-before-save ()
   "Organize imports before saving buffer."
-  (unless (member major-mode mpolden/inhibit-organize-imports-before-save)
+  (unless (mpolden/major-mode-member mpolden/inhibit-organize-imports-before-save)
     (call-interactively 'eglot-code-action-organize-imports)))
 
 (defun mpolden/eglot-before-save ()
   "All actions that may run before saving buffer."
-  (unless (member major-mode mpolden/inhibit-lsp)
+  (unless (mpolden/major-mode-member mpolden/inhibit-lsp)
     (mpolden/format-before-save)
     (mpolden/organize-imports-before-save)))
 
 (defun mpolden/eglot-ensure ()
   "Enable Eglot for current `major-mode'."
-  (unless (member major-mode mpolden/inhibit-lsp)
+  (unless (mpolden/major-mode-member mpolden/inhibit-lsp)
     (eglot-ensure)))
 
 (use-package eglot
