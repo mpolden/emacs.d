@@ -11,9 +11,6 @@
 (defvar mpolden/inhibit-lsp nil
   "List of modes where `eglot-ensure' should not be called to enable LSP integration.")
 
-(defvar mpolden/inhibit-lsp-doc nil
-  "List of modes where language documentation should not be displayed using `eldoc-box'.")
-
 (defun mpolden/major-mode-member (modes)
   "Return non-nil if `major-mode' is an element of MODES."
   (if (listp modes)
@@ -39,9 +36,7 @@
 (defun mpolden/eglot-ensure ()
   "Enable Eglot for current `major-mode'."
   (unless (mpolden/major-mode-member mpolden/inhibit-lsp)
-    (eglot-ensure)
-    (unless (mpolden/major-mode-member mpolden/inhibit-lsp-doc)
-      (eldoc-box-hover-mode))))
+    (eglot-ensure)))
 
 (use-package eglot
   :ensure t
@@ -71,7 +66,9 @@
               ("C-c q" . eglot-code-actions)))
 
 (use-package eldoc-box
-  :ensure t)
+  :ensure t
+  ;; C-c h displays documentation at point
+  :bind ("C-c h" . eldoc-box-help-at-point))
 
 (provide 'init-eglot)
 
