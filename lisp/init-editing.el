@@ -10,8 +10,8 @@
 ;; M-z runs zap-up-to-char instead of zap-to-char
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 
-;; C-c @ opens a simple calculator
-(global-set-key (kbd "C-c @") 'quick-calc)
+;; C-c + opens a simple calculator
+(global-set-key (kbd "C-c +") 'quick-calc)
 
 ;; M-j joins the next line to this
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
