@@ -38,8 +38,6 @@ If NOSELECT is non-nil, do not select the window."
 (use-package forge
   :ensure t
   :init
-  ;; limit number of topics listed in status buffer
-  (setq forge-topic-list-limit '(10 . 0))
   ;; work around github timeouts when fetching pull requests
   (setq ghub-graphql-items-per-request 50)
   :bind (;; killing in pullreq or issue section copies the url at point
