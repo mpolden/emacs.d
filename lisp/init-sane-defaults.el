@@ -109,6 +109,10 @@
 ;; do not ask to use a local dictionary server
 (setq dictionary-server "dict.org")
 
+;; make scripts executable when saving
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
+
 (provide 'init-sane-defaults)
 
 ;;; init-sane-defaults.el ends here
