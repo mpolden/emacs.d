@@ -28,6 +28,9 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
+;; avoid potential gaps when frame is maximized
+(setq frame-resize-pixelwise t)
+
 ;; disable dialogs
 (setq use-dialog-box nil)
 
