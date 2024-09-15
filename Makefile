@@ -24,7 +24,7 @@ endif
 install-emacs-plus:
 ifneq ($(BREW),)
 	$(BREW) tap d12frosted/emacs-plus
-	$(BREW) install --with-native-comp emacs-plus
+	$(BREW) install --with-native-comp --with-c9rgreen-sonoma-icon emacs-plus
 else
 	$(error brew command not found)
 endif
