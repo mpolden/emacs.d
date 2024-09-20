@@ -16,6 +16,54 @@ If NOSELECT is non-nil, do not select the window."
   (interactive)
   (mpolden/magit-visit-file-other-window t))
 
+(cl-defun mpolden/auth-source-gh-search (&key backend type host user &allow-other-keys)
+  "Find an authentication token for HOST and USER using GitHub CLI.
+
+BACKEND contains the backend parameters declared by the function
+`auth-source-backend'. TYPE is the name of the authentication
+source."
+  ;; inspired by https://github.com/magit/forge/discussions/544
+  (cl-assert (or (null type)
+                 (eq type (oref backend type)))
+             t "Type %s does not match backend %s" type backend)
+  (when-let*
+      ((host (string-trim-right (string-replace "api.github.com" "github.com" host)
+                                "/.*")) ;; remove path, if any
+       (user (if-let* ((name (string-remove-suffix "^forge" user))
+                       (ok (not (string-empty-p name))))
+                 name
+               (error "Expected username to be non-empty, but got '%s'" user)))
+       (secret (with-temp-buffer
+                 (let* ((status (call-process "gh" nil t nil "auth" "token" "--hostname" host))
+                        (output (string-trim-right (buffer-string)))
+                        (success (and (= 0 status)
+                                      (not (string-empty-p output)))))
+                   (auth-source-do-debug
+                    "mpolden/auth-source-gh-search: gh exited with status %d and output '%s'"
+                    status output)
+                   (when success
+                     output))))
+       (result (list :host host
+                     :user user
+                     :secret secret)))
+    (auth-source-do-debug "mpolden/auth-source-gh-search: found match %s" result)
+    (list result)))
+
+(defun mpolden/auth-source-gh-backend-parse (entry)
+  "Create a GitHub CLI authentication source for ENTRY."
+  (when (eq entry 'gh-cli)
+    (auth-source-backend-parse-parameters
+     entry
+     (auth-source-backend
+      :source ""
+      :type 'gh-cli
+      :search-function #'mpolden/auth-source-gh-search))))
+
+(add-hook 'auth-source-backend-parser-functions #'mpolden/auth-source-gh-backend-parse)
+
+;; use gh-cli as an authentication source (used by forge)
+(add-to-list 'auth-sources 'gh-cli)
+
 (use-package magit
   :ensure t
   :init
