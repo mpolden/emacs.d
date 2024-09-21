@@ -43,6 +43,10 @@ remote projects."
   ;; enable fuzzy matching
   ;; https://github.com/minad/vertico/#completion-styles-and-tab-completion
   (setq completion-styles '(basic substring partial-completion flex))
+  ;; make completion case-insensitive
+  (setq read-file-name-completion-ignore-case t
+        read-buffer-completion-ignore-case t
+        completion-ignore-case t)
   :config
   (vertico-mode 1))
 
