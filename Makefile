@@ -15,6 +15,13 @@ install:
 
 install-emacs:
 ifneq ($(BREW),)
+	$(BREW) install --cask emacs
+else
+	$(error brew command not found)
+endif
+
+install-emacs-mac:
+ifneq ($(BREW),)
 	$(BREW) tap railwaycat/emacsmacport
 	$(BREW) install --cask emacs-mac
 else
