@@ -42,10 +42,12 @@ With a prefix ARG prompt edit currently visited file using sudo."
   (mpolden/sudo-find-file t))
 
 (use-package tramp
+  :init
+  ;; use control master options from ~/.ssh/config
+  (setq tramp-use-ssh-controlmaster-options nil)
   :bind
   (("C-x +" . mpolden/sudo-find-file)
    ("C-x !" . mpolden/sudo-current-file))
-
   :config
   ;; use path configured by remote host
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
