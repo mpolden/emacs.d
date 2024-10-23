@@ -27,7 +27,7 @@ source."
                  (eq type (oref backend type)))
              t "Type %s does not match backend %s" type backend)
   (when-let*
-      ((host (string-trim-right (string-replace "api.github.com" "github.com" host)
+      ((host (string-trim-right (string-replace "api.github.com" "github.com" (or host ""))
                                 "/.*")) ;; remove path, if any
        (user (if-let* ((name (string-remove-suffix "^forge" user))
                        (ok (not (string-empty-p name))))
@@ -42,12 +42,11 @@ source."
                     "mpolden/auth-source-gh-search: gh exited with status %d and output '%s'"
                     status output)
                    (when success
-                     output))))
-       (result (list :host host
-                     :user user
-                     :secret secret)))
-    (auth-source-do-debug "mpolden/auth-source-gh-search: found match %s" result)
-    (list result)))
+                     output)))))
+    (when secret
+      (list (list :host host
+                  :user user
+                  :secret secret)))))
 
 (defun mpolden/auth-source-gh-backend-parse (entry)
   "Create a GitHub CLI authentication source for ENTRY."
@@ -59,10 +58,11 @@ source."
       :type 'gh-cli
       :search-function #'mpolden/auth-source-gh-search))))
 
-(add-hook 'auth-source-backend-parser-functions #'mpolden/auth-source-gh-backend-parse)
-
-;; use gh-cli as an authentication source (used by forge)
-(add-to-list 'auth-sources 'gh-cli)
+(use-package auth-source
+  :config
+  (add-hook 'auth-source-backend-parser-functions #'mpolden/auth-source-gh-backend-parse)
+  ;; use gh-cli as an authentication source (used by forge)
+  (add-to-list 'auth-sources 'gh-cli))
 
 (use-package magit
   :ensure t
