@@ -29,10 +29,7 @@ source."
   (when-let*
       ((host (string-trim-right (string-replace "api.github.com" "github.com" (or host ""))
                                 "/.*")) ;; remove path, if any
-       (user (if-let* ((name (string-remove-suffix "^forge" user))
-                       (ok (not (string-empty-p name))))
-                 name
-               (error "Expected username to be non-empty, but got '%s'" user)))
+       (user (string-remove-suffix "^forge" (or user "")))
        (secret (with-temp-buffer
                  (let* ((status (call-process "gh" nil t nil "auth" "token" "--hostname" host))
                         (output (string-trim-right (buffer-string)))
