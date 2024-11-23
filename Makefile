@@ -58,8 +58,13 @@ install-lsp-java:
 install-lsp-python:
 	pipx install python-lsp-server
 
-install-lsp-python-more:
-	pipx inject python-lsp-server python-lsp-black pylsp-mypy
+install-lsp-python-fmt:
+	pipx inject python-lsp-server python-lsp-ruff
+
+install-lsp-python-types:
+	pipx inject python-lsp-server pylsp-mypy
+
+install-lsp-python-more: install-lsp-python-fmt install-lsp-python-types
 
 update:
 	git pull --rebase --quiet
