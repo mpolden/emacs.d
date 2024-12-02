@@ -55,6 +55,7 @@
 (mpolden/maybe-require 'init-python)
 (mpolden/maybe-require 'init-rust)
 (mpolden/maybe-require 'init-yaml)
+(mpolden/maybe-require 'init-zig)
 
 (provide 'init)
 
