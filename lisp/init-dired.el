@@ -24,6 +24,9 @@ prompts for a shell command."
   ;; register renames in version control
   (setq dired-vc-rename-file t)
 
+  ;; guess default target directory for moves
+  (setq dired-dwim-target t)
+
   :bind (:map dired-mode-map
               ("C-c r" . dired-toggle-read-only)
               ("C-c o" . mpolden/dired-open-or-shell-command)
