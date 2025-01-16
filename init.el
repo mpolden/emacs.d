@@ -47,6 +47,7 @@
 (mpolden/maybe-require 'init-git)
 
 ;; languages
+(mpolden/maybe-require 'init-fish)
 (mpolden/maybe-require 'init-go)
 (mpolden/maybe-require 'init-javascript)
 (mpolden/maybe-require 'init-lisp)
