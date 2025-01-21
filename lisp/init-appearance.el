@@ -4,7 +4,7 @@
 
 (defvar mpolden/font-family "Iosevka" "Set the default font.")
 
-(defvar mpolden/font-size 14 "Set the default font size in points.")
+(defvar mpolden/font-size 15 "Set the default font size in points.")
 
 ;; set font
 (when (and (display-graphic-p)
