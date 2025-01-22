@@ -28,6 +28,11 @@ else
 	$(error brew command not found)
 endif
 
+install-emacs-mac-icon:
+	mkdir -p /tmp/emacs-macos-icon-main
+	test -f /tmp/emacs-macos-icon-main/emacs.icns || curl -fsSL https://github.com/c9rgreen/emacs-macos-icon/archive/refs/heads/main.tar.gz | tar -C /tmp -xf -
+	install -m 0644 -p /tmp/emacs-macos-icon-main/emacs.icns /Applications/Emacs.app/Contents/Resources/Emacs.icns
+
 install-emacs-plus:
 ifneq ($(BREW),)
 	$(BREW) tap d12frosted/emacs-plus
