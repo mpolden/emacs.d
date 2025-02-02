@@ -13,6 +13,9 @@
                       :family mpolden/font-family
                       :height (* 10 mpolden/font-size)))
 
+;; maximize frame on startup
+(add-hook 'window-setup-hook 'toggle-frame-maximized t)
+
 ;; disable splash
 (setq inhibit-startup-message t)
 
