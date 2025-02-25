@@ -20,6 +20,14 @@ else
 	$(error brew command not found)
 endif
 
+install-emacs-native-comp:
+ifneq ($(BREW),)
+	$(BREW) tap jimeh/emacs-builds
+	$(BREW) install --cask emacs-app
+else
+	$(error brew command not found)
+endif
+
 install-emacs-mac:
 ifneq ($(BREW),)
 	$(BREW) tap railwaycat/emacsmacport
