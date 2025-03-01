@@ -1,5 +1,4 @@
 CURDIR ?= $(.CURDIR)
-BREW ?= $(shell command -v brew 2> /dev/null)
 JDT_LS_VERSION ?= 1.21.0
 PREFIX ?= $(HOME)/.local/stow
 JDT_LS_HOME ?= $(PREFIX)/eclipse.jdt.ls-$(JDT_LS_VERSION)
@@ -14,27 +13,15 @@ install:
 	ln $(LN_FLAGS) $(CURDIR) ~/.emacs.d
 
 install-emacs:
-ifneq ($(BREW),)
-	$(BREW) install --cask emacs
-else
-	$(error brew command not found)
-endif
+	brew install --cask emacs
 
 install-emacs-native-comp:
-ifneq ($(BREW),)
-	$(BREW) tap jimeh/emacs-builds
-	$(BREW) install --cask emacs-app
-else
-	$(error brew command not found)
-endif
+	brew tap jimeh/emacs-builds
+	brew install --cask emacs-app
 
 install-emacs-mac:
-ifneq ($(BREW),)
-	$(BREW) tap railwaycat/emacsmacport
-	$(BREW) install --cask emacs-mac
-else
-	$(error brew command not found)
-endif
+	brew tap railwaycat/emacsmacport
+	brew install --cask emacs-mac
 
 install-emacs-mac-icon:
 	mkdir -p /tmp/emacs-macos-icon-main
@@ -42,21 +29,13 @@ install-emacs-mac-icon:
 	install -m 0644 -p /tmp/emacs-macos-icon-main/emacs.icns /Applications/Emacs.app/Contents/Resources/Emacs.icns
 
 install-emacs-plus:
-ifneq ($(BREW),)
-	$(BREW) tap d12frosted/emacs-plus
-	$(BREW) install --with-native-comp --with-c9rgreen-sonoma-icon emacs-plus
-else
-	$(error brew command not found)
-endif
+	brew tap d12frosted/emacs-plus
+	brew install --with-native-comp --with-c9rgreen-sonoma-icon emacs-plus
 
 install-lsp: install-lsp-go install-lsp-java install-lsp-python
 
 install-lsp-go:
-ifneq ($(BREW),)
-	$(BREW) install gopls
-else
-	go install golang.org/x/tools/gopls@latest
-endif
+	brew install gopls
 
 install-lsp-java:
 	mkdir -p $(JDT_LS_HOME)
