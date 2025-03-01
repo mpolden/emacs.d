@@ -1,7 +1,4 @@
 CURDIR ?= $(.CURDIR)
-JDT_LS_VERSION ?= 1.21.0
-PREFIX ?= $(HOME)/.local/stow
-JDT_LS_HOME ?= $(PREFIX)/eclipse.jdt.ls-$(JDT_LS_VERSION)
 
 LN_FLAGS := -sfn
 COLOR := \033[32;01m
@@ -38,14 +35,7 @@ install-lsp-go:
 	brew install gopls
 
 install-lsp-java:
-	mkdir -p $(JDT_LS_HOME)
-	FILE=`curl -fsSL https://download.eclipse.org/jdtls/milestones/$(JDT_LS_VERSION)/latest.txt`; \
-		curl -fsSL https://download.eclipse.org/jdtls/milestones/$(JDT_LS_VERSION)/$$FILE | \
-		tar -C $(JDT_LS_HOME) -zxf -
-	@echo "eclipse jdt ls $(JDT_LS_VERSION) installed in $(COLOR)$(JDT_LS_HOME)$(NO_COLOR)"
-	@echo "emacs/eglot requires the following environment variables:"
-	@echo "- $(COLOR)JAVA_HOME$(NO_COLOR) must contain the path to a jdk installation"
-	@echo "- $(COLOR)PATH$(NO_COLOR) must contain $(COLOR)$(JDT_LS_HOME)/bin$(NO_COLOR)"
+	brew install jdtls
 
 install-lsp-python:
 	pipx install python-lsp-server
