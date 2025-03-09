@@ -25,6 +25,11 @@ to `org-goto'."
   ;; set default org directory
   (setq org-directory "~/org")
 
+  ;; open notes file by default
+  (let ((notes-file (expand-file-name "notes.org" org-directory)))
+    (when (file-exists-p notes-file)
+      (setq initial-buffer-choice notes-file)))
+
   ;; save archive file when archiving
   (setq org-archive-subtree-save-file-p t)
 
