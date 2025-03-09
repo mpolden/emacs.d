@@ -77,9 +77,6 @@
   :config
   (display-time-mode 1))
 
-;; do not set fringe mark for bookmarked lines
-(setq bookmark-set-fringe-mark nil)
-
 ;; do not underline compilation messages
 (setq compilation-message-face nil)
 
