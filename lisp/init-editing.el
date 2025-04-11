@@ -2,6 +2,23 @@
 ;;; Commentary:
 ;;; Code:
 
+(defun mpolden/kill-buffer-project-path ()
+  "Kill path of file visited in current buffer, relative to project root.
+
+If file visited in the current buffer is not part of a project, or
+prefix argument is given, the complete file path is killed instead."
+  (interactive)
+  (if buffer-file-name
+      (let* ((project (project-current))
+             (name (if (and (not current-prefix-arg)
+                            project)
+                       (file-relative-name buffer-file-name
+                                           (project-root project))
+                     buffer-file-name)))
+        (kill-new name)
+        (message "Added %s to kill ring." name))
+    (message "Buffer is not visiting a file.")))
+
 ;; enable subword-mode in prog-mode
 (use-package subword
   :diminish subword-mode
@@ -32,6 +49,9 @@
 (global-set-key (kbd "M-u") 'upcase-dwim)
 (global-set-key (kbd "M-l") 'downcase-dwim)
 (global-set-key (kbd "M-c") 'capitalize-dwim)
+
+;; C-c w kills buffer project path
+(global-set-key (kbd "C-c w") 'mpolden/kill-buffer-project-path)
 
 ;; kill line also kills newline character
 (setq kill-whole-line t)
