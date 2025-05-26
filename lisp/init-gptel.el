@@ -2,14 +2,21 @@
 ;;; Commentary:
 ;;; Code:
 
+(defun mpolden/gptel-mode-buffer-local-variables ()
+  "Set buffer-local variables for `gptel-mode'."
+  (setq-local default-directory
+              (expand-file-name "chat/" org-directory))
+  (visual-line-mode 1))
+
 (use-package gptel
   :ensure t
+  :after org
   :bind (("C-c h" . gptel))
   :init
   ;; use org-mode syntax
   (setq gptel-default-mode 'org-mode)
   ;; soft-wrap text
-  :hook (gptel-mode . visual-line-mode))
+  :hook (gptel-mode . mpolden/gptel-mode-buffer-local-variables))
 
 (provide 'init-gptel)
 
