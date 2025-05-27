@@ -102,6 +102,9 @@
 ;; do not ask to use a local dictionary server
 (setq dictionary-server "dict.org")
 
+;; delete trailing whitespace before saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; make scripts executable when saving
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
