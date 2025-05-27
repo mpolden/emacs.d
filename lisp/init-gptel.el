@@ -5,7 +5,10 @@
 (defun mpolden/gptel-mode-buffer-local-variables ()
   "Set buffer-local variables for `gptel-mode'."
   (setq-local default-directory
-              (expand-file-name "chat/" org-directory))
+              (expand-file-name "chat" org-directory))
+  (set-visited-file-name (concat (file-name-sans-extension
+                                  (expand-file-name (buffer-name)))
+                                 ".org"))
   (visual-line-mode 1))
 
 (use-package gptel
