@@ -2,6 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
+(defun mpolden/python-find-virtualenv ()
+  "Find a virtual env directory located at the project root."
+  (when-let* ((venv-dirs '(".venv" "venv" "bin/venv"))
+              (project (project-current))
+              (root (project-root project)))
+    (seq-find (lambda (dir) (file-directory-p (expand-file-name dir root)))
+              venv-dirs)))
+
 (defun mpolden/python-mode-buffer-local-variables ()
   "Set buffer-local variables for `python-mode'."
   ;; highlight lines longer than 88 characters
@@ -9,11 +17,8 @@
   ;; use flat index in imenu
   (setq-local imenu-create-index-function
               'python-imenu-create-flat-index)
-  ;; use virtualenv if it exists
-  (let* ((venv ".venv")
-         (project-dir (locate-dominating-file default-directory venv)))
-    (setq-local python-shell-virtualenv-root
-                (expand-file-name venv project-dir))))
+  ;; set virtualenv directory
+  (setq-local python-shell-virtualenv-root (mpolden/python-find-virtualenv)))
 
 (use-package python
   :mode ("\\.py\\'" . python-mode)
