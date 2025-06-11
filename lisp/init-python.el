@@ -18,7 +18,12 @@
   (setq-local imenu-create-index-function
               'python-imenu-create-flat-index)
   ;; set virtualenv directory
-  (setq-local python-shell-virtualenv-root (mpolden/python-find-virtualenv)))
+  (setq-local python-shell-virtualenv-root (mpolden/python-find-virtualenv))
+  ;; use pylsp if present inside virtualenv
+  (when-let* ((lsp-server (expand-file-name
+                           "bin/pylsp" python-shell-virtualenv-root))
+              (file-executable-p lsp-server))
+    (setq-local eglot-server-programs `((python-mode . (,lsp-server))))))
 
 (use-package python
   :mode ("\\.py\\'" . python-mode)
