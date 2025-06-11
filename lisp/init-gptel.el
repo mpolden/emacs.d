@@ -18,7 +18,8 @@
   :init
   ;; use org-mode syntax
   (setq gptel-default-mode 'org-mode)
-  ;; soft-wrap text
+  ;; disable reasoning
+  (setq gptel-include-reasoning nil)
   :hook (gptel-mode . mpolden/gptel-mode-buffer-local-variables))
 
 (provide 'init-gptel)
