@@ -6,9 +6,13 @@
   "Find a virtual env directory located at the project root."
   (when-let* ((venv-dirs '(".venv" "venv" "bin/venv"))
               (project (project-current))
-              (root (project-root project)))
-    (seq-find (lambda (dir) (file-directory-p (expand-file-name dir root)))
-              venv-dirs)))
+              (root (project-root project))
+              (candidates (seq-keep (lambda (dir)
+                                      (when-let* ((venv (expand-file-name dir root))
+                                                  ((file-directory-p venv)))
+                                        venv))
+                                    venv-dirs)))
+    (car candidates)))
 
 (defun mpolden/python-mode-buffer-local-variables ()
   "Set buffer-local variables for `python-mode'."
