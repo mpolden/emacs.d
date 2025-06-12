@@ -16,7 +16,9 @@
   (when-let* ((buffer-file-name)
               (chat-dir (expand-file-name "chat" org-directory))
               ((file-in-directory-p buffer-file-name chat-dir)))
-    (gptel-mode 1)))
+    (gptel-mode 1)
+    ;; gptel-mode marks buffer as modified, but doesn't actually modify anything
+    (set-buffer-modified-p nil)))
 
 (use-package gptel
   :ensure t
