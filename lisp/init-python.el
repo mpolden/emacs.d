@@ -22,7 +22,7 @@
   ;; use pylsp if present inside virtualenv
   (when-let* ((lsp-server (expand-file-name
                            "bin/pylsp" python-shell-virtualenv-root))
-              (file-executable-p lsp-server))
+              ((file-executable-p lsp-server)))
     (setq-local eglot-server-programs `((python-mode . (,lsp-server))))))
 
 (use-package python
