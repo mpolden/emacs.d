@@ -11,6 +11,13 @@
                                  ".org"))
   (visual-line-mode 1))
 
+(defun mpolden/gptel-mode ()
+  "Enable `gptel-mode' automatically when file is stored in chat directory."
+  (when-let* ((buffer-file-name)
+              (chat-dir (expand-file-name "chat" org-directory))
+              ((file-in-directory-p buffer-file-name chat-dir)))
+    (gptel-mode 1)))
+
 (use-package gptel
   :ensure t
   :after org
@@ -20,7 +27,9 @@
   (setq gptel-default-mode 'org-mode)
   ;; disable reasoning
   (setq gptel-include-reasoning nil)
-  :hook (gptel-mode . mpolden/gptel-mode-buffer-local-variables))
+  :hook
+  ((gptel-mode . mpolden/gptel-mode-buffer-local-variables)
+   (org-mode . mpolden/gptel-mode)))
 
 (provide 'init-gptel)
 
