@@ -55,15 +55,12 @@ theme instead of toggling."
   :if (display-graphic-p)
   :bind ("C-c t" . mpolden/toggle-theme)
   :config
-  ;; set theme unless emacs supports automatic themes
-  (cond
-   ;; macos build with support for appearance change hook
-   ((boundp 'ns-system-appearance-change-functions)
-    (add-hook 'ns-system-appearance-change-functions #'mpolden/toggle-theme))
-   ;; linux build with darkman-mode installed and enabled
-   ((bound-and-true-p darkman-mode) nil)
-   ;; default: set theme explicitly
-   (t (mpolden/toggle-theme 'dark))))
+  ;; load theme
+  (if (boundp 'ns-system-appearance-change-functions)
+      ;; macos build which supports setting theme based on system appearance
+      (add-hook 'ns-system-appearance-change-functions #'mpolden/toggle-theme)
+    ;; otherwise default to dark theme
+    (mpolden/toggle-theme 'dark)))
 
 (provide 'init-theme)
 
