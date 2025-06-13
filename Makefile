@@ -45,6 +45,12 @@ install-lsp-python-types:
 
 install-lsp-python-more: install-lsp-python-fmt install-lsp-python-types
 
+install-lsp-python-venv:
+ifndef VIRTUAL_ENV
+	$(error refusing to install: venv is not active)
+endif
+	pip install python-lsp-server python-lsp-ruff pylsp-mypy
+
 update:
 	git pull --rebase --quiet
 
