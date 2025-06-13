@@ -2,10 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar mpolden/theme-light 'doom-one-light
+(defvar mpolden/theme-light 'ef-day
   "The light theme to use when toggling themes with `mpolden/toggle-theme'.")
 
-(defvar mpolden/theme-dark 'doom-one
+(defvar mpolden/theme-dark 'ef-night
   "The dark theme to use when toggling themes with `mpolden/toggle-theme'.")
 
 (defun mpolden/switch-theme (&optional theme)
@@ -49,7 +49,7 @@ theme instead of toggling."
              (new-theme (if is-light mpolden/theme-dark mpolden/theme-light)))
         (mpolden/switch-theme new-theme)))))
 
-(use-package doom-themes
+(use-package ef-themes
   :ensure t
   :defer nil
   :if (display-graphic-p)
