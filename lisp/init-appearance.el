@@ -72,6 +72,10 @@
   :init
   ;; civilized societies use a 24 hour clock
   (setq display-time-24hr-format t)
+  ;; make sunrise-sunset use a 24 hour clock
+  (setq calendar-time-display-form
+        '(24-hours ":" minutes
+                   (if time-zone " (") time-zone (if time-zone ")")))
   ;; hide load average
   (setq display-time-default-load-average nil)
   :config
