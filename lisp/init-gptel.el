@@ -20,6 +20,11 @@
     ;; gptel-mode marks buffer as modified, but doesn't actually modify anything
     (set-buffer-modified-p nil)))
 
+(defun mpolden/gptel-mode-save-buffer (start end)
+  "Save buffer when it's visiting a file."
+  (when buffer-file-name
+    (save-buffer)))
+
 (use-package gptel
   :ensure t
   :after org
@@ -31,6 +36,8 @@
   (setq gptel-include-reasoning nil)
   :hook
   ((gptel-mode . mpolden/gptel-mode-buffer-local-variables)
+  ;; save buffer after response
+   (gptel-post-response-functions . mpolden/gptel-mode-save-buffer)
    (org-mode . mpolden/gptel-mode)))
 
 (provide 'init-gptel)
