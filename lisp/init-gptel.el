@@ -24,12 +24,14 @@
     ;; gptel-mode marks buffer as modified, but doesn't actually modify anything
     (set-buffer-modified-p nil)))
 
-(defun mpolden/gptel-mode-save-chat-buffer (start end)
-  "Save buffer if it's visiting a file in the chat directory..
+(defun mpolden/gptel-mode-after-response (start end)
+  "Save chat buffer and move to next org heading.
 
 START and END indicates the starting and ending position of the LLM response."
   (when (mpolden/gptel-mode-in-chat-directory-p)
-    (save-buffer)))
+    (save-buffer))
+  (call-interactively 'org-next-visible-heading)
+  (call-interactively 'move-end-of-line))
 
 (use-package gptel
   :ensure t
@@ -43,7 +45,7 @@ START and END indicates the starting and ending position of the LLM response."
   :hook
   ((gptel-mode . mpolden/gptel-mode-buffer-local-variables)
   ;; save chat buffer after response
-   (gptel-post-response-functions . mpolden/gptel-mode-save-chat-buffer)
+   (gptel-post-response-functions . mpolden/gptel-mode-after-response)
    (org-mode . mpolden/gptel-mode)))
 
 (provide 'init-gptel)
