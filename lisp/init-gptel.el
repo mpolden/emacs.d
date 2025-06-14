@@ -11,7 +11,7 @@
                                  ".org"))
   (visual-line-mode 1))
 
-(defun mpolden/gptel-buffer-in-chat-directory ()
+(defun mpolden/gptel-mode-in-chat-directory-p ()
   "Return non-nil if buffer is visiting a file in the chat directory."
   (when-let* ((buffer-file-name)
               (chat-dir (expand-file-name "chat" org-directory)))
@@ -19,7 +19,7 @@
 
 (defun mpolden/gptel-mode ()
   "Enable `gptel-mode' automatically if file is stored in chat directory."
-  (when (mpolden/gptel-buffer-in-chat-directory)
+  (when (mpolden/gptel-mode-in-chat-directory-p)
     (gptel-mode 1)
     ;; gptel-mode marks buffer as modified, but doesn't actually modify anything
     (set-buffer-modified-p nil)))
@@ -28,7 +28,7 @@
   "Save buffer if it's visiting a file in the chat directory..
 
 START and END indicates the starting and ending position of the LLM response."
-  (when (mpolden/gptel-buffer-in-chat-directory)
+  (when (mpolden/gptel-mode-in-chat-directory-p)
     (save-buffer)))
 
 (use-package gptel
