@@ -16,8 +16,7 @@
 
 (defun mpolden/python-mode-buffer-local-variables ()
   "Set buffer-local variables for `python-mode'."
-  ;; highlight lines longer than 88 characters
-  (setq-local fill-column 88)
+  (setq-local fill-column 120)
   ;; use flat index in imenu
   (setq-local imenu-create-index-function
               'python-imenu-create-flat-index)
