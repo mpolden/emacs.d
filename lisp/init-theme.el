@@ -44,7 +44,8 @@ theme instead of toggling."
     (if appearance
         (pcase appearance
           ('light (mpolden/switch-theme mpolden/theme-light))
-          ('dark (mpolden/switch-theme mpolden/theme-dark)))
+          ('dark (mpolden/switch-theme mpolden/theme-dark))
+          (_ (error "Invalid apperance: %s"  appearance)))
       (let* ((is-light (eq (mpolden/current-theme) 'light))
              (new-theme (if is-light mpolden/theme-dark mpolden/theme-light)))
         (mpolden/switch-theme new-theme)))))
