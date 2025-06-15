@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar mpolden/font-family "Iosevka" "Set the default font.")
+(defvar mpolden/font-family "Aporetic Sans Mono" "Set the default font.")
 
 (defvar mpolden/font-size 15 "Set the default font size in points.")
 
