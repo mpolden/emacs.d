@@ -73,6 +73,9 @@ source."
          :map magit-status-mode-map
          ;; make C-o and o behave as in dired
          ("o" . mpolden/magit-visit-file-other-window)
+         ("C-o" . mpolden/magit-visit-file-other-window-noselect)
+         :map magit-diff-mode-map
+         ("o" . mpolden/magit-visit-file-other-window)
          ("C-o" . mpolden/magit-visit-file-other-window-noselect))
 
   :config
