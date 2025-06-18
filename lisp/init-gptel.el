@@ -43,8 +43,8 @@ START and END indicates the starting and ending position of the LLM response."
   (setq gptel-include-reasoning nil)
   :hook
   ((gptel-mode . mpolden/gptel-mode-buffer-local-variables)
-  ;; save chat buffer after response
-   (gptel-post-response-functions . mpolden/gptel-mode-after-response)
+   ;; save chat buffer after response
+   (gptel-post-response . mpolden/gptel-mode-after-response)
    (org-mode . mpolden/gptel-mode)))
 
 (provide 'init-gptel)
