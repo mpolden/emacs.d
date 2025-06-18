@@ -30,8 +30,7 @@
 START and END indicates the starting and ending position of the LLM response."
   (when (mpolden/gptel-mode-in-chat-directory-p)
     (save-buffer))
-  (call-interactively 'org-next-visible-heading)
-  (call-interactively 'move-end-of-line))
+  (call-interactively 'gptel-end-of-response))
 
 (use-package gptel
   :ensure t
