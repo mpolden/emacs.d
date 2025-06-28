@@ -31,10 +31,9 @@ source."
                                 "/.*")) ;; remove path, if any
        (user (string-remove-suffix "^forge" (or user "")))
        (secret (with-temp-buffer
-                 (let* ((status (when (executable-find "gh")
-                                  (call-process "gh" nil t nil "auth" "token" "--hostname" host)))
+                 (let* ((status (call-process "gh" nil t nil "auth" "token" "--hostname" host))
                         (output (string-trim-right (buffer-string)))
-                        (success (and (equal 0 status)
+                        (success (and (= 0 status)
                                       (not (string-empty-p output)))))
                    (auth-source-do-debug
                     "mpolden/auth-source-gh-search: gh exited with status %d and output '%s'"
