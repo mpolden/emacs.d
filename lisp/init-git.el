@@ -99,8 +99,6 @@ source."
   (set-face-attribute 'forge-pullreq-open nil :foreground nil))
 
 (use-package smerge-mode
-  ;; vc-git-find-file-hook calls this command
-  :commands smerge-start-session
   :init
   (setq smerge-command-prefix (kbd "C-c x")))
 
