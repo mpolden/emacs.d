@@ -56,6 +56,7 @@ source."
       :search-function #'mpolden/auth-source-gh-search))))
 
 (use-package auth-source
+  :if (executable-find "gh")
   :config
   (add-hook 'auth-source-backend-parser-functions #'mpolden/auth-source-gh-backend-parse)
   ;; use gh-cli as an authentication source (used by forge)
