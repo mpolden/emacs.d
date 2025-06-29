@@ -22,11 +22,10 @@
 
 (defun mpolden/require-package (package)
   "Install given PACKAGE if it's not already installed."
-  (or (package-installed-p package)
-      (progn
-        (unless (assoc package package-archive-contents)
-          (package-refresh-contents))
-        (package-install package))))
+  (unless (package-installed-p package)
+    (unless (assoc package package-archive-contents)
+      (package-refresh-contents))
+    (package-install package)))
 
 (defvar mpolden/inhibited-features nil "List of features that should not be loaded.")
 
