@@ -27,12 +27,6 @@
 (mpolden/require-package 'use-package)
 (mpolden/require-package 'diminish)
 
-;; speed up loading of use-package and dependencies
-(eval-when-compile
-  (require 'use-package))
-(require 'diminish)
-(require 'bind-key)
-
 (provide 'init-package)
 
 ;;; init-package.el ends here
