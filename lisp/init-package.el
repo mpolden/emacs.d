@@ -2,11 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-;; add melpa repo
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
+(defvar mpolden/inhibited-features nil
+  "List of features that should not be loaded.")
 
 (defun mpolden/require-package (package)
   "Install given PACKAGE if it's not already installed."
@@ -15,12 +12,16 @@
       (package-refresh-contents))
     (package-install package)))
 
-(defvar mpolden/inhibited-features nil "List of features that should not be loaded.")
-
 (defun mpolden/maybe-require (feature)
   "Load FEATURE if it's not inhibited."
   (unless (memq feature mpolden/inhibited-features)
     (require feature)))
+
+;; add melpa repo
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
 ;; install use-package and diminish
 (mpolden/require-package 'use-package)
