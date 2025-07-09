@@ -45,6 +45,8 @@ With a prefix ARG prompt edit currently visited file using sudo."
   :init
   ;; use control master options from ~/.ssh/config
   (setq tramp-use-ssh-controlmaster-options nil)
+  ;; use inline copying up to 1 MB
+  (setq tramp-copy-size-limit (* 1024 1024))
   :bind
   (("C-x +" . mpolden/sudo-find-file)
    ("C-x !" . mpolden/sudo-current-file))
