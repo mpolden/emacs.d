@@ -109,6 +109,11 @@
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
+;; respect editorconfig
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
 (provide 'init-sane-defaults)
 
 ;;; init-sane-defaults.el ends here
