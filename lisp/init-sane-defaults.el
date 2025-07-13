@@ -37,7 +37,7 @@
 (setq delete-by-moving-to-trash t)
 
 ;; show keystrokes immediately
-(setq echo-keystrokes 0.1)
+(setq echo-keystrokes 0.01)
 
 ;; add directory to buffer name if filename is not unique
 (setq uniquify-buffer-name-style 'forward)
