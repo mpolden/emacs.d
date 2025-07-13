@@ -44,7 +44,7 @@ With a prefix ARG prompt edit currently visited file using sudo."
 (use-package tramp
   :init
   ;; use control master options from ~/.ssh/config
-  (setq tramp-use-ssh-controlmaster-options nil)
+  (setq tramp-use-connection-share nil)
   ;; use inline copying up to 1 MB
   (setq tramp-copy-size-limit (* 1024 1024))
   :bind
