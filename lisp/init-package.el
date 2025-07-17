@@ -2,8 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar mpolden/inhibited-features nil
-  "List of features that should not be loaded.")
+(defcustom mpolden/inhibited-features nil
+  "List of features that should not be loaded."
+  :type '(repeat symbol))
 
 (defun mpolden/require-package (package)
   "Install given PACKAGE if it's not already installed."

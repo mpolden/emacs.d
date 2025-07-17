@@ -47,7 +47,7 @@ behavior, add the relevant mode(s) to =mpolden/inhibit-format-before-save=.
 Example:
 
 #+begin_src elisp
-  (setq mpolden/inhibit-format-before-save '(foo-mode))
+  (setopt mpolden/inhibit-format-before-save '(foo-mode))
 #+end_src
 
 *** gopls
@@ -95,5 +95,5 @@ Setting the variable =mpolden/inhibited-features= (e.g. in
 i.e. files in =lisp=. Example:
 
 #+begin_src elisp
-  (setq mpolden/inhibited-features '(init-foo init-bar))
+  (setopt mpolden/inhibited-features '(init-foo init-bar))
 #+end_src

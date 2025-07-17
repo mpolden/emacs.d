@@ -2,9 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar mpolden/font-family "Aporetic Sans Mono" "Set the default font.")
+(defcustom mpolden/font-family "Aporetic Sans Mono"
+  "Set the default font."
+  :type 'string)
 
-(defvar mpolden/font-size 15 "Set the default font size in points.")
+(defcustom mpolden/font-size 15
+  "Set the default font size in points."
+  :type 'integer)
 
 ;; set font
 (when (and (display-graphic-p)

@@ -2,12 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar mpolden/rg-template "rg -nHz --sort path --no-heading <C> -e <R> -- <F>"
-  "The grep template to use when rg (ripgrep) is installed.")
+(defcustom mpolden/rg-template "rg -nHz --sort path --no-heading <C> -e <R> -- <F>"
+  "The grep template to use when rg (ripgrep) is installed."
+  :type 'string)
 
-(defvar mpolden/git-grep-template "git --no-pager grep -n <C> -e <R> -- <F>"
+(defcustom mpolden/git-grep-template "git --no-pager grep -n <C> -e <R> -- <F>"
   "The grep template to use when git is installed.
-This is only used when running grep in a Git repository.")
+This is only used when running grep in a Git repository."
+  :type 'string)
 
 (defun mpolden/grep ()
   "Recursively grep the current project.

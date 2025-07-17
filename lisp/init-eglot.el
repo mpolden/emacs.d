@@ -2,14 +2,17 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar mpolden/inhibit-format-before-save nil
-  "List of modes where `eglot-format' should not be run before saving the buffer.")
+(defcustom mpolden/inhibit-format-before-save nil
+  "List of modes where `eglot-format' should not be run before saving the buffer."
+  :type '(repeat symbol))
 
-(defvar mpolden/inhibit-organize-imports-before-save nil
-  "List of modes where `eglot-code-action-organize-imports' should not be run before saving the buffer.")
+(defcustom mpolden/inhibit-organize-imports-before-save nil
+  "List of modes where `eglot-code-action-organize-imports' should not be run before saving the buffer."
+  :type '(repeat symbol))
 
-(defvar mpolden/inhibit-lsp nil
-  "List of modes where `eglot-ensure' should not be called to enable LSP integration.")
+(defcustom mpolden/inhibit-lsp nil
+  "List of modes where `eglot-ensure' should not be called to enable LSP integration."
+  :type '(repeat symbol))
 
 (defun mpolden/major-mode-member (modes)
   "Return non-nil if `major-mode' is an element of MODES."

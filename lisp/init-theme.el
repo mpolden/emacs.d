@@ -2,11 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar mpolden/theme-light 'ef-day
-  "The light theme to use when toggling themes with `mpolden/toggle-theme'.")
+(defcustom mpolden/theme-light 'ef-day
+  "The light theme to use when toggling themes with `mpolden/toggle-theme'."
+  :type 'symbol)
 
-(defvar mpolden/theme-dark 'ef-night
-  "The dark theme to use when toggling themes with `mpolden/toggle-theme'.")
+(defcustom mpolden/theme-dark 'ef-night
+  "The dark theme to use when toggling themes with `mpolden/toggle-theme'."
+  :type 'symbol)
 
 (defun mpolden/switch-theme (&optional theme)
   "Disable any currently enabled themes and load THEME."
