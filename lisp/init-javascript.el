@@ -9,9 +9,9 @@
 
   :mode
   ;; use js-json-mode for json and jsonc
-  ("\\.jsonc?\\'" . js-json-mode))
+  ("\\.jsonc?\\'" . js-json-mode)
 
-  :bind (:map js-mode-map
+  :bind (:map js-json-mode-map
               ;; C-c f formats json
               ("C-c f" . json-pretty-print-buffer)))
 
