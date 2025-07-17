@@ -8,8 +8,8 @@
   (setopt js-indent-level 2)
 
   :mode
-  ;; use js-mode for json and jsonc
-  ("\\.jsonc?\\'" . js-mode)
+  ;; use js-json-mode for json and jsonc
+  ("\\.jsonc?\\'" . js-json-mode))
 
   :bind (:map js-mode-map
               ;; C-c f formats json
