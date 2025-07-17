@@ -8,7 +8,7 @@
   (add-to-list 'load-path lisp-directory)
 
   ;; save customizations as local (unversioned) settings
-  (setq custom-file (expand-file-name "init-local.el" lisp-directory)))
+  (setopt custom-file (expand-file-name "init-local.el" lisp-directory)))
 
 ;; package management
 (require 'init-package)

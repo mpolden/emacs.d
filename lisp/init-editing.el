@@ -54,10 +54,10 @@ prefix argument is given, the complete file path is killed instead."
 (global-set-key (kbd "C-c w") 'mpolden/kill-buffer-project-path)
 
 ;; kill line also kills newline character
-(setq kill-whole-line t)
+(setopt kill-whole-line t)
 
 ;; yank discards all text properties
-(setq yank-excluded-properties t)
+(setopt yank-excluded-properties t)
 
 (provide 'init-editing)
 

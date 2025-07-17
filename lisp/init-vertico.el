@@ -14,16 +14,16 @@ remote projects."
 
 ;; save minibuffer history so that vertico can use it for sorting
 (use-package savehist
-  :config
-  (savehist-mode 1))
+  :init
+  (setopt savehist-mode t))
 
 ;; enhanced search and navigation commands
 (use-package consult
   :ensure t
   :init
-  (setq consult-project-function #'mpolden/consult-project-function)
-  (setq xref-show-xrefs-function #'consult-xref)
-  (setq completion-in-region-function #'consult-completion-in-region)
+  (setopt consult-project-function #'mpolden/consult-project-function
+          xref-show-xrefs-function #'consult-xref
+          completion-in-region-function #'consult-completion-in-region)
   :bind (("C-x b" . consult-buffer)
          ("C-c i" . consult-imenu)
          ("C-c m" . consult-flymake)
@@ -34,8 +34,8 @@ remote projects."
 ;; show rich annotations in the minibuffer
 (use-package marginalia
   :ensure t
-  :config
-  (marginalia-mode 1))
+  :init
+  (setopt marginalia-mode t))
 
 ;; a better completion ui
 (use-package vertico
@@ -43,13 +43,13 @@ remote projects."
   :init
   ;; enable fuzzy matching
   ;; https://github.com/minad/vertico/#completion-styles-and-tab-completion
-  (setq completion-styles '(basic substring partial-completion flex))
+  (setopt completion-styles '(basic substring partial-completion flex))
   ;; make completion case-insensitive
-  (setq read-file-name-completion-ignore-case t
-        read-buffer-completion-ignore-case t
-        completion-ignore-case t)
-  :config
-  (vertico-mode 1))
+  (setopt read-file-name-completion-ignore-case t
+          read-buffer-completion-ignore-case t
+          completion-ignore-case t)
+  ;; enable mode
+  (setopt vertico-mode t))
 
 ;; make directory navigation behave like ido
 ;; https://github.com/minad/vertico/#extensions

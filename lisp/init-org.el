@@ -23,86 +23,86 @@ to `org-goto'."
          ("C-c C-j" . mpolden/org-goto))
   :init
   ;; set default org directory
-  (setq org-directory "~/org")
+  (setopt org-directory "~/org")
 
   ;; open notes file by default
   (let ((notes-file (expand-file-name "notes.org" org-directory)))
     (when (file-exists-p notes-file)
-      (setq initial-buffer-choice notes-file)))
+      (setopt initial-buffer-choice notes-file)))
 
   ;; save archive file when archiving
-  (setq org-archive-subtree-save-file-p t)
+  (setopt org-archive-subtree-save-file-p t)
 
   ;; sparse tree construction shows matches in archived trees
-  (setq org-sparse-tree-open-archived-trees t)
+  (setopt org-sparse-tree-open-archived-trees t)
 
   ;; display all org files in agenda
-  (setq org-agenda-files (list org-directory))
+  (setopt org-agenda-files (list org-directory))
 
   ;; refile targets 1 level in current buffer and all org agenda files
-  (setq org-refile-targets '((nil :maxlevel . 2) (org-agenda-files :maxlevel . 1)))
+  (setopt org-refile-targets '((nil :maxlevel . 2) (org-agenda-files :maxlevel . 1)))
 
   ;; visual indenting only
-  (setq org-startup-indented t
-        org-adapt-indentation nil)
+  (setopt org-startup-indented t
+          org-adapt-indentation nil)
 
   ;; record time when moving a task to done state
-  (setq org-log-done 'time)
+  (setopt org-log-done 'time)
 
   ;; capture template including title, date and time
-  (setq org-capture-templates '(("i" "Inbox" entry (file "inbox.org")
-                                 "* TODO %?\n%U")
-                                ("t" "Tasks" entry (file+headline "notes.org" "Tasks")
-                                 "* TODO %?\n%U")))
+  (setopt org-capture-templates '(("i" "Inbox" entry (file "inbox.org")
+                                   "* TODO %?\n%U")
+                                  ("t" "Tasks" entry (file+headline "notes.org" "Tasks")
+                                   "* TODO %?\n%U")))
 
   ;; cycle opens archived trees
-  (setq org-cycle-open-archived-trees t)
+  (setopt org-cycle-open-archived-trees t)
 
   ;; fold by default
-  (setq org-startup-folded t)
+  (setopt org-startup-folded 'fold)
 
   ;; define todo states
-  (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w@)" "|" "ABRT(a@)" "DONE(d)")))
+  (setopt org-todo-keywords '((sequence "TODO(t)" "WAIT(w@)" "|" "ABRT(a@)" "DONE(d)")))
 
   ;; disallow invisible edits
-  (setq org-catch-invisible-edits 'error)
+  (setopt org-catch-invisible-edits 'error)
 
   ;; complete tags from all agenda files
-  (setq org-complete-tags-always-offer-all-agenda-tags t)
+  (setopt org-complete-tags-always-offer-all-agenda-tags t)
 
   ;; search headlines via completion
-  (setq org-goto-interface 'outline-path-completion)
+  (setopt org-goto-interface 'outline-path-completion)
 
   ;; include the full path when searching headlines
-  (setq org-outline-path-complete-in-steps nil)
+  (setopt org-outline-path-complete-in-steps nil)
 
   ;; insert state change notes and time stamps into a drawer
-  (setq org-log-into-drawer t)
+  (setopt org-log-into-drawer t)
 
   ;; export as html5
-  (setq org-html-doctype "html5")
+  (setopt org-html-doctype "html5")
 
   ;; hide todo entries whose deadline is far away according to
   ;; org-deadline-warning-days
-  (setq org-agenda-todo-ignore-deadlines 'far)
+  (setopt org-agenda-todo-ignore-deadlines 'far)
 
   ;; hide todo entries scheduled in the future
-  (setq org-agenda-todo-ignore-scheduled 'future)
+  (setopt org-agenda-todo-ignore-scheduled 'future)
 
   ;; include two weeks in agenda
-  (setq org-agenda-span 'fortnight)
+  (setopt org-agenda-span 'fortnight)
 
   ;; set export backends
-  (setq org-export-backends '(ascii html md))
+  (setopt org-export-backends '(ascii html md))
 
   ;; babel languages
-  (setq org-babel-load-languages '((emacs-lisp . t)
-                                   (python . t)
-                                   (shell . t))
-        org-babel-python-command "python3")
+  (setopt org-babel-load-languages '((emacs-lisp . t)
+                                     (python . t)
+                                     (shell . t))
+          org-babel-python-command "python3")
 
   ;; skip confirmation when evaluating code blocks
-  (setq org-confirm-babel-evaluate nil))
+  (setopt org-confirm-babel-evaluate nil))
 
 ;; enable template expansion when typing <s in org-mode
 (use-package org-tempo
@@ -117,11 +117,12 @@ to `org-goto'."
 
 (use-package org-modern
   :ensure t
+  :after org
   :init
   ;; do not use folding indicators
-  (setq org-modern-star 'replace)
-  :config
-  (global-org-modern-mode 1))
+  (setopt org-modern-star'replace)
+  ;; enable mode
+  (setopt global-org-modern-mode t))
 
 (provide 'init-org)
 

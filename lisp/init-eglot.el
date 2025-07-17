@@ -46,7 +46,7 @@
   ;; https://github.com/joaotavora/eglot/issues/157
   ;;
   ;; set a default value that fits most languages
-  (setq-default tab-width 4)
+  (setopt tab-width 4)
   :hook
   ;; load eglot automatically for these modes
   ((go-mode . mpolden/eglot-ensure)

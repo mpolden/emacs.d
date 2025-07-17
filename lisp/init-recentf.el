@@ -5,10 +5,9 @@
 (use-package recentf
   :init
   ;; set number of entries to save
-  (setq recentf-max-saved-items 1000)
-
-  :config
-  (recentf-mode 1))
+  (setopt recentf-max-saved-items 1000)
+  ;; enable mode
+  (setopt recentf-mode t))
 
 (provide 'init-recentf)
 

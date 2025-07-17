@@ -66,7 +66,7 @@ source."
   :ensure t
   :init
   ;; hide recent commits in magit-status
-  (setq magit-log-section-commit-count 0)
+  (setopt magit-log-section-commit-count 0)
 
   :bind (("C-x m" . magit-status)
          ("C-c b" . magit-blame)
@@ -97,13 +97,13 @@ source."
 
 (use-package smerge-mode
   :init
-  (setq smerge-command-prefix (kbd "C-c x")))
+  (setopt smerge-command-prefix (kbd "C-c x")))
 
 ;; follow symlinks to files under version control
-(setq vc-follow-symlinks t)
+(setopt vc-follow-symlinks t)
 
 ;; limit vc backends as this may speed up some operations, e.g. tramp
-(setq vc-handled-backends '(Git))
+(setopt vc-handled-backends '(Git))
 
 (provide 'init-git)
 

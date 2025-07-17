@@ -5,7 +5,7 @@
 (use-package js
   :init
   ;; set indent level to 2
-  (setq-default js-indent-level 2)
+  (setopt js-indent-level 2)
 
   :mode
   ;; use js-mode for json, jsonc and jshint

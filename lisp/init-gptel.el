@@ -38,9 +38,9 @@ START and END indicates the starting and ending position of the LLM response."
   :bind (("C-c h" . gptel))
   :init
   ;; use org-mode syntax
-  (setq gptel-default-mode 'org-mode)
+  (setopt gptel-default-mode 'org-mode)
   ;; disable reasoning
-  (setq gptel-include-reasoning nil)
+  (setopt gptel-include-reasoning nil)
   :hook
   ((gptel-mode . mpolden/gptel-mode-buffer-local-variables)
    ;; save chat buffer after response

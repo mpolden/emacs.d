@@ -17,25 +17,25 @@
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
 
 ;; disable splash
-(setq inhibit-startup-message t)
+(setopt inhibit-startup-screen t)
 
 ;; hide menubar when not on os x
 (when (and (fboundp 'menu-bar-mode) (not (eq system-type 'darwin)))
-  (menu-bar-mode -1))
+  (setopt menu-bar-mode nil))
 
 ;; hide toolbar
 (when (fboundp 'tool-bar-mode)
-  (tool-bar-mode -1))
+  (setopt tool-bar-mode nil))
 
 ;; hide scrollbar
 (when (fboundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
+  (setopt scroll-bar-mode nil))
 
 ;; avoid potential gaps when frame is maximized
-(setq frame-resize-pixelwise t)
+(setopt frame-resize-pixelwise t)
 
 ;; disable dialogs
-(setq use-dialog-box nil)
+(setopt use-dialog-box nil)
 
 ;; highlight current line
 (use-package hl-line
@@ -64,25 +64,25 @@
   :hook ((compilation-filter . ansi-color-compilation-filter)))
 
 ;; display line and column numbers in mode-line
-(setq line-number-mode t
-      column-number-mode t)
+(setopt line-number-mode t
+        column-number-mode t)
 
 ;; display time in mode-line
 (use-package time
   :init
   ;; civilized societies use a 24 hour clock
-  (setq display-time-24hr-format t)
+  (setopt display-time-24hr-format t)
   ;; make sunrise-sunset use a 24 hour clock
-  (setq calendar-time-display-form
-        '(24-hours ":" minutes
-                   (if time-zone " (") time-zone (if time-zone ")")))
+  (setopt calendar-time-display-form
+          '(24-hours ":" minutes
+                     (if time-zone " (") time-zone (if time-zone ")")))
   ;; hide load average
-  (setq display-time-default-load-average nil)
-  :config
-  (display-time-mode 1))
+  (setopt display-time-default-load-average nil)
+  ;; enable mode
+  (setopt display-time-mode t))
 
 ;; do not underline compilation messages
-(setq compilation-message-face nil)
+(setopt compilation-message-face 'default)
 
 (provide 'init-appearance)
 

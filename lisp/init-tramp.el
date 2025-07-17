@@ -44,14 +44,14 @@ With a prefix ARG prompt edit currently visited file using sudo."
 (use-package tramp
   :init
   ;; use control master options from ~/.ssh/config
-  (setq tramp-use-connection-share nil)
+  (setopt tramp-use-connection-share nil)
   ;; inspired by https://coredumped.dev/2025/06/18/making-tramp-go-brrrr./
   ;; use inline copying up to 1 MB
-  (setq tramp-copy-size-limit (* 1024 1024))
+  (setopt tramp-copy-size-limit (* 1024 1024))
   ;; reduce files created and copy files directly between remote hosts
-  (setq remote-file-name-inhibit-locks t
-        tramp-use-scp-direct-remote-copying t
-        remote-file-name-inhibit-auto-save-visited t)
+  (setopt remote-file-name-inhibit-locks t
+          tramp-use-scp-direct-remote-copying t
+          remote-file-name-inhibit-auto-save-visited t)
   :bind
   (("C-x +" . mpolden/sudo-find-file)
    ("C-x !" . mpolden/sudo-current-file))

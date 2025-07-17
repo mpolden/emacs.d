@@ -19,13 +19,13 @@ prompts for a shell command."
 (use-package dired
   :init
   ;; show human readable sizes in dired
-  (setq dired-listing-switches "-alh")
+  (setopt dired-listing-switches "-alh")
 
   ;; register renames in version control
-  (setq dired-vc-rename-file t)
+  (setopt dired-vc-rename-file t)
 
   ;; guess default target directory for moves
-  (setq dired-dwim-target t)
+  (setopt dired-dwim-target t)
 
   :bind (:map dired-mode-map
               ("C-c r" . dired-toggle-read-only)

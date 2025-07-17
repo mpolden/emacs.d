@@ -13,13 +13,13 @@
 (use-package project
   :init
   ;; commands to show when switching projects
-  (setq project-switch-commands '((project-find-file "Find file" ?f)
-                                  (project-dired "Dired" ?d)
-                                  (mpolden/grep "Grep" ?g)
-                                  (magit-project-status "Magit" ?m)
-                                  (mpolden/eshell-other-window "Eshell" ?e)))
+  (setopt project-switch-commands '((project-find-file "Find file" ?f)
+                                    (project-dired "Dired" ?d)
+                                    (mpolden/grep "Grep" ?g)
+                                    (magit-project-status "Magit" ?m)
+                                    (mpolden/eshell-other-window "Eshell" ?e)))
   ;; configure how projects are detected
-  (setq project-find-functions '(mpolden/project-try-go project-try-vc))
+  (setopt project-find-functions '(mpolden/project-try-go project-try-vc))
   :bind (;; C-x f finds file in project
          ("C-x f" . project-find-file)
          ;; C-c p switches project
