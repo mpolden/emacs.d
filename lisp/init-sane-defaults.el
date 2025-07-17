@@ -5,8 +5,8 @@
 ;; use soft tabs
 (setopt indent-tabs-mode nil)
 
-;; make prompts accept y or n
-(defalias 'yes-or-no-p #'y-or-n-p)
+;; make prompts always accept y or n
+(setopt use-short-answers t)
 
 ;; no confirmation for non-existent files or buffers
 (setopt confirm-nonexistent-file-or-buffer nil)
