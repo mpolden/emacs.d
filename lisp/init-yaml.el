@@ -3,7 +3,6 @@
 ;;; Code:
 
 (use-package yaml-mode
-  :mode ("\\.yml\\'" . yaml-mode)
   :ensure t)
 
 (provide 'init-yaml)

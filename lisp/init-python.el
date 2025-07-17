@@ -29,7 +29,6 @@
     (setq-local eglot-server-programs `((python-mode . (,lsp-server))))))
 
 (use-package python
-  :mode ("\\.py\\'" . python-mode)
   :hook (python-mode . mpolden/python-mode-buffer-local-variables))
 
 (provide 'init-python)
