@@ -102,11 +102,11 @@ to `org-goto'."
         org-babel-python-command "python3")
 
   ;; skip confirmation when evaluating code blocks
-  (setq org-confirm-babel-evaluate nil)
+  (setq org-confirm-babel-evaluate nil))
 
-  :config
-  ;; enable template expansion when typing <s in org-mode
-  (add-to-list 'org-modules 'org-tempo t))
+;; enable template expansion when typing <s in org-mode
+(use-package org-tempo
+  :after org)
 
 (use-package org-mac-link
   :ensure t
