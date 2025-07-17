@@ -63,8 +63,8 @@ To enable =staticcheck= when using the =gopls= language server, create a
 
 ** Version compatibility
 
-Lowest supported Emacs version is the one found in [[https://packages.debian.org/stable/emacs][Debian stable]]. No
-guarantees for older versions.
+Only the latest stable Emacs version is supported. No guarantees for older
+versions.
 
 ** Setup
 
