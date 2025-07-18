@@ -2,20 +2,29 @@
 ;;; Commentary:
 ;;; Code:
 
+(defun mpolden/set-font (setting value)
+  "Change font SETTING to VALUE.
+
+SETTING must be the symbol `mpolden/font-family' or `mpolden/font-size'.
+VALUE must be a valid font family, or the font size in points."
+  (when (display-graphic-p)
+    (cond
+     ((eq setting 'mpolden/font-family)
+      (when (member value (font-family-list))
+        (set-face-attribute 'default nil :family value)))
+     ((eq setting 'mpolden/font-size)
+      (set-face-attribute 'default nil :height (* 10 value)))
+     (t (error "Unknown setting: %s" setting)))))
+
 (defcustom mpolden/font-family "Aporetic Sans Mono"
   "Set the default font."
-  :type 'string)
+  :type 'string
+  :set 'mpolden/set-font)
 
 (defcustom mpolden/font-size 15
   "Set the default font size in points."
-  :type 'integer)
-
-;; set font
-(when (and (display-graphic-p)
-           (member mpolden/font-family (font-family-list)))
-  (set-face-attribute 'default nil
-                      :family mpolden/font-family
-                      :height (* 10 mpolden/font-size)))
+  :type 'integer
+  :set 'mpolden/set-font)
 
 ;; maximize frame on startup
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
