@@ -48,9 +48,10 @@ theme instead of toggling."
           ('light (mpolden/switch-theme mpolden/theme-light))
           ('dark (mpolden/switch-theme mpolden/theme-dark))
           (_ (error "Invalid apperance: %s"  appearance)))
-      (let* ((is-light (eq (mpolden/current-theme) 'light))
-             (new-theme (if is-light mpolden/theme-dark mpolden/theme-light)))
-        (mpolden/switch-theme new-theme)))))
+      (mpolden/switch-theme
+       (if (eq (mpolden/current-theme) 'light)
+           mpolden/theme-dark
+         mpolden/theme-light)))))
 
 (use-package ef-themes
   :ensure t
