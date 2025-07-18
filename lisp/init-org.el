@@ -10,7 +10,7 @@ to `org-goto'."
   (interactive)
   (if (functionp 'consult-org-heading)
       (call-interactively 'consult-org-heading)
-    (org-goto)))
+    (call-interactively 'org-goto)))
 
 (use-package org
   :bind (("C-c c" . org-capture)
