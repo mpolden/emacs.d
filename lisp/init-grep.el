@@ -63,10 +63,7 @@ If NOSELECT is non-nil, do not select the window."
          :map grep-mode-map
          ;; make C-o and o behave as in dired
          ("o" . mpolden/grep-visit-buffer-other-window)
-         ("C-o" . mpolden/grep-visit-buffer-other-window-noselect)
-         ;; n and p changes line as in ag-mode
-         ("n" . compilation-next-error)
-         ("p" . compilation-previous-error)))
+         ("C-o" . mpolden/grep-visit-buffer-other-window-noselect)))
 
 (provide 'init-grep)
 
