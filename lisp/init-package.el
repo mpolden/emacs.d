@@ -6,13 +6,6 @@
   "List of features that should not be loaded."
   :type '(repeat symbol))
 
-(defun mpolden/require-package (package)
-  "Install given PACKAGE if it's not already installed."
-  (unless (package-installed-p package)
-    (unless (assoc package package-archive-contents)
-      (package-refresh-contents))
-    (package-install package)))
-
 (defun mpolden/maybe-require (feature)
   "Load FEATURE if it's not inhibited."
   (unless (memq feature mpolden/inhibited-features)
@@ -24,9 +17,9 @@
              '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-;; install use-package and diminish
-(mpolden/require-package 'use-package)
-(mpolden/require-package 'diminish)
+;; support hiding minor modes from modeline
+(use-package diminish
+  :ensure t)
 
 (provide 'init-package)
 
