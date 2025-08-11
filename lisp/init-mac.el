@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+(defcustom mpolden/path-from-shell "/opt/homebrew/bin/fish"
+  "The shell to use when determining the PATH."
+  :type 'file)
+
 ;; use command as meta
 (setopt mac-command-modifier 'meta)
 
@@ -30,7 +34,10 @@
   :init
   (setopt exec-path-from-shell-variables '("PATH" "MANPATH" "GOPATH"
                                            "JAVA_HOME" "SSH_AUTH_SOCK"))
-  :config (exec-path-from-shell-initialize))
+  (when (file-executable-p mpolden/path-from-shell)
+    (setopt exec-path-from-shell-shell-name mpolden/path-from-shell))
+  :config
+  (exec-path-from-shell-initialize))
 
 ;; use gls if available (which supports --dired option)
 (when (executable-find "gls")
