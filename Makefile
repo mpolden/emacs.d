@@ -26,7 +26,7 @@ install-emacs-liquid-glass-icon:
 	mkdir -p /tmp/emacs-liquid-glass-icon
 	test -f /tmp/emacs-liquid-glass-icon/EmacsLG3-Default.icns || \
 		curl -fsSL -o /tmp/emacs-liquid-glass-icon/EmacsLG3-Default.icns \
-		https://github.com/jimeh/emacs-liquid-glass-icons/releases/download/v1.0.0/EmacsLG3-Default.icns
+		https://github.com/jimeh/emacs-liquid-glass-icons/releases/download/v1.0.1/EmacsLG3-Default.icns
 	install -m 0644 -p /tmp/emacs-liquid-glass-icon/EmacsLG3-Default.icns /Applications/Emacs.app/Contents/Resources/Emacs.icns
 
 install-emacs-plus:
