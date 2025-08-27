@@ -9,7 +9,13 @@
 
 (use-package go-mode
   :ensure t
-  :hook (go-mode . mpolden/go-mode-buffer-local-variables))
+  :hook (go-mode . mpolden/go-mode-buffer-local-variables)
+  :config
+   ;; match trace paths printed by github.com/stretchr/testify
+  (add-to-list 'compilation-error-regexp-alist 'go-testify)
+  (add-to-list 'compilation-error-regexp-alist-alist
+               '(go-testify . ("^\\s-+\\(?:Error Trace:\\s-+\\)?\\([^()\t\n]+\\):\\([0-9]+\\)$" 1 2))
+               t))
 
 (provide 'init-go)
 
