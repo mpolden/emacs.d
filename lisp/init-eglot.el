@@ -32,7 +32,7 @@
 
 (defun mpolden/eglot-before-save ()
   "All actions that may run before saving buffer."
-  (unless (mpolden/major-mode-member mpolden/inhibit-lsp)
+  (when (eglot-managed-p)
     (mpolden/format-before-save)
     (mpolden/organize-imports-before-save)))
 
