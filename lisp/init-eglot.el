@@ -55,6 +55,7 @@
   ((go-mode . mpolden/eglot-ensure)
    (java-mode . mpolden/eglot-ensure)
    (python-mode . mpolden/eglot-ensure)
+   (ruby-mode . mpolden/eglot-ensure)
    (rust-mode . mpolden/eglot-ensure)
    (before-save . mpolden/eglot-before-save))
 
