@@ -16,6 +16,12 @@ If NOSELECT is non-nil, do not select the window."
   (interactive)
   (mpolden/magit-visit-file-other-window t))
 
+(defun mpolden/magit-mode-buffer-local-variables ()
+  "Set buffer-local variables for `magit-mode'."
+  ;; search only visible lines in magit-status
+  ;; https://github.com/magit/magit/discussions/4755
+  (setq-local isearch-filter-predicate #'isearch-filter-visible))
+
 (cl-defun mpolden/auth-source-gh-search (&key backend type host user &allow-other-keys)
   "Find an authentication token for HOST and USER using GitHub CLI.
 
@@ -67,7 +73,6 @@ source."
   :init
   ;; hide recent commits in magit-status
   (setopt magit-log-section-commit-count 0)
-
   :bind (("C-x m" . magit-status)
          ("C-c b" . magit-blame)
          :map magit-status-mode-map
@@ -77,7 +82,7 @@ source."
          :map magit-diff-mode-map
          ("o" . mpolden/magit-visit-file-other-window)
          ("C-o" . mpolden/magit-visit-file-other-window-noselect))
-
+  :hook ((magit-mode . mpolden/magit-mode-buffer-local-variables))
   :config
   ;; absorb automatically fixes up existing commits
   ;; https://github.com/tummychow/git-absorb
