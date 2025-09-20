@@ -33,6 +33,8 @@ current project."
          (use-git (and git-repository (executable-find "git" t)))
          (template (cond (use-rg mpolden/rg-template)
                          (use-git mpolden/git-grep-template))))
+    ;; ensure defaults are computed (this must be done once per host)
+    (grep-compute-defaults)
     (grep-apply-setting 'grep-template template)
     ;; never use null device as all programs support -H
     (grep-apply-setting 'grep-use-null-device nil)
@@ -57,7 +59,6 @@ If NOSELECT is non-nil, do not select the window."
   (mpolden/grep-visit-buffer-other-window result t))
 
 (use-package grep
-  :commands (grep-read-regexp grep-apply-setting)
   :bind (;; C-c g runs interactive grep
          ("C-c g" . mpolden/grep)
          :map grep-mode-map
