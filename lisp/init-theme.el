@@ -57,7 +57,7 @@ theme instead of toggling."
   :ensure t
   :defer nil
   :if (display-graphic-p)
-  :bind ("C-c t" . mpolden/toggle-theme)
+  :bind ("C-c T" . mpolden/toggle-theme)
   :config
   ;; load theme
   (if (boundp 'ns-system-appearance-change-functions)
