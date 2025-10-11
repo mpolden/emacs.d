@@ -16,16 +16,34 @@ prompts for a shell command."
         (dired-do-shell-command open nil (dired-get-marked-files t))
       (call-interactively 'dired-do-shell-command))))
 
+(defun mpolden/dired-group-directories-first ()
+  "Return non-nil if `insert-directory-program' supports --group-directories-first."
+  (or (eq system-type 'gnu/linux)
+      (equal insert-directory-program "gls")
+      (equal insert-directory-program "gnuls")))
+
+(defun mpolden/dired-compatible-listing-switches ()
+  "Ensure compatible ls options are used for remote buffers."
+  (if (file-remote-p default-directory)
+      (setq dired-actual-switches "-alh")
+    (setq dired-actual-switches dired-listing-switches)))
+
 (use-package dired
   :init
   ;; show human readable sizes in dired
-  (setopt dired-listing-switches "-alh")
+  (if (mpolden/dired-group-directories-first)
+      (setopt dired-listing-switches "-alh --group-directories-first")
+    (setopt dired-listing-switches "-alh"))
 
   ;; register renames in version control
   (setopt dired-vc-rename-file t)
 
   ;; guess default target directory for moves
   (setopt dired-dwim-target t)
+
+  ;; ensure compatible ls options are used
+  :hook
+  ((dired-before-readin . mpolden/dired-compatible-listing-switches))
 
   :bind (:map dired-mode-map
               ("C-c r" . dired-toggle-read-only)
