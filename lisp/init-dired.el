@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+(defcustom mpolden/dired-safe-switches "-Alh"
+  "The `dired-listing-switches' supported by modern systems."
+  :type 'string)
+
 (defun mpolden/dired-open-or-shell-command ()
   "Open marked files with the default external program.
 
@@ -25,15 +29,17 @@ prompts for a shell command."
 (defun mpolden/dired-compatible-listing-switches ()
   "Ensure compatible ls options are used for remote buffers."
   (if (file-remote-p default-directory)
-      (setq dired-actual-switches "-alh")
+      (setq dired-actual-switches mpolden/dired-safe-switches)
     (setq dired-actual-switches dired-listing-switches)))
 
 (use-package dired
   :init
   ;; show human readable sizes in dired
   (if (mpolden/dired-group-directories-first)
-      (setopt dired-listing-switches "-alh --group-directories-first")
-    (setopt dired-listing-switches "-alh"))
+      (setopt dired-listing-switches
+              (concat mpolden/dired-safe-switches
+                      " --group-directories-first"))
+    (setopt dired-listing-switches mpolden/dired-safe-switches))
 
   ;; register renames in version control
   (setopt dired-vc-rename-file t)
