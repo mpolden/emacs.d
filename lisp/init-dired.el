@@ -28,7 +28,11 @@ prompts for a shell command."
 
 (defun mpolden/dired-compatible-listing-switches ()
   "Ensure compatible ls options are used for remote buffers."
-  (if (file-remote-p default-directory)
+  (if (and (file-remote-p default-directory)
+           (not (string-prefix-p
+                 "Linux "
+                 (tramp-get-connection-property
+                  (tramp-dissect-file-name default-directory) "uname" nil))))
       (setq dired-actual-switches mpolden/dired-safe-switches)
     (setq dired-actual-switches dired-listing-switches)))
 
