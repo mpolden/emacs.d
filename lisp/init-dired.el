@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defcustom mpolden/dired-safe-switches "-Alh"
+(defcustom mpolden/dired-safe-switches "-alh"
   "The `dired-listing-switches' supported by modern systems."
   :type 'string)
 
