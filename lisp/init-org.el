@@ -119,7 +119,7 @@ to `org-goto'."
   :after org
   :init
   ;; do not use folding indicators
-  (setopt org-modern-star'replace)
+  (setopt org-modern-star 'replace)
   ;; enable mode
   (setopt global-org-modern-mode t))
 
