@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defcustom mpolden/rg-template "rg -nHz --sort path --no-heading <C> -e <R> -- <F>"
+(defcustom mpolden/rg-template "rg -nHz --hidden --glob=!.git --sort=path --no-heading <C> -e <R> -- <F>"
   "The grep template to use when rg (ripgrep) is installed."
   :type 'string)
 
