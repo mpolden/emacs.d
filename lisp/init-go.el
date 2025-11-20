@@ -5,7 +5,7 @@
 (defun mpolden/go-mode-buffer-local-variables ()
   "Set buffer-local variables for `go-mode'."
   (setq-local fill-column 120
-              compile-command "GOEXPERIMENT=jsonv2 go test "))
+              compile-command "go test "))
 
 (use-package go-mode
   :ensure t
