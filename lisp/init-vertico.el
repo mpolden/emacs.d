@@ -29,7 +29,13 @@ remote projects."
          ("C-c m" . consult-flymake)
          ("C-x C-r" . consult-recent-file)
          ("M-g M-g" . consult-goto-line)
-         ("M-y" . consult-yank-pop)))
+         ("M-y" . consult-yank-pop))
+  :config
+  ;; do not sort buffer list by visibility
+  ;; https://github.com/minad/consult/issues/651
+  (plist-put consult-source-buffer :items
+             (lambda () (consult--buffer-query :sort nil
+                                               :as #'consult--buffer-pair))))
 
 ;; show rich annotations in the minibuffer
 (use-package marginalia
