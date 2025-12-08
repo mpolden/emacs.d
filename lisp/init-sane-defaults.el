@@ -27,10 +27,6 @@
   ;; enable mode
   (setopt global-auto-revert-mode t))
 
-;; save buffers automatically
-(setopt auto-save-visited-interval 1
-        auto-save-visited-mode t)
-
 ;; integrate with X clipboard
 (setopt select-enable-clipboard t)
 
