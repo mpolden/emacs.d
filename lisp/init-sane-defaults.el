@@ -27,6 +27,10 @@
   ;; enable mode
   (setopt global-auto-revert-mode t))
 
+;; save buffers when selected window changes
+(add-hook 'window-selection-change-functions
+          (lambda (frame) (save-some-buffers t)))
+
 ;; integrate with X clipboard
 (setopt select-enable-clipboard t)
 
