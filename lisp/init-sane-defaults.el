@@ -2,6 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
+(defun mpolden/save-buffer (_frame)
+  "Save the current buffer if it's visiting a file."
+  (when-let* ((buf (current-buffer))
+              (_name (buffer-file-name buf)))
+    (with-current-buffer buf
+      (save-buffer))))
+
 ;; use soft tabs
 (setopt indent-tabs-mode nil)
 
@@ -27,9 +34,8 @@
   ;; enable mode
   (setopt global-auto-revert-mode t))
 
-;; save buffers when selected window changes
-(add-hook 'window-selection-change-functions
-          (lambda (frame) (save-some-buffers t)))
+;; save buffer when selected window changes
+(add-hook 'window-selection-change-functions 'mpolden/save-buffer)
 
 ;; integrate with X clipboard
 (setopt select-enable-clipboard t)
