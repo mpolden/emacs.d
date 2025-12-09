@@ -73,6 +73,8 @@ source."
   :init
   ;; hide recent commits in magit-status
   (setopt magit-log-section-commit-count 0)
+  ;; save buffers automatically
+  (setopt magit-save-repository-buffers 'dontask)
   :bind (("C-x m" . magit-status)
          ("C-c b" . magit-blame)
          :map magit-status-mode-map
