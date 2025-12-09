@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(defun mpolden/save-buffer (_frame)
-  "Save the current buffer if it's visiting a file."
-  (when-let* ((buf (current-buffer))
+(defun mpolden/save-other-buffer (_frame)
+  "Save the previous buffer if it's visiting a file."
+  (when-let* ((buf (other-buffer (current-buffer) t))
               (_name (buffer-file-name buf)))
     (with-current-buffer buf
       (save-buffer))))
@@ -34,8 +34,8 @@
   ;; enable mode
   (setopt global-auto-revert-mode t))
 
-;; save buffer when selected window changes
-(add-hook 'window-selection-change-functions 'mpolden/save-buffer)
+;; save previous buffer when selected window changes
+(add-hook 'window-selection-change-functions 'mpolden/save-other-buffer)
 
 ;; integrate with X clipboard
 (setopt select-enable-clipboard t)
