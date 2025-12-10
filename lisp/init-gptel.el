@@ -24,10 +24,25 @@
     ;; gptel-mode marks buffer as modified, but doesn't actually modify anything
     (set-buffer-modified-p nil)))
 
-(defun mpolden/gptel-mode-after-response (start end)
+(defun mpolden/gptel-remove-headings (beg end)
+  "Remove any Org headings in the region identified by BEG and END."
+  ;; https://github.com/karthink/gptel/issues/942#issuecomment-3016914124
+  (when (derived-mode-p 'org-mode)
+    (save-excursion
+      (goto-char beg)
+      (while (re-search-forward org-heading-regexp end t)
+        (forward-line 0)
+        (delete-char (1+ (length (match-string 1))))
+        (insert-and-inherit "*")
+        (end-of-line)
+        (skip-chars-backward " \t\r")
+        (insert-and-inherit "*")))))
+
+(defun mpolden/gptel-mode-after-response (beg end)
   "Save chat buffer and move to next org heading.
 
-START and END indicates the starting and ending position of the LLM response."
+BEG and END indicates the starting and ending position of the LLM response."
+  (mpolden/gptel-remove-headings beg end)
   (when (mpolden/gptel-mode-in-chat-directory-p)
     (save-buffer))
   (call-interactively 'gptel-end-of-response))
