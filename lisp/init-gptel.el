@@ -56,8 +56,6 @@ BEG and END indicates the starting and ending position of the LLM response."
   (setopt gptel-default-mode 'org-mode)
   ;; disable reasoning
   (setopt gptel-include-reasoning nil)
-  ;; set model
-  (setopt gptel-model 'gpt-5.1)
   :hook
   ((gptel-mode . mpolden/gptel-mode-buffer-local-variables)
    ;; save chat buffer after response
