@@ -3,9 +3,12 @@
 ;;; Code:
 
 (defun mpolden/save-other-buffer (_frame)
-  "Save the previous buffer if it's visiting a file."
+  "Save the previous buffer if it's visiting a file.
+
+The file is only saved if its parent directory exists."
   (when-let* ((buf (other-buffer (current-buffer) t))
-              (_name (buffer-file-name buf)))
+              (filename (buffer-file-name buf))
+              (_ (file-directory-p (file-name-directory filename))))
     (with-current-buffer buf
       (save-buffer))))
 
