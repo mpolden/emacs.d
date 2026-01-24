@@ -75,6 +75,8 @@ source."
   (setopt magit-log-section-commit-count 0)
   ;; save buffers automatically
   (setopt magit-save-repository-buffers 'dontask)
+  ;; use pipes for better performance
+  (setopt magit-process-connection-type nil)
   :bind (("C-x m" . magit-status)
          ("C-c b" . magit-blame)
          :map magit-status-mode-map
