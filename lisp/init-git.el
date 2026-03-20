@@ -106,7 +106,7 @@ source."
 
 (use-package smerge-mode
   :init
-  (setopt smerge-command-prefix (kbd "C-c x")))
+  (setopt smerge-command-prefix (kbd "C-c y")))
 
 ;; follow symlinks to files under version control
 (setopt vc-follow-symlinks t)
