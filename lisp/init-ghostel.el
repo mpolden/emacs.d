@@ -17,6 +17,9 @@ If `default-directory' is determined to be a project by
 
 (use-package ghostel
   :ensure t
+  :init
+  (when (boundp 'mpolden/path-from-shell)
+    (setq ghostel-shell mpolden/path-from-shell))
   :bind (("C-c s" . mpolden/ghostel-other-window)))
 
 (provide 'init-ghostel)
