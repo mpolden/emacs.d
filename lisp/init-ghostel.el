@@ -19,4 +19,6 @@ If `default-directory' is determined to be a project by
   :ensure t
   :bind (("C-c s" . mpolden/ghostel-other-window)))
 
+(provide 'init-ghostel)
+
 ;;; init-ghostel.el ends here
