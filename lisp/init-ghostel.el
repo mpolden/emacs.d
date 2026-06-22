@@ -21,7 +21,8 @@ ARG is the prefix argument, forwarded to `ghostel-project' or
 (use-package ghostel
   :ensure t
   :init
-  (when (boundp 'mpolden/path-from-shell)
+  (when (and (boundp 'mpolden/path-from-shell)
+             (file-executable-p mpolden/path-from-shell))
     (setq ghostel-shell mpolden/path-from-shell))
   :bind (("C-c s" . mpolden/ghostel-other-window)))
 
