@@ -2,16 +2,19 @@
 ;;; Commentary:
 ;;; Code:
 
-(defun mpolden/ghostel-other-window ()
+(defun mpolden/ghostel-other-window (&optional arg)
   "Create a new Ghostel buffer in another window.
 
 If `default-directory' is determined to be a project by
 `project-current', the Ghostel buffer will be created with
-`ghostel-project' instead of `ghostel'."
-  (interactive)
+`ghostel-project' instead of `ghostel'.
+
+ARG is the prefix argument, forwarded to `ghostel-project' or
+`ghostel'."
+  (interactive "P")
   (let ((buf (if (project-current)
-                 (ghostel-project)
-               (ghostel))))
+                 (ghostel-project arg)
+               (ghostel arg))))
     (switch-to-buffer (other-buffer buf))
     (switch-to-buffer-other-window buf)))
 
