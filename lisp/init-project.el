@@ -17,7 +17,6 @@
                                     (project-dired "Dired" ?d)
                                     (mpolden/grep "Grep" ?g)
                                     (magit-project-status "Magit" ?m)
-                                    (mpolden/eshell-other-window "Eshell" ?e)
                                     (mpolden/ghostel-other-window "Ghostel" ?s)))
   ;; configure how projects are detected
   (setopt project-find-functions '(mpolden/project-try-go project-try-vc))

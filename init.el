@@ -43,7 +43,6 @@
 
 ;; clients
 (mpolden/maybe-require 'init-eglot)
-(mpolden/maybe-require 'init-eshell)
 (mpolden/maybe-require 'init-ghostel)
 (mpolden/maybe-require 'init-git)
 
