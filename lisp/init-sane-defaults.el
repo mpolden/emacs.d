@@ -98,6 +98,11 @@
   :init
   (setopt winner-mode t))
 
+;; switch windows with S-{left,right,up,down}
+(use-package windmove
+  :config
+  (windmove-default-keybindings))
+
 ;; show match numbers in the search prompt
 (setopt isearch-lazy-count t)
 
