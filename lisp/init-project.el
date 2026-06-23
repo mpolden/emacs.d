@@ -17,7 +17,7 @@
                                     (project-dired "Dired" ?d)
                                     (mpolden/grep "Grep" ?g)
                                     (magit-project-status "Magit" ?m)
-                                    (mpolden/ghostel-other-window "Ghostel" ?s)))
+                                    (mpolden/ghostel-other-window "Ghostel" ?e)))
   ;; configure how projects are detected
   (setopt project-find-functions '(mpolden/project-try-go project-try-vc))
   :bind (;; C-x f finds file in project
