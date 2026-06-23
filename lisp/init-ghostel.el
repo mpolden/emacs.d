@@ -18,6 +18,13 @@ ARG is the prefix argument, forwarded to `ghostel-project' or
     (switch-to-buffer (other-buffer buf))
     (switch-to-buffer-other-window buf)))
 
+;; used by ghostel to dispatch OSC 9 / OSC 777 notifications
+(use-package alert
+  :ensure t
+  :init
+  (when (eq system-type 'darwin)
+    (setq alert-default-style 'osx-notifier)))
+
 (use-package ghostel
   :ensure t
   :init
