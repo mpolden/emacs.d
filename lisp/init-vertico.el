@@ -12,6 +12,17 @@ remote projects."
   (unless (file-remote-p default-directory)
     (consult--default-project-function may-prompt)))
 
+(defvar mpolden/consult-ghostel-source
+  (list :name     "Ghostel"
+        :narrow   ?g
+        :category 'buffer
+        :face     'consult-buffer
+        :history  'buffer-name-history
+        :state    #'consult--buffer-state
+        :enabled  (lambda () (functionp 'ghostel--all-buffers))
+        :items    (lambda () (mapcar #'buffer-name (ghostel--all-buffers))))
+  "Consult source for Ghostel buffers.")
+
 ;; save minibuffer history so that vertico can use it for sorting
 (use-package savehist
   :init
@@ -29,7 +40,11 @@ remote projects."
          ("C-c m" . consult-flymake)
          ("C-x C-r" . consult-recent-file)
          ("M-g M-g" . consult-goto-line)
-         ("M-y" . consult-yank-pop)))
+         ("M-y" . consult-yank-pop))
+  :config
+  (add-to-list 'consult-buffer-sources
+               'mpolden/consult-ghostel-source
+               'append))
 
 ;; show rich annotations in the minibuffer
 (use-package marginalia
