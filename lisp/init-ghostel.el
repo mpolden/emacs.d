@@ -32,7 +32,8 @@ ARG is the prefix argument, forwarded to `ghostel-project' or
              (file-executable-p mpolden/path-from-shell))
     (setq ghostel-shell mpolden/path-from-shell))
   :bind (("C-c e e" . mpolden/ghostel-other-window)
-         ("C-c e l" . ghostel-list-buffers)))
+         ("C-c e l" . ghostel-list-buffers)
+         ("C-c e c" . ghostel-compile)))
 
 (provide 'init-ghostel)
 
