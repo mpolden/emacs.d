@@ -2,11 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
-(defcustom mpolden/inhibit-format-before-save nil
+(defcustom mpolden/inhibit-format-before-save
+  '(java-mode python-mode ruby-mode rust-mode)
   "List of modes where `eglot-format' should not be run before saving the buffer."
   :type '(repeat symbol))
 
-(defcustom mpolden/inhibit-organize-imports-before-save nil
+(defcustom mpolden/inhibit-organize-imports-before-save
+  '(java-mode python-mode ruby-mode rust-mode)
   "List of modes where `eglot-code-action-organize-imports' should not be run before saving the buffer."
   :type '(repeat symbol))
 
