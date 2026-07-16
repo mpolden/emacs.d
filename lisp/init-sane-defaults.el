@@ -6,8 +6,8 @@
   "Save the previous buffer if it's visiting an existing file."
   (when-let* ((buf (other-buffer (current-buffer) t))
               (filename (buffer-file-name buf))
-              (_ (file-exists-p filename))
               (_ (buffer-modified-p buf))
+              (_ (file-directory-p (file-name-directory filename)))
               (_ (verify-visited-file-modtime buf)))
     (with-current-buffer buf
       (save-buffer))))
