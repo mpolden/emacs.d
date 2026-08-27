@@ -98,6 +98,9 @@
   :init
   (setopt winner-mode t))
 
+;; use classic (< 31.1) split threshold
+(setopt split-width-threshold 160)
+
 ;; switch windows with S-{left,right,up,down}
 (use-package windmove
   :config
