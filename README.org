@@ -36,18 +36,16 @@ keep the following in mind when maintaining it:
 
 ** Language Server Protocol
 
-The =Makefile= contains targets for installing servers that implement the
-Language Server Protocol (LSP).
+=eglot= is enabled automatically for these modes:
 
-Once installed, =eglot= should detect and use the servers automatically.
+- =go-mode=
+- =java-mode=
+- =python-mode=
+- =ruby-mode=
+- =rust-mode=
 
-This configuration enables formatting on save by default. To disable this
-behavior, add the relevant mode(s) to =mpolden/inhibit-format-before-save=.
-Example:
-
-#+begin_src elisp
-  (setopt mpolden/inhibit-format-before-save '(foo-mode))
-#+end_src
+Formatting on save is enabled by default for =go-mode= only. To enable this for
+other modes, customize =mpolden/inhibit-format-before-save=.
 
 *** gopls
 
