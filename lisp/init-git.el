@@ -3,11 +3,11 @@
 ;;; Code:
 
 (defun mpolden/magit-visit-file-other-window (&optional noselect)
-  "Visit current file in another window.
+  "Visit current worktree file in another window.
 If NOSELECT is non-nil, do not select the window."
   (interactive)
   (let ((current-window (selected-window)))
-    (call-interactively 'magit-diff-visit-file-other-window)
+    (call-interactively 'magit-diff-visit-worktree-file-other-window)
     (when noselect
       (select-window current-window))))
 
