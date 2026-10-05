@@ -70,7 +70,9 @@
               ;; C-c o organizes imports
               ("C-c o" . eglot-code-action-organize-imports)
               ;; C-c q shows code actions (quickfix)
-              ("C-c q" . eglot-code-actions)))
+              ("C-c q" . eglot-code-actions)
+              ;; C-c j jumps to implementation
+              ("C-c j" . eglot-find-implementation)))
 
 (provide 'init-eglot)
 
