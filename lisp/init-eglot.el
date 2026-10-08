@@ -53,6 +53,10 @@
   ;;
   ;; set a default value that fits most languages
   (setopt tab-width 4)
+  ;; prevent jdtls from building code partially, to avoid conflicts with other
+  ;; build tools
+  (setopt eglot-workspace-configuration
+          '(:java (:autobuild (:enabled :json-false))))
   :hook
   ;; load eglot automatically for these modes
   ((go-mode . mpolden/eglot-ensure)
