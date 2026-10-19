@@ -14,6 +14,8 @@ VALUE must be a valid font family, or the font size in points."
         (set-face-attribute 'default nil :family value)))
      ((eq setting 'mpolden/font-size)
       (set-face-attribute 'default nil :height (* 10 value)))
+     ((eq setting 'mpolden/font-width)
+      (set-face-attribute 'default nil :width value))
      (t (error "Unknown setting: %s" setting)))))
 
 (defcustom mpolden/font-family "Aporetic Sans Mono"
@@ -24,6 +26,11 @@ VALUE must be a valid font family, or the font size in points."
 (defcustom mpolden/font-size 15
   "Set the default font size in points."
   :type 'integer
+  :set 'mpolden/set-font)
+
+(defcustom mpolden/font-width 'normal
+  "Set the default font width."
+  :type 'symbol
   :set 'mpolden/set-font)
 
 ;; maximize frame on startup
