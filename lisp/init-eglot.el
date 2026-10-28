@@ -76,7 +76,9 @@
               ;; C-c q shows code actions (quickfix)
               ("C-c q" . eglot-code-actions)
               ;; C-c j jumps to implementation
-              ("C-c j" . eglot-find-implementation)))
+              ("C-c j" . eglot-find-implementation)
+              ;; C-c h shows type hierarchy
+              ("C-c h" . eglot-show-type-hierarchy)))
 
 (provide 'init-eglot)
 
